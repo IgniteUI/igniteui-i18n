@@ -1,0 +1,12 @@
+import { type IComboResourceStrings } from 'igniteui-i18n-core';
+
+// only use `satisfies` operator so export is typed by its schema
+/**
+ * French resource strings for IgxCombo
+ */
+export const ComboResourceStringsFR = {
+    combo_empty_message: 'La liste est vide',
+    combo_filter_search_placeholder: 'Entrez un terme de recherche',
+    combo_addCustomValues_placeholder: 'Ajouter un élément',
+    combo_clearItems_placeholder: 'Effacer la sélection'
+} satisfies MakeRequired<IComboResourceStrings>;

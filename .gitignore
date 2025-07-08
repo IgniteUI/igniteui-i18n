@@ -1,3 +1,11 @@
+# IDE - VSCode/VS
+.vscode/*
+.vs/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Logs
 logs
 *.log
@@ -137,3 +145,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+
+# compiled output
+/dist
+/tmp
+/out-tsc

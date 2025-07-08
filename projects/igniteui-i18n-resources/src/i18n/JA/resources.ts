@@ -1,0 +1,36 @@
+import { GridResourceStringsJA } from './grid-resources';
+import { PaginatorResourceStringsJA } from './paginator-resources';
+import { TimePickerResourceStringsJA } from './time-picker-resources';
+import { DatePickerResourceStringsJA } from './date-picker-resources';
+import { DateRangePickerResourceStringsJA } from './date-range-picker-resources';
+import { CarouselResourceStringsJA } from './carousel-resources';
+import { ListResourceStringsJA } from './list-resources';
+import { CalendarResourceStringsJA } from './calendar-resources';
+import { TreeResourceStringsJA } from './tree-resources';
+import { InputResourceStringsJA } from './input-resources';
+import { ChipResourceStringsJA } from './chip-resources';
+import { ComboResourceStringsJA } from './combo-resources';
+import { QueryBuilderResourceStringsJA } from './query-builder-resources';
+import { BannerResourceStringsJA } from './banner-resources';
+import { ActionStripResourceStringsJA } from './action-strip-resources';
+
+/**
+ * Japanese resource strings for all components
+ */
+export const ResourceStringsJA = {
+    ...GridResourceStringsJA,
+    ...PaginatorResourceStringsJA,
+    ...TimePickerResourceStringsJA,
+    ...DatePickerResourceStringsJA,
+    ...DateRangePickerResourceStringsJA,
+    ...CarouselResourceStringsJA,
+    ...ListResourceStringsJA,
+    ...CalendarResourceStringsJA,
+    ...TreeResourceStringsJA,
+    ...InputResourceStringsJA,
+    ...ChipResourceStringsJA,
+    ...ComboResourceStringsJA,
+    ...QueryBuilderResourceStringsJA,
+    ...BannerResourceStringsJA,
+    ...ActionStripResourceStringsJA,
+};
