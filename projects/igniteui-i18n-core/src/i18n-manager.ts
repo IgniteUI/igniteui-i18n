@@ -107,15 +107,25 @@ export class igI18nManager {
      * @returns Formatted value.
      */
     public formatNumber(value: number, locale?: string, options?: Intl.NumberFormatOptions) {
-        const combinedOptions = this.mergeOptions(this.defaultNumberOptions, options!);
-        const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
-        const formatterKey = this.generateLocaleKey(canonLocale, combinedOptions);
-        let formatter = this._numberFormattersCache.get(formatterKey);
-        if (!formatter) {
-            formatter = new Intl.NumberFormat(canonLocale, combinedOptions);
-            this._numberFormattersCache.set(formatterKey, formatter);
-        }
+        const formatter = this.getNumberFormatter(locale, options);
         return formatter.format(value);
+    }
+
+    /**
+     * Get the currency symbol for provided currency code.
+     * @param currencyCode The currency code to get the symbol of.
+     * @param currencyDisplay How should the currency code be rendered.
+     * @param locale Override locale.
+     * @returns String representation of the currency symbol.
+     */
+    public getCurrencySymbol(currencyCode: string, currencyDisplay?: keyof Intl.NumberFormatOptionsCurrencyDisplayRegistry, locale?: string) {
+        const options: Intl.NumberFormatOptions = {
+            style: 'currency',
+            currency: currencyCode,
+            currencyDisplay: currencyDisplay
+        };
+        const formatter = this.getNumberFormatter(locale, options);
+        return formatter.formatToParts(0).find((part) => part.type === "currency")?.value;
     }
 
     /**
@@ -397,6 +407,18 @@ export class igI18nManager {
             }
         }
         return dateParts[0].value;
+    }
+
+    private getNumberFormatter(locale?: string, options?: Intl.NumberFormatOptions) {
+        const combinedOptions = this.mergeOptions(this.defaultNumberOptions, options!);
+        const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
+        const formatterKey = this.generateLocaleKey(canonLocale, combinedOptions);
+        let formatter = this._numberFormattersCache.get(formatterKey);
+        if (!formatter) {
+            formatter = new Intl.NumberFormat(canonLocale, combinedOptions);
+            this._numberFormattersCache.set(formatterKey, formatter);
+        }
+        return formatter;
     }
 
     private getDateFormatter(locale?: string, options?: Intl.DateTimeFormatOptions) {
