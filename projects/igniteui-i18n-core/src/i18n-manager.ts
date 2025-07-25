@@ -40,6 +40,7 @@ export class igI18nManager {
     public currentLocale: string = 'en';
 
     private _resourcesMap = new Map<string, IResourceStrings>();
+    private _localesCache = new Map<string, Intl.Locale>();
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
     private _resourceChangeHandlers: I18nHandler<ResourceChangeEventArgs>[] = [];
@@ -97,6 +98,14 @@ export class igI18nManager {
             return currentResources;
         }
         return this._resourcesMap.get(this.defaultLocale)!;
+    }
+
+    public getFirstDayOfWeek(locale?: string): number {
+        const formatter = this.getLocale(locale);
+        try {
+            return (formatter as any).getWeekInfo().firstDay;
+        } catch {}
+        return 1;
     }
 
     /**
@@ -407,6 +416,17 @@ export class igI18nManager {
             }
         }
         return dateParts[0].value;
+    }
+
+    private getLocale(locale?: string, options?: Intl.LocaleOptions) {
+        const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
+        const formatterKey = this.generateLocaleKey(canonLocale, options);
+        let formatter = this._localesCache.get(formatterKey);
+        if (!formatter) {
+            formatter = new Intl.Locale(canonLocale, options);
+            this._localesCache.set(formatterKey, formatter);
+        }
+        return formatter;
     }
 
     private getNumberFormatter(locale?: string, options?: Intl.NumberFormatOptions) {
