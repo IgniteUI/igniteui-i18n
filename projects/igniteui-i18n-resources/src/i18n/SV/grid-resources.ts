@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Swedish resource strings for IgxGrid
  */
-export const GridResourceStringsSV = {
+export const GridResourceStringsSV: IGridResourceStrings = {
     grid_groupByArea_message: 'Dra en kolumnrubrik och släpp den här för att gruppera efter den kolumnen.',
     grid_groupByArea_select_message: 'Välj alla rader i gruppen med fältnamn {0} och värde {1}.',
     grid_groupByArea_deselect_message: 'Avmarkera alla rader i gruppen med fältnamn {0} och värde {1}.',

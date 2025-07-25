@@ -4,7 +4,7 @@ import { type IDatePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * German resource strings for IgxDatePicker
  */
-export const DatePickerResourceStringsDE = {
+export const DatePickerResourceStringsDE: IDatePickerResourceStrings = {
     date_picker_change_date: 'Datum ändern',
     date_picker_choose_date: 'Datum wählen'
 } satisfies MakeRequired<IDatePickerResourceStrings>;

@@ -13,11 +13,12 @@ import { ComboResourceStringsKO } from './combo-resources';
 import { BannerResourceStringsKO } from './banner-resources';
 import { ActionStripResourceStringsKO } from './action-strip-resources';
 import { QueryBuilderResourceStringsKO } from './query-builder-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Korean resource strings for all components
  */
-export const ResourceStringsKO = {
+export const ResourceStringsKO: IResourceStrings = {
     ...GridResourceStringsKO,
     ...PaginatorResourceStringsKO,
     ...TimePickerResourceStringsKO,

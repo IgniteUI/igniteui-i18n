@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * German resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsDE = {
+export const PaginatorResourceStringsDE: IPaginatorResourceStrings = {
     paginator_label: 'Einträge pro Seite',
     paginator_pager_text: 'von',
     paginator_first_page_button_text: 'Gehe zur ersten Seite',

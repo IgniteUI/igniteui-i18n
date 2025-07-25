@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxCombo
  */
-export const ComboResourceStringsZHHANT = {
+export const ComboResourceStringsZHHANT: IComboResourceStrings = {
     combo_empty_message: '清單是空的',
     combo_filter_search_placeholder: '輸入搜尋字串',
     combo_addCustomValues_placeholder: '新增項目',

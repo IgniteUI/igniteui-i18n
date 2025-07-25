@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Hungarian resource strings for IgxCombo
  */
-export const ComboResourceStringsHU = {
+export const ComboResourceStringsHU: IComboResourceStrings = {
     combo_empty_message: 'Üres a lista',
     combo_filter_search_placeholder: 'Írjon be egy keresési kifejezést',
     combo_addCustomValues_placeholder: 'Elem hozzáadása',

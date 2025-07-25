@@ -4,6 +4,6 @@ import { type IBannerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Korean resource strings for IgxBanner
  */
-export const BannerResourceStringsKO = {
+export const BannerResourceStringsKO: IBannerResourceStrings = {
     banner_button_dismiss: '해제'
 } satisfies MakeRequired<IBannerResourceStrings>;

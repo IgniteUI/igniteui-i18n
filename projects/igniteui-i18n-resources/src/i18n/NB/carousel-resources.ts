@@ -4,7 +4,7 @@ import { type ICarouselResourceStrings } from 'igniteui-i18n-core';
 /**
  * Norwegian resource strings for IgxCarousel
  */
-export const CarouselResourceStringsNB = {
+export const CarouselResourceStringsNB: ICarouselResourceStrings = {
     carousel_of: 'av',
     carousel_slide: 'lysbilde',
     carousel_previous_slide: 'forrige lysbilde',

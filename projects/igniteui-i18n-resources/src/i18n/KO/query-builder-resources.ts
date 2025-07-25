@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Korean resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsKO = {
+export const QueryBuilderResourceStringsKO: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: '픽업 날짜',
     query_builder_time_placeholder: '인도 시간',
     query_builder_datetime_placeholder: '날짜 및 시간 선택',

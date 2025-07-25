@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Hungarian resource strings for IgxCalendar
  */
-export const CalendarResourceStringsHU = {
+export const CalendarResourceStringsHU: ICalendarResourceStrings = {
     calendar_previous_month: 'Előző hónap',
     calendar_next_month: 'Következő hónap',
     calendar_previous_year: 'Previous Year',

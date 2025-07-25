@@ -4,7 +4,7 @@ import { type ITimePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Japanese resource strings for IgxTimePicker
  */
-export const TimePickerResourceStringsJA = {
+export const TimePickerResourceStringsJA: ITimePickerResourceStrings = {
     time_picker_ok: 'OK',
     time_picker_cancel: 'キャンセル',
     time_picker_change_time: '時間の変更',

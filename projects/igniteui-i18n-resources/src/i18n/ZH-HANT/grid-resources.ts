@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxGrid
  */
-export const GridResourceStringsZHHANT = {
+export const GridResourceStringsZHHANT: IGridResourceStrings = {
     grid_groupByArea_message: '將列標題拖曳至此處，以按該列分組。',
     grid_emptyFilteredGrid_message: '未找到任何記錄。',
     grid_emptyGrid_message: '網格沒有資料。',

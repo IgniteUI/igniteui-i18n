@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Italian resource strings for IgxGrid
  */
-export const GridResourceStringsIT = {
+export const GridResourceStringsIT: IGridResourceStrings = {
     grid_groupByArea_message: 'Trascinare un\'intestazione di colonna e rilasciarla qui per raggruppare in base a quella colonna.',
     grid_emptyFilteredGrid_message: 'Nessun record trovato.',
     grid_emptyGrid_message: 'La griglia non ha dati.',

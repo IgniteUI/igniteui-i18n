@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsZHHANT = {
+export const PaginatorResourceStringsZHHANT: IPaginatorResourceStrings = {
     paginator_label: '每頁項目',
     paginator_pager_text: '/',
     paginator_first_page_button_text: '前往首頁',

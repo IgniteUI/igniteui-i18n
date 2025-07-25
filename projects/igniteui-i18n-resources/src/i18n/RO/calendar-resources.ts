@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Romanian resource strings for IgxCalendar
  */
-export const CalendarResourceStringsRO = {
+export const CalendarResourceStringsRO: ICalendarResourceStrings = {
     calendar_previous_month: 'Luna trecută',
     calendar_next_month: 'Luna viitoare',
     calendar_previous_year: 'Previous Year',

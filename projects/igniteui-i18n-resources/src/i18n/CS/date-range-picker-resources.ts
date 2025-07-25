@@ -4,7 +4,7 @@ import { type IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Czech resource strings for IgxDateRangePicker
  */
-export const DateRangePickerResourceStringsCS = {
+export const DateRangePickerResourceStringsCS: IDateRangePickerResourceStrings = {
     date_range_picker_date_separator: 'na',
     date_range_picker_done_button: 'Hotovo'
 } satisfies MakeRequired<IDateRangePickerResourceStrings>;

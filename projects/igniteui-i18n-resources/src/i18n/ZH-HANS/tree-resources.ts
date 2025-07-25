@@ -4,7 +4,7 @@ import { type ITreeResourceStrings } from 'igniteui-i18n-core';
 /**
  * Simplified Chinese (zh-Hans) resource strings for IgxTree
  */
-export const TreeResourceStringsZHHANS = {
+export const TreeResourceStringsZHHANS: ITreeResourceStrings = {
     expand: '展开',
     collapse: '折叠'
 } satisfies MakeRequired<ITreeResourceStrings>;

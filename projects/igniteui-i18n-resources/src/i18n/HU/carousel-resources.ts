@@ -4,7 +4,7 @@ import { type ICarouselResourceStrings } from 'igniteui-i18n-core';
 /**
  * Hungarian resource strings for IgxCarousel
  */
-export const CarouselResourceStringsHU = {
+export const CarouselResourceStringsHU: ICarouselResourceStrings = {
     carousel_of: '/',
     carousel_slide: 'dia',
     carousel_previous_slide: 'előző dia',

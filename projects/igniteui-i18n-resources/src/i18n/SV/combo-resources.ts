@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Swedish resource strings for IgxCombo
  */
-export const ComboResourceStringsSV = {
+export const ComboResourceStringsSV: IComboResourceStrings = {
     combo_empty_message: 'Listan är tom',
     combo_filter_search_placeholder: 'Ange sökterm',
     combo_addCustomValues_placeholder: 'Lägg till objekt',

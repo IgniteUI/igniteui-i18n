@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Dutch resource strings for IgxGrid
  */
-export const GridResourceStringsNL = {
+export const GridResourceStringsNL: IGridResourceStrings = {
     grid_groupByArea_message: 'Sleep een kolomkop en zet deze hier neer om op die kolom te groeperen.',
     grid_groupByArea_select_message: 'Selecteer alle rijen in de groep met veldnaam {0} en waarde {1}.',
     grid_groupByArea_deselect_message: 'Deselecteer alle rijen in de groep met veldnaam {0} en waarde {1}.',

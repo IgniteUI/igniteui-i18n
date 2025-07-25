@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Korean resource strings for IgxCalendar
  */
-export const CalendarResourceStringsKO = {
+export const CalendarResourceStringsKO: ICalendarResourceStrings = {
     calendar_previous_month: '이전 달',
     calendar_next_month: '다음 달',
     calendar_previous_year: 'Previous Year',

@@ -4,7 +4,7 @@ import { type IInputResourceStrings } from 'igniteui-i18n-core';
 /**
  * Dutch resource strings for IgxInput
  */
-export const InputResourceStringsNL = {
+export const InputResourceStringsNL: IInputResourceStrings = {
     input_upload_button: 'Bestand uploaden',
     input_file_placeholder: 'Geen bestand gekozen'
 } satisfies MakeRequired<IInputResourceStrings>;

@@ -4,7 +4,7 @@ import { type IInputResourceStrings } from 'igniteui-i18n-core';
 /**
  * Bulgarian resource strings for IgxInput
  */
-export const InputResourceStringsBG = {
+export const InputResourceStringsBG: IInputResourceStrings = {
     input_upload_button: 'Качване на файл',
     input_file_placeholder: 'Няма избран файл'
 } satisfies MakeRequired<IInputResourceStrings>;

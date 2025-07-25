@@ -13,12 +13,13 @@ import { ComboResourceStringsEN } from './combo-resources';
 import { QueryBuilderResourceStringsEN } from './query-builder-resources';
 import { BannerResourceStringsEN } from './banner-resources';
 import { ActionStripResourceStringsEN } from './action-strip-resources';
+import type { IResourceStrings } from '../../i18n-manager';
 
 
 /**
  * English resource strings for all components
  */
-export const ResourceStringsEN = {
+export const ResourceStringsEN: IResourceStrings = {
     ...GridResourceStringsEN,
     ...PaginatorResourceStringsEN,
     ...TimePickerResourceStringsEN,

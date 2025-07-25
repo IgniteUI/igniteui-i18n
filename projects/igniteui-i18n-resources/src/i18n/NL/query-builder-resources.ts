@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Dutch resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsNL = {
+export const QueryBuilderResourceStringsNL: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Ophaaldatum',
     query_builder_time_placeholder: 'Ophaaltijd',
     query_builder_datetime_placeholder: 'Datum en tijd selecteren',

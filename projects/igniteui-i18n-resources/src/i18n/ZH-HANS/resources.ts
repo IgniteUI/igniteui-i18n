@@ -13,11 +13,12 @@ import { ComboResourceStringsZHHANS } from './combo-resources';
 import { QueryBuilderResourceStringsZHHANS } from './query-builder-resources';
 import { BannerResourceStringsZHHANS } from './banner-resources';
 import { ActionStripResourceStringsZHHANS } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Simplified Chinese (zh-Hans) resource strings for all components
  */
-export const ResourceStringsZHHANS = {
+export const ResourceStringsZHHANS: IResourceStrings = {
     ...CalendarResourceStringsZHHANS,
     ...GridResourceStringsZHHANS,
     ...PaginatorResourceStringsZHHANS,

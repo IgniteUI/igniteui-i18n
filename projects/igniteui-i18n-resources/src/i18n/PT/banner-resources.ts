@@ -4,6 +4,6 @@ import { type IBannerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Portuguese resource strings for IgxBanner
  */
-export const BannerResourceStringsPT = {
+export const BannerResourceStringsPT: IBannerResourceStrings = {
     banner_button_dismiss: 'Dispensar'
 } satisfies MakeRequired<IBannerResourceStrings>;

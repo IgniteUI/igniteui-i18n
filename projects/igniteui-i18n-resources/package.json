@@ -22,5 +22,8 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "type": "module",
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "igniteui-i18n-core": "^1.0.0"
+  }
 }

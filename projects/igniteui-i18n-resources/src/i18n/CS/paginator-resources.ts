@@ -5,7 +5,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Czech resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsCS = {
+export const PaginatorResourceStringsCS: IPaginatorResourceStrings = {
     paginator_label: 'Položek na stráncee',
     paginator_pager_text: 'z',
     paginator_first_page_button_text: 'Přejít na první stránku',

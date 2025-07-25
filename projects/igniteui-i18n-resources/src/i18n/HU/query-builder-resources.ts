@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Hungarian resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsHU = {
+export const QueryBuilderResourceStringsHU: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Felvétel dátuma',
     query_builder_time_placeholder: 'Felvétel időpontja',
     query_builder_datetime_placeholder: 'Dátum és idő kiválasztása',

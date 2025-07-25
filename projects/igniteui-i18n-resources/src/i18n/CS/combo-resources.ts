@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  *  Czech resource strings for IgxCombo
  */
-export const ComboResourceStringsCS = {
+export const ComboResourceStringsCS: IComboResourceStrings = {
     combo_empty_message: 'Seznam je prázdný',
     combo_filter_search_placeholder: 'Zadejte hledaný výraz',
     combo_addCustomValues_placeholder: 'Přidat položku',

@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Romanian resource strings for IgxGrid
  */
-export const GridResourceStringsRO = {
+export const GridResourceStringsRO: IGridResourceStrings = {
     grid_groupByArea_message: 'Trageți un antet de coloană și plasați-l aici pentru a grupa după coloana respectivă.',
     grid_groupByArea_select_message: 'Selectați toate rândurile din grup cu numele câmpului {0} și valoarea {1}.',
     grid_groupByArea_deselect_message: 'Deselectați toate rândurile din grup cu numele câmpului {0} și valoarea {1}.',

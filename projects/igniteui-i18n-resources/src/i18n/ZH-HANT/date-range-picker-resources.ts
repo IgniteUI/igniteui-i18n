@@ -4,7 +4,7 @@ import { type IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxDateRangePicker
  */
-export const DateRangePickerResourceStringsZHHANT = {
+export const DateRangePickerResourceStringsZHHANT: IDateRangePickerResourceStrings = {
     date_range_picker_date_separator: '到',
     date_range_picker_done_button: '完成'
 } satisfies MakeRequired<IDateRangePickerResourceStrings>;

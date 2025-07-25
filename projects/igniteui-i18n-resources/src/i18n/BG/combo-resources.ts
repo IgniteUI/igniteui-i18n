@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Bulgarian resource strings for IgxCombo
  */
-export const ComboResourceStringsBG = {
+export const ComboResourceStringsBG: IComboResourceStrings = {
     combo_empty_message: 'Списъкът е празен',
     combo_filter_search_placeholder: 'Въведете термин за търсене',
     combo_addCustomValues_placeholder: 'Добавяне на елемент',

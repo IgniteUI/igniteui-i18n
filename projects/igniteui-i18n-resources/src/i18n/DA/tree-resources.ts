@@ -4,7 +4,7 @@ import { type ITreeResourceStrings } from 'igniteui-i18n-core';
 /**
  * Danish resource strings for IgxTree
  */
-export const TreeResourceStringsDA = {
+export const TreeResourceStringsDA: ITreeResourceStrings = {
     expand: 'Udvid',
     collapse: 'Skjul'
 } satisfies MakeRequired<ITreeResourceStrings>;

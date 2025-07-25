@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Korean resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsKO = {
+export const PaginatorResourceStringsKO: IPaginatorResourceStrings = {
     paginator_label: '페이지 당 항목',
     paginator_pager_text: '의',
     paginator_first_page_button_text: '첫 페이지로 이동',

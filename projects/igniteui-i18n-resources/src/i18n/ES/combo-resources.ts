@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Spanish resource strings for IgxCombo
  */
-export const ComboResourceStringsES = {
+export const ComboResourceStringsES: IComboResourceStrings = {
     combo_empty_message: 'La lista está vacía',
     combo_filter_search_placeholder: 'Escriba un término de búsqueda',
     combo_addCustomValues_placeholder: 'Agregar elemento',

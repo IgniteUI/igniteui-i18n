@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Romanian resource strings for IgxCombo
  */
-export const ComboResourceStringsRO = {
+export const ComboResourceStringsRO: IComboResourceStrings = {
     combo_empty_message: 'Lista este goală',
     combo_filter_search_placeholder: 'Introduceți termenul de căutare',
     combo_addCustomValues_placeholder: 'Adăugați element',

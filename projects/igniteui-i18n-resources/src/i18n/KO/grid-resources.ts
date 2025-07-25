@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Korean resource strings for IgxGrid
  */
-export const GridResourceStringsKO = {
+export const GridResourceStringsKO: IGridResourceStrings = {
     grid_groupByArea_message: '열 머리글을 끌어서 여기에 놓아 해당 열을 기준으로 그룹화합니다.',
     grid_emptyFilteredGrid_message: '기록이 없습니다.',
     grid_emptyGrid_message: '그리드에 데이터가 없습니다.',

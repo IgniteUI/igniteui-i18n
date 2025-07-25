@@ -4,7 +4,7 @@ import { type ITimePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Czech resource strings for IgxTimePicker
  */
-export const TimePickerResourceStringsCS = {
+export const TimePickerResourceStringsCS: ITimePickerResourceStrings = {
     time_picker_ok: 'OK',
     time_picker_cancel: 'Zrušení',
     time_picker_change_time: 'Změnit čas',

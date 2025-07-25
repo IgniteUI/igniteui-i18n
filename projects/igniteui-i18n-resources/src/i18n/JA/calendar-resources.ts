@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Japanese resource strings for IgxCalendar
  */
-export const CalendarResourceStringsJA = {
+export const CalendarResourceStringsJA: ICalendarResourceStrings = {
     calendar_previous_month: '前月',
     calendar_next_month: '翌月',
     calendar_previous_year: 'Previous Year',

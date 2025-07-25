@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Czech resource strings for IgxGrid
  */
-export const GridResourceStringsCS = {
+export const GridResourceStringsCS: IGridResourceStrings = {
     grid_groupByArea_message: 'Přetáhněte záhlaví sloupce a přetáhněte jej sem a seskupte podle tohoto sloupce.',
     grid_groupByArea_select_message: 'Vyberte všechny řádky ve skupině s názvem pole {0} a hodnotou {1}.',
     grid_groupByArea_deselect_message: 'Zrušit výběr všech řádky ve skupině s názvem pole {0} a hodnotou {1}.',

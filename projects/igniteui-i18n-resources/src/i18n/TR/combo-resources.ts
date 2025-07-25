@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Turkish resource strings for IgxCombo
  */
-export const ComboResourceStringsTR = {
+export const ComboResourceStringsTR: IComboResourceStrings = {
     combo_empty_message: 'Liste boş',
     combo_filter_search_placeholder: 'Arama terimi girin',
     combo_addCustomValues_placeholder: 'Öğe ekle',

@@ -4,6 +4,6 @@ import { type IBannerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Japanese resource strings for IgxBanner
  */
-export const BannerResourceStringsJA = {
+export const BannerResourceStringsJA: IBannerResourceStrings = {
     banner_button_dismiss: '閉じる'
 } satisfies MakeRequired<IBannerResourceStrings>;

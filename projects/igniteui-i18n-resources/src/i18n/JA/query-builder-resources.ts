@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Japanese resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsJA = {
+export const QueryBuilderResourceStringsJA: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: '日付の選択',
     query_builder_time_placeholder: 'ピックアップ時間',
     query_builder_datetime_placeholder: '日付と時間の選択',

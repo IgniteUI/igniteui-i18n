@@ -4,7 +4,7 @@ import { type ITimePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Simplified Chinese (zh-Hans) resource strings for IgxTimePicker
  */
-export const TimePickerResourceStringsZHHANS = {
+export const TimePickerResourceStringsZHHANS: ITimePickerResourceStrings = {
     time_picker_ok: '确定',
     time_picker_cancel: '取消',
     time_picker_change_time: '更改时间',

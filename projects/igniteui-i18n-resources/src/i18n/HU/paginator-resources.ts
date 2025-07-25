@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Hungarian resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsHU = {
+export const PaginatorResourceStringsHU: IPaginatorResourceStrings = {
     paginator_label: 'Elemek száma oldalanként',
     paginator_pager_text: '/',
     paginator_first_page_button_text: 'Ugrás az első oldalra',

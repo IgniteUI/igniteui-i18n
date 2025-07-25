@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Turkish resource strings for IgxGrid
  */
-export const GridResourceStringsTR = {
+export const GridResourceStringsTR: IGridResourceStrings = {
     grid_groupByArea_message: 'Bir sütun başlığını sürükleyin ve o sütuna göre gruplandırmak için buraya bırakın.',
     grid_groupByArea_select_message: 'Alan adı {0} ve değeri {1} olan gruptaki tüm satırları seçin.',
     grid_groupByArea_deselect_message: 'Gruptaki {0} alan adına ve {1} değerine sahip tüm satırların seçimini kaldırın.',

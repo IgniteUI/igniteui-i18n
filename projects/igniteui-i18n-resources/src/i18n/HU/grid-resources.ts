@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Hungarian resource strings for IgxGrid
  */
-export const GridResourceStringsHU = {
+export const GridResourceStringsHU: IGridResourceStrings = {
     grid_groupByArea_message: 'Húzza és ejtse ide az oszlopfejlécet az adott oszlop szerinti csoportosításhoz.',
     grid_groupByArea_select_message: 'Az összes sorok a csoportban mezőnévvel {0} és értékkel {1} kijelölése.',
     grid_groupByArea_deselect_message: 'Az összes sorok a csoportban mezőnévvel {0} és értékkel {1} kijelölésének törlése.',

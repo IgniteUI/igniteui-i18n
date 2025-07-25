@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Norwegian resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsNB = {
+export const QueryBuilderResourceStringsNB: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Hentedato',
     query_builder_time_placeholder: 'Hentetid',
     query_builder_datetime_placeholder: 'Velg dato og tid',

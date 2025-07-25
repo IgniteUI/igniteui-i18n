@@ -4,7 +4,7 @@ import { type ICarouselResourceStrings } from 'igniteui-i18n-core';
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxCarousel
  */
-export const CarouselResourceStringsZHHANT = {
+export const CarouselResourceStringsZHHANT: ICarouselResourceStrings = {
     carousel_of: '的',
     carousel_slide: '投影片',
     carousel_previous_slide: '上一張投影片',

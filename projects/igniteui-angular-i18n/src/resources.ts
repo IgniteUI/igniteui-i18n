@@ -22,7 +22,7 @@ export interface IResourceStrings extends IGridResourceStrings, ITimePickerResou
 /**
  * English resource strings for all components
  */
-export const ResourceStringsEN = {
+export const ResourceStringsEN: IResourceStrings = {
     ...GridResourceStringsEN,
     ...PaginatorResourceStringsEN,
     ...TimePickerResourceStringsEN,

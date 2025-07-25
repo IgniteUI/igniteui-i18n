@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * German resource strings for IgxGrid
  */
-export const GridResourceStringsDE = {
+export const GridResourceStringsDE: IGridResourceStrings = {
     grid_groupByArea_message: 'Lege eine Spaltenüberschrift hier ab, um danach zu gruppieren.',
     grid_emptyFilteredGrid_message: 'Keine Einträge gefunden.',
     grid_emptyGrid_message: 'Grid hat keine Daten.',

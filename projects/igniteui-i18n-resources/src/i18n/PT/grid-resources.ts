@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Portuguese resource strings for IgxGrid
  */
-export const GridResourceStringsPT = {
+export const GridResourceStringsPT: IGridResourceStrings = {
     grid_groupByArea_message: 'Arraste o cabeçalho de uma coluna e largue-o aqui para agrupar por essa coluna.',
     grid_groupByArea_select_message: 'Selecionar todas as linhas no grupo com o nome do campo {0} e o valor {1}.',
     grid_groupByArea_deselect_message: 'Desselecionar todas as linhas do grupo com o nome do campo {0} e o valor {1}.',

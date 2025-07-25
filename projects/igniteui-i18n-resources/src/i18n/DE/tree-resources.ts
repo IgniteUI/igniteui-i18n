@@ -4,7 +4,7 @@ import { type ITreeResourceStrings } from 'igniteui-i18n-core';
 /**
  * German resource strings for IgxTree
  */
-export const TreeResourceStringsDE = {
+export const TreeResourceStringsDE: ITreeResourceStrings = {
     expand: 'Erweitern',
     collapse: 'Reduzieren'
 } satisfies MakeRequired<ITreeResourceStrings>;

@@ -4,7 +4,7 @@ import { type ICarouselResourceStrings } from 'igniteui-i18n-core';
 /**
  * Romanian resource strings for IgxCarousel
  */
-export const CarouselResourceStringsRO = {
+export const CarouselResourceStringsRO: ICarouselResourceStrings = {
     carousel_of: 'din',
     carousel_slide: 'alunecare',
     carousel_previous_slide: 'diapozitivul anterior',

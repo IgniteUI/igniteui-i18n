@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Spanish resource strings for IgxGrid
  */
-export const GridResourceStringsES = {
+export const GridResourceStringsES: IGridResourceStrings = {
     grid_groupByArea_message: 'Arrastre un encabezado de columna y suéltelo aquí para agrupar por esa columna.',
     grid_emptyFilteredGrid_message: 'No se encontraron registros.',
     grid_emptyGrid_message: 'La cuadrícula no tiene datos.',

@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Romanian resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsRO = {
+export const QueryBuilderResourceStringsRO: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Data ridicării',
     query_builder_time_placeholder: 'Ora preluării',
     query_builder_datetime_placeholder: 'Selectează data și ora',

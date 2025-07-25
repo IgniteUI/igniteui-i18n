@@ -13,11 +13,12 @@ import { ComboResourceStringsHU } from './combo-resources';
 import { QueryBuilderResourceStringsHU } from './query-builder-resources';
 import { BannerResourceStringsHU } from './banner-resources';
 import { ActionStripResourceStringsHU } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Hungarian resource strings for all components
  */
-export const ResourceStringsHU = {
+export const ResourceStringsHU: IResourceStrings = {
     ...GridResourceStringsHU,
     ...PaginatorResourceStringsHU,
     ...TimePickerResourceStringsHU,

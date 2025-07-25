@@ -13,11 +13,12 @@ import { ComboResourceStringsTR } from './combo-resources';
 import { QueryBuilderResourceStringsTR } from './query-builder-resources';
 import { BannerResourceStringsTR } from './banner-resources';
 import { ActionStripResourceStringsTR } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Turkish resource strings for all components
  */
-export const ResourceStringsTR = {
+export const ResourceStringsTR: IResourceStrings = {
     ...GridResourceStringsTR,
     ...PaginatorResourceStringsTR,
     ...TimePickerResourceStringsTR,

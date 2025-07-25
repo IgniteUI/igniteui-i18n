@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Simplified Chinese (zh-Hans) resource strings for IgxCalendar
  */
-export const CalendarResourceStringsZHHANS = {
+export const CalendarResourceStringsZHHANS: ICalendarResourceStrings = {
     calendar_previous_month: '上个月',
     calendar_next_month: '下个月',
     calendar_previous_year: 'Previous Year',

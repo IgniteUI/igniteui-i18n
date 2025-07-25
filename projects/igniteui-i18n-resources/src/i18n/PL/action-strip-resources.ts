@@ -4,6 +4,6 @@ import { type IActionStripResourceStrings } from 'igniteui-i18n-core';
 /**
  * Polish resource strings for IgxActionStrip
  */
-export const ActionStripResourceStringsPL = {
+export const ActionStripResourceStringsPL: IActionStripResourceStrings = {
     action_strip_button_more_title: 'Więcej'
 } satisfies MakeRequired<IActionStripResourceStrings>;

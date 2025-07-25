@@ -4,6 +4,6 @@ import { type IBannerResourceStrings } from 'igniteui-i18n-core';
 /**
  * French resource strings for IgxBanner
  */
-export const BannerResourceStringsFR = {
+export const BannerResourceStringsFR: IBannerResourceStrings = {
     banner_button_dismiss: 'Ignorer'
 } satisfies MakeRequired<IBannerResourceStrings>;

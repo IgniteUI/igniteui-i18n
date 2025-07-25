@@ -4,7 +4,7 @@ import { type ITimePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Dutch resource strings for IgxTimePicker
  */
-export const TimePickerResourceStringsNL = {
+export const TimePickerResourceStringsNL: ITimePickerResourceStrings = {
     time_picker_ok: 'OK',
     time_picker_cancel: 'Annuleren',
     time_picker_change_time: 'Tijd wijzigen',

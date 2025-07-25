@@ -4,7 +4,7 @@ import { type IInputResourceStrings } from 'igniteui-i18n-core';
 /**
  * Swedish resource strings for IgxInput
  */
-export const InputResourceStringsSV = {
+export const InputResourceStringsSV: IInputResourceStrings = {
     input_upload_button: 'Ladda upp fil',
     input_file_placeholder: 'Ingen fil har valts'
 } satisfies MakeRequired<IInputResourceStrings>;

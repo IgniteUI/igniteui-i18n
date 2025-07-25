@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Turkish resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsTR = {
+export const PaginatorResourceStringsTR: IPaginatorResourceStrings = {
     paginator_label: 'Sayfa başına öğeler',
     paginator_pager_text: '/',
     paginator_first_page_button_text: 'İlk sayfaya git',

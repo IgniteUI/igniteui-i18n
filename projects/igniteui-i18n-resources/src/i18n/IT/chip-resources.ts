@@ -4,7 +4,7 @@ import { type IChipResourceStrings } from 'igniteui-i18n-core';
 /**
  * Italian resource strings for IgxChip
  */
-export const ChipResourceStringsIT = {
+export const ChipResourceStringsIT: IChipResourceStrings = {
     chip_remove: 'Rimuovere chip',
     chip_select: 'Seleziona chip'
 } satisfies MakeRequired<IChipResourceStrings>;

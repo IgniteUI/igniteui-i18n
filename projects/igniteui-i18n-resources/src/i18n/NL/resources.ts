@@ -13,11 +13,12 @@ import { ComboResourceStringsNL } from './combo-resources';
 import { QueryBuilderResourceStringsNL } from './query-builder-resources';
 import { BannerResourceStringsNL } from './banner-resources';
 import { ActionStripResourceStringsNL } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Dutch resource strings for all components
  */
-export const ResourceStringsNL = {
+export const ResourceStringsNL: IResourceStrings = {
     ...GridResourceStringsNL,
     ...PaginatorResourceStringsNL,
     ...TimePickerResourceStringsNL,

@@ -4,7 +4,7 @@ import { type IInputResourceStrings } from 'igniteui-i18n-core';
 /**
  * French resource strings for IgxInput
  */
-export const InputResourceStringsFR = {
+export const InputResourceStringsFR: IInputResourceStrings = {
     input_upload_button: 'Charger un fichier',
     input_file_placeholder: 'Aucun fichier sélectionné'
 } satisfies MakeRequired<IInputResourceStrings>;

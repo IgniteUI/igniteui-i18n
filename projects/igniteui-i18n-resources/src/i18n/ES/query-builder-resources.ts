@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Spanish resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsES = {
+export const QueryBuilderResourceStringsES: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Elegir Fecha',
     query_builder_time_placeholder: 'Hora de recogida',
     query_builder_datetime_placeholder: 'Seleccionar fecha y hora',

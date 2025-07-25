@@ -3,7 +3,7 @@ import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 /**
  * Bulgarian resource strings for IgxQueryBuilder
  */
-export const QueryBuilderResourceStringsBG = {
+export const QueryBuilderResourceStringsBG: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Избери дата',
     query_builder_time_placeholder: 'Избери време',
     query_builder_datetime_placeholder: 'Избери дата и час',

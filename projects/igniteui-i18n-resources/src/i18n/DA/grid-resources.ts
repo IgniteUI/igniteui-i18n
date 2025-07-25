@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Danish resource strings for IgxGrid
  */
-export const GridResourceStringsDA = {
+export const GridResourceStringsDA: IGridResourceStrings = {
     grid_groupByArea_message: 'Træk et kolonnesidehoved og slip den her for at gruppere efter den kolonne.',
     grid_groupByArea_select_message: 'Vælg alle rækker i gruppen med navnet {0} og værdi {1}.',
     grid_groupByArea_deselect_message: 'Fravælg alle rækker i gruppen med navnet {0} og værdi {1}.',

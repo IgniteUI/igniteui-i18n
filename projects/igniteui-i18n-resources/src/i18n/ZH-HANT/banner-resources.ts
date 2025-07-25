@@ -4,6 +4,6 @@ import { type IBannerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxBanner
  */
-export const BannerResourceStringsZHHANT = {
+export const BannerResourceStringsZHHANT: IBannerResourceStrings = {
     banner_button_dismiss: '關閉'
 } satisfies MakeRequired<IBannerResourceStrings>;

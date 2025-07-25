@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Norwegian resource strings for IgxCombo
  */
-export const ComboResourceStringsNB = {
+export const ComboResourceStringsNB: IComboResourceStrings = {
     combo_empty_message: 'Listen er tom',
     combo_filter_search_placeholder: 'Skriv inn søkeord',
     combo_addCustomValues_placeholder: 'Legg til element',

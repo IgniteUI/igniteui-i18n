@@ -13,11 +13,12 @@ import { ComboResourceStringsJA } from './combo-resources';
 import { QueryBuilderResourceStringsJA } from './query-builder-resources';
 import { BannerResourceStringsJA } from './banner-resources';
 import { ActionStripResourceStringsJA } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Japanese resource strings for all components
  */
-export const ResourceStringsJA = {
+export const ResourceStringsJA: IResourceStrings = {
     ...GridResourceStringsJA,
     ...PaginatorResourceStringsJA,
     ...TimePickerResourceStringsJA,

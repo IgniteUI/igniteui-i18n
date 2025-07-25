@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Danish resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsDA = {
+export const PaginatorResourceStringsDA: IPaginatorResourceStrings = {
     paginator_label: 'Elementer per side',
     paginator_pager_text: 'af',
     paginator_first_page_button_text: 'Gå til første side',

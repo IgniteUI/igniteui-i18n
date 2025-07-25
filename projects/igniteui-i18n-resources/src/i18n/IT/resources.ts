@@ -13,11 +13,12 @@ import { ComboResourceStringsIT } from './combo-resources';
 import { QueryBuilderResourceStringsIT } from './query-builder-resources';
 import { BannerResourceStringsIT } from './banner-resources';
 import { ActionStripResourceStringsIT } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Italian resource strings for all components
  */
-export const ResourceStringsIT = {
+export const ResourceStringsIT: IResourceStrings = {
     ...CalendarResourceStringsIT,
     ...GridResourceStringsIT,
     ...PaginatorResourceStringsIT,

@@ -4,7 +4,7 @@ import { type IListResourceStrings } from 'igniteui-i18n-core';
 /**
  * Polish resource strings for IgxList
  */
-export const ListResourceStringsPL = {
+export const ListResourceStringsPL: IListResourceStrings = {
     list_no_items: 'Na liście nie ma żadnych elementów.',
     list_loading: 'Ładowanie danych z serwera...'
 } satisfies MakeRequired<IListResourceStrings>;

@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Turkish resource strings for IgxCalendar
  */
-export const CalendarResourceStringsTR = {
+export const CalendarResourceStringsTR: ICalendarResourceStrings = {
     calendar_previous_month: 'Geçtiğimiz ay',
     calendar_next_month: 'Gelecek ay',
     calendar_previous_year: 'Previous Year',

@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * Korean resource strings for IgxCombo
  */
-export const ComboResourceStringsKO = {
+export const ComboResourceStringsKO: IComboResourceStrings = {
     combo_empty_message: '목록이 비어 있음',
     combo_filter_search_placeholder: '검색어 입력',
     combo_addCustomValues_placeholder: '항목 추가',

@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Norwegian resource strings for IgxCalendar
  */
-export const CalendarResourceStringsNB = {
+export const CalendarResourceStringsNB: ICalendarResourceStrings = {
     calendar_previous_month: 'Forrige måned',
     calendar_next_month: 'Neste måned',
     calendar_previous_year: 'Previous Year',

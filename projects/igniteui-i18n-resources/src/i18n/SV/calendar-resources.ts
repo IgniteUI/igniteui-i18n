@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Swedish resource strings for IgxCalendar
  */
-export const CalendarResourceStringsSV = {
+export const CalendarResourceStringsSV: ICalendarResourceStrings = {
     calendar_previous_month: 'Förra månaden',
     calendar_next_month: 'Nästa månad',
     calendar_previous_year: 'Previous Year',

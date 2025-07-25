@@ -4,7 +4,7 @@ import { type IInputResourceStrings } from 'igniteui-i18n-core';
 /**
  * Polish resource strings for IgxInput
  */
-export const InputResourceStringsPL = {
+export const InputResourceStringsPL: IInputResourceStrings = {
     input_upload_button: 'Przekaż plik',
     input_file_placeholder: 'Nie wybrano pliku'
 } satisfies MakeRequired<IInputResourceStrings>;

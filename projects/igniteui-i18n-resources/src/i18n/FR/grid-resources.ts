@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * French resource strings for IgxGrid
  */
-export const GridResourceStringsFR = {
+export const GridResourceStringsFR: IGridResourceStrings = {
     grid_groupByArea_message: 'Faites glisser un en-tête de colonne et déposez-le ici pour le regrouper par cette colonne.',
     grid_emptyFilteredGrid_message: 'Aucun enregistrement trouvé.',
     grid_emptyGrid_message: 'La grille n\'a pas de données.',

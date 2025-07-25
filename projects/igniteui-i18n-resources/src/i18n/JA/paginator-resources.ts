@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Japanese resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsJA = {
+export const PaginatorResourceStringsJA: IPaginatorResourceStrings = {
     paginator_label: 'ページごとの項目',
     paginator_pager_text: '/',
     paginator_first_page_button_text: '最初のページに移動',

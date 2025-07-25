@@ -4,7 +4,7 @@ import { type IComboResourceStrings } from 'igniteui-i18n-core';
 /**
  * French resource strings for IgxCombo
  */
-export const ComboResourceStringsFR = {
+export const ComboResourceStringsFR: IComboResourceStrings = {
     combo_empty_message: 'La liste est vide',
     combo_filter_search_placeholder: 'Entrez un terme de recherche',
     combo_addCustomValues_placeholder: 'Ajouter un élément',

@@ -4,7 +4,7 @@ import { type IChipResourceStrings } from 'igniteui-i18n-core';
 /**
  * Turkish resource strings for IgxChip
  */
-export const ChipResourceStringsTR = {
+export const ChipResourceStringsTR: IChipResourceStrings = {
     chip_remove: 'Çip kaldır',
     chip_select: 'Çip seçin'
 } satisfies MakeRequired<IChipResourceStrings>;

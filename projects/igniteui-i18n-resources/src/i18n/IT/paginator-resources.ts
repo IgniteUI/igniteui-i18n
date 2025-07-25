@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Italian resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsIT = {
+export const PaginatorResourceStringsIT: IPaginatorResourceStrings = {
     paginator_label: 'Elementi per pagina',
     paginator_pager_text: 'di',
     paginator_first_page_button_text: 'Vai alla prima pagina',

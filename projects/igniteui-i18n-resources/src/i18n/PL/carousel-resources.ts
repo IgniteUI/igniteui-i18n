@@ -4,7 +4,7 @@ import { type ICarouselResourceStrings } from 'igniteui-i18n-core';
 /**
  * Polish resource strings for IgxCarousel
  */
-export const CarouselResourceStringsPL = {
+export const CarouselResourceStringsPL: ICarouselResourceStrings = {
     carousel_of: 'z',
     carousel_slide: 'slajd',
     carousel_previous_slide: 'poprzedni slajd',

@@ -13,12 +13,13 @@ import { ComboResourceStringsBG } from './combo-resources';
 import { QueryBuilderResourceStringsBG } from './query-builder-resources';
 import { BannerResourceStringsBG } from './banner-resources';
 import { ActionStripResourceStringsBG } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 
 /**
  * Bulgarian resource strings for all components
  */
-export const ResourceStringsBG = {
+export const ResourceStringsBG: IResourceStrings = {
     ...GridResourceStringsBG,
     ...PaginatorResourceStringsBG,
     ...TimePickerResourceStringsBG,

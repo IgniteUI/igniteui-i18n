@@ -4,7 +4,7 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 /**
  * Bulgarian resource strings for IgxCalendar
  */
-export const CalendarResourceStringsBG = {
+export const CalendarResourceStringsBG: ICalendarResourceStrings = {
     calendar_previous_month: 'Предходен месец',
     calendar_next_month: 'Следващ месец',
     calendar_previous_year: 'Предходна година',

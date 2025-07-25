@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Bulgarian resource strings for IgxGrid
  */
-export const GridResourceStringsBG = {
+export const GridResourceStringsBG: IGridResourceStrings = {
     grid_groupByArea_message: 'Плъзнете заглавката на колоната и я пуснете тук, за да извършите групиране по тази колона.',
     grid_groupByArea_select_message: 'Избери всички редове в групата с име на поле {0} и стойност {1}.',
     grid_groupByArea_deselect_message: 'Отмаркирай всички редове в групата с име на поле {0} и стойност {1}.',

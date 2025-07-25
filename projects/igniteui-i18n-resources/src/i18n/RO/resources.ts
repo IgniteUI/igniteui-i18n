@@ -13,11 +13,12 @@ import { ComboResourceStringsRO } from './combo-resources';
 import { QueryBuilderResourceStringsRO } from './query-builder-resources';
 import { BannerResourceStringsRO } from './banner-resources';
 import { ActionStripResourceStringsRO } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Romanian resource strings for all components
  */
-export const ResourceStringsRO = {
+export const ResourceStringsRO: IResourceStrings = {
     ...GridResourceStringsRO,
     ...PaginatorResourceStringsRO,
     ...TimePickerResourceStringsRO,

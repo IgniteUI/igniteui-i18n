@@ -4,7 +4,7 @@ import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
 /**
  * Bulgarian resource strings for IgxPaginator
  */
-export const PaginatorResourceStringsBG = {
+export const PaginatorResourceStringsBG: IPaginatorResourceStrings = {
     paginator_label: 'Елементи на страница',
     paginator_pager_text: 'от',
     paginator_first_page_button_text: 'Към първата страница',

@@ -4,7 +4,7 @@ import { type IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Romanian resource strings for IgxDateRangePicker
  */
-export const DateRangePickerResourceStringsRO = {
+export const DateRangePickerResourceStringsRO: IDateRangePickerResourceStrings = {
     date_range_picker_date_separator: 'la',
     date_range_picker_done_button: 'Gata'
 } satisfies MakeRequired<IDateRangePickerResourceStrings>;

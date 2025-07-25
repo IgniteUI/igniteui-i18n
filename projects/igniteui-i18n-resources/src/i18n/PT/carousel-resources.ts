@@ -4,7 +4,7 @@ import { type ICarouselResourceStrings } from 'igniteui-i18n-core';
 /**
  * Portuguese resource strings for IgxCarousel
  */
-export const CarouselResourceStringsPT = {
+export const CarouselResourceStringsPT: ICarouselResourceStrings = {
     carousel_of: 'de',
     carousel_slide: 'deslizar',
     carousel_previous_slide: 'diapositivo anterior',

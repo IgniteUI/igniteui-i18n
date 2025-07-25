@@ -13,11 +13,12 @@ import { ComboResourceStringsNB } from './combo-resources';
 import { QueryBuilderResourceStringsNB } from './query-builder-resources';
 import { BannerResourceStringsNB } from './banner-resources';
 import { ActionStripResourceStringsNB } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Norwegian resource strings for all components
  */
-export const ResourceStringsNB = {
+export const ResourceStringsNB: IResourceStrings = {
     ...GridResourceStringsNB,
     ...PaginatorResourceStringsNB,
     ...TimePickerResourceStringsNB,

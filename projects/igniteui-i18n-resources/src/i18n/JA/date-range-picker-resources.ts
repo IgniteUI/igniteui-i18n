@@ -4,7 +4,7 @@ import { type IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
 /**
  * Japanese resource strings for IgxDateRangePicker
  */
-export const DateRangePickerResourceStringsJA = {
+export const DateRangePickerResourceStringsJA: IDateRangePickerResourceStrings = {
     date_range_picker_date_separator: '～',
     date_range_picker_done_button: '完了'
 } satisfies MakeRequired<IDateRangePickerResourceStrings>;

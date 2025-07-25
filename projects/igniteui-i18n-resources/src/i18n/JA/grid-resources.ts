@@ -4,7 +4,7 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 /**
  * Japanese resource strings for IgxGrid
  */
-export const GridResourceStringsJA = {
+export const GridResourceStringsJA: IGridResourceStrings = {
     grid_groupByArea_message: '列ヘッダーをここへドラッグして列をグループ化します。',
     grid_emptyFilteredGrid_message: 'レコードは見つかりませんでした。',
     grid_emptyGrid_message: 'グリッドにデータがありません。',

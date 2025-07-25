@@ -12,11 +12,12 @@ import { ChipResourceStringsSV } from './chip-resources';
 import { ComboResourceStringsSV } from './combo-resources';
 import { QueryBuilderResourceStringsSV } from './query-builder-resources';
 import { ActionStripResourceStringsSV } from './action-strip-resources';
+import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Swedish resource strings for all components
  */
-export const ResourceStringsSV = {
+export const ResourceStringsSV: IResourceStrings = {
     ...GridResourceStringsSV,
     ...PaginatorResourceStringsSV,
     ...TimePickerResourceStringsSV,
