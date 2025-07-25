@@ -43,6 +43,14 @@ export class igI18nManager {
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
     private _resourceChangeHandlers: I18nHandler<ResourceChangeEvent>[] = [];
+    private _rootObserver = new MutationObserver(this.htmlElementObserve);
+
+    constructor() {
+        const initialLocale = document.documentElement.getAttribute('lang') || this.defaultLocale;
+        this.setCurrentI18n(initialLocale);
+
+        this._rootObserver.observe(document.documentElement, { attributeFilter: ['lang'] });
+    }
 
     /**
      * Bind to `resourceChange` event, that's triggered after the current resources change.
@@ -431,6 +439,13 @@ export class igI18nManager {
         }
         for (const handler of this._resourceChangeHandlers) {
             handler(eventArgs);
+        }
+    }
+
+    private htmlElementObserve(mutations: MutationRecord[], _: MutationObserver) {
+        if (mutations.length && mutations[0].attributeName === 'lang') {
+            const newLocale = (mutations[0].target as Element).getAttribute('lang') || this.currentLocale;
+            setCurrentI18n(newLocale);
         }
     }
 }
