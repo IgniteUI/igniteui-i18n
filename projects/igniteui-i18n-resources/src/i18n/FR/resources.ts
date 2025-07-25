@@ -1,18 +1,18 @@
-import { GridResourceStringsFR } from './grid-resources';
-import { PaginatorResourceStringsFR } from './paginator-resources';
-import { TimePickerResourceStringsFR } from './time-picker-resources';
-import { DatePickerResourceStringsFR } from './date-picker-resources';
-import { DateRangePickerResourceStringsFR } from './date-range-picker-resources';
-import { CarouselResourceStringsFR } from './carousel-resources';
-import { ListResourceStringsFR } from './list-resources';
-import { CalendarResourceStringsFR } from './calendar-resources';
-import { TreeResourceStringsFR } from './tree-resources';
-import { InputResourceStringsFR } from './input-resources';
-import { ChipResourceStringsFR } from './chip-resources';
-import { ComboResourceStringsFR } from './combo-resources';
-import { QueryBuilderResourceStringsFR } from './query-builder-resources';
-import { BannerResourceStringsFR } from './banner-resources';
-import { ActionStripResourceStringsFR } from './action-strip-resources';
+import { GridResourceStringsFR } from './grid-resources.js';
+import { PaginatorResourceStringsFR } from './paginator-resources.js';
+import { TimePickerResourceStringsFR } from './time-picker-resources.js';
+import { DatePickerResourceStringsFR } from './date-picker-resources.js';
+import { DateRangePickerResourceStringsFR } from './date-range-picker-resources.js';
+import { CarouselResourceStringsFR } from './carousel-resources.js';
+import { ListResourceStringsFR } from './list-resources.js';
+import { CalendarResourceStringsFR } from './calendar-resources.js';
+import { TreeResourceStringsFR } from './tree-resources.js';
+import { InputResourceStringsFR } from './input-resources.js';
+import { ChipResourceStringsFR } from './chip-resources.js';
+import { ComboResourceStringsFR } from './combo-resources.js';
+import { QueryBuilderResourceStringsFR } from './query-builder-resources.js';
+import { BannerResourceStringsFR } from './banner-resources.js';
+import { ActionStripResourceStringsFR } from './action-strip-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**

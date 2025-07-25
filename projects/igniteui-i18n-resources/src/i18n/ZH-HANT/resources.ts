@@ -1,18 +1,18 @@
-import { CalendarResourceStringsZHHANT } from './calendar-resources';
-import { GridResourceStringsZHHANT } from './grid-resources';
-import { PaginatorResourceStringsZHHANT } from './paginator-resources';
-import { TimePickerResourceStringsZHHANT } from './time-picker-resources';
-import { DatePickerResourceStringsZHHANT } from './date-picker-resources';
-import { DateRangePickerResourceStringsZHHANT } from './date-range-picker-resources';
-import { CarouselResourceStringsZHHANT } from './carousel-resources';
-import { ListResourceStringsZHHANT } from './list-resources';
-import { TreeResourceStringsZHHANT } from './tree-resources';
-import { InputResourceStringsZHHANT } from './input-resources';
-import { ChipResourceStringsZHHANT } from './chip-resources';
-import { ComboResourceStringsZHHANT } from './combo-resources';
-import { QueryBuilderResourceStringsZHHANT } from './query-builder-resources';
-import { BannerResourceStringsZHHANT } from './banner-resources';
-import { ActionStripResourceStringsZHHANT } from './action-strip-resources';
+import { CalendarResourceStringsZHHANT } from './calendar-resources.js';
+import { GridResourceStringsZHHANT } from './grid-resources.js';
+import { PaginatorResourceStringsZHHANT } from './paginator-resources.js';
+import { TimePickerResourceStringsZHHANT } from './time-picker-resources.js';
+import { DatePickerResourceStringsZHHANT } from './date-picker-resources.js';
+import { DateRangePickerResourceStringsZHHANT } from './date-range-picker-resources.js';
+import { CarouselResourceStringsZHHANT } from './carousel-resources.js';
+import { ListResourceStringsZHHANT } from './list-resources.js';
+import { TreeResourceStringsZHHANT } from './tree-resources.js';
+import { InputResourceStringsZHHANT } from './input-resources.js';
+import { ChipResourceStringsZHHANT } from './chip-resources.js';
+import { ComboResourceStringsZHHANT } from './combo-resources.js';
+import { QueryBuilderResourceStringsZHHANT } from './query-builder-resources.js';
+import { BannerResourceStringsZHHANT } from './banner-resources.js';
+import { ActionStripResourceStringsZHHANT } from './action-strip-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**

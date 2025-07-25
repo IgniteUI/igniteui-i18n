@@ -1,17 +1,17 @@
-import { GridResourceStringsSV } from './grid-resources';
-import { PaginatorResourceStringsSV } from './paginator-resources';
-import { TimePickerResourceStringsSV } from './time-picker-resources';
-import { DatePickerResourceStringsSV } from './date-picker-resources';
-import { DateRangePickerResourceStringsSV } from './date-range-picker-resources';
-import { CarouselResourceStringsSV } from './carousel-resources';
-import { ListResourceStringsSV } from './list-resources';
-import { CalendarResourceStringsSV } from './calendar-resources';
-import { TreeResourceStringsSV } from './tree-resources';
-import { InputResourceStringsSV } from './input-resources';
-import { ChipResourceStringsSV } from './chip-resources';
-import { ComboResourceStringsSV } from './combo-resources';
-import { QueryBuilderResourceStringsSV } from './query-builder-resources';
-import { ActionStripResourceStringsSV } from './action-strip-resources';
+import { GridResourceStringsSV } from './grid-resources.js';
+import { PaginatorResourceStringsSV } from './paginator-resources.js';
+import { TimePickerResourceStringsSV } from './time-picker-resources.js';
+import { DatePickerResourceStringsSV } from './date-picker-resources.js';
+import { DateRangePickerResourceStringsSV } from './date-range-picker-resources.js';
+import { CarouselResourceStringsSV } from './carousel-resources.js';
+import { ListResourceStringsSV } from './list-resources.js';
+import { CalendarResourceStringsSV } from './calendar-resources.js';
+import { TreeResourceStringsSV } from './tree-resources.js';
+import { InputResourceStringsSV } from './input-resources.js';
+import { ChipResourceStringsSV } from './chip-resources.js';
+import { ComboResourceStringsSV } from './combo-resources.js';
+import { QueryBuilderResourceStringsSV } from './query-builder-resources.js';
+import { ActionStripResourceStringsSV } from './action-strip-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
