@@ -21,7 +21,7 @@ export interface IResourceStrings extends IGridResourceStrings, ITimePickerResou
 
 
 export type I18nHandler<T> = (event: T) => void;
-export interface ResourceChangeEvent {
+export interface ResourceChangeEventArgs {
     oldLocale: string;
     newLocale: string;
 }
@@ -42,7 +42,7 @@ export class igI18nManager {
     private _resourcesMap = new Map<string, IResourceStrings>();
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
-    private _resourceChangeHandlers: I18nHandler<ResourceChangeEvent>[] = [];
+    private _resourceChangeHandlers: I18nHandler<ResourceChangeEventArgs>[] = [];
     private _rootObserver = new MutationObserver(this.htmlElementObserve);
 
     constructor() {
@@ -56,7 +56,7 @@ export class igI18nManager {
      * Bind to `resourceChange` event, that's triggered after the current resources change.
      * @param handler The handler function for the event.
      */
-    public onResourceChange(handler: I18nHandler<ResourceChangeEvent>) {
+    public onResourceChange(handler: I18nHandler<ResourceChangeEventArgs>) {
         this._resourceChangeHandlers.push(handler);
     }
 
@@ -455,7 +455,7 @@ export class igI18nManager {
     }
 
     private triggerResourceChange(oldLocale: string, newLocale: string) {
-        const eventArgs: ResourceChangeEvent = {
+        const eventArgs: ResourceChangeEventArgs = {
             oldLocale,
             newLocale
         }
