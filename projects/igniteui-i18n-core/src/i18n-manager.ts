@@ -36,8 +36,8 @@ export class igI18nManager {
         maximumFractionDigits: 3
     };
 
-    public defaultLocale: string = 'en';
-    public currentLocale: string = 'en';
+    public defaultLocale: string = 'en-US';
+    public currentLocale: string = 'en-US';
 
     private _resourcesMap = new Map<string, IResourceStrings>();
     private _localesCache = new Map<string, Intl.Locale>();
@@ -64,15 +64,24 @@ export class igI18nManager {
     /**
      * Register resource for a locale. Can be the current locale as well or a new one. Results are merged.
      */
-    public registerI18n(resources: IResourceStrings, locale: string) {
+    public registerI18n(resources: IResourceStrings, locale: string, overridePresent = true) {
         const presentResources = this._resourcesMap.get(locale);
+        let bResourcesChanged = false;
         if (presentResources) {
-            const mergedResources = Object.assign(presentResources, resources);
+            let mergedResources: IResourceStrings;
+            if (overridePresent) {
+                bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).indexOf(key) !== -1 && resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
+                mergedResources = Object.assign(presentResources, resources);
+            } else {
+                // Check if all provided strings are present, so nothing will change. Otherwise 
+                bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).indexOf(key) === -1);
+                mergedResources = Object.assign({}, resources, presentResources);
+            }
             this._resourcesMap.set(locale, mergedResources);
         } else {
             this._resourcesMap.set(locale, resources);
         }
-        if (this.currentLocale === locale) {
+        if (this.currentLocale === locale && bResourcesChanged) {
             this.triggerResourceChange(locale, locale);
         }
     }
@@ -523,8 +532,8 @@ export function getI18nManager() {
  * @param resourceStrings Object containing the translated resource strings.
  * @param locale The name of the locale. A string using the BCP 47 language tag.
  */
-export function registerI18n(resourceStrings: IResourceStrings, locale: string = 'en') {
-    getI18nManager().registerI18n(resourceStrings, locale);
+export function registerI18n(resourceStrings: IResourceStrings, locale?: string) {
+    getI18nManager().registerI18n(resourceStrings, locale || getI18nManager().currentLocale);
 }
 
 /**
