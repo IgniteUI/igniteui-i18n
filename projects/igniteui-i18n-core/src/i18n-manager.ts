@@ -64,25 +64,18 @@ export class igI18nManager {
     /**
      * Register resource for a locale. Can be the current locale as well or a new one. Results are merged.
      */
-    public registerI18n(resources: IResourceStrings, locale: string, overridePresent = true) {
+    public registerI18n(resources: IResourceStrings, locale: string) {
         const presentResources = this._resourcesMap.get(locale);
-        let bResourcesChanged = false;
+        let bResourcesChanged = true;
         if (presentResources) {
-            let mergedResources: IResourceStrings;
-            if (overridePresent) {
-                bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).indexOf(key) !== -1 && resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
-                mergedResources = Object.assign(presentResources, resources);
-            } else {
-                // Check if all provided strings are present, so nothing will change. Otherwise 
-                bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).indexOf(key) === -1);
-                mergedResources = Object.assign({}, resources, presentResources);
-            }
+            bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).indexOf(key) !== -1 && resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
+            const mergedResources = Object.assign(presentResources, resources);
             this._resourcesMap.set(locale, mergedResources);
         } else {
             this._resourcesMap.set(locale, resources);
         }
-        if (this.currentLocale === locale && bResourcesChanged) {
-            this.triggerResourceChange(locale, locale);
+        if (bResourcesChanged && this.currentLocale === locale) {
+            this.triggerResourceChange(this.currentLocale, this.currentLocale);
         }
     }
 
