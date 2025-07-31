@@ -36,20 +36,19 @@ export class igI18nManager {
         maximumFractionDigits: 3
     };
 
-    public defaultLocale: string = 'en-US';
-    public currentLocale: string = 'en-US';
+    public defaultLocale = 'en-US';
+    public currentLocale = 'en-US';
 
     private _resourcesMap = new Map<string, IResourceStrings>();
     private _localesCache = new Map<string, Intl.Locale>();
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
     private _resourceChangeHandlers: I18nHandler<ResourceChangeEventArgs>[] = [];
-    private _rootObserver = new MutationObserver(this.htmlElementObserve);
+    private _rootObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => this.htmlElementObserve(mutations, observer));
 
     constructor() {
-        const initialLocale = document.documentElement.getAttribute('lang') || this.defaultLocale;
+        const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
         this.setCurrentI18n(initialLocale);
-
         this._rootObserver.observe(document.documentElement, { attributeFilter: ['lang'] });
     }
 
@@ -68,7 +67,7 @@ export class igI18nManager {
         const presentResources = this._resourcesMap.get(locale);
         let bResourcesChanged = true;
         if (presentResources) {
-            bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).indexOf(key) !== -1 && resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
+            bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).includes(key) && resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
             const mergedResources = Object.assign(presentResources, resources);
             this._resourcesMap.set(locale, mergedResources);
         } else {
@@ -104,10 +103,15 @@ export class igI18nManager {
 
     public getFirstDayOfWeek(locale?: string): number {
         const formatter = this.getLocale(locale);
-        try {
-            return (formatter as any).getWeekInfo().firstDay;
-        } catch {}
-        return 1;
+        let firstDay = 1;
+        // Missing some typescript definitions for Int.Locale. Disable lint for now until this is merged: https://github.com/microsoft/TypeScript/pull/58084
+        /* eslint-disable */
+        if ((formatter as any).getWeekInfo) {
+            // Firefox currently doesn't support getWeekInfo, default to Monday in this case.
+            firstDay = (formatter as any).getWeekInfo().firstDay;
+        }
+        /* eslint-enable */
+        return firstDay;
     }
 
     /**
@@ -269,6 +273,7 @@ export class igI18nManager {
             case 'w':
             case 'ww':
             // Week of the month (1, ...)
+            // falls through
             case 'W':
                 console.warn("Week of the year and week of the month has been deprecated for Ignite UI. Please use custom formatting.");
                 break;
@@ -398,7 +403,6 @@ export class igI18nManager {
             case 'O':
             case 'OO':
             case 'OOO':
-            // Should be location, but fallback to format O instead because we don't have the data yet
             case 'z':
             case 'zz':
             case 'zzz':
@@ -407,7 +411,6 @@ export class igI18nManager {
             // Timezone GMT long format (GMT+0430)
             case 'OOOO':
             case 'ZZZZ':
-            // Should be location, but fallback to format O instead because we don't have the data yet
             case 'zzzz':
                 options.timeZone = 'longOffset';
                 break;
@@ -423,7 +426,7 @@ export class igI18nManager {
                 // Current locale doesn't have generic day period. Just use the `en` one.
                 value = this.formatDateTimeToParts(date, 'en', options).find(part => part.type === 'dayPeriod')?.value;
             }
-            switch (periodStyle || options.dayPeriod) {
+            switch (periodStyle ?? options.dayPeriod) {
                 case 'narrow':
                     return value?.split(' ').map(part => part.substring(0, 1)).join('');
                 case 'short':
@@ -481,12 +484,12 @@ export class igI18nManager {
      * @param source Object that is merged onto the target object values.
      * @returns Merged options.
      */
-    private mergeOptions(target: Intl.NumberFormatOptions | Intl.DateTimeFormatOptions, source: Intl.NumberFormatOptions | Intl.DateTimeFormatOptions) {
-        const result: any = Object.assign({}, target);
-        const sourceKeys = Object.keys(source);
+    private mergeOptions<T extends Intl.NumberFormatOptions | Intl.DateTimeFormatOptions>(target: T, source: T) {
+        const result = Object.assign({}, target);
+        const sourceKeys = Object.keys(source).map(key => key as keyof T);
         for (const key of sourceKeys) {
-            if ((source as any)[key] !== null && (source as any)[key] !== undefined) {
-                result[key] = (source as any)[key];
+            if (source[key] !== null && source[key] !== undefined) {
+                result[key] = source[key];
             }
         }
         return result;
@@ -504,7 +507,7 @@ export class igI18nManager {
 
     private htmlElementObserve(mutations: MutationRecord[], _: MutationObserver) {
         if (mutations.length && mutations[0].attributeName === 'lang') {
-            const newLocale = (mutations[0].target as Element).getAttribute('lang') || this.currentLocale;
+            const newLocale = (mutations[0].target as Element).getAttribute('lang') ?? this.currentLocale;
             setCurrentI18n(newLocale);
         }
     }
@@ -526,7 +529,7 @@ export function getI18nManager() {
  * @param locale The name of the locale. A string using the BCP 47 language tag.
  */
 export function registerI18n(resourceStrings: IResourceStrings, locale?: string) {
-    getI18nManager().registerI18n(resourceStrings, locale || getI18nManager().currentLocale);
+    getI18nManager().registerI18n(resourceStrings, locale ?? getI18nManager().currentLocale);
 }
 
 /**
