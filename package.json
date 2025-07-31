@@ -2,14 +2,20 @@
   "name": "igniteui-i18n",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
     "build": "npm run build:core && npm run build:resources && npm run build:angular",
     "build:core": "tsc --project projects/igniteui-i18n-core/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-core/package.json\"  \"dist/igniteui-i18n-core/package.json\"",
     "build:resources": "tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-resources/package.json\"  \"dist/igniteui-i18n-resources/package.json\"",
-    "preview": "vite preview"
+    "lint": "eslint .",
+    "test": "node --import tsx --import=global-jsdom/register --test ./projects/**/**.spec.ts"
   },
   "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@types/node": "^24.1.0",
+    "eslint": "^9.32.0",
+    "global-jsdom": "^26.0.0",
+    "jsdom": "^26.1.0",
+    "tsx": "^4.20.3",
     "typescript": "~5.8.3",
-    "vite": "^7.0.0"
+    "typescript-eslint": "^8.38.0"
   }
 }
