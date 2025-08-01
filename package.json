@@ -6,16 +6,19 @@
     "build:core": "tsc --project projects/igniteui-i18n-core/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-core/package.json\"  \"dist/igniteui-i18n-core/package.json\"",
     "build:resources": "tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-resources/package.json\"  \"dist/igniteui-i18n-resources/package.json\"",
     "lint": "eslint .",
-    "test": "node --import tsx --import=global-jsdom/register --test ./projects/**/**.spec.ts"
+    "test": "vitest --config vitest.browser.config.ts",
+    "test:inline": "vitest"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
-    "@types/node": "^24.1.0",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-istanbul": "^3.2.4",
     "eslint": "^9.32.0",
-    "global-jsdom": "^26.0.0",
     "jsdom": "^26.1.0",
-    "tsx": "^4.20.3",
+    "playwright": "^1.54.1",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.38.0"
+    "typescript-eslint": "^8.38.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
   }
 }
