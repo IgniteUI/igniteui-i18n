@@ -14,6 +14,8 @@ import type { IQueryBuilderResourceStrings } from './interfaces/query-builder.in
 import type { IComboResourceStrings } from './interfaces/combo.interface';
 import type { IBannerResourceStrings } from './interfaces/banner.interface';
 
+const defaultLocale = 'en-US';
+
 export interface IResourceStrings extends IGridResourceStrings, ITimePickerResourceStrings, ICalendarResourceStrings,
     ICarouselResourceStrings, IChipResourceStrings, IComboResourceStrings, IInputResourceStrings, IDatePickerResourceStrings,
     IDateRangePickerResourceStrings, IListResourceStrings, IPaginatorResourceStrings, ITreeResourceStrings,
@@ -36,10 +38,10 @@ export class igI18nManager {
         maximumFractionDigits: 3
     };
 
-    public defaultLocale = 'en-US';
-    public currentLocale = 'en-US';
+    public defaultLocale = defaultLocale;
+    public currentLocale = defaultLocale;
 
-    private _resourcesMap = new Map<string, IResourceStrings>();
+    private _resourcesMap = new Map<string, IResourceStrings>([[defaultLocale, {}]]);
     private _localesCache = new Map<string, Intl.Locale>();
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
@@ -528,8 +530,8 @@ export function getI18nManager() {
  * @param resourceStrings Object containing the translated resource strings.
  * @param locale The name of the locale. A string using the BCP 47 language tag.
  */
-export function registerI18n(resourceStrings: IResourceStrings, locale?: string) {
-    getI18nManager().registerI18n(resourceStrings, locale ?? getI18nManager().currentLocale);
+export function registerI18n(resourceStrings: IResourceStrings, locale: string) {
+    getI18nManager().registerI18n(resourceStrings, locale);
 }
 
 /**
