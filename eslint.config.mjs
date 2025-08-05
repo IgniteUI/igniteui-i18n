@@ -10,6 +10,7 @@ export default tseslint.config(
             "**/dist/",
             "coverage/",
             "eslint.config.mjs",
+            "gulpfile.js",
         ],
     },
     {
