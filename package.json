@@ -2,7 +2,7 @@
   "name": "igniteui-i18n",
   "version": "0.0.0",
   "scripts": {
-    "build": "npm run build:core && npm run build:resources && npm run build:angular",
+    "build": "npm run build:core && npm run build:resources",
     "build:core": "tsc --project projects/igniteui-i18n-core/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-core/package.json\"  \"dist/igniteui-i18n-core/package.json\"",
     "build:resources": "tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-resources/package.json\"  \"dist/igniteui-i18n-resources/package.json\"",
     "lint": "eslint .",

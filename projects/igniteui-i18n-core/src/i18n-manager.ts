@@ -468,7 +468,7 @@ export class igI18nManager {
     }
 
     private getNumberFormatter(locale?: string, options?: Intl.NumberFormatOptions) {
-        const combinedOptions = this.mergeOptions(this.defaultNumberOptions, options!);
+        const combinedOptions = this.mergeOptions(this.defaultNumberOptions, options);
         const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
         const formatterKey = this.generateLocaleKey(canonLocale, combinedOptions);
         let formatter = this._numberFormattersCache.get(formatterKey);
@@ -480,7 +480,7 @@ export class igI18nManager {
     }
 
     private getDateFormatter(locale?: string, options?: Intl.DateTimeFormatOptions) {
-        const combinedOptions = this.mergeOptions(this.defaultDateOptions, options!);
+        const combinedOptions = this.mergeOptions(this.defaultDateOptions, options);
         const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
         const formatterKey = this.generateLocaleKey(canonLocale, combinedOptions);
         let formatter = this._dateTimeFormattersCache.get(formatterKey);
