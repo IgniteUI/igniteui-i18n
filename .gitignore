@@ -151,3 +151,4 @@ vite.config.ts.timestamp-*
 /dist
 /tmp
 /out-tsc
+/test-results

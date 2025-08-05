@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 
 import { defineConfig } from 'vite'
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -6,6 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
     plugins: [tsconfigPaths()],
     test: {
+        allowOnly: true,
         environment: 'jsdom',
         globals: true,
         includeSource: ["projects/**/*.ts"],
@@ -14,7 +15,7 @@ export default defineConfig({
             enabled: true,
             provider: 'istanbul',
             reportOnFailure: false,
-            reporter: ['html', 'json']
+            reporter: ['html', "lcov"]
         },
     }
 })

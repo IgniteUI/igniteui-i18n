@@ -1,18 +1,19 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 import { defineConfig, mergeConfig  } from 'vite'
 import vitestConfig from './vitest.config'
 
 export default mergeConfig(vitestConfig ,defineConfig({
     test: {
         browser: {
-            provider: 'playwright',
+            enabled: true,
             headless: true,
+            provider: 'playwright',
+            testerHtmlPath: './index.html',
             instances: [
                 { browser: 'chromium' },
             ],
-            testerHtmlPath: './index.html',
-            enabled: true,
             isolate: true,
+            screenshotFailures: false
         }
     }
 }))

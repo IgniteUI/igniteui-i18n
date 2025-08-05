@@ -40,6 +40,7 @@ export class igI18nManager {
 
     public defaultLocale = defaultLocale;
     public currentLocale = defaultLocale;
+    public id = crypto.randomUUID();
 
     private _resourcesMap = new Map<string, IResourceStrings>([[defaultLocale, {}]]);
     private _localesCache = new Map<string, Intl.Locale>();
@@ -69,7 +70,7 @@ export class igI18nManager {
         const presentResources = this._resourcesMap.get(locale);
         let bResourcesChanged = true;
         if (presentResources) {
-            bResourcesChanged = Object.keys(resources).some(key => Object.keys(presentResources).includes(key) && resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
+            bResourcesChanged = Object.keys(resources).some(key => resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
             const mergedResources = Object.assign(presentResources, resources);
             this._resourcesMap.set(locale, mergedResources);
         } else {
@@ -185,7 +186,15 @@ export class igI18nManager {
         return formatter.formatToParts(value);
     }
 
-    public formatDateCustomFormat(value: Date, locale: string, format: string) {
+    /**
+     * Use custom formatting to format a date to match the provided strings
+     * @param value Date to be formatted
+     * @param locale 
+     * @param format String containing custom strings describing how the date should be formatted
+     * @param timezone Timezone the date to be formatted to using the `IANA time zone` specification. Ex: GMT+0230 is Etc/GMT+02:30, UTS is Etc/UTC+02:30
+     * @returns 
+     */
+    public formatDateCustomFormat(value: Date, locale: string, format: string, timezone =  "GMT") {
         const formatRegex = /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
         let parts: string[] = [];
         let match;
@@ -206,12 +215,12 @@ export class igI18nManager {
 
         let dateText = '';
         for (const part of parts) {
-            dateText += this.formatPartialDateValue(value, part, locale);
+            dateText += this.formatPartialDateValue(value, part, locale, timezone);
         }
         return dateText;
     }
 
-    public formatPartialDateValue(date: Date, format: string, locale: string) {
+    public formatPartialDateValue(date: Date, format: string, locale: string, timezone: string) {
         // No zeroed values except for 2 digit ones.
         let periodStyle: 'narrow' | 'short' | 'long' | undefined = undefined;
         const options: Intl.DateTimeFormatOptions = {};
@@ -278,7 +287,7 @@ export class igI18nManager {
             // falls through
             case 'W':
                 console.warn("Week of the year and week of the month has been deprecated for Ignite UI. Please use custom formatting.");
-                break;
+                return format;
 
             // Day of the month (1-31)
             case 'd':
@@ -292,9 +301,11 @@ export class igI18nManager {
             case 'c':
             case 'cc':
             case 'ccc':
+            case 'cccccc':
             case 'E':
             case 'EE':
             case 'EEE':
+            case 'EEEEEE':
                 options.weekday = 'short';
                 break;
             case 'cccc':
@@ -305,11 +316,6 @@ export class igI18nManager {
             case 'EEEEE':
                 options.weekday = 'narrow';
                 break;
-            case 'cccccc':
-            case 'EEEEEE':
-                options.weekday = 'short';
-                break;
-
             // Generic period of the day (am-pm)
             case 'a':
             case 'aa':
@@ -368,6 +374,7 @@ export class igI18nManager {
                 options.minute = 'numeric';
                 break;
             case 'mm':
+                // Also for some reason this is not working in Intl for all locales ??
                 options.minute = '2-digit';
                 break;
 
@@ -376,10 +383,9 @@ export class igI18nManager {
                 options.second = 'numeric';
                 break;
             case 'ss':
+                // Also for some reason this is not working in Intl for all locales ??
                 options.second = '2-digit';
                 break;
-
-            // Fractional second
             case 'S':
                 options.fractionalSecondDigits = 1;
                 break;
@@ -389,44 +395,37 @@ export class igI18nManager {
             case 'SSS':
                 options.fractionalSecondDigits = 3;
                 break;
-
-            // Timezone ISO8601 short format (-0430)
-            case 'Z':
-            case 'ZZ':
-            case 'ZZZ':
-                options.timeZone = 'shortGeneric';
-                break;
-            // Timezone ISO8601 extended format (-04:30)
-            case 'ZZZZZ':
-                options.timeZone = 'longGeneric'
-                break;
-
-            // Timezone GMT short format (GMT+4)
+            // Timezone short format (GMT+4)
             case 'O':
             case 'OO':
             case 'OOO':
             case 'z':
             case 'zz':
             case 'zzz':
-                options.timeZone = 'shortOffset';
+            case 'Z':
+            case 'ZZ':
+            case 'ZZZ':
+                options.timeZone = timezone;
+                options.timeZoneName = 'short';
                 break;
-            // Timezone GMT long format (GMT+0430)
+            // Timezone long format (GMT+0430)
             case 'OOOO':
-            case 'ZZZZ':
             case 'zzzz':
-                options.timeZone = 'longOffset';
+            case 'ZZZZ':
+                options.timeZone = timezone;
+                options.timeZoneName = 'long';
                 break;
             default:
                 return format;
         }
         const dateParts = getI18nManager().formatDateTimeToParts(date, locale, options);
         if (options.era) {
-            return dateParts.find(part => part.type === 'era')?.value;
+            return this.findDatePart(dateParts, 'era');
         } else if (periodStyle || options.dayPeriod) {
             let value = dateParts.find(part => part.type === 'dayPeriod')?.value;
             if (!value && periodStyle) {
                 // Current locale doesn't have generic day period. Just use the `en` one.
-                value = this.formatDateTimeToParts(date, 'en', options).find(part => part.type === 'dayPeriod')?.value;
+                value = this.findDatePart(this.formatDateTimeToParts(date, 'en', options), 'dayPeriod');
             }
             switch (periodStyle ?? options.dayPeriod) {
                 case 'narrow':
@@ -437,8 +436,24 @@ export class igI18nManager {
                 default:
                     return value;
             }
+        } else if (options.minute === '2-digit') {
+            // For some reason not working as expected in Intl
+            const minutes = this.findDatePart(dateParts, 'minute');
+            return minutes?.length === 1 ? "0" + minutes : minutes;
+        } else if (options.second === '2-digit') {
+            // For some reason not working as expected in Intl
+            const seconds = this.findDatePart(dateParts, 'second');
+            return seconds?.length === 1 ? "0" + seconds : seconds;
+        } else if (options.timeZone) {
+            return this.findDatePart(dateParts, 'timeZoneName');
+        } else if (options.fractionalSecondDigits) {
+            return this.findDatePart(dateParts, 'fractionalSecond');
         }
         return dateParts[0].value;
+    }
+
+    private findDatePart(parts: Intl.DateTimeFormatPart[], partName: string) {
+        return parts.find(part => part.type === partName)?.value;
     }
 
     private getLocale(locale?: string, options?: Intl.LocaleOptions) {
@@ -486,7 +501,7 @@ export class igI18nManager {
      * @param source Object that is merged onto the target object values.
      * @returns Merged options.
      */
-    private mergeOptions<T extends Intl.NumberFormatOptions | Intl.DateTimeFormatOptions>(target: T, source: T) {
+    private mergeOptions<T extends Intl.NumberFormatOptions | Intl.DateTimeFormatOptions>(target: T, source: T = {} as T) {
         const result = Object.assign({}, target);
         const sourceKeys = Object.keys(source).map(key => key as keyof T);
         for (const key of sourceKeys) {
@@ -510,7 +525,7 @@ export class igI18nManager {
     private htmlElementObserve(mutations: MutationRecord[], _: MutationObserver) {
         if (mutations.length && mutations[0].attributeName === 'lang') {
             const newLocale = (mutations[0].target as Element).getAttribute('lang') ?? this.currentLocale;
-            setCurrentI18n(newLocale);
+            this.setCurrentI18n(newLocale);
         }
     }
 }
