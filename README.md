@@ -2,7 +2,7 @@
   Ignite UI Localization - from Infragistics 
 </h1>
 
-![Node.js CI](https://github.com/IgniteUI/igniteui-i18n/workflows/Node.js%20CI/badge.svg)\
+![Node.js CI](https://github.com/IgniteUI/igniteui-i18n/workflows/Node.js%20CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/IgniteUI/igniteui-i18n/badge.svg?branch=master)](https://coveralls.io/github/IgniteUI/igniteui-i18n?branch=master)
 [![npm version](https://badge.fury.io/js/igniteui-i18n.svg)](https://badge.fury.io/js/igniteui-i18n)
 
