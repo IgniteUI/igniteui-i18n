@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "build": "npm run build:core && npm run build:resources",
-    "build:core": "tsc --project projects/igniteui-i18n-core/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-core/package.json\"  \"dist/igniteui-i18n-core/package.json\"",
-    "build:resources": "tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && @powershell copy \"projects/igniteui-i18n-resources/package.json\"  \"dist/igniteui-i18n-resources/package.json\"",
+    "build:core": "tsc --project projects/igniteui-i18n-core/tsconfig.build.json && gulp copyPackageForCore",
+    "build:resources": "tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && gulp copyPackageForResources",
     "lint": "eslint .",
     "test": "vitest --config vitest.browser.config.ts",
     "test:inline": "vitest"
@@ -14,6 +14,7 @@
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-istanbul": "^3.2.4",
     "eslint": "^9.32.0",
+    "gulp": "^5.0.1",
     "jsdom": "^26.1.0",
     "playwright": "^1.54.1",
     "typescript": "~5.8.3",
