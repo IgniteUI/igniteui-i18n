@@ -27,6 +27,8 @@ jobs:
             cache: 'npm'
       - name: Install packages
         run: npm ci
+      - name: Install Playwright
+        run: npx playwright install --with-deps --only-shell chromium
       - name: Lint
         run: npm run lint
       - name: Build Core & Resources

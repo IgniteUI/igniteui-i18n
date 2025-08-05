@@ -59,6 +59,12 @@ To run the tests run:
 npm run test
 ```
 
+If you use Playwright for the first time it will throw an error. Just install the necessary dependencies using:
+
+```
+npx playwright install --with-deps --only-shell chromium
+```
+
 By default the tests run in `headless` mode using `Chromium`. If you would like to see it in the browser itself you need to set [headless](https://vitest.dev/guide/browser/config.html#browser-headless) option in the `vitest.browser.config.ts` file for the desired browser:
 
 ```
