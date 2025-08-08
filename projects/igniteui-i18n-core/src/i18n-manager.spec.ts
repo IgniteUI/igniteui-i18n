@@ -123,6 +123,139 @@ describe('i18n tests', () => {
             expect(Object.keys(resources).length).equal(1);
             expect(resources.action_strip_button_more_title).equal('Още');
         })
+
+        it('should create dates from ISO string correctly', () => {
+            // Initially in UTC timezone by default
+            let dateString = '2025-01-01';
+            let expectedUTCDate = new Date(dateString);
+            let expectedConverted = manager.createDateFromValue(dateString);
+
+            // The timezone of the machine. For UTC+0 would be 0
+            const timeZoneOffsetMin = expectedUTCDate.getTimezoneOffset() * 1000 * 60;
+            // Value for zero hour check. If the timezone offset is 0, switch it to something else so it still does not equal
+            const zeroHourExUTC = timeZoneOffsetMin === 0 ? 1 : 0;
+
+            // Result should be in local timezone but it's not, so there's difference
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(timeZoneOffsetMin);
+
+            dateString = '2025-01-01T00:00Z';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            dateString = '2025-01-01T00:00:00Z';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            dateString = '2025-01-01T00:00+00:00';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            dateString = '2025-01';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            // Result should be in local timezone but it's not, so there's difference
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(timeZoneOffsetMin);
+
+            dateString = '2025-01T00:00Z';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            dateString = '2025-01T00:00:00Z';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            dateString = '2025-01T00:00+00:00';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+            
+            dateString = '2025-01T00:00:00+00:00';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            // Initially in local timezone
+            dateString = '2025-01-01T00:00:00';
+            let expectedLocalTime = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedLocalTime.getHours()).toEqual(0);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(expectedConverted.getTime() - expectedLocalTime.getTime()).equal(0);
+
+            dateString = '2025-01-01T00:00:00.000';
+            expectedLocalTime = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedLocalTime.getHours()).toEqual(0);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(expectedConverted.getTime() - expectedLocalTime.getTime()).equal(0);
+
+            dateString = '2025-01T00:00:00';
+            expectedLocalTime = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedLocalTime.getHours()).toEqual(0);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(expectedConverted.getTime() - expectedLocalTime.getTime()).equal(0);
+
+            dateString = '2025-01T00:00:00.000';
+            expectedLocalTime = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedLocalTime.getHours()).toEqual(0);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(manager.createDateFromValue(dateString).getTime() - expectedLocalTime.getTime()).equal(0);
+        })
+
+        it('should create dates from other regular valid string formats', () => {
+            let dateString = 'January 1, 2025';
+            let expectedUTCDate = new Date(dateString);
+            let expectedConverted = manager.createDateFromValue(dateString);
+
+            // Result should be in local timezone but it's not, so there's difference
+            expect(expectedUTCDate.getHours()).toEqual(0);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            dateString = 'January 1, 2025 00:00';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).toEqual(0);
+            expect(expectedConverted.getHours()).toEqual(0);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+            // The timezone of the machine. For UTC+0 would be 0
+            const timeZoneOffsetMin = expectedUTCDate.getTimezoneOffset() * 1000 * 60;
+            // Value for zero hour check. If the timezone offset is 0, switch it to something else so it still does not equal
+            const zeroHourExUTC = timeZoneOffsetMin === 0 ? 1 : 0;
+
+            dateString = 'January 1, 2025 00:00 UTC';
+            expectedUTCDate = new Date(dateString);
+            expectedConverted = manager.createDateFromValue(dateString);
+            expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
+            expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+        })
     })
 
     describe('onResourceChange', () => {

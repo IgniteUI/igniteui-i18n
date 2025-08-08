@@ -163,6 +163,23 @@ export class igI18nManager {
     }
 
     /**
+     * Transform string or number representation of a date time to a Date object
+     * @param value 
+     * @returns 
+     */
+    public createDateFromValue(value: string | number) {
+        if (typeof value === 'string') {
+            // Workaround for ISO date without time or specified UTC explicitly
+            const isoRegex = /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
+            const match = isoRegex.exec(value);
+            if (match && !match.groups?.time && !match.groups?.UTC) {
+                value +='T00:00:00';
+            }
+        }
+        return new Date(value);
+    }
+
+    /**
      * Format a date object or date number using Intl.
      * @param value Value to be formatted
      * @param locale Override of the current global locale.
@@ -184,6 +201,24 @@ export class igI18nManager {
     public formatDateTimeToParts(value: Date | number, locale?: string, options?: Intl.DateTimeFormatOptions) {
         const formatter = this.getDateFormatter(locale, options);
         return formatter.formatToParts(value);
+    }
+
+    /**
+     * Get date formatter from cache, otherwise create it and cache it for further use. Time to retrieve cached formatter: ~0-0.1ms
+     * @param locale Locale for which to get a date formatter
+     * @param options Options the formatter needs to have set
+     * @returns The formatter desired
+     */
+    public getDateFormatter(locale?: string, options?: Intl.DateTimeFormatOptions) {
+        const combinedOptions = this.mergeOptions(this.defaultDateOptions, options);
+        const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
+        const formatterKey = this.generateLocaleKey(canonLocale, combinedOptions);
+        let formatter = this._dateTimeFormattersCache.get(formatterKey);
+        if (!formatter) {
+            formatter = new Intl.DateTimeFormat(canonLocale, combinedOptions);
+            this._dateTimeFormattersCache.set(formatterKey, formatter);
+        }
+        return formatter;
     }
 
     /**
@@ -220,7 +255,7 @@ export class igI18nManager {
         return dateText;
     }
 
-    public formatPartialDateValue(date: Date, format: string, locale: string, timezone: string) {
+    private formatPartialDateValue(date: Date, format: string, locale: string, timezone: string) {
         // No zeroed values except for 2 digit ones.
         let periodStyle: 'narrow' | 'short' | 'long' | undefined = undefined;
         const options: Intl.DateTimeFormatOptions = {};
@@ -475,18 +510,6 @@ export class igI18nManager {
         if (!formatter) {
             formatter = new Intl.NumberFormat(canonLocale, combinedOptions);
             this._numberFormattersCache.set(formatterKey, formatter);
-        }
-        return formatter;
-    }
-
-    private getDateFormatter(locale?: string, options?: Intl.DateTimeFormatOptions) {
-        const combinedOptions = this.mergeOptions(this.defaultDateOptions, options);
-        const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
-        const formatterKey = this.generateLocaleKey(canonLocale, combinedOptions);
-        let formatter = this._dateTimeFormattersCache.get(formatterKey);
-        if (!formatter) {
-            formatter = new Intl.DateTimeFormat(canonLocale, combinedOptions);
-            this._dateTimeFormattersCache.set(formatterKey, formatter);
         }
         return formatter;
     }
