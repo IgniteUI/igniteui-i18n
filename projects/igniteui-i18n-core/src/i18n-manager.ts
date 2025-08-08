@@ -164,8 +164,8 @@ export class igI18nManager {
 
     /**
      * Transform string or number representation of a date time to a Date object
-     * @param value 
-     * @returns 
+     * @param value Can be any string or number representation of a date, supported by the JS Date object.
+     * @returns The date as a Date object.
      */
     public createDateFromValue(value: string | number) {
         if (typeof value === 'string') {
