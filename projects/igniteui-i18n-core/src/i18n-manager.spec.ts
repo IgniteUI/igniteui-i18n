@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { beforeEach, describe, it, expect } from 'vitest';
 import {
     igI18nManager,
@@ -255,6 +258,20 @@ describe('i18n tests', () => {
             expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
             expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
             expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+        })
+
+        it('generateLocaleKey should produce same key for objects with same values, regardless or order of keys', () => {
+            const optionsA = {
+                currency: "BGN",
+                compactDisplay: "long"
+            } as Intl.NumberFormatOptions;
+            const optionsB = {
+                compactDisplay: "long",
+                currency: "BGN"
+            } as Intl.NumberFormatOptions;
+            const keyA = (manager as any).generateLocaleKey('bg', optionsA);
+            const keyB = (manager as any).generateLocaleKey('bg', optionsB);
+            expect(keyA).equal(keyB);
         })
     })
 
