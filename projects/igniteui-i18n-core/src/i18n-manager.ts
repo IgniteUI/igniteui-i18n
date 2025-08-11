@@ -13,6 +13,7 @@ import type { IActionStripResourceStrings } from './interfaces/action-strip.inte
 import type { IQueryBuilderResourceStrings } from './interfaces/query-builder.interface';
 import type { IComboResourceStrings } from './interfaces/combo.interface';
 import type { IBannerResourceStrings } from './interfaces/banner.interface';
+import { type IResourceChangeEventArgs, I18nManagerEventTarget } from './utils';
 
 const defaultLocale = 'en-US';
 
@@ -21,14 +22,7 @@ export interface IResourceStrings extends IGridResourceStrings, ITimePickerResou
     IDateRangePickerResourceStrings, IListResourceStrings, IPaginatorResourceStrings, ITreeResourceStrings,
     IActionStripResourceStrings, IQueryBuilderResourceStrings, IBannerResourceStrings { }
 
-
-export type I18nHandler<T> = (event: T) => void;
-export interface ResourceChangeEventArgs {
-    oldLocale: string;
-    newLocale: string;
-}
-
-export class igI18nManager {
+export class igI18nManager extends I18nManagerEventTarget {
     // Default options match angular defaults
     public defaultDateOptions: Intl.DateTimeFormatOptions = {
     };
@@ -536,13 +530,11 @@ export class igI18nManager {
     }
 
     private triggerResourceChange(oldLocale: string, newLocale: string) {
-        const eventArgs: ResourceChangeEventArgs = {
+        const eventArgs = {
             oldLocale,
             newLocale
-        }
-        for (const handler of this._resourceChangeHandlers) {
-            handler(eventArgs);
-        }
+        } as IResourceChangeEventArgs;
+        this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>("onResourceChange", { detail: eventArgs }));
     }
 
     private htmlElementObserve(mutations: MutationRecord[], _: MutationObserver) {
