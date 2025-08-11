@@ -34,27 +34,24 @@ export class igI18nManager extends I18nManagerEventTarget {
 
     public defaultLocale = defaultLocale;
     public currentLocale = defaultLocale;
-    public id = crypto.randomUUID();
 
     private _resourcesMap = new Map<string, IResourceStrings>([[defaultLocale, {}]]);
     private _localesCache = new Map<string, Intl.Locale>();
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
-    private _resourceChangeHandlers: I18nHandler<ResourceChangeEventArgs>[] = [];
-    private _rootObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => this.htmlElementObserve(mutations, observer));
+    private _rootObserver: MutationObserver | undefined;
 
     constructor() {
-        const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
-        this.setCurrentI18n(initialLocale);
-        this._rootObserver.observe(document.documentElement, { attributeFilter: ['lang'] });
-    }
-
-    /**
-     * Bind to `resourceChange` event, that's triggered after the current resources change.
-     * @param handler The handler function for the event.
-     */
-    public onResourceChange(handler: I18nHandler<ResourceChangeEventArgs>) {
-        this._resourceChangeHandlers.push(handler);
+        super();
+        if (document) {
+            const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
+            this.setCurrentI18n(initialLocale);
+            
+            if (typeof MutationObserver !== 'undefined') {
+                this._rootObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => this.htmlElementObserve(mutations, observer));
+                this._rootObserver.observe(document.documentElement, { attributeFilter: ['lang'] });
+            }
+        }
     }
 
     /**
@@ -90,8 +87,8 @@ export class igI18nManager extends I18nManagerEventTarget {
     /**
      * Get the current resource string for all components in a single object.
      */
-    public getCurrentResourceStrings() {
-        const currentResources = this._resourcesMap.get(this.currentLocale);
+    public getCurrentResourceStrings(locale?: string) {
+        const currentResources = this._resourcesMap.get(locale ?? this.currentLocale);
         if (currentResources) {
             return currentResources;
         }
@@ -130,7 +127,7 @@ export class igI18nManager extends I18nManagerEventTarget {
      * @param locale Override locale instead of the current one.
      * @returns String representation of the currency symbol.
      */
-    public getCurrencySymbol(currencyCode: string, currencyDisplay?: keyof Intl.NumberFormatOptionsCurrencyDisplayRegistry, locale?: string) {
+    public getCurrencySymbol(currencyCode: string, locale?: string, currencyDisplay?: keyof Intl.NumberFormatOptionsCurrencyDisplayRegistry) {
         const options: Intl.NumberFormatOptions = {
             style: 'currency',
             currency: currencyCode,

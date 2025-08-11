@@ -373,17 +373,17 @@ describe('i18n tests', () => {
         })
 
         it('should get correct currency symbol when provided currency name', () => {
-            expect(manager.getCurrencySymbol("GBP", 'symbol', 'en')).equal('£');
-            expect(manager.getCurrencySymbol("BGN", 'symbol', 'bg')).equal('лв.');
-            expect(manager.getCurrencySymbol("JPY", 'symbol', 'ja')).equal('￥');
-            expect(manager.getCurrencySymbol("EUR", 'symbol', 'es')).equal('€');
-            expect(manager.getCurrencySymbol('PLN', 'symbol', 'pl')).equal('zł');
+            expect(manager.getCurrencySymbol("GBP", 'en', 'symbol')).equal('£');
+            expect(manager.getCurrencySymbol("BGN", 'bg', 'symbol')).equal('лв.');
+            expect(manager.getCurrencySymbol("JPY", 'ja', 'symbol')).equal('￥');
+            expect(manager.getCurrencySymbol("EUR", 'es', 'symbol')).equal('€');
+            expect(manager.getCurrencySymbol('PLN', 'pl', 'symbol')).equal('zł');
 
-            expect(manager.getCurrencySymbol("GBP", 'name', 'en')).equal('British pounds');
-            expect(manager.getCurrencySymbol("BGN", 'name', 'bg')).equal('български лева');
-            expect(manager.getCurrencySymbol("JPY", 'name', 'ja')).equal('円');
-            expect(manager.getCurrencySymbol("EUR", 'name', 'es')).equal('euros');
-            expect(manager.getCurrencySymbol('PLN', 'name', 'pl')).equal('złotych polskich');
+            expect(manager.getCurrencySymbol("GBP", 'en', 'name')).equal('British pounds');
+            expect(manager.getCurrencySymbol("BGN", 'bg', 'name')).equal('български лева');
+            expect(manager.getCurrencySymbol("JPY", 'ja', 'name')).equal('円');
+            expect(manager.getCurrencySymbol("EUR", 'es', 'name')).equal('euros');
+            expect(manager.getCurrencySymbol('PLN', 'pl', 'name')).equal('złotych polskich');
         })
     })
 
