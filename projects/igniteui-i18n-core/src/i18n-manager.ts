@@ -507,8 +507,13 @@ export class igI18nManager extends I18nManagerEventTarget {
 
     private generateLocaleKey(locale: string, formatterOptions?: Intl.NumberFormatOptions | Intl.DateTimeFormatOptions) {
         // Format the options because JSON.stringify return different results for same object, but with different order of props.
-        // Ex: { currency: "BGN", compactDisplay: "long" } and { compactDisplay: "long", currency: "BGN" } returns different strings
-        return locale + '-' + (formatterOptions ? Object.entries(formatterOptions).map(([k, v]) => `${k}:${v}`).sort((a, b) => a === b ? 0 : (a < b ? -1 : 1)).join('-') : "default");
+        // Ex: { currency: "BGN", compactDisplay: "long" } and { compactDisplay: "long", currency: "BGN" } returns different strings.
+        return locale + '-' + (formatterOptions ?
+            Object.entries(formatterOptions)
+                .map(([k, v]) => `${k}:${v}`)
+                .sort((a, b) => a === b ? 0 : (a < b ? -1 : 1))
+                .join('-')
+            : "default");
     }
 
     /**
