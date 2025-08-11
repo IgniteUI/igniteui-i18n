@@ -6,10 +6,10 @@ import {
     setCurrentI18n,
     getCurrentI18n,
     getCurrentResourceStrings,
-    type ResourceChangeEventArgs
 } from './i18n-manager';
 import { ActionStripResourceStringsEN } from './i18n/EN/action-strip-resources';
 import { ActionStripResourceStringsBG } from 'igniteui-i18n-resources';
+import type { IResourceChangeEventArgs } from './utils';
 
 export const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
 const basicDate = new Date("12/3/2014");
@@ -261,16 +261,16 @@ describe('i18n tests', () => {
     describe('onResourceChange', () => {
         let onResourceChangeEvent: {
             numTriggered: number,
-            args: ResourceChangeEventArgs[]
+            args: IResourceChangeEventArgs[]
         };
         beforeEach(() => {
             onResourceChangeEvent = {
                 numTriggered: 0,
                 args: []
             };
-            manager.onResourceChange((args: ResourceChangeEventArgs) => {
+            manager.addEventListener("onResourceChange", (args: CustomEvent<IResourceChangeEventArgs>) => {
                 onResourceChangeEvent.numTriggered++;
-                onResourceChangeEvent.args.unshift(args);
+                onResourceChangeEvent.args.unshift(args.detail);
             });
         });
 
