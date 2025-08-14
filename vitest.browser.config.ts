@@ -1,6 +1,6 @@
 /// <reference types="vitest/config" />
-import { defineConfig, mergeConfig  } from 'vite'
-import vitestConfig from './vitest.config'
+import { defineConfig, mergeConfig  } from 'vite';
+import vitestConfig from './vitest.config';
 
 export default mergeConfig(vitestConfig ,defineConfig({
     test: {

@@ -13,8 +13,7 @@ import { ComboResourceStringsEN } from './combo-resources.js';
 import { QueryBuilderResourceStringsEN } from './query-builder-resources.js';
 import { BannerResourceStringsEN } from './banner-resources.js';
 import { ActionStripResourceStringsEN } from './action-strip-resources.js';
-import type { IResourceStrings } from '../../i18n-manager';
-
+import type { IResourceStrings } from '../../interfaces/resources.interface.js';
 
 /**
  * English resource strings for all components
