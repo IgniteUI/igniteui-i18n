@@ -29,3 +29,10 @@ export const I18nManagerEventTarget = EventTarget as {
     prototype: IManagerEventTarget;
     new(): IManagerEventTarget;
 };
+
+export const IntlDateTimeStyleValues = {
+    full: 'Full',
+    long: 'Long',
+    medium: 'Medium',
+    short: 'Short'
+}

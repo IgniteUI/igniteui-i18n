@@ -164,10 +164,78 @@ export class igI18nManager extends I18nManagerEventTarget {
             const isoRegex = /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
             const match = isoRegex.exec(value);
             if (match && !match.groups?.time && !match.groups?.UTC) {
-                value +='T00:00:00';
+                value += 'T00:00:00';
             }
         }
         return new Date(value);
+    }
+
+    /**
+     * Get the format of a date, based on the options provided.
+     * If you want to get only date format, set `dateStyle` for example. For time only format set `timeStyle` or for both date and time set both `dateStyle` and `timeStyle`.
+     * @param locale 
+     * @param dateTimeOptions 
+     * @returns 
+     */
+    public getLocaleDateTimeFormat(locale: string, dateTimeOptions: Intl.DateTimeFormatOptions) {
+        const testDate = new Date(2015, 2, 8, 1, 22, 44);
+        const formatter = this.getDateFormatter(locale, dateTimeOptions);
+        const resultParts = formatter.formatToParts(testDate);
+        let resultFormat = '';
+        for (const part of resultParts) {
+            if (part.type === 'weekday') {
+                resultFormat += 'EEEE';
+            } else if (part.type === "day") {
+                if (part.value.length === 1) {
+                    resultFormat += 'd';
+                } else {
+                    resultFormat += 'dd';
+                }
+            } else if (part.type === "month") {
+                const valueLength = part.value.length;
+                if (parseInt(part.value)) {
+                    resultFormat += part.value.length === 1 ? 'M' : 'MM';
+                } else if (1 < valueLength && valueLength < 4) {
+                    resultFormat += 'MMM';
+                } else if (valueLength >= 4) {
+                    resultFormat += 'MMMM';
+                } else if (valueLength === 1) {
+                    // Possibly not used by anyone by default
+                    resultFormat += 'MMMMM';
+                }
+            } else if (part.type === "year") {
+                if (part.value.length === 2) {
+                    resultFormat += 'yy';
+                } else {
+                    resultFormat += 'yyyy';
+                }
+            } else if (part.type === "hour") {
+                // h24 doesn't seem to be used anywhere
+                // eslint-disable-next-line
+                const hourCycle = (this.getLocale(locale) as any).hourCycles[0];
+                let replaceHour = 'H';
+                if (hourCycle === 'h11') {
+                    // Should be used by Japan, but it returns h12 for them.
+                    replaceHour = 'K';
+                } else if (hourCycle === 'h12') {
+                    replaceHour = 'h';
+                }
+                resultFormat += part.value.replaceAll(/\d/g, replaceHour);
+            } else if (part.type === "minute") {
+                resultFormat += 'mm';
+            } else if (part.type === "second") {
+                resultFormat += 'ss';
+            } else if (part.type === "dayPeriod") {
+                resultFormat += 'a';
+            } else if (part.type === "timeZoneName") {
+                const shortParts = this.getDateFormatter(locale, { timeZoneName: 'short' }).formatToParts(testDate);
+                const shortTimezone = this.findDatePart(shortParts, 'timeZoneName');
+                resultFormat += part.value === shortTimezone ? 'z' : 'zzzz';
+            } else if (part.type === "literal") {
+                resultFormat += part.value;
+            }
+        }
+        return resultFormat;
     }
 
     /**
@@ -220,7 +288,7 @@ export class igI18nManager extends I18nManagerEventTarget {
      * @param timezone Timezone the date to be formatted to using the `IANA time zone` specification. Ex: GMT+0230 is Etc/GMT+02:30, UTS is Etc/UTC+02:30
      * @returns 
      */
-    public formatDateCustomFormat(value: Date, locale: string, format: string, timezone =  "GMT") {
+    public formatDateCustomFormat(value: Date, locale: string, format: string, timezone = "GMT") {
         const formatRegex = /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
         let parts: string[] = [];
         let match;
@@ -388,10 +456,21 @@ export class igI18nManager extends I18nManagerEventTarget {
 
             // Hour of the day (0-23)
             case 'H':
+                options.hour12 = false;
                 options.hour = 'numeric';
                 break;
             // Hour in day, padded (00-23)
             case 'HH':
+                options.hour12 = false;
+                options.hour = '2-digit';
+                break;
+
+            case 'K':
+                options.hourCycle = 'h11';
+                options.hour = 'numeric';
+                break;
+            case 'KK':
+                options.hourCycle = 'h11';
                 options.hour = '2-digit';
                 break;
 
@@ -462,6 +541,13 @@ export class igI18nManager extends I18nManagerEventTarget {
                 default:
                     return value;
             }
+        } else if (options.hour) {
+            const value = this.findDatePart(dateParts, "hour");
+            if (options.hour === 'numeric' && value?.startsWith('0') && value.length === 2) {
+                // Use numeric option value to format to shorter hour. Ex: instead of 08 return 8.
+                return value[1];
+            }
+            return value;
         } else if (options.minute === '2-digit') {
             // For some reason not working as expected in Intl
             const minutes = this.findDatePart(dateParts, 'minute');

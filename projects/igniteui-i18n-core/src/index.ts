@@ -30,4 +30,7 @@ export * from './i18n/EN/combo-resources.js';
 export * from './i18n/EN/banner-resources.js';
 export * from './i18n/EN/resources.js';
 export * from './i18n-manager.js';
-export { type IResourceChangeEventArgs } from './utils.js';
+export {
+    type IResourceChangeEventArgs,
+    IntlDateTimeStyleValues,
+} from './utils.js';
