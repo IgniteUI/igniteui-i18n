@@ -15,6 +15,7 @@ import type { IComboResourceStrings } from './interfaces/combo.interface';
 import type { IBannerResourceStrings } from './interfaces/banner.interface';
 import { type IResourceChangeEventArgs, I18nManagerEventTarget } from './utils';
 
+const defaultLang = 'en';
 const defaultLocale = 'en-US';
 
 export interface IResourceStrings extends IGridResourceStrings, ITimePickerResourceStrings, ICalendarResourceStrings,
@@ -32,10 +33,11 @@ export class igI18nManager extends I18nManagerEventTarget {
         maximumFractionDigits: 3
     };
 
+    public defaultLang = defaultLang;
     public defaultLocale = defaultLocale;
     public currentLocale = defaultLocale;
 
-    private _resourcesMap = new Map<string, IResourceStrings>([[defaultLocale, {}]]);
+    private _resourcesMap = new Map<string, IResourceStrings>([[defaultLang, {}]]);
     private _localesCache = new Map<string, Intl.Locale>();
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
@@ -46,7 +48,7 @@ export class igI18nManager extends I18nManagerEventTarget {
         if (document) {
             const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
             this.setCurrentI18n(initialLocale);
-            
+
             if (typeof MutationObserver !== 'undefined') {
                 this._rootObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => this.htmlElementObserve(mutations, observer));
                 this._rootObserver.observe(document.documentElement, { attributeFilter: ['lang'] });
@@ -58,16 +60,19 @@ export class igI18nManager extends I18nManagerEventTarget {
      * Register resource for a locale. Can be the current locale as well or a new one. Results are merged.
      */
     public registerI18n(resources: IResourceStrings, locale: string) {
-        const presentResources = this._resourcesMap.get(locale);
+        // Use locales language when saving, to make sure for different locales with same language we return same resource strings.
+        const localeLang = this.getLocale(locale).language;
+        const presentResources = this._resourcesMap.get(localeLang);
         let bResourcesChanged = true;
         if (presentResources) {
             bResourcesChanged = Object.keys(resources).some(key => resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
             const mergedResources = Object.assign(presentResources, resources);
-            this._resourcesMap.set(locale, mergedResources);
+            this._resourcesMap.set(localeLang, mergedResources);
         } else {
-            this._resourcesMap.set(locale, resources);
+            this._resourcesMap.set(localeLang, resources);
         }
-        if (bResourcesChanged && this.currentLocale === locale) {
+        const currentLocaleLang = this.getLocale(this.currentLocale).language;
+        if (bResourcesChanged && currentLocaleLang === localeLang) {
             this.triggerResourceChange(this.currentLocale, this.currentLocale);
         }
     }
@@ -88,11 +93,12 @@ export class igI18nManager extends I18nManagerEventTarget {
      * Get the current resource string for all components in a single object.
      */
     public getCurrentResourceStrings(locale?: string) {
-        const currentResources = this._resourcesMap.get(locale ?? this.currentLocale);
+        const lang = this.getLocale(locale ?? this.currentLocale).language;
+        const currentResources = this._resourcesMap.get(lang);
         if (currentResources) {
             return currentResources;
         }
-        return this._resourcesMap.get(this.defaultLocale)!;
+        return this._resourcesMap.get(this.defaultLang) ?? [] as IResourceStrings;
     }
 
     public getFirstDayOfWeek(locale?: string): number {

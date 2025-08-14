@@ -11,7 +11,7 @@ import {
     getCurrentResourceStrings,
 } from './i18n-manager';
 import { ActionStripResourceStringsEN } from './i18n/EN/action-strip-resources';
-import { ActionStripResourceStringsBG } from 'igniteui-i18n-resources';
+import { ActionStripResourceStringsBG, ActionStripResourceStringsES } from 'igniteui-i18n-resources';
 import type { IResourceChangeEventArgs } from './utils';
 
 export const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
@@ -75,7 +75,7 @@ describe('i18n tests', () => {
             expect(resources.action_strip_button_more_title).equals('More');
         })
 
-        it('should override old resource string to default locale', () => {
+        it('should override old resource string to currentLocale locale', () => {
             manager.registerI18n(ActionStripResourceStringsEN, manager.currentLocale);
             manager.registerI18n(ActionStripResourceStringsBG, manager.currentLocale);
 
@@ -85,7 +85,7 @@ describe('i18n tests', () => {
             expect(resources.action_strip_button_more_title).equal('Още');
         })
 
-        it('should return empty when registering for current locale and then the current locale is changed', () => {
+        it('should return empty when registering for changed current locale and default locale is not defined', () => {
             manager.setCurrentI18n('bg');
             manager.registerI18n(ActionStripResourceStringsEN, manager.currentLocale);
 
@@ -125,6 +125,25 @@ describe('i18n tests', () => {
             resources = manager.getCurrentResourceStrings();
             expect(Object.keys(resources).length).equal(1);
             expect(resources.action_strip_button_more_title).equal('Още');
+        })
+
+        it('should return same resources for same language but with different locale', () => {
+            manager.registerI18n(ActionStripResourceStringsES, "es-ES");
+
+            manager.setCurrentI18n('es-AR');
+            let resources = manager.getCurrentResourceStrings();
+            expect(Object.keys(resources).length).equal(1);
+            expect(resources.action_strip_button_more_title).equal("Más");
+
+            manager.setCurrentI18n('es-ES');
+            resources = manager.getCurrentResourceStrings();
+            expect(Object.keys(resources).length).equal(1);
+            expect(resources.action_strip_button_more_title).equal("Más");
+
+            manager.setCurrentI18n('es');
+            resources = manager.getCurrentResourceStrings();
+            expect(Object.keys(resources).length).equal(1);
+            expect(resources.action_strip_button_more_title).equal("Más");
         })
 
         it('should create dates from ISO string correctly', () => {
