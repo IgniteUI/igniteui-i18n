@@ -648,8 +648,8 @@ export class igI18nManager extends I18nManagerEventTarget {
 
 const igI18nManagerInstance = new igI18nManager();
 
-// By default max event listeners per object is 10 but the manager is one for a whole page.
-// Each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
+// By default it is expected max event listeners per object to be 10, otherwise error is thrown.
+// The manager is one for a page and each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
 // Components should clear any listeners when they are destroyed, but still can have a lot at once.
 setMaxListeners(maxEventListeners, igI18nManagerInstance);
 
