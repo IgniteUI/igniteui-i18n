@@ -14,9 +14,11 @@ import type { IQueryBuilderResourceStrings } from './interfaces/query-builder.in
 import type { IComboResourceStrings } from './interfaces/combo.interface';
 import type { IBannerResourceStrings } from './interfaces/banner.interface';
 import { type IResourceChangeEventArgs, I18nManagerEventTarget } from './utils';
+import { setMaxListeners } from "events";
 
 const defaultLang = 'en';
 const defaultLocale = 'en-US';
+const maxEventListeners = 9999;
 
 export interface IResourceStrings extends IGridResourceStrings, ITimePickerResourceStrings, ICalendarResourceStrings,
     ICarouselResourceStrings, IChipResourceStrings, IComboResourceStrings, IInputResourceStrings, IDatePickerResourceStrings,
@@ -45,7 +47,7 @@ export class igI18nManager extends I18nManagerEventTarget {
 
     constructor() {
         super();
-        if (document) {
+        if (typeof document !== 'undefined') {
             const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
             this.setCurrentI18n(initialLocale);
 
@@ -630,7 +632,10 @@ export class igI18nManager extends I18nManagerEventTarget {
             oldLocale,
             newLocale
         } as IResourceChangeEventArgs;
-        this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>("onResourceChange", { detail: eventArgs }));
+        if (CustomEvent instanceof Event) {
+            // Make sure inheritance is correct due to Angular SSR having issues with it.
+            this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>("onResourceChange", { detail: eventArgs }));
+        }
     }
 
     private htmlElementObserve(mutations: MutationRecord[], _: MutationObserver) {
@@ -642,6 +647,11 @@ export class igI18nManager extends I18nManagerEventTarget {
 }
 
 const igI18nManagerInstance = new igI18nManager();
+
+// By default max event listeners per object is 10 but the manager is one for a whole page.
+// Each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
+// Components should clear any listeners when they are destroyed, but still can have a lot at once.
+setMaxListeners(maxEventListeners, igI18nManagerInstance);
 
 /**
  * Gets in the i18nManager instance.
