@@ -13,7 +13,7 @@ import type { IActionStripResourceStrings } from './interfaces/action-strip.inte
 import type { IQueryBuilderResourceStrings } from './interfaces/query-builder.interface';
 import type { IComboResourceStrings } from './interfaces/combo.interface';
 import type { IBannerResourceStrings } from './interfaces/banner.interface';
-import { type IResourceChangeEventArgs, I18nManagerEventTarget } from './utils';
+import { type IResourceChangeEventArgs, I18nManagerEventTarget } from './utils.js';
 import { setMaxListeners } from "events";
 
 const defaultLang = 'en';
