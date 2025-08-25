@@ -737,10 +737,10 @@ describe('i18n tests', () => {
 
         it('should format period of the day', () => {
             let format = "a";
-            expect(manager.formatDateCustomFormat(dateTime, 'en', format)).equal("AM");
-            expect(manager.formatDateCustomFormat(dateTime, 'bg', format)).equal("AM");
-            expect(manager.formatDateCustomFormat(dateTime, 'ja', format)).equal("AM");
-            expect(manager.formatDateCustomFormat(dateTime, 'es', format)).equal("AM");
+            expect(manager.formatDateCustomFormat(dateTime, 'en', format)).equal("am");
+            expect(manager.formatDateCustomFormat(dateTime, 'bg', format)).equal("am");
+            expect(manager.formatDateCustomFormat(dateTime, 'ja', format)).equal("am");
+            expect(manager.formatDateCustomFormat(dateTime, 'es', format)).equal("am");
             expect(manager.formatDateCustomFormat(dateTime, 'ar', format)).equal("ص");
 
             format = "aaaa";
@@ -751,10 +751,10 @@ describe('i18n tests', () => {
             expect(manager.formatDateCustomFormat(dateTime, 'ar', format)).equal("ص");
 
             format = "aaaaa";
-            expect(manager.formatDateCustomFormat(dateTime, 'en', format)).equal("A");
-            expect(manager.formatDateCustomFormat(dateTime, 'bg', format)).equal("A");
-            expect(manager.formatDateCustomFormat(dateTime, 'ja', format)).equal("A");
-            expect(manager.formatDateCustomFormat(dateTime, 'es', format)).equal("A");
+            expect(manager.formatDateCustomFormat(dateTime, 'en', format)).equal("a");
+            expect(manager.formatDateCustomFormat(dateTime, 'bg', format)).equal("a");
+            expect(manager.formatDateCustomFormat(dateTime, 'ja', format)).equal("a");
+            expect(manager.formatDateCustomFormat(dateTime, 'es', format)).equal("a");
             expect(manager.formatDateCustomFormat(dateTime, 'ar', format)).equal("ص");
         })
 

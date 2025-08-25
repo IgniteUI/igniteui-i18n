@@ -542,9 +542,9 @@ export class igI18nManager extends I18nManagerEventTarget {
             }
             switch (periodStyle ?? options.dayPeriod) {
                 case 'narrow':
-                    return value?.split(' ').map(part => part.substring(0, 1)).join('');
+                    return value?.split(' ').map(part => part.substring(0, 1).toLocaleLowerCase()).join('');
                 case 'short':
-                    return value?.split(' ').map(part => part.substring(0, 2) + (part.length > 2 ? '.' : '')).join(' ');
+                    return value?.split(' ').map(part => part.substring(0, 2).toLocaleLowerCase() + (part.length > 2 ? '.' : '')).join(' ');
                 case 'long':
                 default:
                     return value;
