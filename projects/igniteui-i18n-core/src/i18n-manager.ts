@@ -44,6 +44,7 @@ export class igI18nManager extends I18nManagerEventTarget {
     private _numberFormattersCache = new Map<string, Intl.NumberFormat>();
     private _dateTimeFormattersCache = new Map<string, Intl.DateTimeFormat>();
     private _rootObserver: MutationObserver | undefined;
+    private _eventsEnabled = true;
 
     constructor() {
         super();
@@ -55,6 +56,20 @@ export class igI18nManager extends I18nManagerEventTarget {
                 this._rootObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => this.htmlElementObserve(mutations, observer));
                 this._rootObserver.observe(document.documentElement, { attributeFilter: ['lang'] });
             }
+        }
+    }
+
+    /**
+     * Warning: Do not use this method unless you are sure you want to disable updates of i18n for everything.
+     * Temporary toggle triggering of `onResourceChange` event.
+     * Currently this is used for Angular's test bed having concurrency errors if triggering events while a component is still initializing.
+     * @param enable 
+     */
+    public toggleEvents(enable?: boolean) {
+        if (enable !== undefined) {
+            this._eventsEnabled = enable;
+        } else {
+            this._eventsEnabled = !this._eventsEnabled;
         }
     }
 
@@ -633,7 +648,7 @@ export class igI18nManager extends I18nManagerEventTarget {
             newLocale
         } as IResourceChangeEventArgs;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        if (Object.getPrototypeOf(CustomEvent).name === 'Event') {
+        if (Object.getPrototypeOf(CustomEvent).name === 'Event' && this._eventsEnabled) {
             // Make sure inheritance is correct due to Angular SSR having issues with it.
             this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>("onResourceChange", { detail: eventArgs }));
         }
