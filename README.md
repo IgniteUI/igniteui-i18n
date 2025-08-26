@@ -44,6 +44,8 @@ The repo follows coding guidelines, which are kept in check using lint. To run i
 npm run lint
 ```
 
+For any prettier errors make sure to run the `pretty:fix` command, as it should address most of the issues. For easier you can use the [`Prettier plugin`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and enable `editor.formatOnSave` setting.
+
 ## Tests
 
 The repo uses [Vitest](https://vitest.dev/guide/) for a base testing framework and [Playwright](https://vitest.dev/guide/browser/playwright.html) for in browser testing. Also the ability for out of browser testing is available using [jsdom](https://github.com/jsdom/jsdom). It is highly encouraged to use the native browser one, while the other can be used for easier debugging of tests and core functionality, but keep in might the nature of `jsdom` not being a native browser.
