@@ -1,15 +1,15 @@
-import { generateLocaleKey, mergeOptions } from "../utils";
+import { generateLocaleKey, mergeOptions } from '../utils';
 
 export class BaseFormatter<
     T extends Intl.DateTimeFormat | Intl.NumberFormat | Intl.Locale,
-    O extends Intl.DateTimeFormatOptions | Intl.NumberFormatOptions | Intl.LocaleOptions> {
-        
+    O extends Intl.DateTimeFormatOptions | Intl.NumberFormatOptions | Intl.LocaleOptions
+> {
     public defaultOptions = {} as O;
     protected cachedIntlFormatters = new Map<string, T>();
     protected currentLocale: string;
-    protected formatterType: new(locale: string, options?: O) => T;
+    protected formatterType: new (locale: string, options?: O) => T;
 
-    constructor(defaultLocale: string, formatterType: new(locale: string, options?: O) => T) {
+    constructor(defaultLocale: string, formatterType: new (locale: string, options?: O) => T) {
         this.currentLocale = defaultLocale;
         this.formatterType = formatterType;
     }

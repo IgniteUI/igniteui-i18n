@@ -113,14 +113,16 @@ export const GridResourceStringsNL: IGridResourceStrings = {
     grid_advanced_filter_ungroup: 'Groep opheffen',
     grid_advanced_filter_delete: 'Verwijderen',
     grid_advanced_filter_delete_filters: 'Filters verwijderen',
-    grid_advanced_filter_initial_text: 'Begin met het maken van een groep voorwaarden die is gekoppeld aan "En" of "Of"',
+    grid_advanced_filter_initial_text:
+        'Begin met het maken van een groep voorwaarden die is gekoppeld aan "En" of "Of"',
     grid_advanced_filter_column_placeholder: 'Selecteer kolom',
     grid_advanced_filter_value_placeholder: 'Waarde',
     grid_advanced_filter_query_value_placeholder: 'Subquery-resultaten',
     grid_advanced_filter_select_entity: 'Entiteit selecteren',
     grid_advanced_filter_select_return_field_single: 'Retourveld selecteren',
     grid_advanced_filter_dialog_title: 'Bevestiging',
-    grid_advanced_filter_dialog_message: 'Door de entiteit te wijzigen, verliest u uw huidige instellingen. Weet u zeker dat u wilt doorgaan?',
+    grid_advanced_filter_dialog_message:
+        'Door de entiteit te wijzigen, verliest u uw huidige instellingen. Weet u zeker dat u wilt doorgaan?',
     grid_advanced_filter_dialog_checkbox_text: 'Deze dialoog niet meer weergeven',
     grid_advanced_filter_drop_ghost_text: 'Zet hier neer om in te voegen',
     grid_pinned_row_indicator: 'Vastgemaakt',

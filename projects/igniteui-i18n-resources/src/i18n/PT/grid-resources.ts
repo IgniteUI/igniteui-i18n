@@ -120,7 +120,8 @@ export const GridResourceStringsPT: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Selecionar entidade',
     grid_advanced_filter_select_return_field_single: 'Selecionar campo de retorno',
     grid_advanced_filter_dialog_title: 'Confirmação',
-    grid_advanced_filter_dialog_message: 'Ao alterar a entidade, você perderá suas configurações atuais. Tem a certeza que pretende continuar?',
+    grid_advanced_filter_dialog_message:
+        'Ao alterar a entidade, você perderá suas configurações atuais. Tem a certeza que pretende continuar?',
     grid_advanced_filter_dialog_checkbox_text: 'Não voltar a mostrar esta caixa de diálogo',
     grid_advanced_filter_drop_ghost_text: 'Largar aqui para inserir',
     grid_pinned_row_indicator: 'Afixado',

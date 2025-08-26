@@ -1,5 +1,5 @@
-import { BaseFormatter } from "./base.formatter";
-import { LocaleFormatter } from "./locale.formatter";
+import { BaseFormatter } from './base.formatter';
+import { LocaleFormatter } from './locale.formatter';
 
 export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateTimeFormatOptions> {
     private localeFormatter: LocaleFormatter;
@@ -18,7 +18,8 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     public createDateFromValue(value: string | number) {
         if (typeof value === 'string') {
             // Workaround for ISO date without time or specified UTC explicitly
-            const isoRegex = /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
+            const isoRegex =
+                /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
             const match = isoRegex.exec(value);
             if (match && !match.groups?.time && !match.groups?.UTC) {
                 value += 'T00:00:00';
@@ -54,9 +55,9 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     /**
      * Get the format of a date, based on the options provided.
      * If you want to get only date format, set `dateStyle` for example. For time only format set `timeStyle` or for both date and time set both `dateStyle` and `timeStyle`.
-     * @param locale 
-     * @param dateTimeOptions 
-     * @returns 
+     * @param locale
+     * @param dateTimeOptions
+     * @returns
      */
     public getLocaleDateTimeFormat(locale: string, dateTimeOptions: Intl.DateTimeFormatOptions) {
         const testDate = new Date(2015, 2, 8, 1, 22, 44);
@@ -66,13 +67,13 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         for (const part of resultParts) {
             if (part.type === 'weekday') {
                 resultFormat += 'EEEE';
-            } else if (part.type === "day") {
+            } else if (part.type === 'day') {
                 if (part.value.length === 1) {
                     resultFormat += 'd';
                 } else {
                     resultFormat += 'dd';
                 }
-            } else if (part.type === "month") {
+            } else if (part.type === 'month') {
                 const valueLength = part.value.length;
                 if (parseInt(part.value)) {
                     resultFormat += part.value.length === 1 ? 'M' : 'MM';
@@ -84,13 +85,13 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                     // Possibly not used by anyone by default
                     resultFormat += 'MMMMM';
                 }
-            } else if (part.type === "year") {
+            } else if (part.type === 'year') {
                 if (part.value.length === 2) {
                     resultFormat += 'yy';
                 } else {
                     resultFormat += 'yyyy';
                 }
-            } else if (part.type === "hour") {
+            } else if (part.type === 'hour') {
                 // h24 doesn't seem to be used anywhere
                 // eslint-disable-next-line
                 const hourCycle = (this.localeFormatter.getIntlFormatter(locale) as any).hourCycles[0];
@@ -102,17 +103,19 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                     replaceHour = 'h';
                 }
                 resultFormat += part.value.replaceAll(/\d/g, replaceHour);
-            } else if (part.type === "minute") {
+            } else if (part.type === 'minute') {
                 resultFormat += 'mm';
-            } else if (part.type === "second") {
+            } else if (part.type === 'second') {
                 resultFormat += 'ss';
-            } else if (part.type === "dayPeriod") {
+            } else if (part.type === 'dayPeriod') {
                 resultFormat += 'a';
-            } else if (part.type === "timeZoneName") {
-                const shortParts = this.getIntlFormatter(locale, { timeZoneName: 'short' }).formatToParts(testDate);
+            } else if (part.type === 'timeZoneName') {
+                const shortParts = this.getIntlFormatter(locale, {
+                    timeZoneName: 'short'
+                }).formatToParts(testDate);
                 const shortTimezone = this.findDatePart(shortParts, 'timeZoneName');
                 resultFormat += part.value === shortTimezone ? 'z' : 'zzzz';
-            } else if (part.type === "literal") {
+            } else if (part.type === 'literal') {
                 resultFormat += part.value;
             }
         }
@@ -141,13 +144,14 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     /**
      * Use custom formatting to format a date to match the provided strings
      * @param value Date to be formatted
-     * @param locale 
+     * @param locale
      * @param format String containing custom strings describing how the date should be formatted
      * @param timezone Timezone the date to be formatted to using the `IANA time zone` specification. Ex: GMT+0230 is Etc/GMT+02:30, UTS is Etc/UTC+02:30
-     * @returns 
+     * @returns
      */
-    public formatDateCustomFormat(value: Date, locale: string, format: string, timezone = "GMT") {
-        const formatRegex = /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
+    public formatDateCustomFormat(value: Date, locale: string, format: string, timezone = 'GMT') {
+        const formatRegex =
+            /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
         let parts: string[] = [];
         let match;
         while (format) {
@@ -238,7 +242,9 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             // Week of the month (1, ...)
             // falls through
             case 'W':
-                console.warn("Week of the year and week of the month has been deprecated for Ignite UI. Please use custom formatting.");
+                console.warn(
+                    'Week of the year and week of the month has been deprecated for Ignite UI. Please use custom formatting.'
+                );
                 return format;
 
             // Day of the month (1-31)
@@ -385,22 +391,28 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         if (options.era) {
             return this.findDatePart(dateParts, 'era');
         } else if (periodStyle || options.dayPeriod) {
-            let value = dateParts.find(part => part.type === 'dayPeriod')?.value;
+            let value = dateParts.find((part) => part.type === 'dayPeriod')?.value;
             if (!value && periodStyle) {
                 // Current locale doesn't have generic day period. Just use the `en` one.
                 value = this.findDatePart(this.formatDateTimeToParts(date, 'en', options), 'dayPeriod');
             }
             switch (periodStyle ?? options.dayPeriod) {
                 case 'narrow':
-                    return value?.split(' ').map(part => part.substring(0, 1)).join('');
+                    return value
+                        ?.split(' ')
+                        .map((part) => part.substring(0, 1))
+                        .join('');
                 case 'short':
-                    return value?.split(' ').map(part => part.substring(0, 2) + (part.length > 2 ? '.' : '')).join(' ');
+                    return value
+                        ?.split(' ')
+                        .map((part) => part.substring(0, 2) + (part.length > 2 ? '.' : ''))
+                        .join(' ');
                 case 'long':
                 default:
                     return value;
             }
         } else if (options.hour) {
-            const value = this.findDatePart(dateParts, "hour");
+            const value = this.findDatePart(dateParts, 'hour');
             if (options.hour === 'numeric' && value?.startsWith('0') && value.length === 2) {
                 // Use numeric option value to format to shorter hour. Ex: instead of 08 return 8.
                 return value[1];
@@ -409,11 +421,11 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         } else if (options.minute === '2-digit') {
             // For some reason not working as expected in Intl
             const minutes = this.findDatePart(dateParts, 'minute');
-            return minutes?.length === 1 ? "0" + minutes : minutes;
+            return minutes?.length === 1 ? '0' + minutes : minutes;
         } else if (options.second === '2-digit') {
             // For some reason not working as expected in Intl
             const seconds = this.findDatePart(dateParts, 'second');
-            return seconds?.length === 1 ? "0" + seconds : seconds;
+            return seconds?.length === 1 ? '0' + seconds : seconds;
         } else if (options.timeZone) {
             return this.findDatePart(dateParts, 'timeZoneName');
         } else if (options.fractionalSecondDigits) {
@@ -421,8 +433,8 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         }
         return dateParts[0].value;
     }
-    
+
     private findDatePart(parts: Intl.DateTimeFormatPart[], partName: string) {
-        return parts.find(part => part.type === partName)?.value;
+        return parts.find((part) => part.type === partName)?.value;
     }
 }

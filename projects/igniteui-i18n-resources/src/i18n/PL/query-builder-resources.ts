@@ -71,7 +71,8 @@ export const QueryBuilderResourceStringsPL: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Wybierz pole zwrotne',
     query_builder_select_return_fields: 'Wybierz pola zwrotne',
     query_builder_dialog_title: 'Potwierdzenie',
-    query_builder_dialog_message: 'Zmieniając encję, stracisz swoje aktualne ustawienia. Czy na pewno chcesz to zrobić?',
+    query_builder_dialog_message:
+        'Zmieniając encję, stracisz swoje aktualne ustawienia. Czy na pewno chcesz to zrobić?',
     query_builder_dialog_checkbox_text: 'Nie pokazuj tego okna dialogowego ponownie',
     query_builder_dialog_cancel: 'Anuluj',
     query_builder_dialog_confirm: 'Potwierdź',

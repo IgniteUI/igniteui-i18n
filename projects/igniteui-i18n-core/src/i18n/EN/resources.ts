@@ -8,7 +8,7 @@ import { ListResourceStringsEN } from './list-resources.js';
 import { CalendarResourceStringsEN } from './calendar-resources.js';
 import { TreeResourceStringsEN } from './tree-resources.js';
 import { InputResourceStringsEN } from './input-resources.js';
-import { ChipResourceStringsEN} from './chip-resources.js';
+import { ChipResourceStringsEN } from './chip-resources.js';
 import { ComboResourceStringsEN } from './combo-resources.js';
 import { QueryBuilderResourceStringsEN } from './query-builder-resources.js';
 import { BannerResourceStringsEN } from './banner-resources.js';
@@ -33,5 +33,5 @@ export const ResourceStringsEN: IResourceStrings = {
     ...ComboResourceStringsEN,
     ...QueryBuilderResourceStringsEN,
     ...BannerResourceStringsEN,
-    ...ActionStripResourceStringsEN,
+    ...ActionStripResourceStringsEN
 };

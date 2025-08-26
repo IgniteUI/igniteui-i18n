@@ -120,7 +120,8 @@ export const GridResourceStringsRO: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Selectează entitate',
     grid_advanced_filter_select_return_field_single: 'Selectează câmpul de returnare',
     grid_advanced_filter_dialog_title: 'Confirmare',
-    grid_advanced_filter_dialog_message: 'Prin modificarea entității, veți pierde setările curente. Ești sigur că vrei să faci asta?',
+    grid_advanced_filter_dialog_message:
+        'Prin modificarea entității, veți pierde setările curente. Ești sigur că vrei să faci asta?',
     grid_advanced_filter_dialog_checkbox_text: 'Nu se mai afișează această casetă de dialog',
     grid_advanced_filter_drop_ghost_text: 'Aruncaţi aici pentru a introduce',
     grid_pinned_row_indicator: 'Fixat',

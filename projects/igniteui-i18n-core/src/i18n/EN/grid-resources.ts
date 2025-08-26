@@ -1,4 +1,4 @@
-import type { IGridResourceStrings } from "../../interfaces/grid.interface";
+import type { IGridResourceStrings } from '../../interfaces/grid.interface';
 
 export const GridResourceStringsEN: IGridResourceStrings = {
     grid_groupByArea_message: 'Drag a column header and drop it here to group by that column.',
@@ -116,7 +116,8 @@ export const GridResourceStringsEN: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Select entity',
     grid_advanced_filter_select_return_field_single: 'Select return field',
     grid_advanced_filter_dialog_title: 'Confirmation',
-    grid_advanced_filter_dialog_message: 'By changing the entity, you will lose your current settings. Are you sure you want to do that?',
+    grid_advanced_filter_dialog_message:
+        'By changing the entity, you will lose your current settings. Are you sure you want to do that?',
     grid_advanced_filter_dialog_checkbox_text: 'Do not show this dialog again',
     grid_advanced_filter_drop_ghost_text: 'Drop here to insert',
     grid_pinned_row_indicator: 'Pinned',

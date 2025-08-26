@@ -10,5 +10,5 @@ export const PaginatorResourceStringsBG: IPaginatorResourceStrings = {
     paginator_first_page_button_text: 'Към първата страница',
     paginator_previous_page_button_text: 'Предишна страница',
     paginator_last_page_button_text: 'Към последната страница',
-    paginator_next_page_button_text: 'Следваща страница',
+    paginator_next_page_button_text: 'Следваща страница'
 } satisfies MakeRequired<IPaginatorResourceStrings>;

@@ -33,5 +33,5 @@ export const ResourceStringsJA: IResourceStrings = {
     ...ComboResourceStringsJA,
     ...QueryBuilderResourceStringsJA,
     ...BannerResourceStringsJA,
-    ...ActionStripResourceStringsJA,
+    ...ActionStripResourceStringsJA
 };

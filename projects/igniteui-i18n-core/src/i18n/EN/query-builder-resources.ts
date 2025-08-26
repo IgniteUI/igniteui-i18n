@@ -1,4 +1,4 @@
-import type { IQueryBuilderResourceStrings } from "../../interfaces/query-builder.interface";
+import type { IQueryBuilderResourceStrings } from '../../interfaces/query-builder.interface';
 
 export const QueryBuilderResourceStringsEN: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Select date',
@@ -68,7 +68,8 @@ export const QueryBuilderResourceStringsEN: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Select return field',
     query_builder_select_return_fields: 'Select return fields',
     query_builder_dialog_title: 'Confirmation',
-    query_builder_dialog_message: 'By changing the entity, you will lose your current settings. Are you sure you want to do that?',
+    query_builder_dialog_message:
+        'By changing the entity, you will lose your current settings. Are you sure you want to do that?',
     query_builder_dialog_checkbox_text: 'Do not show this dialog again',
     query_builder_dialog_cancel: 'Cancel',
     query_builder_dialog_confirm: 'Confirm',

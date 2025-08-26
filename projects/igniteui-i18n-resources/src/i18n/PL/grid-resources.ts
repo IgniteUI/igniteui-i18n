@@ -120,7 +120,8 @@ export const GridResourceStringsPL: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Wybierz encję',
     grid_advanced_filter_select_return_field_single: 'Wybierz pole zwrotu',
     grid_advanced_filter_dialog_title: 'Potwierdzenie',
-    grid_advanced_filter_dialog_message: 'Zmieniając encję, stracisz swoje aktualne ustawienia. Czy na pewno chcesz to zrobić?',
+    grid_advanced_filter_dialog_message:
+        'Zmieniając encję, stracisz swoje aktualne ustawienia. Czy na pewno chcesz to zrobić?',
     grid_advanced_filter_dialog_checkbox_text: 'Nie pokazuj tego okna dialogowego ponownie',
     grid_advanced_filter_drop_ghost_text: 'Upuść tutaj, aby wstawić',
     grid_pinned_row_indicator: 'Przypięte',

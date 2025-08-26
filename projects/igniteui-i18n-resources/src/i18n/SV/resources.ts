@@ -31,5 +31,5 @@ export const ResourceStringsSV: IResourceStrings = {
     ...ChipResourceStringsSV,
     ...ComboResourceStringsSV,
     ...QueryBuilderResourceStringsSV,
-    ...ActionStripResourceStringsSV,
+    ...ActionStripResourceStringsSV
 };

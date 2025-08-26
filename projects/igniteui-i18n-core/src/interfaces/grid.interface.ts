@@ -111,9 +111,9 @@ export interface IGridResourceStrings {
     grid_advanced_filter_value_placeholder?: string;
     grid_advanced_filter_query_value_placeholder?: string;
     grid_advanced_filter_switch_group?: string;
-    grid_advanced_filter_dialog_title? : string;
-    grid_advanced_filter_dialog_message? : string;
-    grid_advanced_filter_dialog_checkbox_text? : string;
+    grid_advanced_filter_dialog_title?: string;
+    grid_advanced_filter_dialog_message?: string;
+    grid_advanced_filter_dialog_checkbox_text?: string;
     grid_advanced_filter_drop_ghost_text?: string;
     grid_advanced_filter_select_entity?: string;
     grid_advanced_filter_select_return_field_single?: string;

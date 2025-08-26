@@ -10,5 +10,5 @@ export const PaginatorResourceStringsHU: IPaginatorResourceStrings = {
     paginator_first_page_button_text: 'Ugrás az első oldalra',
     paginator_previous_page_button_text: 'Előző oldal',
     paginator_last_page_button_text: 'Ugrás az utolsó oldalra',
-    paginator_next_page_button_text: 'Következő oldal',
+    paginator_next_page_button_text: 'Következő oldal'
 } satisfies MakeRequired<IPaginatorResourceStrings>;

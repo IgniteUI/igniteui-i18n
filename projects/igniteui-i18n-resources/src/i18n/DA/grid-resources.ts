@@ -120,7 +120,8 @@ export const GridResourceStringsDA: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Vælg objekt',
     grid_advanced_filter_select_return_field_single: 'Vælg returfelt',
     grid_advanced_filter_dialog_title: 'Bekræftelse',
-    grid_advanced_filter_dialog_message: 'Ved at ændre objektet mister du dine nuværende indstillinger. Er du sikker på, at du vil fortsætte?',
+    grid_advanced_filter_dialog_message:
+        'Ved at ændre objektet mister du dine nuværende indstillinger. Er du sikker på, at du vil fortsætte?',
     grid_advanced_filter_dialog_checkbox_text: 'Vis ikke denne dialogboks igen',
     grid_advanced_filter_drop_ghost_text: 'Slip her for at indsætte',
     grid_pinned_row_indicator: 'Fastgjort',

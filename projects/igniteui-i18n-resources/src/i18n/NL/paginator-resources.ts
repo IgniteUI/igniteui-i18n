@@ -10,5 +10,5 @@ export const PaginatorResourceStringsNL: IPaginatorResourceStrings = {
     paginator_first_page_button_text: 'Ga naar de eerste pagina',
     paginator_previous_page_button_text: 'Vorige pagina',
     paginator_last_page_button_text: 'Ga naar de laatste pagina',
-    paginator_next_page_button_text: 'Volgende pagina',
+    paginator_next_page_button_text: 'Volgende pagina'
 } satisfies MakeRequired<IPaginatorResourceStrings>;

@@ -71,7 +71,8 @@ export const QueryBuilderResourceStringsNB: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Velg returfelt',
     query_builder_select_return_fields: 'Velg returfelter',
     query_builder_dialog_title: 'Bekreftelse',
-    query_builder_dialog_message: 'Ved å endre enheten vil du miste de nåværende innstillingene dine. Er du sikker på at du vil fortsette?',
+    query_builder_dialog_message:
+        'Ved å endre enheten vil du miste de nåværende innstillingene dine. Er du sikker på at du vil fortsette?',
     query_builder_dialog_checkbox_text: 'Ikke vis denne dialogboksen igjen',
     query_builder_dialog_cancel: 'Avbryt',
     query_builder_dialog_confirm: 'Bekreft',

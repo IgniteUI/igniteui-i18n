@@ -8,13 +8,12 @@ import { ListResourceStringsBG } from './list-resources.js';
 import { CalendarResourceStringsBG } from './calendar-resources.js';
 import { TreeResourceStringsBG } from './tree-resources.js';
 import { InputResourceStringsBG } from './input-resources.js';
-import { ChipResourceStringsBG} from './chip-resources.js';
+import { ChipResourceStringsBG } from './chip-resources.js';
 import { ComboResourceStringsBG } from './combo-resources.js';
 import { QueryBuilderResourceStringsBG } from './query-builder-resources.js';
 import { BannerResourceStringsBG } from './banner-resources.js';
 import { ActionStripResourceStringsBG } from './action-strip-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
-
 
 /**
  * Bulgarian resource strings for all components
@@ -34,5 +33,5 @@ export const ResourceStringsBG: IResourceStrings = {
     ...ComboResourceStringsBG,
     ...QueryBuilderResourceStringsBG,
     ...BannerResourceStringsBG,
-    ...ActionStripResourceStringsBG,
+    ...ActionStripResourceStringsBG
 };

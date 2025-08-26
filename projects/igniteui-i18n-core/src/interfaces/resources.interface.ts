@@ -14,7 +14,19 @@ import type { IQueryBuilderResourceStrings } from './query-builder.interface';
 import type { IComboResourceStrings } from './combo.interface';
 import type { IBannerResourceStrings } from './banner.interface';
 
-export interface IResourceStrings extends IGridResourceStrings, ITimePickerResourceStrings, ICalendarResourceStrings,
-    ICarouselResourceStrings, IChipResourceStrings, IComboResourceStrings, IInputResourceStrings, IDatePickerResourceStrings,
-    IDateRangePickerResourceStrings, IListResourceStrings, IPaginatorResourceStrings, ITreeResourceStrings,
-    IActionStripResourceStrings, IQueryBuilderResourceStrings, IBannerResourceStrings { }
+export interface IResourceStrings
+    extends IGridResourceStrings,
+        ITimePickerResourceStrings,
+        ICalendarResourceStrings,
+        ICarouselResourceStrings,
+        IChipResourceStrings,
+        IComboResourceStrings,
+        IInputResourceStrings,
+        IDatePickerResourceStrings,
+        IDateRangePickerResourceStrings,
+        IListResourceStrings,
+        IPaginatorResourceStrings,
+        ITreeResourceStrings,
+        IActionStripResourceStrings,
+        IQueryBuilderResourceStrings,
+        IBannerResourceStrings {}

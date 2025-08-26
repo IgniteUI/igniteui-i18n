@@ -120,7 +120,8 @@ export const GridResourceStringsSV: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Välj enhet',
     grid_advanced_filter_select_return_field_single: 'Välj enhet',
     grid_advanced_filter_dialog_title: 'Bekräftelse',
-    grid_advanced_filter_dialog_message: 'Genom att ändra entitet förlorar du dina nuvarande inställningar. Är du säker på att du vill göra det?',
+    grid_advanced_filter_dialog_message:
+        'Genom att ändra entitet förlorar du dina nuvarande inställningar. Är du säker på att du vill göra det?',
     grid_advanced_filter_dialog_checkbox_text: 'Visa inte den här dialogrutan igen',
     grid_advanced_filter_drop_ghost_text: 'Släpp här för att infoga',
     grid_pinned_row_indicator: 'Fäst',

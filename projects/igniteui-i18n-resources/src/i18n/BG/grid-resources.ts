@@ -5,7 +5,8 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
  * Bulgarian resource strings for IgxGrid
  */
 export const GridResourceStringsBG: IGridResourceStrings = {
-    grid_groupByArea_message: 'Плъзнете заглавката на колоната и я пуснете тук, за да извършите групиране по тази колона.',
+    grid_groupByArea_message:
+        'Плъзнете заглавката на колоната и я пуснете тук, за да извършите групиране по тази колона.',
     grid_groupByArea_select_message: 'Избери всички редове в групата с име на поле {0} и стойност {1}.',
     grid_groupByArea_deselect_message: 'Отмаркирай всички редове в групата с име на поле {0} и стойност {1}.',
     grid_emptyFilteredGrid_message: 'Няма открити записи.',
@@ -120,7 +121,8 @@ export const GridResourceStringsBG: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Избери обект',
     grid_advanced_filter_select_return_field_single: 'Избери поле(та) за връщане',
     grid_advanced_filter_dialog_title: 'Потвърждение',
-    grid_advanced_filter_dialog_message: 'С промяната на обекта ще загубите текущите си настройки. Сигурни ли сте, че искате да продължите?',
+    grid_advanced_filter_dialog_message:
+        'С промяната на обекта ще загубите текущите си настройки. Сигурни ли сте, че искате да продължите?',
     grid_advanced_filter_dialog_checkbox_text: 'Не показвай този диалогов прозорец отново',
     grid_advanced_filter_drop_ghost_text: 'Постави тук за вмъкване',
     grid_pinned_row_indicator: 'Закачени',

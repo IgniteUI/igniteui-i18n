@@ -120,7 +120,8 @@ export const GridResourceStringsNB: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Velg enhet',
     grid_advanced_filter_select_return_field_single: 'Velg enhet',
     grid_advanced_filter_dialog_title: 'Bekreftelse',
-    grid_advanced_filter_dialog_message: 'Ved å endre enheten vil du miste de nåværende innstillingene dine. Er du sikker på at du vil fortsette?',
+    grid_advanced_filter_dialog_message:
+        'Ved å endre enheten vil du miste de nåværende innstillingene dine. Er du sikker på at du vil fortsette?',
     grid_advanced_filter_dialog_checkbox_text: 'Ikke vis denne dialogboksen igjen',
     grid_advanced_filter_drop_ghost_text: 'Slipp her for å sette inn',
     grid_pinned_row_indicator: 'Festet',

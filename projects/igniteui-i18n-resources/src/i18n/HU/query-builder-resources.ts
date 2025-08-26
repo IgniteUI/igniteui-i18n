@@ -58,7 +58,8 @@ export const QueryBuilderResourceStringsHU: IQueryBuilderResourceStrings = {
     query_builder_ungroup: 'Csoportbontás',
     query_builder_delete: 'Törlés',
     query_builder_delete_filters: 'Szűrők törlése',
-    query_builder_initial_text: 'Először hozzon létre egy feltételcsoportot, amelyek az "És" vagy a "Vagy" kifejezéssel vannak összekapcsolva',
+    query_builder_initial_text:
+        'Először hozzon létre egy feltételcsoportot, amelyek az "És" vagy a "Vagy" kifejezéssel vannak összekapcsolva',
     query_builder_column_placeholder: 'Oszlop kiválasztása',
     query_builder_condition_placeholder: 'Szűrő kiválasztása',
     query_builder_value_placeholder: 'Érték',
@@ -71,7 +72,8 @@ export const QueryBuilderResourceStringsHU: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Válassza ki a visszatérési mezőt',
     query_builder_select_return_fields: 'Visszatérő mezők kiválasztása',
     query_builder_dialog_title: 'Megerősítés',
-    query_builder_dialog_message: 'Az entitás megváltoztatásával elveszíti jelenlegi beállításait. Biztos, hogy folytatni kívánja?',
+    query_builder_dialog_message:
+        'Az entitás megváltoztatásával elveszíti jelenlegi beállításait. Biztos, hogy folytatni kívánja?',
     query_builder_dialog_checkbox_text: 'Ne jelenjen meg többet ez a párbeszédpanel',
     query_builder_dialog_cancel: 'Mégse',
     query_builder_dialog_confirm: 'Megerősítés',

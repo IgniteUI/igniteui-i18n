@@ -33,5 +33,5 @@ export const ResourceStringsZHHANS: IResourceStrings = {
     ...ComboResourceStringsZHHANS,
     ...QueryBuilderResourceStringsZHHANS,
     ...BannerResourceStringsZHHANS,
-    ...ActionStripResourceStringsZHHANS,
+    ...ActionStripResourceStringsZHHANS
 };

@@ -7,7 +7,8 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 export const GridResourceStringsTR: IGridResourceStrings = {
     grid_groupByArea_message: 'Bir sütun başlığını sürükleyin ve o sütuna göre gruplandırmak için buraya bırakın.',
     grid_groupByArea_select_message: 'Alan adı {0} ve değeri {1} olan gruptaki tüm satırları seçin.',
-    grid_groupByArea_deselect_message: 'Gruptaki {0} alan adına ve {1} değerine sahip tüm satırların seçimini kaldırın.',
+    grid_groupByArea_deselect_message:
+        'Gruptaki {0} alan adına ve {1} değerine sahip tüm satırların seçimini kaldırın.',
     grid_emptyFilteredGrid_message: 'Kayıt bulunamadı.',
     grid_emptyGrid_message: 'Kılavuz veri içermiyor.',
     grid_filter: 'Filtrele',
@@ -120,7 +121,8 @@ export const GridResourceStringsTR: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Varlık seç',
     grid_advanced_filter_select_return_field_single: 'Dönüş alanını seç',
     grid_advanced_filter_dialog_title: 'Onay',
-    grid_advanced_filter_dialog_message: 'Varlığı değiştirdiğinizde mevcut ayarlarınızı kaybedersiniz. Devam etmek istiyor musunuz?',
+    grid_advanced_filter_dialog_message:
+        'Varlığı değiştirdiğinizde mevcut ayarlarınızı kaybedersiniz. Devam etmek istiyor musunuz?',
     grid_advanced_filter_dialog_checkbox_text: 'Bu iletişim kutusunu bir daha gösterme',
     grid_advanced_filter_drop_ghost_text: 'Eklemek için buraya bırakın',
     grid_pinned_row_indicator: 'Sabitlendi',
@@ -140,8 +142,8 @@ export const GridResourceStringsTR: IGridResourceStrings = {
     grid_toolbar_advanced_filtering_button_label: 'Gelişmiş filtreleme',
     grid_toolbar_exporter_button_tooltip: 'İhracatçı açılır menüsünü aç',
     grid_toolbar_exporter_button_label: 'Dışarı Aktarma',
-    grid_toolbar_exporter_excel_entry_text: 'Excel\'ye Aktar',
-    grid_toolbar_exporter_csv_entry_text: 'CSV\'ye Aktar',
+    grid_toolbar_exporter_excel_entry_text: "Excel'ye Aktar",
+    grid_toolbar_exporter_csv_entry_text: "CSV'ye Aktar",
     grid_snackbar_addrow_label: 'Satır eklendi',
     grid_snackbar_addrow_actiontext: 'GÖSTER',
     grid_actions_edit_label: 'Düzenle',

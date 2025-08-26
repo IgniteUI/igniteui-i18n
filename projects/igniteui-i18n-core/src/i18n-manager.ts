@@ -1,4 +1,9 @@
-import { Formatter, I18nManagerEventTarget, type IIgI18nManager, type IResourceChangeEventArgs } from './i18n-manager.interfaces';
+import {
+    Formatter,
+    I18nManagerEventTarget,
+    type IIgI18nManager,
+    type IResourceChangeEventArgs
+} from './i18n-manager.interfaces';
 import type { IResourceStrings } from './interfaces/resources.interface';
 import type { BaseFormatter } from './formatters/base.formatter';
 import { DateFormatter } from './formatters/date.formatter';
@@ -12,7 +17,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     public defaultLang = defaultLang;
     public defaultLocale = defaultLocale;
     public currentLocale = defaultLocale;
-    
+
     private formatters = new Map<Formatter, BaseFormatter<any, any>>();
     private _resourcesMap = new Map<string, IResourceStrings>([[defaultLang, {}]]);
     private _rootObserver: MutationObserver | undefined;
@@ -33,15 +38,19 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         super();
         this.formatters.set(Formatter.Locale, new LocaleFormatter(this.defaultLocale));
         this.formatters.set(Formatter.Date, new DateFormatter(this.defaultLocale, this.localeFormatter));
-        this.formatters.set(Formatter.Number ,new NumberFormatter(this.defaultLocale));
+        this.formatters.set(Formatter.Number, new NumberFormatter(this.defaultLocale));
 
         if (document) {
             const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
             this.setCurrentI18n(initialLocale);
 
             if (typeof MutationObserver !== 'undefined') {
-                this._rootObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => this.htmlElementObserve(mutations, observer));
-                this._rootObserver.observe(document.documentElement, { attributeFilter: ['lang'] });
+                this._rootObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) =>
+                    this.htmlElementObserve(mutations, observer)
+                );
+                this._rootObserver.observe(document.documentElement, {
+                    attributeFilter: ['lang']
+                });
             }
         }
     }
@@ -55,7 +64,9 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         const presentResources = this._resourcesMap.get(localeLang);
         let bResourcesChanged = true;
         if (presentResources) {
-            bResourcesChanged = Object.keys(resources).some(key => resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]);
+            bResourcesChanged = Object.keys(resources).some(
+                (key) => resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]
+            );
             const mergedResources = Object.assign(presentResources, resources);
             this._resourcesMap.set(localeLang, mergedResources);
         } else {
@@ -78,7 +89,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             this.triggerResourceChange(oldLocale, newLocale);
 
             // Update formatters with latest locale.
-            for(const [_, formatter] of this.formatters) {
+            for (const [_, formatter] of this.formatters) {
                 formatter.onLocaleChange(newLocale);
             }
         }
@@ -93,7 +104,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         if (currentResources) {
             return currentResources;
         }
-        return this._resourcesMap.get(this.defaultLang) ?? [] as IResourceStrings;
+        return this._resourcesMap.get(this.defaultLang) ?? ([] as IResourceStrings);
     }
 
     private triggerResourceChange(oldLocale: string, newLocale: string) {
@@ -101,7 +112,11 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             oldLocale,
             newLocale
         } as IResourceChangeEventArgs;
-        this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>("onResourceChange", { detail: eventArgs }));
+        this.dispatchEvent(
+            new CustomEvent<IResourceChangeEventArgs>('onResourceChange', {
+                detail: eventArgs
+            })
+        );
     }
 
     private htmlElementObserve(mutations: MutationRecord[], _: MutationObserver) {
@@ -140,7 +155,7 @@ export function registerI18n(resourceStrings: IResourceStrings, locale: string) 
 }
 
 /**
- * Set the current locale of all IgniteUI components. 
+ * Set the current locale of all IgniteUI components.
  * @param locale The name of the locale. A string using the BCP 47 language tag.
  */
 export function setCurrentI18n(locale: string) {

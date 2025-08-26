@@ -118,7 +118,8 @@ export const GridResourceStringsES: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Seleccionar entidad',
     grid_advanced_filter_select_return_field_single: 'Seleccionar campos de retorno',
     grid_advanced_filter_dialog_title: 'Confirmación',
-    grid_advanced_filter_dialog_message: 'Al cambiar la entidad, se perderán las configuraciones actuales. ¿Está seguro de que desea continuar?',
+    grid_advanced_filter_dialog_message:
+        'Al cambiar la entidad, se perderán las configuraciones actuales. ¿Está seguro de que desea continuar?',
     grid_advanced_filter_dialog_checkbox_text: 'No volver a mostrar este cuadro de diálogo',
     grid_advanced_filter_drop_ghost_text: 'Soltar aquí para insertar',
     grid_pinned_row_indicator: 'Anclado',
@@ -141,7 +142,8 @@ export const GridResourceStringsES: IGridResourceStrings = {
     grid_toolbar_exporter_excel_entry_text: 'Exportar a Excel',
     grid_toolbar_exporter_csv_entry_text: 'Exportar a CSV',
     grid_groupByArea_select_message: 'Seleccione todas las filas del grupo con el nombre de campo {0} y el valor {1}.',
-    grid_groupByArea_deselect_message: 'Anule la selección de todas las filas del grupo con el nombre de campo {0} y el valor {1}.',
+    grid_groupByArea_deselect_message:
+        'Anule la selección de todas las filas del grupo con el nombre de campo {0} y el valor {1}.',
     grid_snackbar_addrow_label: 'Fila agregada',
     grid_snackbar_addrow_actiontext: 'MOSTRAR',
     grid_actions_edit_label: 'Editar',

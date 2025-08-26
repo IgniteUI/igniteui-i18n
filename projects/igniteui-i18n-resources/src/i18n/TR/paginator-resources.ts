@@ -10,5 +10,5 @@ export const PaginatorResourceStringsTR: IPaginatorResourceStrings = {
     paginator_first_page_button_text: 'İlk sayfaya git',
     paginator_previous_page_button_text: 'Önceki sayfa',
     paginator_last_page_button_text: 'Son sayfaya git',
-    paginator_next_page_button_text: 'Sonraki Sayfa',
+    paginator_next_page_button_text: 'Sonraki Sayfa'
 } satisfies MakeRequired<IPaginatorResourceStrings>;

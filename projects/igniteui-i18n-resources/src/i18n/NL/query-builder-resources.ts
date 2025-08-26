@@ -71,7 +71,8 @@ export const QueryBuilderResourceStringsNL: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Selecteer retourveld',
     query_builder_select_return_fields: 'Retourvelden selecteren',
     query_builder_dialog_title: 'Bevestiging',
-    query_builder_dialog_message: 'Door de entiteit te wijzigen, verliest u uw huidige instellingen. Weet u zeker dat u wilt doorgaan?',
+    query_builder_dialog_message:
+        'Door de entiteit te wijzigen, verliest u uw huidige instellingen. Weet u zeker dat u wilt doorgaan?',
     query_builder_dialog_checkbox_text: 'Deze dialoog niet meer weergeven',
     query_builder_dialog_cancel: 'Annuleren',
     query_builder_dialog_confirm: 'Bevestigen',

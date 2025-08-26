@@ -5,7 +5,8 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
  * Italian resource strings for IgxGrid
  */
 export const GridResourceStringsIT: IGridResourceStrings = {
-    grid_groupByArea_message: 'Trascinare un\'intestazione di colonna e rilasciarla qui per raggruppare in base a quella colonna.',
+    grid_groupByArea_message:
+        "Trascinare un'intestazione di colonna e rilasciarla qui per raggruppare in base a quella colonna.",
     grid_emptyFilteredGrid_message: 'Nessun record trovato.',
     grid_emptyGrid_message: 'La griglia non ha dati.',
     grid_filter: 'Filtro',
@@ -39,8 +40,8 @@ export const GridResourceStringsIT: IGridResourceStrings = {
     grid_filter_thisMonth: 'Questo mese',
     grid_filter_lastMonth: 'Ultimo mese',
     grid_filter_nextMonth: 'Prossimo mese',
-    grid_filter_thisYear: 'Quest\'anno',
-    grid_filter_lastYear: 'L\'anno scorso',
+    grid_filter_thisYear: "Quest'anno",
+    grid_filter_lastYear: "L'anno scorso",
     grid_filter_nextYear: 'Prossimo anno',
     grid_filter_greaterThan: 'Maggiore di',
     grid_filter_lessThan: 'Minore di',
@@ -118,7 +119,7 @@ export const GridResourceStringsIT: IGridResourceStrings = {
     grid_advanced_filter_select_entity: 'Risultati della sottoquery',
     grid_advanced_filter_select_return_field_single: 'Seleziona campo di reso',
     grid_advanced_filter_dialog_title: 'Conferma',
-    grid_advanced_filter_dialog_message: 'Modificando l\'entità, perderai le impostazioni correnti. Procedere?',
+    grid_advanced_filter_dialog_message: "Modificando l'entità, perderai le impostazioni correnti. Procedere?",
     grid_advanced_filter_dialog_checkbox_text: 'Non visualizzare più questo messaggio',
     grid_advanced_filter_drop_ghost_text: 'Trascinare qui per inserire',
     grid_pinned_row_indicator: 'Appuntato',

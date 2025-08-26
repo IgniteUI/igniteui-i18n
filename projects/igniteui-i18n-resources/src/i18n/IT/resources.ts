@@ -1,5 +1,5 @@
 import { CalendarResourceStringsIT } from './calendar-resources.js';
-import { GridResourceStringsIT} from './grid-resources.js';
+import { GridResourceStringsIT } from './grid-resources.js';
 import { PaginatorResourceStringsIT } from './paginator-resources.js';
 import { TimePickerResourceStringsIT } from './time-picker-resources.js';
 import { DatePickerResourceStringsIT } from './date-picker-resources.js';
@@ -33,5 +33,5 @@ export const ResourceStringsIT: IResourceStrings = {
     ...ComboResourceStringsIT,
     ...QueryBuilderResourceStringsIT,
     ...BannerResourceStringsIT,
-    ...ActionStripResourceStringsIT,
+    ...ActionStripResourceStringsIT
 };

@@ -111,14 +111,16 @@ export const GridResourceStringsDE: IGridResourceStrings = {
     grid_advanced_filter_ungroup: 'Lösche Gruppierung',
     grid_advanced_filter_delete: 'Lösche',
     grid_advanced_filter_delete_filters: 'Lösche Filter',
-    grid_advanced_filter_initial_text: 'Fange an mit einer Gruppe von Bedingungen, die mit "Und" oder "Oder" verknüpft sind',
+    grid_advanced_filter_initial_text:
+        'Fange an mit einer Gruppe von Bedingungen, die mit "Und" oder "Oder" verknüpft sind',
     grid_advanced_filter_column_placeholder: 'Wähle Spalte',
     grid_advanced_filter_value_placeholder: 'Wert',
     grid_advanced_filter_query_value_placeholder: 'Unterabfrageergebnisse',
     grid_advanced_filter_select_entity: 'Entität auswählen',
     grid_advanced_filter_select_return_field_single: 'Rückgabefeld auswählen',
     grid_advanced_filter_dialog_title: 'Bestätigung',
-    grid_advanced_filter_dialog_message: 'Durch das Ändern der Entität gehen Ihre aktuellen Einstellungen verloren. Möchten Sie wirklich fortfahren?',
+    grid_advanced_filter_dialog_message:
+        'Durch das Ändern der Entität gehen Ihre aktuellen Einstellungen verloren. Möchten Sie wirklich fortfahren?',
     grid_advanced_filter_dialog_checkbox_text: 'Dieses Dialogfeld nicht mehr anzeigen',
     grid_advanced_filter_drop_ghost_text: 'Hier ablegen, um einzufügen',
     grid_pinned_row_indicator: 'Fixiert',

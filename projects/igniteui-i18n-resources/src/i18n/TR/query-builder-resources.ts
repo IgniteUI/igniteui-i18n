@@ -71,7 +71,8 @@ export const QueryBuilderResourceStringsTR: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Dönüş alanını seçin',
     query_builder_select_return_fields: 'Dönüş alanlarını seç',
     query_builder_dialog_title: 'Onay',
-    query_builder_dialog_message: 'Varlığı değiştirdiğinizde mevcut ayarlarınızı kaybedersiniz. Devam etmek istiyor musunuz?',
+    query_builder_dialog_message:
+        'Varlığı değiştirdiğinizde mevcut ayarlarınızı kaybedersiniz. Devam etmek istiyor musunuz?',
     query_builder_dialog_checkbox_text: 'Bu iletişim kutusunu bir daha gösterme',
     query_builder_dialog_cancel: 'İptal',
     query_builder_dialog_confirm: 'Onayla',

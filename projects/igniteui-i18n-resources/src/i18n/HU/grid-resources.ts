@@ -7,7 +7,8 @@ import { type IGridResourceStrings } from 'igniteui-i18n-core';
 export const GridResourceStringsHU: IGridResourceStrings = {
     grid_groupByArea_message: 'Húzza és ejtse ide az oszlopfejlécet az adott oszlop szerinti csoportosításhoz.',
     grid_groupByArea_select_message: 'Az összes sorok a csoportban mezőnévvel {0} és értékkel {1} kijelölése.',
-    grid_groupByArea_deselect_message: 'Az összes sorok a csoportban mezőnévvel {0} és értékkel {1} kijelölésének törlése.',
+    grid_groupByArea_deselect_message:
+        'Az összes sorok a csoportban mezőnévvel {0} és értékkel {1} kijelölésének törlése.',
     grid_emptyFilteredGrid_message: 'Nincs találat.',
     grid_emptyGrid_message: 'A rácsnak nincsenek adatai.',
     grid_filter: 'Szűrő',
@@ -113,14 +114,16 @@ export const GridResourceStringsHU: IGridResourceStrings = {
     grid_advanced_filter_ungroup: 'Csoportbontás',
     grid_advanced_filter_delete: 'Törlés',
     grid_advanced_filter_delete_filters: 'Szűrők törlése',
-    grid_advanced_filter_initial_text: 'Először hozzon létre egy feltételcsoportot, amelyek az "És" vagy a "Vagy" kifejezéssel vannak összekapcsolva',
+    grid_advanced_filter_initial_text:
+        'Először hozzon létre egy feltételcsoportot, amelyek az "És" vagy a "Vagy" kifejezéssel vannak összekapcsolva',
     grid_advanced_filter_column_placeholder: 'Oszlop kiválasztása',
     grid_advanced_filter_value_placeholder: 'Érték',
     grid_advanced_filter_query_value_placeholder: 'Allekérdezés eredményei',
     grid_advanced_filter_select_entity: 'Entitás kiválasztása',
     grid_advanced_filter_select_return_field_single: 'Visszatérési mező kiválasztása',
     grid_advanced_filter_dialog_title: 'Megerősítés',
-    grid_advanced_filter_dialog_message: 'Az entitás megváltoztatásával elveszíti jelenlegi beállításait. Biztos, hogy folytatni kívánja?',
+    grid_advanced_filter_dialog_message:
+        'Az entitás megváltoztatásával elveszíti jelenlegi beállításait. Biztos, hogy folytatni kívánja?',
     grid_advanced_filter_dialog_checkbox_text: 'Ne jelenjen meg többet ez a párbeszédpanel',
     grid_advanced_filter_drop_ghost_text: 'Húzza ide a beszúráshoz',
     grid_pinned_row_indicator: 'Rögzítve',

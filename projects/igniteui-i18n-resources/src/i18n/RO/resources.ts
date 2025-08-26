@@ -33,5 +33,5 @@ export const ResourceStringsRO: IResourceStrings = {
     ...ComboResourceStringsRO,
     ...QueryBuilderResourceStringsRO,
     ...BannerResourceStringsRO,
-    ...ActionStripResourceStringsRO,
+    ...ActionStripResourceStringsRO
 };

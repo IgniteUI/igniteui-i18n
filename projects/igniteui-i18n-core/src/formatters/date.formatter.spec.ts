@@ -3,10 +3,10 @@ import { LocaleFormatter } from './locale.formatter';
 import { DateFormatter } from './date.formatter';
 
 describe('i18n tests', () => {
-    const basicDate = new Date("12/3/2014");
-    const dateTime = new Date("2014-12-03T03:24:00");
-    const dateTime2 = new Date("2014-03-21T06:24:13");
-    const dateTimeHourFull = new Date("2014-03-21T16:08:09");
+    const basicDate = new Date('12/3/2014');
+    const dateTime = new Date('2014-12-03T03:24:00');
+    const dateTime2 = new Date('2014-03-21T06:24:13');
+    const dateTimeHourFull = new Date('2014-03-21T16:08:09');
     const localeFormatter = new LocaleFormatter('en');
     const dateFormatter = new DateFormatter('en', localeFormatter);
 
@@ -18,517 +18,786 @@ describe('i18n tests', () => {
             expect(dateFormatter.getFirstDayOfWeek('ja')).equal(7);
             expect(dateFormatter.getFirstDayOfWeek('es')).equal(1);
             expect(dateFormatter.getFirstDayOfWeek('ar')).equal(6);
-        })
+        });
 
         it('should format basic date with default options', () => {
-            expect(dateFormatter.formatDateTime(basicDate, 'en')).equal("12/3/2014");
-            expect(dateFormatter.formatDateTime(basicDate, 'bg')).equal("3.12.2014 г.");
-            expect(dateFormatter.formatDateTime(basicDate, 'ja')).equal("2014/12/3");
-            expect(dateFormatter.formatDateTime(basicDate, 'es')).equal("3/12/2014");
-            expect(dateFormatter.formatDateTime(basicDate, 'ar')).equal("3‏/12‏/2014"); // Note: Using jsdom this will not pass
+            expect(dateFormatter.formatDateTime(basicDate, 'en')).equal('12/3/2014');
+            expect(dateFormatter.formatDateTime(basicDate, 'bg')).equal('3.12.2014 г.');
+            expect(dateFormatter.formatDateTime(basicDate, 'ja')).equal('2014/12/3');
+            expect(dateFormatter.formatDateTime(basicDate, 'es')).equal('3/12/2014');
+            expect(dateFormatter.formatDateTime(basicDate, 'ar')).equal('3‏/12‏/2014'); // Note: Using jsdom this will not pass
 
-            expect(dateFormatter.formatDateTime(dateTime, 'en')).equal("12/3/2014");
-            expect(dateFormatter.formatDateTime(dateTime, 'bg')).equal("3.12.2014 г.");
-            expect(dateFormatter.formatDateTime(dateTime, 'ja')).equal("2014/12/3");
-            expect(dateFormatter.formatDateTime(dateTime, 'es')).equal("3/12/2014");
-            expect(dateFormatter.formatDateTime(dateTime, 'ar')).equal("3‏/12‏/2014"); // Note: Using jsdom this will not pass
-        })
+            expect(dateFormatter.formatDateTime(dateTime, 'en')).equal('12/3/2014');
+            expect(dateFormatter.formatDateTime(dateTime, 'bg')).equal('3.12.2014 г.');
+            expect(dateFormatter.formatDateTime(dateTime, 'ja')).equal('2014/12/3');
+            expect(dateFormatter.formatDateTime(dateTime, 'es')).equal('3/12/2014');
+            expect(dateFormatter.formatDateTime(dateTime, 'ar')).equal('3‏/12‏/2014'); // Note: Using jsdom this will not pass
+        });
 
         it('should format basic date time to long date per locale', () => {
             const options: Intl.DateTimeFormatOptions = {
                 dateStyle: 'long'
             };
-            expect(dateFormatter.formatDateTime(dateTime, 'en', options)).equal("December 3, 2014");
-            expect(dateFormatter.formatDateTime(dateTime, 'bg', options)).equal("3 декември 2014 г.");
-            expect(dateFormatter.formatDateTime(dateTime, 'ja', options)).equal("2014年12月3日");
-            expect(dateFormatter.formatDateTime(dateTime, 'es', options)).equal("3 de diciembre de 2014");
-            expect(dateFormatter.formatDateTime(dateTime, 'ar', options)).equal("3 ديسمبر 2014");
-        })
+            expect(dateFormatter.formatDateTime(dateTime, 'en', options)).equal('December 3, 2014');
+            expect(dateFormatter.formatDateTime(dateTime, 'bg', options)).equal('3 декември 2014 г.');
+            expect(dateFormatter.formatDateTime(dateTime, 'ja', options)).equal('2014年12月3日');
+            expect(dateFormatter.formatDateTime(dateTime, 'es', options)).equal('3 de diciembre de 2014');
+            expect(dateFormatter.formatDateTime(dateTime, 'ar', options)).equal('3 ديسمبر 2014');
+        });
 
         it('should format basic date time to short date time', () => {
             const options: Intl.DateTimeFormatOptions = {
-                timeStyle: "short",
-                dateStyle: "short",
+                timeStyle: 'short',
+                dateStyle: 'short'
             };
-            expect(dateFormatter.formatDateTime(dateTime, 'en', options)).equal("12/3/14, 3:24 AM");
-            expect(dateFormatter.formatDateTime(dateTime, 'bg', options)).equal("3.12.14 г., 3:24");
-            expect(dateFormatter.formatDateTime(dateTime, 'ja', options)).equal("2014/12/03 3:24");
-            expect(dateFormatter.formatDateTime(dateTime, 'es', options)).equal("3/12/14, 3:24");
-            expect(dateFormatter.formatDateTime(dateTime, 'ar', options)).equal("3‏/12‏/2014 3:24 ص");
-        })
+            expect(dateFormatter.formatDateTime(dateTime, 'en', options)).equal('12/3/14, 3:24 AM');
+            expect(dateFormatter.formatDateTime(dateTime, 'bg', options)).equal('3.12.14 г., 3:24');
+            expect(dateFormatter.formatDateTime(dateTime, 'ja', options)).equal('2014/12/03 3:24');
+            expect(dateFormatter.formatDateTime(dateTime, 'es', options)).equal('3/12/14, 3:24');
+            expect(dateFormatter.formatDateTime(dateTime, 'ar', options)).equal('3‏/12‏/2014 3:24 ص');
+        });
 
         it('should format basic date to short date time parts', () => {
             const options: Intl.DateTimeFormatOptions = {
                 dateStyle: 'long'
             };
             expect(dateFormatter.formatDateTimeToParts(dateTime, 'en', options)).toMatchObject([
-                { "type": "month", "value": "December", },
-                { "type": "literal", "value": " ", },
-                { "type": "day", "value": "3", },
-                { "type": "literal", "value": ", ", },
-                { "type": "year", "value": "2014", }
+                { type: 'month', value: 'December' },
+                { type: 'literal', value: ' ' },
+                { type: 'day', value: '3' },
+                { type: 'literal', value: ', ' },
+                { type: 'year', value: '2014' }
             ]);
             expect(dateFormatter.formatDateTimeToParts(dateTime, 'bg', options)).toMatchObject([
-                { "type": "day", "value": "3", },
-                { "type": "literal", "value": " ", },
-                { "type": "month", "value": "декември", },
-                { "type": "literal", "value": " ", },
-                { "type": "year", "value": "2014", },
-                { "type": "literal", "value": " г.", },
+                { type: 'day', value: '3' },
+                { type: 'literal', value: ' ' },
+                { type: 'month', value: 'декември' },
+                { type: 'literal', value: ' ' },
+                { type: 'year', value: '2014' },
+                { type: 'literal', value: ' г.' }
             ]);
             expect(dateFormatter.formatDateTimeToParts(dateTime, 'ja', options)).toMatchObject([
-                { "type": "year", "value": "2014", },
-                { "type": "literal", "value": "年", },
-                { "type": "month", "value": "12", },
-                { "type": "literal", "value": "月", },
-                { "type": "day", "value": "3", },
-                { "type": "literal", "value": "日", },
+                { type: 'year', value: '2014' },
+                { type: 'literal', value: '年' },
+                { type: 'month', value: '12' },
+                { type: 'literal', value: '月' },
+                { type: 'day', value: '3' },
+                { type: 'literal', value: '日' }
             ]);
             expect(dateFormatter.formatDateTimeToParts(dateTime, 'es', options)).toMatchObject([
-                { "type": "day", "value": "3", },
-                { "type": "literal", "value": " de ", },
-                { "type": "month", "value": "diciembre", },
-                { "type": "literal", "value": " de ", },
-                { "type": "year", "value": "2014", },
+                { type: 'day', value: '3' },
+                { type: 'literal', value: ' de ' },
+                { type: 'month', value: 'diciembre' },
+                { type: 'literal', value: ' de ' },
+                { type: 'year', value: '2014' }
             ]);
             expect(dateFormatter.formatDateTimeToParts(dateTime, 'ar', options)).toMatchObject([
-                { "type": "day", "value": "3", },
-                { "type": "literal", "value": " ", },
-                { "type": "month", "value": "ديسمبر", },
-                { "type": "literal", "value": " ", },
-                { "type": "year", "value": "2014", },
+                { type: 'day', value: '3' },
+                { type: 'literal', value: ' ' },
+                { type: 'month', value: 'ديسمبر' },
+                { type: 'literal', value: ' ' },
+                { type: 'year', value: '2014' }
             ]);
-        })
+        });
 
         it('should get correct date formatting for different locales', () => {
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "short" })).equal("M/d/yy");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "short" })).equal("dd/MM/yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { dateStyle: "short" })).equal("dd.MM.yy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "short" })).equal("yyyy/MM/dd");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { dateStyle: "short" })).equal("d/M/yy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { dateStyle: "short" })).equal("d‏/M‏/yyyy");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'short'
+                })
+            ).equal('M/d/yy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'short'
+                })
+            ).equal('dd/MM/yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    dateStyle: 'short'
+                })
+            ).equal('dd.MM.yy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'short'
+                })
+            ).equal('yyyy/MM/dd');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    dateStyle: 'short'
+                })
+            ).equal('d/M/yy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    dateStyle: 'short'
+                })
+            ).equal('d‏/M‏/yyyy');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "medium" })).equal("MMM d, yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "medium" })).equal("d MMM yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { dateStyle: "medium" })).equal("dd.MM.yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "medium" })).equal("yyyy/MM/dd");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { dateStyle: "medium" })).equal("d MMM yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { dateStyle: "medium" })).equal("dd‏/MM‏/yyyy");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'medium'
+                })
+            ).equal('MMM d, yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'medium'
+                })
+            ).equal('d MMM yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    dateStyle: 'medium'
+                })
+            ).equal('dd.MM.yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'medium'
+                })
+            ).equal('yyyy/MM/dd');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    dateStyle: 'medium'
+                })
+            ).equal('d MMM yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    dateStyle: 'medium'
+                })
+            ).equal('dd‏/MM‏/yyyy');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "long" })).equal("MMMM d, yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "long" })).equal("d MMMM yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { dateStyle: "long" })).equal("d. MMMM yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "long" })).equal("yyyy年M月d日");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { dateStyle: "long" })).equal("d de MMMM de yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { dateStyle: "long" })).equal("d MMMM yyyy");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'long'
+                })
+            ).equal('MMMM d, yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'long'
+                })
+            ).equal('d MMMM yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    dateStyle: 'long'
+                })
+            ).equal('d. MMMM yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'long'
+                })
+            ).equal('yyyy年M月d日');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    dateStyle: 'long'
+                })
+            ).equal('d de MMMM de yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    dateStyle: 'long'
+                })
+            ).equal('d MMMM yyyy');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "full" })).equal("EEEE, MMMM d, yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "full" })).equal("EEEE d MMMM yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { dateStyle: "full" })).equal("EEEE, d. MMMM yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "full" })).equal("yyyy年M月d日EEEE");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { dateStyle: "full" })).equal("EEEE, d de MMMM de yyyy");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { dateStyle: "full" })).equal("EEEE، d MMMM yyyy");
-        })
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'full'
+                })
+            ).equal('EEEE, MMMM d, yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'full'
+                })
+            ).equal('EEEE d MMMM yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    dateStyle: 'full'
+                })
+            ).equal('EEEE, d. MMMM yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'full'
+                })
+            ).equal('yyyy年M月d日EEEE');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    dateStyle: 'full'
+                })
+            ).equal('EEEE, d de MMMM de yyyy');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    dateStyle: 'full'
+                })
+            ).equal('EEEE، d MMMM yyyy');
+        });
 
         it('should get correct time formatting for different locales', () => {
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { timeStyle: "short" })).equal("h:mm a");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { timeStyle: "short" })).equal("HH:mm");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { timeStyle: "short" })).equal("HH:mm");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { timeStyle: "short" })).equal("H:mm");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { timeStyle: "short" })).equal("H:mm");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { timeStyle: "short" })).equal("h:mm a");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    timeStyle: 'short'
+                })
+            ).equal('h:mm a');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    timeStyle: 'short'
+                })
+            ).equal('HH:mm');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    timeStyle: 'short'
+                })
+            ).equal('HH:mm');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    timeStyle: 'short'
+                })
+            ).equal('H:mm');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    timeStyle: 'short'
+                })
+            ).equal('H:mm');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    timeStyle: 'short'
+                })
+            ).equal('h:mm a');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { timeStyle: "medium" })).equal("h:mm:ss a");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { timeStyle: "medium" })).equal("HH:mm:ss");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { timeStyle: "medium" })).equal("HH:mm:ss");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { timeStyle: "medium" })).equal("H:mm:ss");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { timeStyle: "medium" })).equal("H:mm:ss");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { timeStyle: "medium" })).equal("h:mm:ss a");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    timeStyle: 'medium'
+                })
+            ).equal('h:mm:ss a');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    timeStyle: 'medium'
+                })
+            ).equal('HH:mm:ss');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    timeStyle: 'medium'
+                })
+            ).equal('HH:mm:ss');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    timeStyle: 'medium'
+                })
+            ).equal('H:mm:ss');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    timeStyle: 'medium'
+                })
+            ).equal('H:mm:ss');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    timeStyle: 'medium'
+                })
+            ).equal('h:mm:ss a');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { timeStyle: "long" })).equal("h:mm:ss a z");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { timeStyle: "long" })).equal("HH:mm:ss z");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { timeStyle: "long" })).equal("HH:mm:ss z");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { timeStyle: "long" })).equal("H:mm:ss z");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { timeStyle: "long" })).equal("H:mm:ss z");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { timeStyle: "long" })).equal("h:mm:ss a z");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    timeStyle: 'long'
+                })
+            ).equal('h:mm:ss a z');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    timeStyle: 'long'
+                })
+            ).equal('HH:mm:ss z');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    timeStyle: 'long'
+                })
+            ).equal('HH:mm:ss z');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    timeStyle: 'long'
+                })
+            ).equal('H:mm:ss z');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    timeStyle: 'long'
+                })
+            ).equal('H:mm:ss z');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    timeStyle: 'long'
+                })
+            ).equal('h:mm:ss a z');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { timeStyle: "full" })).equal("h:mm:ss a zzzz");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { timeStyle: "full" })).equal("HH:mm:ss zzzz");
-            expect(dateFormatter.getLocaleDateTimeFormat('de', { timeStyle: "full" })).equal("HH:mm:ss zzzz");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { timeStyle: "full" })).equal("H時mm分ss秒 zzzz");
-            expect(dateFormatter.getLocaleDateTimeFormat('es', { timeStyle: "full" })).equal("H:mm:ss (zzzz)");
-            expect(dateFormatter.getLocaleDateTimeFormat('ar', { timeStyle: "full" })).equal("h:mm:ss a zzzz");
-        })
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    timeStyle: 'full'
+                })
+            ).equal('h:mm:ss a zzzz');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    timeStyle: 'full'
+                })
+            ).equal('HH:mm:ss zzzz');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('de', {
+                    timeStyle: 'full'
+                })
+            ).equal('HH:mm:ss zzzz');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    timeStyle: 'full'
+                })
+            ).equal('H時mm分ss秒 zzzz');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('es', {
+                    timeStyle: 'full'
+                })
+            ).equal('H:mm:ss (zzzz)');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ar', {
+                    timeStyle: 'full'
+                })
+            ).equal('h:mm:ss a zzzz');
+        });
 
         it('should get correct date time formatting for different locales', () => {
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "short", timeStyle: "short" })).equal("M/d/yy, h:mm a");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "short", timeStyle: "short" })).equal("dd/MM/yyyy, HH:mm");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "short", timeStyle: "short" })).equal("yyyy/MM/dd H:mm");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'short',
+                    timeStyle: 'short'
+                })
+            ).equal('M/d/yy, h:mm a');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'short',
+                    timeStyle: 'short'
+                })
+            ).equal('dd/MM/yyyy, HH:mm');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'short',
+                    timeStyle: 'short'
+                })
+            ).equal('yyyy/MM/dd H:mm');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "medium", timeStyle: "medium" })).equal("MMM d, yyyy, h:mm:ss a");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "medium", timeStyle: "medium" })).equal("d MMM yyyy, HH:mm:ss");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "medium", timeStyle: "medium" })).equal("yyyy/MM/dd H:mm:ss");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'medium',
+                    timeStyle: 'medium'
+                })
+            ).equal('MMM d, yyyy, h:mm:ss a');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'medium',
+                    timeStyle: 'medium'
+                })
+            ).equal('d MMM yyyy, HH:mm:ss');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'medium',
+                    timeStyle: 'medium'
+                })
+            ).equal('yyyy/MM/dd H:mm:ss');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "long", timeStyle: "long" })).equal("MMMM d, yyyy at h:mm:ss a z");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "long", timeStyle: "long" })).equal("d MMMM yyyy at HH:mm:ss z");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "long", timeStyle: "long" })).equal("yyyy年M月d日 H:mm:ss z");
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'long',
+                    timeStyle: 'long'
+                })
+            ).equal('MMMM d, yyyy at h:mm:ss a z');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'long',
+                    timeStyle: 'long'
+                })
+            ).equal('d MMMM yyyy at HH:mm:ss z');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'long',
+                    timeStyle: 'long'
+                })
+            ).equal('yyyy年M月d日 H:mm:ss z');
 
-            expect(dateFormatter.getLocaleDateTimeFormat('en-US', { dateStyle: "full", timeStyle: "full" })).equal("EEEE, MMMM d, yyyy at h:mm:ss a zzzz");
-            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', { dateStyle: "full", timeStyle: "full" })).equal("EEEE d MMMM yyyy at HH:mm:ss zzzz");
-            expect(dateFormatter.getLocaleDateTimeFormat('ja', { dateStyle: "full", timeStyle: "full" })).equal("yyyy年M月d日EEEE H時mm分ss秒 zzzz");
-        })
-    })
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-US', {
+                    dateStyle: 'full',
+                    timeStyle: 'full'
+                })
+            ).equal('EEEE, MMMM d, yyyy at h:mm:ss a zzzz');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('en-GB', {
+                    dateStyle: 'full',
+                    timeStyle: 'full'
+                })
+            ).equal('EEEE d MMMM yyyy at HH:mm:ss zzzz');
+            expect(
+                dateFormatter.getLocaleDateTimeFormat('ja', {
+                    dateStyle: 'full',
+                    timeStyle: 'full'
+                })
+            ).equal('yyyy年M月d日EEEE H時mm分ss秒 zzzz');
+        });
+    });
 
     describe('custom date formatting', () => {
         it('should return the format for unknown one', () => {
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', 'ttt')).equal("ttt");
-        })
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', 'ttt')).equal('ttt');
+        });
 
         it('should format era', () => {
-            let format = "GG";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("AD");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("сл.Хр.");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("西暦");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("d. C.");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("م");
+            let format = 'GG';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('AD');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('сл.Хр.');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('西暦');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('d. C.');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('م');
 
-            format = "GGGG";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("Anno Domini");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("след Христа");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("西暦");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("después de Cristo");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("ميلادي");
+            format = 'GGGG';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('Anno Domini');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('след Христа');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('西暦');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('después de Cristo');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ميلادي');
 
-            format = "GGGGG";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("A");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("сл.Хр.");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("AD");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("d. C.");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("م");
-        })
+            format = 'GGGGG';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('A');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('сл.Хр.');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('AD');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('d. C.');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('م');
+        });
 
         it('should format year', () => {
-            let format = "yy";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("14");
+            let format = 'yy';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('14');
 
-            format = "yyyy";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("2014");
-        })
+            format = 'yyyy';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('2014');
+        });
 
         it('should format iso year', () => {
-            let format = "YY";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("14");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("14");
+            let format = 'YY';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('14');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('14');
 
-            format = "YYYY";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("2014");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("2014");
-        })
+            format = 'YYYY';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('2014');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('2014');
+        });
 
         it('should format month', () => {
-            let format = "M";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("3");
+            let format = 'M';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('3');
 
-            format = "MM";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("03");
+            format = 'MM';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('03');
 
-            format = "MMM";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("Mar");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("mar");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("مارس");
+            format = 'MMM';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('Mar');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('mar');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('مارس');
 
-            format = "MMMM";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("March");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("март");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("marzo");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("مارس");
+            format = 'MMMM';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('March');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('март');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('marzo');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('مارس');
 
-            format = "MMMMM";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("M");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("M");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("م");
-        })
+            format = 'MMMMM';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('M');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('M');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('م');
+        });
 
         it('should format day', () => {
-            let format = "d";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("3");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("3");
+            let format = 'd';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('3');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('3');
 
-            format = "dd";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("03");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("03");
-        })
+            format = 'dd';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('03');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('03');
+        });
 
         it('should format week day', () => {
-            let format = "c";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("Wed");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("ср");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("水");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("mié");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("الأربعاء");
+            let format = 'c';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('Wed');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('ср');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('水');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('mié');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('الأربعاء');
 
-            format = "cc";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("Wed");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("ср");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("水");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("mié");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("الأربعاء");
+            format = 'cc';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('Wed');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('ср');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('水');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('mié');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('الأربعاء');
 
-            format = "cccc";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("Wednesday");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("сряда");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("水曜日");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("miércoles");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("الأربعاء");
+            format = 'cccc';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('Wednesday');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('сряда');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('水曜日');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('miércoles');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('الأربعاء');
 
-            format = "ccccc";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("W");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("с");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("水");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("X");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("ر");
-        })
+            format = 'ccccc';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('W');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('с');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('水');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('X');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ر');
+        });
 
         it('should format period of the day', () => {
-            let format = "a";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("ص");
+            let format = 'a';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
 
-            format = "aaaa";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("AM");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("ص");
+            format = 'aaaa';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
 
-            format = "aaaaa";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("A");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("A");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("A");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("A");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("ص");
-        })
+            format = 'aaaaa';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('A');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('A');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('A');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('A');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
+        });
 
         it('should format extended period of the day', () => {
-            let format = "b";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("at ni.");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("пр. но.");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("夜中");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("de la ma.");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("فج.");
+            let format = 'b';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('at ni.');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('пр. но.');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('夜中');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('de la ma.');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('فج.');
 
-            format = "bbbb";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("at night");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("през нощта");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("夜中");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("de la madrugada");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("في الصباح");
+            format = 'bbbb';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('at night');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('през нощта');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('夜中');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('de la madrugada');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('في الصباح');
 
-            format = "bbbbb";
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal("an");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal("пн");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal("夜");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal("dlm");
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal("ف");
-        })
+            format = 'bbbbb';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('an');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('пн');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('夜');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('dlm');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ف');
+        });
 
         it('should format hour in 0-12 time format', () => {
-            let format = "h";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("4");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("4");
+            let format = 'h';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('4');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('4');
             //expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("4");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("4");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("4");
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('4');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('4');
 
-            format = "hh";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("04");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("04");
+            format = 'hh';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('04');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('04');
             //expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("04");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("04");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("04");
-        })
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('04');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('04');
+        });
 
         it('should format hour in 0-24 time format', () => {
-            let format = "H";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-US', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-GB', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("16");
+            let format = 'H';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-US', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-GB', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('16');
 
-            format = "HH";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-US', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-GB', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("16");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("16");
-        })
+            format = 'HH';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-US', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en-GB', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('16');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('16');
+        });
 
         it('should format hours at midnight correctly', () => {
-            const date = new Date("2014-03-21T00:08:09");
-            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'h')).equal("12");
-            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'H')).equal("0");
-            expect(dateFormatter.formatDateCustomFormat(date, 'ja', 'K')).equal("0");
+            const date = new Date('2014-03-21T00:08:09');
+            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'h')).equal('12');
+            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'H')).equal('0');
+            expect(dateFormatter.formatDateCustomFormat(date, 'ja', 'K')).equal('0');
 
-            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'hh')).equal("12");
-            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'HH')).equal("00");
-            expect(dateFormatter.formatDateCustomFormat(date, 'ja', 'KK')).equal("00");
-        })
+            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'hh')).equal('12');
+            expect(dateFormatter.formatDateCustomFormat(date, 'en', 'HH')).equal('00');
+            expect(dateFormatter.formatDateCustomFormat(date, 'ja', 'KK')).equal('00');
+        });
 
         it('should format minutes', () => {
-            let format = "m";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("24");
+            let format = 'm';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('24');
 
-            format = "mm";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("24");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("24");
+            format = 'mm';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('24');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('24');
 
-            format = "m";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("8");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("8");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("8");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("8");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("8");
+            format = 'm';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('8');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('8');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('8');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('8');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('8');
 
-            format = "mm";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("08");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("08");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("08");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("08");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("08");
-        })
+            format = 'mm';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('08');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('08');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('08');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('08');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('08');
+        });
 
         it('should format seconds', () => {
-            let format = "s";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("13");
+            let format = 's';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('13');
 
-            format = "ss";
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal("13");
-            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal("13");
+            format = 'ss';
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'en', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'bg', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ja', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'es', format)).equal('13');
+            expect(dateFormatter.formatDateCustomFormat(dateTime2, 'ar', format)).equal('13');
 
-            format = "s";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("9");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("9");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("9");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("9");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("9");
+            format = 's';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('9');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('9');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('9');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('9');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('9');
 
-            format = "ss";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("09");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("09");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("09");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("09");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("09");
-        })
-
+            format = 'ss';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('09');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('09');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('09');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('09');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('09');
+        });
 
         it('should format fractional seconds', () => {
-            let format = "S";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("0");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("0");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("0");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("0");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("0");
+            let format = 'S';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('0');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('0');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('0');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('0');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('0');
 
-            format = "SS";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("00");
+            format = 'SS';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('00');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('00');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('00');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('00');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('00');
 
-            format = "SSS";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("000");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal("000");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal("000");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal("000");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("000");
-        })
+            format = 'SSS';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal('000');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format)).equal('000');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format)).equal('000');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format)).equal('000');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal('000');
+        });
 
         it('should format short format timezone', () => {
-            let format = "z";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, "Etc/GMT+1")).equal("GMT-1");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, "Etc/GMT+1")).equal("Гринуич-1");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, "Etc/GMT+1")).equal("GMT-1");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, "Etc/GMT+1")).equal("GMT-1");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, "Etc/GMT+1")).equal("غرينتش-1");
+            let format = 'z';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, 'Etc/GMT+1')).equal('GMT-1');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, 'Etc/GMT+1')).equal(
+                'Гринуич-1'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, 'Etc/GMT+1')).equal('GMT-1');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, 'Etc/GMT+1')).equal('GMT-1');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, 'Etc/GMT+1')).equal('غرينتش-1');
 
-            format = "zzzz";
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, "Etc/GMT+1")).equal("GMT-01:00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, "Etc/GMT+1")).equal("Гринуич-01:00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, "Etc/GMT+1")).equal("GMT-01:00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, "Etc/GMT+1")).equal("GMT-01:00");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, "Etc/GMT+1")).equal("غرينتش-01:00");
-        })
+            format = 'zzzz';
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, 'Etc/GMT+1')).equal(
+                'GMT-01:00'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, 'Etc/GMT+1')).equal(
+                'Гринуич-01:00'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, 'Etc/GMT+1')).equal(
+                'GMT-01:00'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, 'Etc/GMT+1')).equal(
+                'GMT-01:00'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, 'Etc/GMT+1')).equal(
+                'غرينتش-01:00'
+            );
+        });
 
         it('should format combination of single cases', () => {
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "'ex:' h:mm bbb GGG")).equal("'ex:' 4:08 in th. af. AD");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "'ex:' hh:mm bbb GGG")).equal("'ex:' 04:08 in th. af. AD");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "'ex:' HH:mm bbb GGG")).equal("'ex:' 16:08 in th. af. AD");
-        })
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "'ex:' h:mm bbb GGG")).equal(
+                "'ex:' 4:08 in th. af. AD"
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "'ex:' hh:mm bbb GGG")).equal(
+                "'ex:' 04:08 in th. af. AD"
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "'ex:' HH:mm bbb GGG")).equal(
+                "'ex:' 16:08 in th. af. AD"
+            );
+        });
 
         it('should log warning regarding week of year format not supported', () => {
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "w",)).equal("w");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "ww",)).equal("ww");
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "W",)).equal("W");
-        })
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', 'w')).equal('w');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', 'ww')).equal('ww');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', 'W')).equal('W');
+        });
 
         it('should return empty string on empty format', () => {
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', "")).equal("");
-        })
-    })
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', '')).equal('');
+        });
+    });
 
     describe('other', () => {
         it('should create dates from ISO string correctly', () => {
@@ -632,7 +901,7 @@ describe('i18n tests', () => {
             expect(expectedLocalTime.getHours()).toEqual(0);
             expect(expectedConverted.getHours()).toEqual(0);
             expect(dateFormatter.createDateFromValue(dateString).getTime() - expectedLocalTime.getTime()).equal(0);
-        })
+        });
 
         it('should create dates from other regular valid string formats', () => {
             let dateString = 'January 1, 2025';
@@ -662,6 +931,6 @@ describe('i18n tests', () => {
             expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
             expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
             expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
-        })
-    })
-})
+        });
+    });
+});

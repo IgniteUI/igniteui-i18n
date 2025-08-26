@@ -1,4 +1,4 @@
-import type { IComboResourceStrings } from "../../interfaces/combo.interface";
+import type { IComboResourceStrings } from '../../interfaces/combo.interface';
 
 export const ComboResourceStringsEN: IComboResourceStrings = {
     combo_empty_message: 'The list is empty',

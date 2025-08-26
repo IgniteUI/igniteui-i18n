@@ -1,4 +1,4 @@
-import { BaseFormatter } from "./base.formatter";
+import { BaseFormatter } from './base.formatter';
 
 export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.NumberFormatOptions> {
     constructor(defaultLocale: string) {
@@ -27,7 +27,11 @@ export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.Numbe
      * @param locale Override locale instead of the current one.
      * @returns String representation of the currency symbol.
      */
-    public getCurrencySymbol(currencyCode: string, locale?: string, currencyDisplay?: keyof Intl.NumberFormatOptionsCurrencyDisplayRegistry) {
+    public getCurrencySymbol(
+        currencyCode: string,
+        locale?: string,
+        currencyDisplay?: keyof Intl.NumberFormatOptionsCurrencyDisplayRegistry
+    ) {
         const options: Intl.NumberFormatOptions = {
             style: 'currency',
             currency: currencyCode,
@@ -35,7 +39,7 @@ export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.Numbe
             maximumFractionDigits: 0
         };
         const formatter = this.getIntlFormatter(locale, options);
-        return formatter.formatToParts(0).find(part => part.type === "currency")?.value;
+        return formatter.formatToParts(0).find((part) => part.type === 'currency')?.value;
     }
 
     /**
@@ -46,10 +50,10 @@ export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.Numbe
     public getCurrencyPosition(locale?: string) {
         const options: Intl.NumberFormatOptions = {
             style: 'currency',
-            currency: "USD",
+            currency: 'USD',
             maximumFractionDigits: 0
         };
         const formatter = this.getIntlFormatter(locale, options);
-        return formatter.formatToParts(0).findIndex(part => part.type === 'currency');
+        return formatter.formatToParts(0).findIndex((part) => part.type === 'currency');
     }
 }
