@@ -115,7 +115,7 @@ export class igI18nManager extends I18nManagerEventTarget {
         if (currentResources) {
             return currentResources;
         }
-        return this._resourcesMap.get(this.defaultLang) ?? [] as IResourceStrings;
+        return this._resourcesMap.get(this.defaultLang) ?? {} as IResourceStrings;
     }
 
     public getFirstDayOfWeek(locale?: string): number {

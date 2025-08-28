@@ -31,6 +31,9 @@ describe('i18n tests', () => {
         it('should initialize correct instance of manager', () => {
             const publicManager = getI18nManager();
             expect(publicManager?.currentLocale).equal('en-US');
+
+            //For empty resources returns {}
+            expect(JSON.stringify(getCurrentResourceStrings())).equals(JSON.stringify({}));
         })
 
         it('should set correct locale', () => {
@@ -211,7 +214,7 @@ describe('i18n tests', () => {
             expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
             expect(expectedConverted.getHours()).not.toEqual(zeroHourExUTC);
             expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
-            
+
             dateString = '2025-01T00:00:00+00:00';
             expectedUTCDate = new Date(dateString);
             expectedConverted = manager.createDateFromValue(dateString);
@@ -575,8 +578,8 @@ describe('i18n tests', () => {
 
         it('should get correct date time formatting for different locales', () => {
             expect(manager.getLocaleDateTimeFormat('en-US', { dateStyle: "short", timeStyle: "short" })).equal("M/d/yy, h:mm a");
-            expect(manager.getLocaleDateTimeFormat('en-GB', { dateStyle: "short",  timeStyle: "short" })).equal("dd/MM/yyyy, HH:mm");
-            expect(manager.getLocaleDateTimeFormat('ja', { dateStyle: "short",  timeStyle: "short" })).equal("yyyy/MM/dd H:mm");
+            expect(manager.getLocaleDateTimeFormat('en-GB', { dateStyle: "short", timeStyle: "short" })).equal("dd/MM/yyyy, HH:mm");
+            expect(manager.getLocaleDateTimeFormat('ja', { dateStyle: "short", timeStyle: "short" })).equal("yyyy/MM/dd H:mm");
 
             expect(manager.getLocaleDateTimeFormat('en-US', { dateStyle: "medium", timeStyle: "medium" })).equal("MMM d, yyyy, h:mm:ss a");
             expect(manager.getLocaleDateTimeFormat('en-GB', { dateStyle: "medium", timeStyle: "medium" })).equal("d MMM yyyy, HH:mm:ss");
@@ -611,7 +614,7 @@ describe('i18n tests', () => {
             expect(manager.formatDateCustomFormat(dateTime, 'ja', format)).equal("西暦");
             expect(manager.formatDateCustomFormat(dateTime, 'es', format)).equal("después de Cristo");
             expect(manager.formatDateCustomFormat(dateTime, 'ar', format)).equal("ميلادي");
-            
+
             format = "GGGGG";
             expect(manager.formatDateCustomFormat(dateTime, 'en', format)).equal("A");
             expect(manager.formatDateCustomFormat(dateTime, 'bg', format)).equal("сл.Хр.");
@@ -886,7 +889,7 @@ describe('i18n tests', () => {
             expect(manager.formatDateCustomFormat(dateTimeHourFull, 'ar', format)).equal("09");
         })
 
-        
+
         it('should format fractional seconds', () => {
             let format = "S";
             expect(manager.formatDateCustomFormat(dateTimeHourFull, 'en', format)).equal("0");
