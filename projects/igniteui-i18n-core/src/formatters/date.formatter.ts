@@ -400,12 +400,12 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                 case 'narrow':
                     return value
                         ?.split(' ')
-                        .map((part) => part.substring(0, 1))
+                        .map((part) => part.substring(0, 1).toLocaleLowerCase())
                         .join('');
                 case 'short':
                     return value
                         ?.split(' ')
-                        .map((part) => part.substring(0, 2) + (part.length > 2 ? '.' : ''))
+                        .map((part) => part.substring(0, 2).toLocaleLowerCase() + (part.length > 2 ? '.' : ''))
                         .join(' ');
                 case 'long':
                 default:

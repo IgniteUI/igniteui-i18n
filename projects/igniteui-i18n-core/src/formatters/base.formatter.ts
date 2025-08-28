@@ -1,4 +1,4 @@
-import { generateLocaleKey, mergeOptions } from '../utils';
+import { generateLocaleKey, mergeOptions } from '../utils.js';
 
 export class BaseFormatter<
     T extends Intl.DateTimeFormat | Intl.NumberFormat | Intl.Locale,

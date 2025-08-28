@@ -23,6 +23,9 @@ describe('i18n tests', () => {
         it('should initialize correct instance of manager', () => {
             const publicManager = getI18nManager();
             expect(publicManager?.currentLocale).equal('en-US');
+
+            //For empty resources returns {}
+            expect(JSON.stringify(getCurrentResourceStrings())).equals(JSON.stringify({}));
         });
 
         it('should set correct locale', () => {

@@ -576,10 +576,10 @@ describe('i18n tests', () => {
 
         it('should format period of the day', () => {
             let format = 'a';
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('AM');
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('AM');
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('AM');
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('am');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('am');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('am');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('am');
             expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
 
             format = 'aaaa';
@@ -590,10 +590,10 @@ describe('i18n tests', () => {
             expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
 
             format = 'aaaaa';
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('A');
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('A');
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('A');
-            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('A');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('a');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('a');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('a');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('a');
             expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
         });
 

@@ -9,9 +9,11 @@ import type { BaseFormatter } from './formatters/base.formatter';
 import { DateFormatter } from './formatters/date.formatter';
 import { LocaleFormatter } from './formatters/locale.formatter';
 import { NumberFormatter } from './formatters/number.formatter';
+import { setMaxListeners } from 'events';
 
 const defaultLang = 'en';
 const defaultLocale = 'en-US';
+const maxEventListeners = 9999;
 
 export class I18nManager extends I18nManagerEventTarget implements IIgI18nManager {
     public defaultLang = defaultLang;
@@ -21,6 +23,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     private formatters = new Map<Formatter, BaseFormatter<any, any>>();
     private _resourcesMap = new Map<string, IResourceStrings>([[defaultLang, {}]]);
     private _rootObserver: MutationObserver | undefined;
+    private _eventsEnabled = true;
 
     public get localeFormatter(): LocaleFormatter {
         return this.formatters.get(Formatter.Locale) as LocaleFormatter;
@@ -40,7 +43,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         this.formatters.set(Formatter.Date, new DateFormatter(this.defaultLocale, this.localeFormatter));
         this.formatters.set(Formatter.Number, new NumberFormatter(this.defaultLocale));
 
-        if (document) {
+        if (typeof document !== 'undefined') {
             const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
             this.setCurrentI18n(initialLocale);
 
@@ -52,6 +55,20 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
                     attributeFilter: ['lang']
                 });
             }
+        }
+    }
+
+    /**
+     * Warning: Do not use this method unless you are sure you want to disable updates of i18n for everything.
+     * Temporary toggle triggering of `onResourceChange` event.
+     * Currently this is used for Angular's test bed having concurrency errors if triggering events while a component is still initializing.
+     * @param enable
+     */
+    public toggleEvents(enable?: boolean) {
+        if (enable !== undefined) {
+            this._eventsEnabled = enable;
+        } else {
+            this._eventsEnabled = !this._eventsEnabled;
         }
     }
 
@@ -104,7 +121,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         if (currentResources) {
             return currentResources;
         }
-        return this._resourcesMap.get(this.defaultLang) ?? ([] as IResourceStrings);
+        return this._resourcesMap.get(this.defaultLang) ?? ({} as IResourceStrings);
     }
 
     private triggerResourceChange(oldLocale: string, newLocale: string) {
@@ -112,11 +129,11 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             oldLocale,
             newLocale
         } as IResourceChangeEventArgs;
-        this.dispatchEvent(
-            new CustomEvent<IResourceChangeEventArgs>('onResourceChange', {
-                detail: eventArgs
-            })
-        );
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        if (Object.getPrototypeOf(CustomEvent).name === 'Event' && this._eventsEnabled) {
+            // Make sure inheritance is correct due to Angular SSR having issues with it.
+            this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>('onResourceChange', { detail: eventArgs }));
+        }
     }
 
     private htmlElementObserve(mutations: MutationRecord[], _: MutationObserver) {
@@ -128,6 +145,13 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 }
 
 const i18nManagerInstance = new I18nManager();
+
+// By default it is expected max event listeners per object to be 10, otherwise error is thrown.
+// The manager is one for a page and each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
+// Components should clear any listeners when they are destroyed, but still can have a lot at once.
+if (typeof setMaxListeners === 'function') {
+    setMaxListeners(maxEventListeners, i18nManagerInstance);
+}
 
 /**
  * Gets in the i18nManager instance.
