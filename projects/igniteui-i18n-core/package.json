@@ -22,6 +22,10 @@
   "type": "module",
   "main": "./index.js",
   "types": "./index.d.ts",
+  "exports": {
+    ".": "./index.js",
+    "./en": "./i18n/EN/index.js"
+  },
   "sideEffects": false,
   "peerDependencies": {
     "igniteui-i18n-translations": "^1.0.0"
