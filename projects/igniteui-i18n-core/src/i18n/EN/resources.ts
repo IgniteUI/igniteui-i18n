@@ -14,6 +14,7 @@ import { QueryBuilderResourceStringsEN } from './query-builder-resources.js';
 import { BannerResourceStringsEN } from './banner-resources.js';
 import { ActionStripResourceStringsEN } from './action-strip-resources.js';
 import type { IResourceStrings } from '../../i18n-manager';
+import { DockManagerResourceStringsEN } from './dock-manager-resources.js';
 
 
 /**
@@ -35,4 +36,5 @@ export const ResourceStringsEN: IResourceStrings = {
     ...QueryBuilderResourceStringsEN,
     ...BannerResourceStringsEN,
     ...ActionStripResourceStringsEN,
+    ... DockManagerResourceStringsEN
 };

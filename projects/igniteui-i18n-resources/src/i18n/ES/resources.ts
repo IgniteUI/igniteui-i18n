@@ -14,6 +14,7 @@ import { QueryBuilderResourceStringsES } from './query-builder-resources.js';
 import { TimePickerResourceStringsES } from './time-picker-resources.js';
 import { TreeResourceStringsES } from './tree-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
+import { DockManagerResourceStringsES } from './dock-manager-resources.js';
 
 /**
  * Spanish resource strings for all components
@@ -34,4 +35,5 @@ export const ResourceStringsES: IResourceStrings = {
     ...QueryBuilderResourceStringsES,
     ...TimePickerResourceStringsES,
     ...TreeResourceStringsES,
+    ...DockManagerResourceStringsES
 };

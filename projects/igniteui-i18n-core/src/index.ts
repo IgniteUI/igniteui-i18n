@@ -13,6 +13,7 @@ export * from './interfaces/action-strip.interface.js';
 export * from './interfaces/query-builder.interface.js';
 export * from './interfaces/combo.interface.js';
 export * from './interfaces/banner.interface.js';
+export * from './interfaces/dock-manager.interface.js';
 export * from './i18n/EN/date-picker-resources.js';
 export * from './i18n/EN/date-range-picker-resources.js';
 export * from './i18n/EN/grid-resources.js';
@@ -28,6 +29,7 @@ export * from './i18n/EN/action-strip-resources.js';
 export * from './i18n/EN/query-builder-resources.js';
 export * from './i18n/EN/combo-resources.js';
 export * from './i18n/EN/banner-resources.js';
+export * from './i18n/EN/dock-manager-resources.js';
 export * from './i18n/EN/resources.js';
 export * from './i18n-manager.js';
 export {

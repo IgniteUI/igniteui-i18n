@@ -6,6 +6,7 @@ import { ChipResourceStringsKO } from './chip-resources.js';
 import { ComboResourceStringsKO } from './combo-resources.js';
 import { DatePickerResourceStringsKO } from './date-picker-resources.js';
 import { DateRangePickerResourceStringsKO } from './date-range-picker-resources.js';
+import { DockManagerResourceStringsKO } from './dock-manager-resources.js';
 import { GridResourceStringsKO } from './grid-resources.js';
 import { InputResourceStringsKO } from './input-resources.js';
 import { ListResourceStringsKO } from './list-resources.js';
@@ -34,4 +35,5 @@ export const ResourceStringsKO: IResourceStrings = {
     ...QueryBuilderResourceStringsKO,
     ...TimePickerResourceStringsKO,
     ...TreeResourceStringsKO,
+    ...DockManagerResourceStringsKO
 };

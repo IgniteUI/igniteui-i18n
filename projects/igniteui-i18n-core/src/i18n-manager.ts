@@ -15,6 +15,7 @@ import type { IComboResourceStrings } from './interfaces/combo.interface';
 import type { IBannerResourceStrings } from './interfaces/banner.interface';
 import { type IResourceChangeEventArgs, I18nManagerEventTarget } from './utils.js';
 import { setMaxListeners } from "events";
+import type { IDockManagerResourceStrings } from './interfaces/dock-manager.interface';
 
 const defaultLang = 'en';
 const defaultLocale = 'en-US';
@@ -23,7 +24,7 @@ const maxEventListeners = 9999;
 export interface IResourceStrings extends IGridResourceStrings, ITimePickerResourceStrings, ICalendarResourceStrings,
     ICarouselResourceStrings, IChipResourceStrings, IComboResourceStrings, IInputResourceStrings, IDatePickerResourceStrings,
     IDateRangePickerResourceStrings, IListResourceStrings, IPaginatorResourceStrings, ITreeResourceStrings,
-    IActionStripResourceStrings, IQueryBuilderResourceStrings, IBannerResourceStrings { }
+    IActionStripResourceStrings, IQueryBuilderResourceStrings, IBannerResourceStrings, IDockManagerResourceStrings { }
 
 export class igI18nManager extends I18nManagerEventTarget {
     // Default options match angular defaults
