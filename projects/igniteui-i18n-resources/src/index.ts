@@ -15,6 +15,7 @@ export * from './i18n/JA/resources.js';
 export * from './i18n/JA/banner-resources.js';
 export * from './i18n/JA/action-strip-resources.js';
 export * from './i18n/JA/query-builder-resources.js';
+export * from './i18n/JA/dock-manager-resources.js';
 
 // Korean (KO)
 export * from './i18n/KO/calendar-resources.js';
@@ -33,6 +34,7 @@ export * from './i18n/KO/resources.js';
 export * from './i18n/KO/banner-resources.js';
 export * from './i18n/KO/action-strip-resources.js';
 export * from './i18n/KO/query-builder-resources.js';
+export * from './i18n/KO/dock-manager-resources.js';
 
 // Spanish (ES)
 export * from './i18n/ES/calendar-resources.js';
@@ -51,6 +53,7 @@ export * from './i18n/ES/resources.js';
 export * from './i18n/ES/banner-resources.js';
 export * from './i18n/ES/action-strip-resources.js';
 export * from './i18n/ES/query-builder-resources.js';
+export * from './i18n/ES/dock-manager-resources.js';
 
 // Italian (IT)
 export * from './i18n/IT/calendar-resources.js';

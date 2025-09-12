@@ -10,4 +10,4 @@ export const DockManagerResourceStringsJA: IDockManagerResourceStrings = {
     dock_manager_more_tabs: 'その他のタブ',
     dock_manager_panes: 'Panes',
     dock_manager_documents: 'Documents'
-  };
+  } satisfies MakeRequired<IDockManagerResourceStrings>;
