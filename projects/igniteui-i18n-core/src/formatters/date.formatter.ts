@@ -59,7 +59,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
      * @param dateTimeOptions
      * @returns
      */
-    public getLocaleDateTimeFormat(locale: string, dateTimeOptions: Intl.DateTimeFormatOptions) {
+    public getLocaleDateTimeFormat(locale: string, dateTimeOptions?: Intl.DateTimeFormatOptions) {
         const testDate = new Date(2015, 2, 8, 1, 22, 44);
         const formatter = this.getIntlFormatter(locale, dateTimeOptions);
         const resultParts = formatter.formatToParts(testDate);
