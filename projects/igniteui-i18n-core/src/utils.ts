@@ -31,10 +31,9 @@ export function generateLocaleKey(
  * @param source Object that is merged onto the target object values.
  * @returns Merged options.
  */
-export function mergeOptions<T extends Intl.NumberFormatOptions | Intl.DateTimeFormatOptions>(
-    target: T,
-    source: T = {} as T
-) {
+export function mergeOptions<
+    T extends Intl.NumberFormatOptions | Intl.DateTimeFormatOptions | Intl.DisplayNamesOptions
+>(target: T, source: T = {} as T) {
     const result = Object.assign({}, target);
     const sourceKeys = Object.keys(source).map((key) => key as keyof T);
     for (const key of sourceKeys) {

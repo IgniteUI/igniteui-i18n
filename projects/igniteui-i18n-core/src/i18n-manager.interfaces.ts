@@ -53,6 +53,7 @@ export interface IIgI18nManager extends IManagerEventTarget {
 
 export enum Formatter {
     Date,
+    DisplayNames,
     Locale,
     Number
 }

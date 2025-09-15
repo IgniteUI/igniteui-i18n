@@ -9,6 +9,7 @@ import type { BaseFormatter } from './formatters/base.formatter';
 import { DateFormatter } from './formatters/date.formatter';
 import { LocaleFormatter } from './formatters/locale.formatter';
 import { NumberFormatter } from './formatters/number.formatter';
+import { DisplayNamesFormatter } from './formatters/display-names.formatter';
 import { setMaxListeners } from 'events';
 
 const defaultLang = 'en';
@@ -37,11 +38,16 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         return this.formatters.get(Formatter.Number) as NumberFormatter;
     }
 
+    public get displayNamesFormatter(): DisplayNamesFormatter {
+        return this.formatters.get(Formatter.DisplayNames) as DisplayNamesFormatter;
+    }
+
     constructor() {
         super();
         this.formatters.set(Formatter.Locale, new LocaleFormatter(this.defaultLocale));
         this.formatters.set(Formatter.Date, new DateFormatter(this.defaultLocale, this.localeFormatter));
         this.formatters.set(Formatter.Number, new NumberFormatter(this.defaultLocale));
+        this.formatters.set(Formatter.DisplayNames, new DisplayNamesFormatter(this.defaultLocale, this.dateFormatter));
 
         if (typeof document !== 'undefined') {
             const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
@@ -167,6 +173,10 @@ export function getDateFormatter() {
 
 export function getNumberFormatter() {
     return i18nManagerInstance.numberFormatter;
+}
+
+export function getDisplayNamesFormatter() {
+    return i18nManagerInstance.displayNamesFormatter;
 }
 
 /**
