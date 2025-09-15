@@ -1,37 +1,37 @@
-import { GridResourceStringsES } from './grid-resources.js';
-import { PaginatorResourceStringsES } from './paginator-resources.js';
-import { TimePickerResourceStringsES } from './time-picker-resources.js';
-import { DatePickerResourceStringsES } from './date-picker-resources.js';
-import { DateRangePickerResourceStringsES } from './date-range-picker-resources.js';
-import { CarouselResourceStringsES } from './carousel-resources.js';
-import { ListResourceStringsES } from './list-resources.js';
+import { ActionStripResourceStringsES } from './action-strip-resources.js';
+import { BannerResourceStringsES } from './banner-resources.js';
 import { CalendarResourceStringsES } from './calendar-resources.js';
-import { TreeResourceStringsES } from './tree-resources.js';
-import { InputResourceStringsES } from './input-resources.js';
+import { CarouselResourceStringsES } from './carousel-resources.js';
 import { ChipResourceStringsES } from './chip-resources.js';
 import { ComboResourceStringsES } from './combo-resources.js';
+import { DatePickerResourceStringsES } from './date-picker-resources.js';
+import { DateRangePickerResourceStringsES } from './date-range-picker-resources.js';
+import { GridResourceStringsES } from './grid-resources.js';
+import { InputResourceStringsES } from './input-resources.js';
+import { PaginatorResourceStringsES } from './paginator-resources.js';
+import { ListResourceStringsES } from './list-resources.js';
 import { QueryBuilderResourceStringsES } from './query-builder-resources.js';
-import { BannerResourceStringsES } from './banner-resources.js';
-import { ActionStripResourceStringsES } from './action-strip-resources.js';
+import { TimePickerResourceStringsES } from './time-picker-resources.js';
+import { TreeResourceStringsES } from './tree-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Spanish resource strings for all components
  */
 export const ResourceStringsES: IResourceStrings = {
-    ...GridResourceStringsES,
-    ...PaginatorResourceStringsES,
-    ...TimePickerResourceStringsES,
-    ...DatePickerResourceStringsES,
-    ...DateRangePickerResourceStringsES,
-    ...CarouselResourceStringsES,
-    ...ListResourceStringsES,
+    ...ActionStripResourceStringsES,
+    ...BannerResourceStringsES,
     ...CalendarResourceStringsES,
-    ...TreeResourceStringsES,
-    ...InputResourceStringsES,
+    ...CarouselResourceStringsES,
     ...ChipResourceStringsES,
     ...ComboResourceStringsES,
+    ...DatePickerResourceStringsES,
+    ...DateRangePickerResourceStringsES,
+    ...GridResourceStringsES,
+    ...InputResourceStringsES,
+    ...ListResourceStringsES,
+    ...PaginatorResourceStringsES,
     ...QueryBuilderResourceStringsES,
-    ...BannerResourceStringsES,
-    ...ActionStripResourceStringsES
+    ...TimePickerResourceStringsES,
+    ...TreeResourceStringsES,
 };
