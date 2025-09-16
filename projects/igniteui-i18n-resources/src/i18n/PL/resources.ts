@@ -13,6 +13,7 @@ import { PaginatorResourceStringsPL } from './paginator-resources.js';
 import { QueryBuilderResourceStringsPL } from './query-builder-resources.js';
 import { TimePickerResourceStringsPL } from './time-picker-resources.js';
 import { TreeResourceStringsPL } from './tree-resources.js';
+import { ValidationResourceStringsPL } from './validation-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
@@ -34,4 +35,5 @@ export const ResourceStringsPL: IResourceStrings = {
     ...QueryBuilderResourceStringsPL,
     ...TimePickerResourceStringsPL,
     ...TreeResourceStringsPL,
+    ...ValidationResourceStringsPL
 };

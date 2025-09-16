@@ -43,3 +43,23 @@ export function mergeOptions<
     }
     return result;
 }
+
+/**
+ * Extend resources with formatting object keys base on provided format
+ * @param format Format for the extended objects keys in the style of 'grid_{0}_extended_key'. Only single replace position is valid.
+ * @param baseObject Base object, which extends the other provided objects.
+ * @param extendedObjects Object that the base one extends.
+ * @returns Combined and formatted object containing properties from base and extended objects.
+ */
+export function extendResources<T, E>(format: string, baseObject: T, ...extendedObjects: E[]) {
+    const result: Record<string, string> = Object.assign({}, baseObject);
+    for (const extendedObject of extendedObjects) {
+        const objKeys = Object.keys(extendedObject as object);
+        for (const key of objKeys) {
+            const newKey = format.replace('{0}', key);
+            result[newKey] = extendedObject[key as keyof E] as string;
+        }
+    }
+
+    return result;
+}

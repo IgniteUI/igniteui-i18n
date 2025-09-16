@@ -13,6 +13,7 @@ import { ListResourceStringsES } from './list-resources.js';
 import { QueryBuilderResourceStringsES } from './query-builder-resources.js';
 import { TimePickerResourceStringsES } from './time-picker-resources.js';
 import { TreeResourceStringsES } from './tree-resources.js';
+import { ValidationResourceStringsES } from './validation-resources.js';
 import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
@@ -34,4 +35,5 @@ export const ResourceStringsES: IResourceStrings = {
     ...QueryBuilderResourceStringsES,
     ...TimePickerResourceStringsES,
     ...TreeResourceStringsES,
+    ...ValidationResourceStringsES
 };

@@ -7,4 +7,4 @@ export const PaginatorResourceStringsEN: IPaginatorResourceStrings = {
     paginator_previous_page_button_text: 'Previous page',
     paginator_last_page_button_text: 'Go to last page',
     paginator_next_page_button_text: 'Next page'
-};
+} satisfies MakeRequired<IPaginatorResourceStrings>;
