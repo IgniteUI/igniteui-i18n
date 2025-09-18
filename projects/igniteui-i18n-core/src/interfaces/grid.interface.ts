@@ -1,4 +1,4 @@
-import type { IValidationResourceStrings } from './validation.interface';
+import type { IValidationResourceStrings } from './validation.interface.js';
 
 export type GridValidationResourceStrings = {
     [P in keyof IValidationResourceStrings as P extends string ? `grid_${P}` : never]?: string;

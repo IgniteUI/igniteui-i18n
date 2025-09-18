@@ -1,4 +1,4 @@
-import type { IValidationResourceStrings } from '../../interfaces/validation.interface';
+import type { IValidationResourceStrings } from '../../interfaces/validation.interface.js';
 
 export const ValidationResourceStringsEN: IValidationResourceStrings = {
     required_validation_error: 'This field is required',

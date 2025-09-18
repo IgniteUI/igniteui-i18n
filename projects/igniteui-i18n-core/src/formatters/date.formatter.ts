@@ -1,5 +1,5 @@
-import { BaseFormatter } from './base.formatter';
-import { LocaleFormatter } from './locale.formatter';
+import { BaseFormatter } from './base.formatter.js';
+import type { LocaleFormatter } from './locale.formatter.js';
 
 export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateTimeFormatOptions> {
     private localeFormatter: LocaleFormatter;
@@ -79,7 +79,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                 }
             } else if (part.type === 'month') {
                 const valueLength = part.value.length;
-                if (parseInt(part.value)) {
+                if (Number.parseInt(part.value, 10)) {
                     resultFormat += part.value.length === 1 && !forceLeadingZero ? 'M' : 'MM';
                 } else if (1 < valueLength && valueLength < 4) {
                     resultFormat += 'MMM';
@@ -164,7 +164,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         const formatRegex =
             /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
         let parts: string[] = [];
-        let match;
+        let match: RegExpExecArray | null;
         while (format) {
             match = formatRegex.exec(format);
             if (match) {
@@ -182,7 +182,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
         let dateText = '';
         for (const part of parts) {
-            dateText += this.formatPartialDateValue(value, part, locale, forceLeadingZero, timezone);
+            dateText += this.formatPartialDateValue(value, part, locale, timezone, forceLeadingZero);
         }
         return dateText;
     }
@@ -191,11 +191,11 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         date: Date,
         format: string,
         locale: string,
-        forceLeadingZero = false,
-        timezone: string
+        timezone: string,
+        forceLeadingZero = false
     ) {
         // No zeroed values except for 2 digit ones.
-        let periodStyle: 'narrow' | 'short' | 'long' | undefined = undefined;
+        let periodStyle: 'narrow' | 'short' | 'long' | undefined;
         const options: Intl.DateTimeFormatOptions = {};
         switch (format) {
             case 'G':
@@ -424,7 +424,6 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                         ?.split(' ')
                         .map((part) => part.substring(0, 2).toLocaleLowerCase() + (part.length > 2 ? '.' : ''))
                         .join(' ');
-                case 'long':
                 default:
                     return value;
             }

@@ -8,10 +8,7 @@ interface I18nManagerEventMap {
     onResourceChange: CustomEvent<IResourceChangeEventArgs>;
 }
 
-interface CustomEventListener<T> {
-    // eslint-disable-next-line @typescript-eslint/prefer-function-type
-    (evt: T): void;
-}
+type CustomEventListener<T> = (evt: T) => void;
 interface CustomEventListenerObject<T> {
     handleEvent(object: T): void;
 }
@@ -52,8 +49,8 @@ export interface IIgI18nManager extends IManagerEventTarget {
 }
 
 export enum Formatter {
-    Date,
-    DisplayNames,
-    Locale,
-    Number
+    Date = 0,
+    DisplayNames = 1,
+    Locale = 2,
+    Number = 3
 }

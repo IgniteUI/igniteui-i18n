@@ -1,4 +1,4 @@
-import type { ICalendarResourceStrings } from '../../interfaces/calendar.interface';
+import type { ICalendarResourceStrings } from '../../interfaces/calendar.interface.js';
 
 export const CalendarResourceStringsEN: ICalendarResourceStrings = {
     calendar_previous_month: 'Previous Month',

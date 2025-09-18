@@ -1,4 +1,4 @@
-import type { IDatePickerResourceStrings } from '../../interfaces/date-picker.interface';
+import type { IDatePickerResourceStrings } from '../../interfaces/date-picker.interface.js';
 
 export const DatePickerResourceStringsEN: IDatePickerResourceStrings = {
     date_picker_change_date: 'Change Date',

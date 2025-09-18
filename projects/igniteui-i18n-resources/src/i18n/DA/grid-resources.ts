@@ -1,4 +1,4 @@
-import { extendResources, type IGridResourceStrings, type GridValidationResourceStrings } from 'igniteui-i18n-core';
+import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
 import { ValidationResourceStringsDA } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema

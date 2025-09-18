@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { LocaleFormatter } from './locale.formatter';
-import { DateFormatter } from './date.formatter';
+import { describe, expect, it } from 'vitest';
+import { DateFormatter } from './date.formatter.js';
+import { LocaleFormatter } from './locale.formatter.js';
 
 describe('i18n tests', () => {
     const basicDate = new Date('12/3/2014');

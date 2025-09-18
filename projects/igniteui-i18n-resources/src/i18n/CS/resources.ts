@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsCS } from './action-strip-resources.js';
 import { BannerResourceStringsCS } from './banner-resources.js';
 import { CalendarResourceStringsCS } from './calendar-resources.js';
@@ -14,7 +15,6 @@ import { QueryBuilderResourceStringsCS } from './query-builder-resources.js';
 import { TimePickerResourceStringsCS } from './time-picker-resources.js';
 import { TreeResourceStringsCS } from './tree-resources.js';
 import { ValidationResourceStringsCS } from './validation-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Czech resource strings for all components

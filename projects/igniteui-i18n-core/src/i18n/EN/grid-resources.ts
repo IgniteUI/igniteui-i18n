@@ -1,6 +1,6 @@
-import type { IGridResourceStrings, GridValidationResourceStrings } from '../../interfaces/grid.interface';
-import { ValidationResourceStringsEN } from './validation-resources';
-import { extendResources } from '../../utils';
+import type { GridValidationResourceStrings, IGridResourceStrings } from '../../interfaces/grid.interface.js';
+import { extendResources } from '../../utils.js';
+import { ValidationResourceStringsEN } from './validation-resources.js';
 
 export const GridResourceStringsEN: IGridResourceStrings = extendResources(
     'grid_{0}',

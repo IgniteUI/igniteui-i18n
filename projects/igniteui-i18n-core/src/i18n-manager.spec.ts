@@ -1,16 +1,16 @@
-import { beforeEach, describe, it, expect } from 'vitest';
-import {
-    I18nManager,
-    getI18nManager,
-    registerI18n,
-    setCurrentI18n,
-    getCurrentI18n,
-    getCurrentResourceStrings
-} from './i18n-manager';
-import { ActionStripResourceStringsEN } from './i18n/EN/action-strip-resources';
 import { ActionStripResourceStringsBG, ActionStripResourceStringsES } from 'igniteui-i18n-resources';
-import type { IResourceChangeEventArgs } from './i18n-manager.interfaces';
-import { wait } from './utils';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { ActionStripResourceStringsEN } from './i18n/EN/action-strip-resources.js';
+import type { IResourceChangeEventArgs } from './i18n-manager.interfaces.js';
+import {
+    getCurrentI18n,
+    getCurrentResourceStrings, 
+    getI18nManager,
+    I18nManager,
+    registerI18n,
+    setCurrentI18n
+} from './i18n-manager.js';
+import { wait } from './utils.js';
 
 describe('i18n tests', () => {
     let manager: I18nManager;

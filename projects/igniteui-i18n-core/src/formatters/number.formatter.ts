@@ -1,4 +1,4 @@
-import { BaseFormatter } from './base.formatter';
+import { BaseFormatter } from './base.formatter.js';
 
 export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.NumberFormatOptions> {
     constructor(defaultLocale: string) {

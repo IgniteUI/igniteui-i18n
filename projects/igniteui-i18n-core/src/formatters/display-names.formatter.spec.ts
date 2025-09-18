@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
-import { DisplayNamesFormatter } from './display-names.formatter';
-import { LocaleFormatter } from './locale.formatter';
-import { DateFormatter } from './date.formatter';
+import { describe, expect, it } from 'vitest';
+import { DateFormatter } from './date.formatter.js';
+import { DisplayNamesFormatter } from './display-names.formatter.js';
+import { LocaleFormatter } from './locale.formatter.js';
 
 describe('display names formatting', () => {
     const localeFormatter = new LocaleFormatter('en');

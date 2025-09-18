@@ -1,3 +1,4 @@
+import type { IResourceStrings } from '../../interfaces/resources.interface.js';
 import { ActionStripResourceStringsEN } from './action-strip-resources.js';
 import { BannerResourceStringsEN } from './banner-resources.js';
 import { CalendarResourceStringsEN } from './calendar-resources.js';
@@ -14,7 +15,6 @@ import { QueryBuilderResourceStringsEN } from './query-builder-resources.js';
 import { TimePickerResourceStringsEN } from './time-picker-resources.js';
 import { TreeResourceStringsEN } from './tree-resources.js';
 import { ValidationResourceStringsEN } from './validation-resources.js';
-import type { IResourceStrings } from '../../interfaces/resources.interface.js';
 
 /**
  * English resource strings for all components

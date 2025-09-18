@@ -1,15 +1,16 @@
+import { setMaxListeners } from 'node:events';
+import type { BaseFormatter } from './formatters/base.formatter.js';
+import { DateFormatter } from './formatters/date.formatter.js';
+import { DisplayNamesFormatter } from './formatters/display-names.formatter.js';
+import { LocaleFormatter } from './formatters/locale.formatter.js';
+import { NumberFormatter } from './formatters/number.formatter.js';
 import {
     Formatter,
     I18nManagerEventTarget,
     type IIgI18nManager,
     type IResourceChangeEventArgs
-} from './i18n-manager.interfaces';
-import type { IResourceStrings } from './interfaces/resources.interface';
-import type { BaseFormatter } from './formatters/base.formatter';
-import { DateFormatter } from './formatters/date.formatter';
-import { LocaleFormatter } from './formatters/locale.formatter';
-import { NumberFormatter } from './formatters/number.formatter';
-import { DisplayNamesFormatter } from './formatters/display-names.formatter';
+} from './i18n-manager.interfaces.js';
+import type { IResourceStrings } from './interfaces/resources.interface.js';
 
 const defaultLang = 'en';
 const defaultLocale = 'en-US';
@@ -154,14 +155,8 @@ const i18nManagerInstance = new I18nManager();
 // By default it is expected max event listeners per object to be 10, otherwise error is thrown.
 // The manager is one for a page and each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
 // Components should clear any listeners when they are destroyed, but still can have a lot at once.
-let nodeEvents;
-try {
-    nodeEvents = await import('events');
-} catch {
-    // The modules is not available, most likely the environment used is not native.
-}
-if (typeof nodeEvents?.EventEmitter?.setMaxListeners === 'function') {
-    nodeEvents.EventEmitter.setMaxListeners(maxEventListeners, i18nManagerInstance);
+if (typeof setMaxListeners === 'function') {
+    setMaxListeners(maxEventListeners, i18nManagerInstance);
 }
 
 /**

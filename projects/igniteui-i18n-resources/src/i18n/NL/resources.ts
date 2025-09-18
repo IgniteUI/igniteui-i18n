@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsNL } from './action-strip-resources.js';
 import { BannerResourceStringsNL } from './banner-resources.js';
 import { CalendarResourceStringsNL } from './calendar-resources.js';
@@ -14,7 +15,6 @@ import { QueryBuilderResourceStringsNL } from './query-builder-resources.js';
 import { TimePickerResourceStringsNL } from './time-picker-resources.js';
 import { TreeResourceStringsNL } from './tree-resources.js';
 import { ValidationResourceStringsNL } from './validation-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Dutch resource strings for all components

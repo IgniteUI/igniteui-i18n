@@ -1,4 +1,4 @@
-import type { ICarouselResourceStrings } from '../../interfaces/carousel.interface';
+import type { ICarouselResourceStrings } from '../../interfaces/carousel.interface.js';
 
 export const CarouselResourceStringsEN: ICarouselResourceStrings = {
     carousel_of: 'of',

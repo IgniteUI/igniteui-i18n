@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsHU } from './action-strip-resources.js';
 import { BannerResourceStringsHU } from './banner-resources.js';
 import { CalendarResourceStringsHU } from './calendar-resources.js';
@@ -14,7 +15,6 @@ import { QueryBuilderResourceStringsHU } from './query-builder-resources.js';
 import { TimePickerResourceStringsHU } from './time-picker-resources.js';
 import { TreeResourceStringsHU } from './tree-resources.js';
 import { ValidationResourceStringsHU } from './validation-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Hungarian resource strings for all components

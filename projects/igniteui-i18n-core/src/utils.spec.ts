@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { generateLocaleKey } from './utils';
+import { generateLocaleKey } from './utils.js';
 
 describe('util', () => {
     it('generateLocaleKey should produce same key for objects with same values, regardless or order of keys', () => {

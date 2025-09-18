@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { NumberFormatter } from './number.formatter';
+import { describe, expect, it } from 'vitest';
+import { NumberFormatter } from './number.formatter.js';
 
 describe('number formatting', () => {
     const numberFormatter = new NumberFormatter('en');

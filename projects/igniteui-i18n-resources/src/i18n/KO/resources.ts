@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsKO } from './action-strip-resources.js';
 import { BannerResourceStringsKO } from './banner-resources.js';
 import { CalendarResourceStringsKO } from './calendar-resources.js';
@@ -14,7 +15,6 @@ import { QueryBuilderResourceStringsKO } from './query-builder-resources.js';
 import { TimePickerResourceStringsKO } from './time-picker-resources.js';
 import { TreeResourceStringsKO } from './tree-resources.js';
 import { ValidationResourceStringsKO } from './validation-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Korean resource strings for all components

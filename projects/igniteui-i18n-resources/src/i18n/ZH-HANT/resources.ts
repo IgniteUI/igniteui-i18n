@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsZHHANT } from './action-strip-resources.js';
 import { BannerResourceStringsZHHANT } from './banner-resources.js';
 import { CalendarResourceStringsZHHANT } from './calendar-resources.js';
@@ -14,7 +15,6 @@ import { QueryBuilderResourceStringsZHHANT } from './query-builder-resources.js'
 import { TimePickerResourceStringsZHHANT } from './time-picker-resources.js';
 import { TreeResourceStringsZHHANT } from './tree-resources.js';
 import { ValidationResourceStringsZHHANT } from './validation-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Traditional Chinese (zh-Hant) resource strings for all components

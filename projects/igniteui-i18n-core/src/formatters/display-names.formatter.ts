@@ -1,6 +1,6 @@
-import { mergeOptions } from '../utils';
-import { BaseFormatter } from './base.formatter';
-import type { DateFormatter } from './date.formatter';
+import { mergeOptions } from '../utils.js';
+import { BaseFormatter } from './base.formatter.js';
+import type { DateFormatter } from './date.formatter.js';
 
 export class DisplayNamesFormatter extends BaseFormatter<Intl.DisplayNames, Intl.DisplayNamesOptions> {
     private dateFormatter: DateFormatter;
