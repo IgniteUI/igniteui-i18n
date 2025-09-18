@@ -59,8 +59,12 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
      * @param dateTimeOptions
      * @returns
      */
-    public getLocaleDateTimeFormat(locale: string, dateTimeOptions?: Intl.DateTimeFormatOptions) {
-        const testDate = new Date(2015, 2, 8, 1, 22, 44);
+    public getLocaleDateTimeFormat(
+        locale: string,
+        forceLeadingZero = false,
+        dateTimeOptions?: Intl.DateTimeFormatOptions
+    ) {
+        const testDate = new Date(2015, 2, 8, 1, 2, 4);
         const formatter = this.getIntlFormatter(locale, dateTimeOptions);
         const resultParts = formatter.formatToParts(testDate);
         let resultFormat = '';
@@ -68,7 +72,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             if (part.type === 'weekday') {
                 resultFormat += 'EEEE';
             } else if (part.type === 'day') {
-                if (part.value.length === 1) {
+                if (part.value.length === 1 && !forceLeadingZero) {
                     resultFormat += 'd';
                 } else {
                     resultFormat += 'dd';
@@ -76,7 +80,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             } else if (part.type === 'month') {
                 const valueLength = part.value.length;
                 if (parseInt(part.value)) {
-                    resultFormat += part.value.length === 1 ? 'M' : 'MM';
+                    resultFormat += part.value.length === 1 && !forceLeadingZero ? 'M' : 'MM';
                 } else if (1 < valueLength && valueLength < 4) {
                     resultFormat += 'MMM';
                 } else if (valueLength >= 4) {
@@ -102,11 +106,12 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                 } else if (hourCycle === 'h12') {
                     replaceHour = 'h';
                 }
+                replaceHour += part.value.length === 1 && !forceLeadingZero ? '' : replaceHour;
                 resultFormat += part.value.replaceAll(/\d/g, replaceHour);
             } else if (part.type === 'minute') {
-                resultFormat += 'mm';
+                resultFormat += part.value.length === 1 && !forceLeadingZero ? 'm' : 'mm';
             } else if (part.type === 'second') {
-                resultFormat += 'ss';
+                resultFormat += part.value.length === 1 && !forceLeadingZero ? 's' : 'ss';
             } else if (part.type === 'dayPeriod') {
                 resultFormat += 'a';
             } else if (part.type === 'timeZoneName') {
@@ -149,7 +154,13 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
      * @param timezone Timezone the date to be formatted to using the `IANA time zone` specification. Ex: GMT+0230 is Etc/GMT+02:30, UTS is Etc/UTC+02:30
      * @returns
      */
-    public formatDateCustomFormat(value: Date, locale: string, format: string, timezone = 'GMT') {
+    public formatDateCustomFormat(
+        value: Date,
+        locale: string,
+        format: string,
+        forceLeadingZero = false,
+        timezone = 'GMT'
+    ) {
         const formatRegex =
             /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
         let parts: string[] = [];
@@ -171,12 +182,18 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
         let dateText = '';
         for (const part of parts) {
-            dateText += this.formatPartialDateValue(value, part, locale, timezone);
+            dateText += this.formatPartialDateValue(value, part, locale, forceLeadingZero, timezone);
         }
         return dateText;
     }
 
-    private formatPartialDateValue(date: Date, format: string, locale: string, timezone: string) {
+    private formatPartialDateValue(
+        date: Date,
+        format: string,
+        locale: string,
+        forceLeadingZero = false,
+        timezone: string
+    ) {
         // No zeroed values except for 2 digit ones.
         let periodStyle: 'narrow' | 'short' | 'long' | undefined = undefined;
         const options: Intl.DateTimeFormatOptions = {};
@@ -214,7 +231,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             case 'M':
             case 'L':
-                options.month = 'numeric';
+                options.month = forceLeadingZero ? '2-digit' : 'numeric';
                 break;
             case 'MM':
             case 'LL':
@@ -249,7 +266,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             // Day of the month (1-31)
             case 'd':
-                options.day = 'numeric';
+                options.day = forceLeadingZero ? '2-digit' : 'numeric';
                 break;
             case 'dd':
                 options.day = '2-digit';
@@ -311,7 +328,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             // Hour in AM/PM, (1-12)
             case 'h':
                 options.hour12 = true;
-                options.hour = 'numeric';
+                options.hour = forceLeadingZero ? '2-digit' : 'numeric';
                 break;
             case 'hh':
                 options.hour12 = true;
@@ -321,7 +338,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             // Hour of the day (0-23)
             case 'H':
                 options.hour12 = false;
-                options.hour = 'numeric';
+                options.hour = forceLeadingZero ? '2-digit' : 'numeric';
                 break;
             // Hour in day, padded (00-23)
             case 'HH':
@@ -331,7 +348,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             case 'K':
                 options.hourCycle = 'h11';
-                options.hour = 'numeric';
+                options.hour = forceLeadingZero ? '2-digit' : 'numeric';
                 break;
             case 'KK':
                 options.hourCycle = 'h11';
@@ -340,7 +357,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             // Minute of the hour (0-59)
             case 'm':
-                options.minute = 'numeric';
+                options.minute = forceLeadingZero ? '2-digit' : 'numeric';
                 break;
             case 'mm':
                 // Also for some reason this is not working in Intl for all locales ??
@@ -349,7 +366,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             // Second of the minute (0-59)
             case 's':
-                options.second = 'numeric';
+                options.second = forceLeadingZero ? '2-digit' : 'numeric';
                 break;
             case 'ss':
                 // Also for some reason this is not working in Intl for all locales ??
@@ -413,7 +430,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             }
         } else if (options.hour) {
             const value = this.findDatePart(dateParts, 'hour');
-            if (options.hour === 'numeric' && value?.startsWith('0') && value.length === 2) {
+            if (!forceLeadingZero && options.hour === 'numeric' && value?.startsWith('0') && value.length === 2) {
                 // Use numeric option value to format to shorter hour. Ex: instead of 08 return 8.
                 return value[1];
             }

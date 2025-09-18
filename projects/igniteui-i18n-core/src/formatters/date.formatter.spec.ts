@@ -100,334 +100,138 @@ describe('i18n tests', () => {
             ]);
         });
 
+        it('should get correct default date formatting for different locales', () => {
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US')).equal('M/d/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB')).equal('dd/MM/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('de')).equal('d.M.yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja')).equal('yyyy/M/d');
+            expect(dateFormatter.getLocaleDateTimeFormat('es')).equal('d/M/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar')).equal('d‏/M‏/yyyy');
+        });
+
+        it('should get correct default date formatting for different locales with forced leading zero', () => {
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', true)).equal('MM/dd/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', true)).equal('dd/MM/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', true)).equal('dd.MM.yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', true)).equal('yyyy/MM/dd');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', true)).equal('dd/MM/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', true)).equal('dd‏/MM‏/yyyy');
+        });
+
         it('should get correct date formatting for different locales', () => {
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'short'
-                })
-            ).equal('M/d/yy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'short'
-                })
-            ).equal('dd/MM/yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    dateStyle: 'short'
-                })
-            ).equal('dd.MM.yy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'short'
-                })
-            ).equal('yyyy/MM/dd');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    dateStyle: 'short'
-                })
-            ).equal('d/M/yy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    dateStyle: 'short'
-                })
-            ).equal('d‏/M‏/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'short' })).equal('M/d/yy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'short' })).equal('dd/MM/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { dateStyle: 'short' })).equal('dd.MM.yy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'short' })).equal('yyyy/MM/dd');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { dateStyle: 'short' })).equal('d/M/yy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { dateStyle: 'short' })).equal('d‏/M‏/yyyy');
 
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'medium'
-                })
-            ).equal('MMM d, yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'medium'
-                })
-            ).equal('d MMM yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    dateStyle: 'medium'
-                })
-            ).equal('dd.MM.yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'medium'
-                })
-            ).equal('yyyy/MM/dd');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    dateStyle: 'medium'
-                })
-            ).equal('d MMM yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    dateStyle: 'medium'
-                })
-            ).equal('dd‏/MM‏/yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'medium' })).equal('MMM d, yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'medium' })).equal('d MMM yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { dateStyle: 'medium' })).equal('dd.MM.yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'medium' })).equal('yyyy/MM/dd');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { dateStyle: 'medium' })).equal('d MMM yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { dateStyle: 'medium' })).equal('dd‏/MM‏/yyyy');
 
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'long'
-                })
-            ).equal('MMMM d, yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'long'
-                })
-            ).equal('d MMMM yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    dateStyle: 'long'
-                })
-            ).equal('d. MMMM yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'long'
-                })
-            ).equal('yyyy年M月d日');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    dateStyle: 'long'
-                })
-            ).equal('d de MMMM de yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    dateStyle: 'long'
-                })
-            ).equal('d MMMM yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'long' })).equal('MMMM d, yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'long' })).equal('d MMMM yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { dateStyle: 'long' })).equal('d. MMMM yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'long' })).equal('yyyy年M月d日');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { dateStyle: 'long' })).equal(
+                'd de MMMM de yyyy'
+            );
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { dateStyle: 'long' })).equal('d MMMM yyyy');
 
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'full'
-                })
-            ).equal('EEEE, MMMM d, yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'full'
-                })
-            ).equal('EEEE d MMMM yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    dateStyle: 'full'
-                })
-            ).equal('EEEE, d. MMMM yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'full'
-                })
-            ).equal('yyyy年M月d日EEEE');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    dateStyle: 'full'
-                })
-            ).equal('EEEE, d de MMMM de yyyy');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    dateStyle: 'full'
-                })
-            ).equal('EEEE، d MMMM yyyy');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'full' })).equal(
+                'EEEE, MMMM d, yyyy'
+            );
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'full' })).equal(
+                'EEEE d MMMM yyyy'
+            );
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { dateStyle: 'full' })).equal(
+                'EEEE, d. MMMM yyyy'
+            );
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'full' })).equal('yyyy年M月d日EEEE');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { dateStyle: 'full' })).equal(
+                'EEEE, d de MMMM de yyyy'
+            );
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { dateStyle: 'full' })).equal(
+                'EEEE، d MMMM yyyy'
+            );
         });
 
         it('should get correct time formatting for different locales', () => {
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    timeStyle: 'short'
-                })
-            ).equal('h:mm a');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    timeStyle: 'short'
-                })
-            ).equal('HH:mm');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    timeStyle: 'short'
-                })
-            ).equal('HH:mm');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    timeStyle: 'short'
-                })
-            ).equal('H:mm');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    timeStyle: 'short'
-                })
-            ).equal('H:mm');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    timeStyle: 'short'
-                })
-            ).equal('h:mm a');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'short' })).equal('h:mm a');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'short' })).equal('HH:mm');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'short' })).equal('HH:mm');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'short' })).equal('H:mm');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'short' })).equal('H:mm');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'short' })).equal('h:mm a');
 
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    timeStyle: 'medium'
-                })
-            ).equal('h:mm:ss a');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    timeStyle: 'medium'
-                })
-            ).equal('HH:mm:ss');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    timeStyle: 'medium'
-                })
-            ).equal('HH:mm:ss');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    timeStyle: 'medium'
-                })
-            ).equal('H:mm:ss');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    timeStyle: 'medium'
-                })
-            ).equal('H:mm:ss');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    timeStyle: 'medium'
-                })
-            ).equal('h:mm:ss a');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'medium' })).equal('h:mm:ss a');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'medium' })).equal('HH:mm:ss');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'medium' })).equal('HH:mm:ss');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'medium' })).equal('H:mm:ss');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'medium' })).equal('H:mm:ss');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'medium' })).equal('h:mm:ss a');
 
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    timeStyle: 'long'
-                })
-            ).equal('h:mm:ss a z');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    timeStyle: 'long'
-                })
-            ).equal('HH:mm:ss z');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    timeStyle: 'long'
-                })
-            ).equal('HH:mm:ss z');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    timeStyle: 'long'
-                })
-            ).equal('H:mm:ss z');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    timeStyle: 'long'
-                })
-            ).equal('H:mm:ss z');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    timeStyle: 'long'
-                })
-            ).equal('h:mm:ss a z');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'long' })).equal('h:mm:ss a z');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'long' })).equal('HH:mm:ss z');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'long' })).equal('HH:mm:ss z');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'long' })).equal('H:mm:ss z');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'long' })).equal('H:mm:ss z');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'long' })).equal('h:mm:ss a z');
 
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    timeStyle: 'full'
-                })
-            ).equal('h:mm:ss a zzzz');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    timeStyle: 'full'
-                })
-            ).equal('HH:mm:ss zzzz');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('de', {
-                    timeStyle: 'full'
-                })
-            ).equal('HH:mm:ss zzzz');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    timeStyle: 'full'
-                })
-            ).equal('H時mm分ss秒 zzzz');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('es', {
-                    timeStyle: 'full'
-                })
-            ).equal('H:mm:ss (zzzz)');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ar', {
-                    timeStyle: 'full'
-                })
-            ).equal('h:mm:ss a zzzz');
+            expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'full' })).equal(
+                'h:mm:ss a zzzz'
+            );
+            expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'full' })).equal('HH:mm:ss zzzz');
+            expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'full' })).equal('HH:mm:ss zzzz');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'full' })).equal('H時mm分ss秒 zzzz');
+            expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'full' })).equal('H:mm:ss (zzzz)');
+            expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'full' })).equal('h:mm:ss a zzzz');
         });
 
         it('should get correct date time formatting for different locales', () => {
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'short',
-                    timeStyle: 'short'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'short', timeStyle: 'short' })
             ).equal('M/d/yy, h:mm a');
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'short',
-                    timeStyle: 'short'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'short', timeStyle: 'short' })
             ).equal('dd/MM/yyyy, HH:mm');
             expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'short',
-                    timeStyle: 'short'
-                })
+                dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'short', timeStyle: 'short' })
             ).equal('yyyy/MM/dd H:mm');
 
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'medium',
-                    timeStyle: 'medium'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'medium', timeStyle: 'medium' })
             ).equal('MMM d, yyyy, h:mm:ss a');
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'medium',
-                    timeStyle: 'medium'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'medium', timeStyle: 'medium' })
             ).equal('d MMM yyyy, HH:mm:ss');
             expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'medium',
-                    timeStyle: 'medium'
-                })
+                dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'medium', timeStyle: 'medium' })
             ).equal('yyyy/MM/dd H:mm:ss');
 
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'long',
-                    timeStyle: 'long'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'long', timeStyle: 'long' })
             ).equal('MMMM d, yyyy at h:mm:ss a z');
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'long',
-                    timeStyle: 'long'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'long', timeStyle: 'long' })
             ).equal('d MMMM yyyy at HH:mm:ss z');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'long',
-                    timeStyle: 'long'
-                })
-            ).equal('yyyy年M月d日 H:mm:ss z');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'long', timeStyle: 'long' })).equal(
+                'yyyy年M月d日 H:mm:ss z'
+            );
 
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-US', {
-                    dateStyle: 'full',
-                    timeStyle: 'full'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'full', timeStyle: 'full' })
             ).equal('EEEE, MMMM d, yyyy at h:mm:ss a zzzz');
             expect(
-                dateFormatter.getLocaleDateTimeFormat('en-GB', {
-                    dateStyle: 'full',
-                    timeStyle: 'full'
-                })
+                dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'full', timeStyle: 'full' })
             ).equal('EEEE d MMMM yyyy at HH:mm:ss zzzz');
-            expect(
-                dateFormatter.getLocaleDateTimeFormat('ja', {
-                    dateStyle: 'full',
-                    timeStyle: 'full'
-                })
-            ).equal('yyyy年M月d日EEEE H時mm分ss秒 zzzz');
+            expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { dateStyle: 'full', timeStyle: 'full' })).equal(
+                'yyyy年M月d日EEEE H時mm分ss秒 zzzz'
+            );
         });
     });
 
@@ -750,28 +554,36 @@ describe('i18n tests', () => {
 
         it('should format short format timezone', () => {
             let format = 'z';
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, 'Etc/GMT+1')).equal('GMT-1');
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, 'Etc/GMT+1')).equal(
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, false, 'Etc/GMT+1')).equal(
+                'GMT-1'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, false, 'Etc/GMT+1')).equal(
                 'Гринуич-1'
             );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, 'Etc/GMT+1')).equal('GMT-1');
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, 'Etc/GMT+1')).equal('GMT-1');
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, 'Etc/GMT+1')).equal('غرينتش-1');
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, false, 'Etc/GMT+1')).equal(
+                'GMT-1'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, false, 'Etc/GMT+1')).equal(
+                'GMT-1'
+            );
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, false, 'Etc/GMT+1')).equal(
+                'غرينتش-1'
+            );
 
             format = 'zzzz';
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, 'Etc/GMT+1')).equal(
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, false, 'Etc/GMT+1')).equal(
                 'GMT-01:00'
             );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, 'Etc/GMT+1')).equal(
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, false, 'Etc/GMT+1')).equal(
                 'Гринуич-01:00'
             );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, 'Etc/GMT+1')).equal(
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, false, 'Etc/GMT+1')).equal(
                 'GMT-01:00'
             );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, 'Etc/GMT+1')).equal(
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, false, 'Etc/GMT+1')).equal(
                 'GMT-01:00'
             );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, 'Etc/GMT+1')).equal(
+            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, false, 'Etc/GMT+1')).equal(
                 'غرينتش-01:00'
             );
         });
