@@ -106,7 +106,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                 } else if (hourCycle === 'h12') {
                     replaceHour = 'h';
                 }
-                replaceHour += part.value.length === 1 && !forceLeadingZero ? '' : replaceHour;
+                replaceHour += part.value.length === 1 && forceLeadingZero ? replaceHour : '';
                 resultFormat += part.value.replaceAll(/\d/g, replaceHour);
             } else if (part.type === 'minute') {
                 resultFormat += part.value.length === 1 && !forceLeadingZero ? 'm' : 'mm';
