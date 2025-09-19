@@ -154,14 +154,16 @@ const i18nManagerInstance = new I18nManager();
 // By default Node.js expects max event listeners per object to be 10, otherwise error is thrown.
 // The manager is one for a page and each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
 // Components should clear any listeners when they are destroyed, but still can have a lot at once.
-try {
-    const nodeEvents = (await import('node:events')).default;
-    if (typeof nodeEvents.setMaxListeners === 'function') {
-        nodeEvents.setMaxListeners(maxEventListeners, i18nManagerInstance);
-    }
-} catch {
-    // The modules is not available, so we are not in a Node env.
-}
+import('node:events')
+    .then((nodeEvents) => {
+        const eventsDefault = nodeEvents.default;
+        if (typeof eventsDefault.setMaxListeners === 'function') {
+            eventsDefault.setMaxListeners(maxEventListeners, i18nManagerInstance);
+        }
+    })
+    .catch(() => {
+        // The modules is not available, so we are not in a Node env.
+    });
 
 /**
  * Gets in the i18nManager instance.
