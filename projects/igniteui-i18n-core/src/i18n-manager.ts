@@ -1,4 +1,3 @@
-import { setMaxListeners } from 'node:events';
 import type { BaseFormatter } from './formatters/base.formatter.js';
 import { DateFormatter } from './formatters/date.formatter.js';
 import { DisplayNamesFormatter } from './formatters/display-names.formatter.js';
@@ -152,11 +151,16 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 
 const i18nManagerInstance = new I18nManager();
 
-// By default it is expected max event listeners per object to be 10, otherwise error is thrown.
+// By default Node.js expects max event listeners per object to be 10, otherwise error is thrown.
 // The manager is one for a page and each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
 // Components should clear any listeners when they are destroyed, but still can have a lot at once.
-if (typeof setMaxListeners === 'function') {
-    setMaxListeners(maxEventListeners, i18nManagerInstance);
+try {
+    const nodeEvents = (await import('node:events')).default;
+    if (typeof nodeEvents.setMaxListeners === 'function') {
+        nodeEvents.setMaxListeners(maxEventListeners, i18nManagerInstance);
+    }
+} catch {
+    // The modules is not available, so we are not in a Node env.
 }
 
 /**

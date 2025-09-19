@@ -4,7 +4,7 @@ import { ActionStripResourceStringsEN } from './i18n/EN/action-strip-resources.j
 import type { IResourceChangeEventArgs } from './i18n-manager.interfaces.js';
 import {
     getCurrentI18n,
-    getCurrentResourceStrings, 
+    getCurrentResourceStrings,
     getI18nManager,
     I18nManager,
     registerI18n,

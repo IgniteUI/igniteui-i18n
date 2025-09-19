@@ -27,6 +27,9 @@
     "./en": "./i18n/EN/index.js"
   },
   "sideEffects": false,
+  "optionalDependencies": {
+    "events": "^3.3.0"
+  },
   "peerDependencies": {
     "igniteui-i18n-translations": "^1.0.0"
   },
