@@ -17,22 +17,32 @@ jobs:
       - run: echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
       - run: echo ${VERSION}
 
-      - run: npm ci
-
-      - name: Build the package
-        run: npm run build
-
       - name: Define npm tag
         run: |
             if [[ ${VERSION} == *"alpha"* || ${VERSION} == *"beta"* || ${VERSION} == *"rc"* ]]; then echo "NPM_TAG=next"; else echo "NPM_TAG=latest"; fi >> $GITHUB_ENV
             echo ${NPM_TAG}
 
-      - name: Version the package
-        run: npm version ${VERSION} --no-git-tag-version --save --verbose
-        working-directory: dist
+      - run: npm ci
 
-      - name: Publish the package
+      - name: Build the package
+        run: npm run build
+
+      - name: Version the core package
+        run: npm version ${VERSION} --no-git-tag-version --save --verbose
+        working-directory: dist/igniteui-i18n-core
+
+      - name: Publish the core package
         run: npm publish --tag ${NPM_TAG}
-        working-directory: dist
+        working-directory: dist/igniteui-i18n-core
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Version the resources package
+        run: npm version ${VERSION} --no-git-tag-version --save --verbose
+        working-directory: dist/igniteui-i18n-resources
+
+      - name: Publish the resources package
+        run: npm publish --tag ${NPM_TAG}
+        working-directory: dist/igniteui-i18n-resources
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
