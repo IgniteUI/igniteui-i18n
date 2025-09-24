@@ -37,6 +37,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
+      - name: Set dependency versions for resource package
+        shell: pwsh
+        run: |
+          $pattern = '"igniteui-i18n-core": "\S?(?<version>(\d\S?)+)"'
+          $filePath = "dist/igniteui-i18n-resources/package.json"
+          (Get-Content -Path $filePath -Raw) -replace $pattern, "`"igniteui-i18n-core`": `"${NPM_TAG}`"" | Set-Content $filePath
+
       - name: Version the resources package
         run: npm version ${VERSION} --no-git-tag-version --save --verbose
         working-directory: dist/igniteui-i18n-resources
