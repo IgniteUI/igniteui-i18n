@@ -27,6 +27,14 @@ jobs:
       - name: Build the package
         run: npm run build
 
+      - name: Set peer dependency versions for core package
+        shell: pwsh
+        run: |
+          $pattern = '"igniteui-i18n-resources": "\S?(?<version>(\d\S?)+)"'
+          $filePath = "dist/igniteui-i18n-core/package.json"
+          (Get-Content -Path $filePath -Raw) -replace $pattern, "`"igniteui-i18n-resources`": `"$env:VERSION`"" | Set-Content $filePath
+          Write-Output (Get-Content -Path $filePath -Raw)
+
       - name: Version the core package
         run: npm version ${VERSION} --no-git-tag-version --save --verbose
         working-directory: dist/igniteui-i18n-core
