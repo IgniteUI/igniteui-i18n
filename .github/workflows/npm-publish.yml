@@ -27,29 +27,30 @@ jobs:
       - name: Build the package
         run: npm run build
 
-      - name: Version the core package
-        run: npm version ${VERSION} --no-git-tag-version --save --verbose
-        working-directory: dist/igniteui-i18n-core
+      # - name: Version the core package
+      #   run: npm version ${VERSION} --no-git-tag-version --save --verbose
+      #   working-directory: dist/igniteui-i18n-core
 
-      - name: Publish the core package
-        run: npm publish --tag ${NPM_TAG}
-        working-directory: dist/igniteui-i18n-core
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      # - name: Publish the core package
+      #   run: npm publish --tag ${NPM_TAG}
+      #   working-directory: dist/igniteui-i18n-core
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Set dependency versions for resource package
         shell: pwsh
         run: |
           $pattern = '"igniteui-i18n-core": "\S?(?<version>(\d\S?)+)"'
           $filePath = "dist/igniteui-i18n-resources/package.json"
-          (Get-Content -Path $filePath -Raw) -replace $pattern, "`"igniteui-i18n-core`": `"${env:NPM_TAG}`"" | Set-Content $filePath
+          (Get-Content -Path $filePath -Raw) -replace $pattern, "`"igniteui-i18n-core`": `"$env:NPM_TAG`"" | Set-Content $filePath
+          Write-Output (Get-Content -Path $filePath -Raw)
 
-      - name: Version the resources package
-        run: npm version ${VERSION} --no-git-tag-version --save --verbose
-        working-directory: dist/igniteui-i18n-resources
+      # - name: Version the resources package
+      #   run: npm version ${VERSION} --no-git-tag-version --save --verbose
+      #   working-directory: dist/igniteui-i18n-resources
 
-      - name: Publish the resources package
-        run: npm publish --tag ${NPM_TAG}
-        working-directory: dist/igniteui-i18n-resources
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      # - name: Publish the resources package
+      #   run: npm publish --tag ${NPM_TAG}
+      #   working-directory: dist/igniteui-i18n-resources
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
