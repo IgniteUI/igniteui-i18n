@@ -1,0 +1,51 @@
+{
+  "name": "igniteui-i18n-resources",
+  "version": "1.0.0",
+  "description": "IgniteUI for Angular localization resources package",
+  "author": "Infragistics",
+  "license": "MIT",
+  "homepage": "https://github.com/IgniteUI/igniteui-angular/projects/igniteui-i18n-resources",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IgniteUI/igniteui-i18n.git",
+    "directory": "projects/igniteui-i18n-resources"
+  },
+  "bugs": {
+    "url": "https://github.com/IgniteUI/igniteui-angular/issues"
+  },
+  "keywords": [
+    "IgniteUI",
+    "Angular",
+    "i18n",
+    "Infragistics"
+  ],
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./bg": "./i18n/BG/index.js",
+    "./cs": "./i18n/CS/index.js",
+    "./da": "./i18n/DA/index.js",
+    "./de": "./i18n/DE/index.js",
+    "./es": "./i18n/ES/index.js",
+    "./fr": "./i18n/FR/index.js",
+    "./hu": "./i18n/HU/index.js",
+    "./it": "./i18n/IT/index.js",
+    "./ja": "./i18n/JA/index.js",
+    "./ko": "./i18n/KO/index.js",
+    "./nb": "./i18n/NB/index.js",
+    "./nl": "./i18n/NL/index.js",
+    "./pl": "./i18n/PL/index.js",
+    "./pt": "./i18n/PT/index.js",
+    "./ro": "./i18n/RO/index.js",
+    "./sv": "./i18n/SV/index.js",
+    "./tr": "./i18n/TR/index.js",
+    "./zh-Hans": "./i18n/ZH-HANS/index.js",
+    "./zh-Hant": "./i18n/ZH_HANT/index.js"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "igniteui-i18n-core": "^1.0.0"
+  }
+}

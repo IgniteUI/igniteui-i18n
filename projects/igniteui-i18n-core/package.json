@@ -1,0 +1,38 @@
+{
+  "name": "igniteui-i18n-core",
+  "version": "1.0.0",
+  "description": "IgniteUI for Angular localization resources package",
+  "author": "Infragistics",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/IgniteUI/igniteui-angular/projects/igniteui-i18n-core",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IgniteUI/igniteui-i18n.git",
+    "directory": "projects/igniteui-i18n-core"
+  },
+  "bugs": {
+    "url": "https://github.com/IgniteUI/igniteui-angular/issues"
+  },
+  "keywords": [
+    "IgniteUI",
+    "Angular",
+    "i18n",
+    "Infragistics"
+  ],
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": "./index.js",
+    "./en": "./i18n/EN/index.js"
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "igniteui-i18n-resources": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "igniteui-i18n-resources": {
+      "optional": true
+    }
+  }
+}
