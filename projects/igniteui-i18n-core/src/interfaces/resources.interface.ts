@@ -6,6 +6,7 @@ import type { IChipResourceStrings } from './chip.interface.js';
 import type { IComboResourceStrings } from './combo.interface.js';
 import type { IDatePickerResourceStrings } from './date-picker.interface.js';
 import type { IDateRangePickerResourceStrings } from './date-range-picker.interface.js';
+import type { IDockManagerResourceStrings } from './dock-manager.interface.js';
 import type { IGridResourceStrings } from './grid.interface.js';
 import type { IInputResourceStrings } from './input.interface.js';
 import type { IListResourceStrings } from './list.interface.js';
@@ -31,4 +32,5 @@ export interface IResourceStrings
         IQueryBuilderResourceStrings,
         ITimePickerResourceStrings,
         ITreeResourceStrings,
-        IValidationResourceStrings {}
+        IValidationResourceStrings,
+        IDockManagerResourceStrings {}

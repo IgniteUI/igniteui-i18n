@@ -1,6 +1,7 @@
 export * from './formatters/number.formatter.js';
 export * from './i18n/EN/action-strip-resources.js';
 export * from './i18n/EN/banner-resources.js';
+export * from './i18n/EN/dock-manager-resources.js';
 export * from './i18n/EN/calendar-resources.js';
 export * from './i18n/EN/carousel-resources.js';
 export * from './i18n/EN/chip-resources.js';
@@ -20,6 +21,7 @@ export type { IResourceChangeEventArgs } from './i18n-manager.interfaces.js';
 export * from './i18n-manager.js';
 export * from './interfaces/action-strip.interface.js';
 export * from './interfaces/banner.interface.js';
+export * from './interfaces/dock-manager.interface.js';
 export * from './interfaces/calendar.interface.js';
 export * from './interfaces/carousel.interface.js';
 export * from './interfaces/chip.interface.js';

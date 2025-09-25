@@ -15,6 +15,7 @@ import { QueryBuilderResourceStringsES } from './query-builder-resources.js';
 import { TimePickerResourceStringsES } from './time-picker-resources.js';
 import { TreeResourceStringsES } from './tree-resources.js';
 import { ValidationResourceStringsES } from './validation-resources.js';
+import { DockManagerResourceStringsES } from './dock-manager-resources.js';
 
 /**
  * Spanish resource strings for all components
@@ -35,5 +36,6 @@ export const ResourceStringsES: IResourceStrings = {
     ...QueryBuilderResourceStringsES,
     ...TimePickerResourceStringsES,
     ...TreeResourceStringsES,
-    ...ValidationResourceStringsES
+    ...ValidationResourceStringsES,
+    ...DockManagerResourceStringsES
 };

@@ -90,6 +90,7 @@ export * from './i18n/ES/resources.js';
 export * from './i18n/ES/time-picker-resources.js';
 export * from './i18n/ES/tree-resources.js';
 export * from './i18n/ES/validation-resources.js';
+export * from './i18n/ES/dock-manager-resources.js';
 export * from './i18n/FR/action-strip-resources.js';
 export * from './i18n/FR/banner-resources.js';
 // French (FR)
@@ -163,6 +164,7 @@ export * from './i18n/JA/tree-resources.js';
 export * from './i18n/JA/validation-resources.js';
 export * from './i18n/KO/action-strip-resources.js';
 export * from './i18n/KO/banner-resources.js';
+export * from './i18n/JA/dock-manager-resources.js';
 // Korean (KO)
 export * from './i18n/KO/calendar-resources.js';
 export * from './i18n/KO/carousel-resources.js';
@@ -179,8 +181,10 @@ export * from './i18n/KO/resources.js';
 export * from './i18n/KO/time-picker-resources.js';
 export * from './i18n/KO/tree-resources.js';
 export * from './i18n/KO/validation-resources.js';
+export * from './i18n/KO/dock-manager-resources.js';
 export * from './i18n/NB/action-strip-resources.js';
 export * from './i18n/NB/banner-resources.js';
+
 // Norwegian (NB)
 export * from './i18n/NB/calendar-resources.js';
 export * from './i18n/NB/carousel-resources.js';

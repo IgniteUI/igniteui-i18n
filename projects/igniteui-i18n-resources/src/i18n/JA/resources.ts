@@ -7,6 +7,7 @@ import { ChipResourceStringsJA } from './chip-resources.js';
 import { ComboResourceStringsJA } from './combo-resources.js';
 import { DatePickerResourceStringsJA } from './date-picker-resources.js';
 import { DateRangePickerResourceStringsJA } from './date-range-picker-resources.js';
+import { DockManagerResourceStringsJA } from './dock-manager-resources.js';
 import { GridResourceStringsJA } from './grid-resources.js';
 import { InputResourceStringsJA } from './input-resources.js';
 import { ListResourceStringsJA } from './list-resources.js';
@@ -35,5 +36,6 @@ export const ResourceStringsJA: IResourceStrings = {
     ...QueryBuilderResourceStringsJA,
     ...TimePickerResourceStringsJA,
     ...TreeResourceStringsJA,
-    ...ValidationResourceStringsJA
+    ...ValidationResourceStringsJA,
+    ...DockManagerResourceStringsJA
 };
