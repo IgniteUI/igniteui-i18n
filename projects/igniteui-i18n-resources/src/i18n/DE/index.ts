@@ -14,3 +14,4 @@ export * from './query-builder-resources.js';
 export * from './resources.js';
 export * from './time-picker-resources.js';
 export * from './tree-resources.js';
+export * from './validation-resources.js';

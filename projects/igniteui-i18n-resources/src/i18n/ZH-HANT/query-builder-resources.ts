@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxQueryBuilder

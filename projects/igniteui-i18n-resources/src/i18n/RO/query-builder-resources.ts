@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Romanian resource strings for IgxQueryBuilder
@@ -71,7 +71,8 @@ export const QueryBuilderResourceStringsRO: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Selectați câmpul de returnare',
     query_builder_select_return_fields: 'Selectează câmpuri de returnare',
     query_builder_dialog_title: 'Confirmare',
-    query_builder_dialog_message: 'Prin modificarea entității, veți pierde setările curente. Ești sigur că vrei să faci asta?',
+    query_builder_dialog_message:
+        'Prin modificarea entității, veți pierde setările curente. Ești sigur că vrei să faci asta?',
     query_builder_dialog_checkbox_text: 'Nu se mai afișează această casetă de dialog',
     query_builder_dialog_cancel: 'Anulare',
     query_builder_dialog_confirm: 'Confirmare',

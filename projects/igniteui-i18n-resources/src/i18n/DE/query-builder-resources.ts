@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * German resource strings for IgxQueryBuilder
@@ -71,7 +71,8 @@ export const QueryBuilderResourceStringsDE: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Rückgabefeld auswählen',
     query_builder_select_return_fields: 'Rückgabefelder auswählen',
     query_builder_dialog_title: 'Bestätigung',
-    query_builder_dialog_message: 'Durch das Ändern der Entität gehen Ihre aktuellen Einstellungen verloren.  Möchten Sie wirklich fortfahren?',
+    query_builder_dialog_message:
+        'Durch das Ändern der Entität gehen Ihre aktuellen Einstellungen verloren.  Möchten Sie wirklich fortfahren?',
     query_builder_dialog_checkbox_text: 'Dieses Dialogfeld nicht mehr anzeigen',
     query_builder_dialog_cancel: 'Abbrechen',
     query_builder_dialog_confirm: 'Bestätigen',

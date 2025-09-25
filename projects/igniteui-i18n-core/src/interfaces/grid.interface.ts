@@ -1,4 +1,10 @@
-export interface IGridResourceStrings {
+import type { IValidationResourceStrings } from './validation.interface.js';
+
+export type GridValidationResourceStrings = {
+    [P in keyof IValidationResourceStrings as P extends string ? `grid_${P}` : never]?: string;
+};
+
+export interface IGridResourceStrings extends GridValidationResourceStrings {
     grid_groupByArea_message?: string;
     grid_groupByArea_select_message?: string;
     grid_groupByArea_deselect_message?: string;
@@ -111,9 +117,9 @@ export interface IGridResourceStrings {
     grid_advanced_filter_value_placeholder?: string;
     grid_advanced_filter_query_value_placeholder?: string;
     grid_advanced_filter_switch_group?: string;
-    grid_advanced_filter_dialog_title? : string;
-    grid_advanced_filter_dialog_message? : string;
-    grid_advanced_filter_dialog_checkbox_text? : string;
+    grid_advanced_filter_dialog_title?: string;
+    grid_advanced_filter_dialog_message?: string;
+    grid_advanced_filter_dialog_checkbox_text?: string;
     grid_advanced_filter_drop_ghost_text?: string;
     grid_advanced_filter_select_entity?: string;
     grid_advanced_filter_select_return_field_single?: string;
@@ -171,11 +177,4 @@ export interface IGridResourceStrings {
     grid_pivot_selector_columns?: string;
     grid_pivot_selector_values?: string;
     grid_pivot_selector_panel_empty?: string;
-    grid_required_validation_error?: string;
-    grid_min_validation_error?: string;
-    grid_max_validation_error?: string;
-    grid_min_length_validation_error?: string;
-    grid_max_length_validation_error?: string;
-    grid_email_validation_error?: string;
-    grid_pattern_validation_error?: string;
 }

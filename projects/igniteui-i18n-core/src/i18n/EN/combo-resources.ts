@@ -1,4 +1,4 @@
-import type { IComboResourceStrings } from "../../interfaces/combo.interface";
+import type { IComboResourceStrings } from '../../interfaces/combo.interface.js';
 
 export const ComboResourceStringsEN: IComboResourceStrings = {
     combo_empty_message: 'The list is empty',
@@ -7,4 +7,4 @@ export const ComboResourceStringsEN: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Clear Selection',
     combo_aria_label_options: 'Selected options',
     combo_aria_label_no_options: 'No options selected'
-};
+} satisfies MakeRequired<IComboResourceStrings>;
