@@ -195,7 +195,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         forceLeadingZero = false
     ) {
         // No zeroed values except for 2 digit ones.
-        let periodStyle: 'narrow' | 'short' | 'long' | undefined;
+        let periodStyle: 'narrow' | 'short' | 'medium' | 'long' | undefined;
         const options: Intl.DateTimeFormatOptions = {};
         switch (format) {
             case 'G':
@@ -292,16 +292,22 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                 options.weekday = 'narrow';
                 break;
             // Generic period of the day (am-pm)
+            // am/pm
             case 'a':
+                periodStyle = 'short';
+                options.timeStyle = 'short';
+                break;
+            // AM/PM
             case 'aa':
             case 'aaa':
-                periodStyle = 'short';
+                periodStyle = 'medium';
                 options.timeStyle = 'short';
                 break;
             case 'aaaa':
                 periodStyle = 'long';
                 options.timeStyle = 'short';
                 break;
+            // a/p
             case 'aaaaa':
                 periodStyle = 'narrow';
                 options.timeStyle = 'short';
@@ -423,6 +429,11 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
                     return value
                         ?.split(' ')
                         .map((part) => part.substring(0, 2).toLocaleLowerCase() + (part.length > 2 ? '.' : ''))
+                        .join(' ');
+                case 'medium':
+                    return value
+                        ?.split(' ')
+                        .map((part) => part.substring(0, 2) + (part.length > 2 ? '.' : ''))
                         .join(' ');
                 default:
                     return value;

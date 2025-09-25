@@ -386,6 +386,13 @@ describe('i18n tests', () => {
             expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('am');
             expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
 
+            format = 'aa';
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ja', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'es', format)).equal('AM');
+            expect(dateFormatter.formatDateCustomFormat(dateTime, 'ar', format)).equal('ص');
+
             format = 'aaaa';
             expect(dateFormatter.formatDateCustomFormat(dateTime, 'en', format)).equal('AM');
             expect(dateFormatter.formatDateCustomFormat(dateTime, 'bg', format)).equal('AM');
