@@ -149,7 +149,27 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     }
 
     /**
-     * Use custom formatting to format a date to match the provided strings
+     * Use custom formatting to format a date to match the provided strings.
+     * Currently supported values are G, y, Y, m, M, L, d, E, c, a, b, B, h, H, K, s, S, z, Z, O:
+     * 
+     * Date:
+     * c, cc, ccc, cccc, ccccc - shows weekday in different lengths. Alias - `E`
+     * d, dd - shows day of month in numeric (m) or 2-digit/zero padded (mm) style.
+     * M, MM, MMM, MMMM, MMMMM - show month of the year as number(M, MM) or as a name (MMM, MMMM, MMMMM). Alias `L`.
+     * y, yy, yyy, yyyy, yyyyy - show year in different lengths.
+     * Y, YY, YYY, YYYY, YYYYY - show year in different lengths based on iso8601 calendar.
+     * G, GG, GGG, GGGG, GGGGG - shows era in different lengths
+     * 
+     * Time:
+     * m, mm - shows minutes in numeric(m) or 2-digit/zero padded (mm) style.
+     * h, hh - shows hour using 12h clock in numeric(m) or 2-digit/zero padded (mm) style.
+     * H, HH - shows hour using 24h clock in numeric(m) or 2-digit/zero padded (mm) style.
+     * K, KK - shows hour using 12h clock where midnight is 0:00 instead of 12:00 in numeric(m) or 2-digit/zero padded (mm) style.
+     * s, ss - shows seconds in numeric(m) or 2-digit/zero padded (mm) style.
+     * S, SS, SSS - shows fractional seconds in different fraction.
+     * a, aa, aaa, aaaa, aaaaa - shows period of time in short format like a/p/am/AM/pm/PM
+     * b, bb, bbb, bbbb, bbbbb - shows extended period of time like midnight, at night, noon and etc. Alias - `B`
+     * z, zz, zzz, zzzz, zzzzz - shows timezone in short (z, zz, zzz, zzzzz) or long (zzzz) format. Aliases - `Z` and `O`
      * @param value Date to be formatted
      * @param locale
      * @param format String containing custom strings describing how the date should be formatted
@@ -163,7 +183,6 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         forceLeadingZero = false,
         timezone = 'GMT'
     ) {
-        
         let parts: string[] = [];
         let match: RegExpExecArray | null;
         while (format) {
