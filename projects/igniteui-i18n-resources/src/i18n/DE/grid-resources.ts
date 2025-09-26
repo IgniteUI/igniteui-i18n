@@ -182,6 +182,6 @@ export const GridResourceStringsDE: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Werte',
         grid_pivot_selector_panel_empty: 'Elemente mit der Maus hierhin ziehen',
         grid_pivot_empty_message: 'Das Pivot-Grid hat keine Dimensionen und Werte.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsDE
 );

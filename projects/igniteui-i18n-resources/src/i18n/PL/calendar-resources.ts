@@ -27,4 +27,4 @@ export const CalendarResourceStringsPL: ICalendarResourceStrings = {
     calendar_singular_multi_selection: 'Kalendarz wielokrotnego wyboru',
     calendar_singular_range_selection: 'Kalendarz wyboru ciągłego',
     calendar_singular_single_selection: 'Kalendarz'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

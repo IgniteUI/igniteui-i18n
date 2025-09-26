@@ -182,6 +182,6 @@ export const GridResourceStringsPT: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Valores',
         grid_pivot_selector_panel_empty: 'Arraste os itens para aqui',
         grid_pivot_empty_message: 'A grelha dinâmica não tem dimensões e valores.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsPT
 );

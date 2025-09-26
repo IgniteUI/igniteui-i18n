@@ -9,4 +9,4 @@ export const TimePickerResourceStringsCS: ITimePickerResourceStrings = {
     time_picker_cancel: 'Zrušení',
     time_picker_change_time: 'Změnit čas',
     time_picker_choose_time: 'Zvolte čas'
-} satisfies MakeRequired<ITimePickerResourceStrings>;
+} satisfies Required<ITimePickerResourceStrings>;

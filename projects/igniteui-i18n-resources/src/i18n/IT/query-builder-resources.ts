@@ -76,4 +76,4 @@ export const QueryBuilderResourceStringsIT: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'Annulla',
     query_builder_dialog_confirm: 'Conferma',
     query_builder_drop_ghost_text: 'Trascinare qui per inserire'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

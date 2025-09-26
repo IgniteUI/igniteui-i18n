@@ -9,4 +9,4 @@ export const CarouselResourceStringsKO: ICarouselResourceStrings = {
     carousel_slide: '슬라이드',
     carousel_previous_slide: '이전 슬라이드',
     carousel_next_slide: '다음 슬라이드'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

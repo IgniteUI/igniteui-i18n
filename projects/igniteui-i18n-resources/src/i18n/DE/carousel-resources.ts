@@ -9,4 +9,4 @@ export const CarouselResourceStringsDE: ICarouselResourceStrings = {
     carousel_slide: 'Folie',
     carousel_previous_slide: 'Vorherige Folie',
     carousel_next_slide: 'Nächste Folie'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

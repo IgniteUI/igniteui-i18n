@@ -78,4 +78,4 @@ export const QueryBuilderResourceStringsHU: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'Mégse',
     query_builder_dialog_confirm: 'Megerősítés',
     query_builder_drop_ghost_text: 'Húzza ide a beszúráshoz'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

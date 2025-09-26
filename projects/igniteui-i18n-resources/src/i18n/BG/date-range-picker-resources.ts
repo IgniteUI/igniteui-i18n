@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsBG: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Текущ месец',
     date_range_picker_last30Days: 'Последните 30 дни',
     date_range_picker_yearToDate: 'От началото на годината'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

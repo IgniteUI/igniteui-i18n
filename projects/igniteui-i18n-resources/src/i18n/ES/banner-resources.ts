@@ -6,4 +6,4 @@ import type { IBannerResourceStrings } from 'igniteui-i18n-core';
  */
 export const BannerResourceStringsES: IBannerResourceStrings = {
     banner_button_dismiss: 'Descartar'
-} satisfies MakeRequired<IBannerResourceStrings>;
+} satisfies Required<IBannerResourceStrings>;

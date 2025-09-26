@@ -11,4 +11,4 @@ export const ComboResourceStringsTR: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Seçimi temizle',
     combo_aria_label_options: 'Seçilen seçenekler',
     combo_aria_label_no_options: 'Seçilen seçenek yok'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

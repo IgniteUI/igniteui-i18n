@@ -27,4 +27,4 @@ export const CalendarResourceStringsRO: ICalendarResourceStrings = {
     calendar_singular_multi_selection: 'Calendar de selecție multiplă',
     calendar_singular_range_selection: 'Calendar de selectare a gamei',
     calendar_singular_single_selection: 'Calendar'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

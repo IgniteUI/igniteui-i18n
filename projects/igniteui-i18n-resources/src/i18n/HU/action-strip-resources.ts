@@ -6,4 +6,4 @@ import type { IActionStripResourceStrings } from 'igniteui-i18n-core';
  */
 export const ActionStripResourceStringsHU: IActionStripResourceStrings = {
     action_strip_button_more_title: 'Továbbiak'
-} satisfies MakeRequired<IActionStripResourceStrings>;
+} satisfies Required<IActionStripResourceStrings>;

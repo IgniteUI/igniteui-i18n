@@ -7,4 +7,4 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
 export const InputResourceStringsJA: IInputResourceStrings = {
     input_upload_button: 'ファイルのアップロード',
     input_file_placeholder: 'ファイルが指定されていません'
-} satisfies MakeRequired<IInputResourceStrings>;
+} satisfies Required<IInputResourceStrings>;

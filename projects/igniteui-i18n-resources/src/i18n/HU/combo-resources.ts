@@ -11,4 +11,4 @@ export const ComboResourceStringsHU: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Kiválasztás törlése',
     combo_aria_label_options: 'Kiválasztott lehetőségek',
     combo_aria_label_no_options: 'Nincsenek kiválasztott lehetőségek'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

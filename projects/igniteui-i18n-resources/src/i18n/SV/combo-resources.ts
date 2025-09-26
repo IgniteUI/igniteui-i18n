@@ -11,4 +11,4 @@ export const ComboResourceStringsSV: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Rensa urval',
     combo_aria_label_options: 'Valda alternativ',
     combo_aria_label_no_options: 'Inga valda alternativ'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

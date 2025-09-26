@@ -76,4 +76,4 @@ export const QueryBuilderResourceStringsJA: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'キャンセル',
     query_builder_dialog_confirm: '確認',
     query_builder_drop_ghost_text: 'ここにドロップして挿入'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

@@ -7,4 +7,4 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
 export const InputResourceStringsDE: IInputResourceStrings = {
     input_upload_button: 'Datei hochladen',
     input_file_placeholder: 'Keine Datei ausgewählt'
-} satisfies MakeRequired<IInputResourceStrings>;
+} satisfies Required<IInputResourceStrings>;

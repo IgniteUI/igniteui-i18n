@@ -7,4 +7,4 @@ import type { IListResourceStrings } from 'igniteui-i18n-core';
 export const ListResourceStringsHU: IListResourceStrings = {
     list_no_items: 'Nincsenek elemek a listában.',
     list_loading: 'Adatok betöltése a szerverről...'
-} satisfies MakeRequired<IListResourceStrings>;
+} satisfies Required<IListResourceStrings>;

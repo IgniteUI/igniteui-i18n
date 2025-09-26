@@ -27,4 +27,4 @@ export const CalendarResourceStringsJA: ICalendarResourceStrings = {
     calendar_singular_multi_selection: '複数選択カレンダー',
     calendar_singular_range_selection: '範囲選択カレンダー',
     calendar_singular_single_selection: 'カレンダー'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

@@ -7,4 +7,4 @@ import type { ITreeResourceStrings } from 'igniteui-i18n-core';
 export const TreeResourceStringsHU: ITreeResourceStrings = {
     expand: 'Kibontás',
     collapse: 'Összecsukás'
-} satisfies MakeRequired<ITreeResourceStrings>;
+} satisfies Required<ITreeResourceStrings>;

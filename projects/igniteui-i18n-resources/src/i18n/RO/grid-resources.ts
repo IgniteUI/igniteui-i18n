@@ -183,6 +183,6 @@ export const GridResourceStringsRO: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Valori',
         grid_pivot_selector_panel_empty: 'Glisați aici elementele',
         grid_pivot_empty_message: 'Grila pivot nu are dimensiuni și valori.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsRO
 );

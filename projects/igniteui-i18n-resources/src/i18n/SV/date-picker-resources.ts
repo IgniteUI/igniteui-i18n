@@ -7,4 +7,4 @@ import type { IDatePickerResourceStrings } from 'igniteui-i18n-core';
 export const DatePickerResourceStringsSV: IDatePickerResourceStrings = {
     date_picker_change_date: 'Ändra datum',
     date_picker_choose_date: 'Välj datum'
-} satisfies MakeRequired<IDatePickerResourceStrings>;
+} satisfies Required<IDatePickerResourceStrings>;

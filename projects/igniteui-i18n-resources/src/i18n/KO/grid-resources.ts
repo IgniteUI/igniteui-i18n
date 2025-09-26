@@ -180,6 +180,6 @@ export const GridResourceStringsKO: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: '값',
         grid_pivot_selector_panel_empty: '항목을 여기로 끌어',
         grid_pivot_empty_message: '피벗 그리드에는 차원과 값이 없습니다.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsKO
 );

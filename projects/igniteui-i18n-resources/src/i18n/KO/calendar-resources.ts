@@ -27,4 +27,4 @@ export const CalendarResourceStringsKO: ICalendarResourceStrings = {
     calendar_singular_multi_selection: '다중 선택 달력',
     calendar_singular_range_selection: '범위 선택 달력',
     calendar_singular_single_selection: '달력'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

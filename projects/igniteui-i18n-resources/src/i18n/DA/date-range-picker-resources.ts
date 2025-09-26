@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsDA: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Denne måned',
     date_range_picker_last30Days: 'Sidste 30 dage',
     date_range_picker_yearToDate: 'Året til dato'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

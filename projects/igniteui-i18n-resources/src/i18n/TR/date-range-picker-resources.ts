@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsTR: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Geçerli ay',
     date_range_picker_last30Days: 'Son 30 gün',
     date_range_picker_yearToDate: 'Yılbaşı itibarıyla'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

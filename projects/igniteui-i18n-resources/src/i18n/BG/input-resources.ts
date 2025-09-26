@@ -7,4 +7,4 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
 export const InputResourceStringsBG: IInputResourceStrings = {
     input_upload_button: 'Качване на файл',
     input_file_placeholder: 'Няма избран файл'
-} satisfies MakeRequired<IInputResourceStrings>;
+} satisfies Required<IInputResourceStrings>;

@@ -76,4 +76,4 @@ export const QueryBuilderResourceStringsKO: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: '취소',
     query_builder_dialog_confirm: '확인',
     query_builder_drop_ghost_text: '삽입하려면 여기에 드롭'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

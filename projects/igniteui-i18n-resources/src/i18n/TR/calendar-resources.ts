@@ -27,4 +27,4 @@ export const CalendarResourceStringsTR: ICalendarResourceStrings = {
     calendar_singular_multi_selection: 'Çoklu seçim takvimi',
     calendar_singular_range_selection: 'Aralık seçim takvimi',
     calendar_singular_single_selection: 'Takvim'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

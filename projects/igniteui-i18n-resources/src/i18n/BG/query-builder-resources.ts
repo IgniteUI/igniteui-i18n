@@ -77,4 +77,4 @@ export const QueryBuilderResourceStringsBG: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'Отказ',
     query_builder_dialog_confirm: 'Потвърди',
     query_builder_drop_ghost_text: 'Пусни тук за вмъкване'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

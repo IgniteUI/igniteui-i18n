@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsRO: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Luna curentă',
     date_range_picker_last30Days: 'Ultimele 30 de zile',
     date_range_picker_yearToDate: 'De la începutul anului'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

@@ -183,6 +183,6 @@ export const GridResourceStringsHU: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Értékek',
         grid_pivot_selector_panel_empty: 'Ide húzza az elemeket',
         grid_pivot_empty_message: 'A pivot rácsnak nincsenek méretei és értékei.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsHU
 );

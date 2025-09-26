@@ -11,4 +11,4 @@ export const ComboResourceStringsDA: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Ryd markering',
     combo_aria_label_options: 'Valgte muligheder',
     combo_aria_label_no_options: 'Ingen valgte muligheder'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

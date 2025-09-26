@@ -9,4 +9,4 @@ export const CarouselResourceStringsPT: ICarouselResourceStrings = {
     carousel_slide: 'deslizar',
     carousel_previous_slide: 'diapositivo anterior',
     carousel_next_slide: 'próximo diapositivo'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

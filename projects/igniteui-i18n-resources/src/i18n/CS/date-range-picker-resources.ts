@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsCS: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Tento měsíc',
     date_range_picker_last30Days: 'Posledních 30 dní',
     date_range_picker_yearToDate: 'Od začátku roku'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

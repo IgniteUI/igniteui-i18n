@@ -9,4 +9,4 @@ export const CarouselResourceStringsZHHANT: ICarouselResourceStrings = {
     carousel_slide: '投影片',
     carousel_previous_slide: '上一張投影片',
     carousel_next_slide: '下一張投影片'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

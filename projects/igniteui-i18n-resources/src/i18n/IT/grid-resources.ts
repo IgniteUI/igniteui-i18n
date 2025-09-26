@@ -183,6 +183,6 @@ export const GridResourceStringsIT: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Valori',
         grid_pivot_selector_panel_empty: 'Trascinare gli elementi qui',
         grid_pivot_empty_message: 'La griglia pivot non ha dimensioni e valori.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsIT
 );

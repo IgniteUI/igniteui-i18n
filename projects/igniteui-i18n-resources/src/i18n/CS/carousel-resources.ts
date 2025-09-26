@@ -9,4 +9,4 @@ export const CarouselResourceStringsCS: ICarouselResourceStrings = {
     carousel_slide: 'skluzavka',
     carousel_previous_slide: 'předchozí snímek',
     carousel_next_slide: 'další snímek'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

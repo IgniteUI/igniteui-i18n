@@ -9,4 +9,4 @@ export const TimePickerResourceStringsES: ITimePickerResourceStrings = {
     time_picker_cancel: 'Cancelar',
     time_picker_change_time: 'Cambiar hora',
     time_picker_choose_time: 'Elige hora'
-} satisfies MakeRequired<ITimePickerResourceStrings>;
+} satisfies Required<ITimePickerResourceStrings>;

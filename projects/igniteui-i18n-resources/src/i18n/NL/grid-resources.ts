@@ -182,6 +182,6 @@ export const GridResourceStringsNL: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Waarden',
         grid_pivot_selector_panel_empty: 'Sleep items hiernaartoe',
         grid_pivot_empty_message: 'Draairaster heeft geen dimensies en waarden.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsNL
 );

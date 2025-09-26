@@ -181,6 +181,6 @@ export const GridResourceStringsSV: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Värden',
         grid_pivot_selector_panel_empty: 'Dra objekt hit',
         grid_pivot_empty_message: 'Pivotrutnät har inga dimensioner och värden.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsSV
 );

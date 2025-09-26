@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsHU: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Aktuális hónap',
     date_range_picker_last30Days: 'Az elmúlt 30 nap',
     date_range_picker_yearToDate: 'Év elejétől napjainkig'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

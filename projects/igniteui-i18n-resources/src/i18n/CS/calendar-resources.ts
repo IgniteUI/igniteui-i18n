@@ -27,4 +27,4 @@ export const CalendarResourceStringsCS: ICalendarResourceStrings = {
     calendar_singular_multi_selection: 'Kalendář s více výběry',
     calendar_singular_range_selection: 'Kalendář výběru rozsahu',
     calendar_singular_single_selection: 'Kalendář'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

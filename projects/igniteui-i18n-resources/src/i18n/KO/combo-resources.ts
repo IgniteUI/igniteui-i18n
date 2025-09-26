@@ -11,4 +11,4 @@ export const ComboResourceStringsKO: IComboResourceStrings = {
     combo_clearItems_placeholder: '선택 지우기',
     combo_aria_label_options: '선택된 옵션',
     combo_aria_label_no_options: '선택된 옵션 없음'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

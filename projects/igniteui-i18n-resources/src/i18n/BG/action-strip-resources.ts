@@ -6,4 +6,4 @@ import type { IActionStripResourceStrings } from 'igniteui-i18n-core';
  */
 export const ActionStripResourceStringsBG: IActionStripResourceStrings = {
     action_strip_button_more_title: 'Още'
-} satisfies MakeRequired<IActionStripResourceStrings>;
+} satisfies Required<IActionStripResourceStrings>;

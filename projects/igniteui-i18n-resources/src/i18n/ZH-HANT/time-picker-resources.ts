@@ -9,4 +9,4 @@ export const TimePickerResourceStringsZHHANT: ITimePickerResourceStrings = {
     time_picker_cancel: '取消',
     time_picker_change_time: '變更時間',
     time_picker_choose_time: '選擇時間'
-} satisfies MakeRequired<ITimePickerResourceStrings>;
+} satisfies Required<ITimePickerResourceStrings>;

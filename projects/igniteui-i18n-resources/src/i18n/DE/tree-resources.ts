@@ -7,4 +7,4 @@ import type { ITreeResourceStrings } from 'igniteui-i18n-core';
 export const TreeResourceStringsDE: ITreeResourceStrings = {
     expand: 'Erweitern',
     collapse: 'Reduzieren'
-} satisfies MakeRequired<ITreeResourceStrings>;
+} satisfies Required<ITreeResourceStrings>;

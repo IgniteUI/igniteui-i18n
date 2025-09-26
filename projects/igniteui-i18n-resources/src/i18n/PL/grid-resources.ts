@@ -181,6 +181,6 @@ export const GridResourceStringsPL: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Wartości',
         grid_pivot_selector_panel_empty: 'Przeciągnij elementy tutaj',
         grid_pivot_empty_message: 'Siatka przestawna nie ma wymiarów ani wartości.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsPL
 );

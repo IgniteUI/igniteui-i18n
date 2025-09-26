@@ -27,4 +27,4 @@ export const CalendarResourceStringsZHHANS: ICalendarResourceStrings = {
     calendar_singular_multi_selection: '多选日历',
     calendar_singular_range_selection: '范围选择日历',
     calendar_singular_single_selection: '日历'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

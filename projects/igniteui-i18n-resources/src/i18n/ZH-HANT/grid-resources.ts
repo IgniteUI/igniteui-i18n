@@ -180,6 +180,6 @@ export const GridResourceStringsZHHANT: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: '值',
         grid_pivot_selector_panel_empty: '拖曳項目到此處',
         grid_pivot_empty_message: '樞紐網格沒有維度和值。'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsZHHANT
 );

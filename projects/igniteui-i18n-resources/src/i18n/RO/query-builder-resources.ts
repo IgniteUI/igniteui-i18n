@@ -77,4 +77,4 @@ export const QueryBuilderResourceStringsRO: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'Anulare',
     query_builder_dialog_confirm: 'Confirmare',
     query_builder_drop_ghost_text: 'Aruncaţi aici pentru a introduce'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

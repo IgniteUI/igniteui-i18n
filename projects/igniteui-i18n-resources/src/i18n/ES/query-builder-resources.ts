@@ -77,4 +77,4 @@ export const QueryBuilderResourceStringsES: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'Cancelar',
     query_builder_dialog_confirm: 'Confirmar',
     query_builder_drop_ghost_text: 'Soltar aquí para insertar'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

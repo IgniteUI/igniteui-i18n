@@ -77,4 +77,4 @@ export const QueryBuilderResourceStringsNL: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'Annuleren',
     query_builder_dialog_confirm: 'Bevestigen',
     query_builder_drop_ghost_text: 'Zet hier neer om in te voegen'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

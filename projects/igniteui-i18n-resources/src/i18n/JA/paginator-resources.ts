@@ -11,4 +11,4 @@ export const PaginatorResourceStringsJA: IPaginatorResourceStrings = {
     paginator_previous_page_button_text: '前のページ',
     paginator_last_page_button_text: '最後のページに移動',
     paginator_next_page_button_text: '次のページ'
-} satisfies MakeRequired<IPaginatorResourceStrings>;
+} satisfies Required<IPaginatorResourceStrings>;

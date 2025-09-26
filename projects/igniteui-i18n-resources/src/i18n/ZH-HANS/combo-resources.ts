@@ -11,4 +11,4 @@ export const ComboResourceStringsZHHANS: IComboResourceStrings = {
     combo_clearItems_placeholder: '清除选择',
     combo_aria_label_options: '选定的选项',
     combo_aria_label_no_options: '没有选定的选项'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

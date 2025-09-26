@@ -180,6 +180,6 @@ export const GridResourceStringsJA: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: '値',
         grid_pivot_selector_panel_empty: 'ここに項目をドラッグして',
         grid_pivot_empty_message: 'ピボット グリッドにはディメンションと値がありません。'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsJA
 );

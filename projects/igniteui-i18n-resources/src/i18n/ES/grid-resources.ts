@@ -183,6 +183,6 @@ export const GridResourceStringsES: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Valores',
         grid_pivot_selector_panel_empty: 'Arrastrar elementos aquí',
         grid_pivot_empty_message: 'La cuadrícula de pivote no tiene dimensiones ni valores.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsES
 );

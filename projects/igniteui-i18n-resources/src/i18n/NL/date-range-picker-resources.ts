@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsNL: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Huidige maand',
     date_range_picker_last30Days: 'Laatste 30 dagen',
     date_range_picker_yearToDate: 'Jaar tot datum'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

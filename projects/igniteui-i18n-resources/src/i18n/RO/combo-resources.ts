@@ -11,4 +11,4 @@ export const ComboResourceStringsRO: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Ștergeți selecția',
     combo_aria_label_options: 'Opțiuni selectate',
     combo_aria_label_no_options: 'Nicio opțiune selectată'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

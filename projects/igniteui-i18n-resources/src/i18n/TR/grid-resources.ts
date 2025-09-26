@@ -182,6 +182,6 @@ export const GridResourceStringsTR: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Değerler',
         grid_pivot_selector_panel_empty: 'Öğeleri buraya sürükleyin',
         grid_pivot_empty_message: 'Pivot Kılavuz boyutları ve değerleri yoktur.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsTR
 );

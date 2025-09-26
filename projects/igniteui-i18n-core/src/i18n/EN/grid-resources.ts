@@ -178,6 +178,6 @@ export const GridResourceStringsEN: IGridResourceStrings = extendResources(
         grid_pivot_selector_columns: 'Columns',
         grid_pivot_selector_values: 'Values',
         grid_pivot_selector_panel_empty: 'Drop Items Here'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsEN
 );

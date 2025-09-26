@@ -7,4 +7,4 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
 export const InputResourceStringsNB: IInputResourceStrings = {
     input_upload_button: 'Last opp fil',
     input_file_placeholder: 'Det er ikke valgt noen fil'
-} satisfies MakeRequired<IInputResourceStrings>;
+} satisfies Required<IInputResourceStrings>;

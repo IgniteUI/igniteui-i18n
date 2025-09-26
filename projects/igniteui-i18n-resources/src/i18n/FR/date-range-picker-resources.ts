@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsFR: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Mois en cours',
     date_range_picker_last30Days: '30 derniers jours',
     date_range_picker_yearToDate: 'Année à ce jour'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

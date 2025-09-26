@@ -11,4 +11,4 @@ export const ComboResourceStringsBG: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Изчистване на избора',
     combo_aria_label_options: 'Има избрани опции',
     combo_aria_label_no_options: 'Няма избрани опции'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

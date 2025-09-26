@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsZHHANT: IDateRangePickerResourceStrin
     date_range_picker_currentMonth: '本月',
     date_range_picker_last30Days: '最近30天',
     date_range_picker_yearToDate: '年初至今'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

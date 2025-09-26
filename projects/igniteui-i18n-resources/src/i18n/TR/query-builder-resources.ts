@@ -77,4 +77,4 @@ export const QueryBuilderResourceStringsTR: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'İptal',
     query_builder_dialog_confirm: 'Onayla',
     query_builder_drop_ghost_text: 'Eklemek için buraya bırakın'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

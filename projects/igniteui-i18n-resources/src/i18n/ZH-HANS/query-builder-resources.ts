@@ -76,4 +76,4 @@ export const QueryBuilderResourceStringsZHHANS: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: '取消',
     query_builder_dialog_confirm: '确认',
     query_builder_drop_ghost_text: '拖放此处以插入'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

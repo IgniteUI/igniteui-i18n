@@ -7,4 +7,4 @@ import type { IListResourceStrings } from 'igniteui-i18n-core';
 export const ListResourceStringsCS: IListResourceStrings = {
     list_no_items: 'V seznamu nejsou žádné položky.',
     list_loading: 'Načítání dat ze serveru...'
-} satisfies MakeRequired<IListResourceStrings>;
+} satisfies Required<IListResourceStrings>;

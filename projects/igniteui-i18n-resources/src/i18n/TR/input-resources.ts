@@ -7,4 +7,4 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
 export const InputResourceStringsTR: IInputResourceStrings = {
     input_upload_button: 'Dosya yükle',
     input_file_placeholder: 'Dosya seçilmedi'
-} satisfies MakeRequired<IInputResourceStrings>;
+} satisfies Required<IInputResourceStrings>;

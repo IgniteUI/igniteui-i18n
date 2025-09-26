@@ -182,6 +182,6 @@ export const GridResourceStringsDA: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Værdier',
         grid_pivot_selector_panel_empty: 'Træk elementer hertil',
         grid_pivot_empty_message: 'Pivottabel har ingen dimensioner og værdier.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsDA
 );

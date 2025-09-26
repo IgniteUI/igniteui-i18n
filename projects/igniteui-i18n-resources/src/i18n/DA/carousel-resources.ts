@@ -9,4 +9,4 @@ export const CarouselResourceStringsDA: ICarouselResourceStrings = {
     carousel_slide: 'dias',
     carousel_previous_slide: 'forrige dias',
     carousel_next_slide: 'næste dias'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

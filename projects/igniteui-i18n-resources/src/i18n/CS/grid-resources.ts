@@ -180,6 +180,6 @@ export const GridResourceStringsCS: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Hodnoty',
         grid_pivot_selector_panel_empty: 'Přetažením položek sem',
         grid_pivot_empty_message: 'Pivot Grid nemá žádné rozměry a hodnoty.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsCS
 );

@@ -9,4 +9,4 @@ export const CarouselResourceStringsNB: ICarouselResourceStrings = {
     carousel_slide: 'lysbilde',
     carousel_previous_slide: 'forrige lysbilde',
     carousel_next_slide: 'neste lysbilde'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

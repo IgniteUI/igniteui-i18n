@@ -12,4 +12,4 @@ export const DateRangePickerResourceStringsSV: IDateRangePickerResourceStrings =
     date_range_picker_currentMonth: 'Aktuell månad',
     date_range_picker_last30Days: 'Senaste 30 dagarna',
     date_range_picker_yearToDate: 'Året hittills'
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+} satisfies Required<IDateRangePickerResourceStrings>;

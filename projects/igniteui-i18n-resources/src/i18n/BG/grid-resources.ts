@@ -182,6 +182,6 @@ export const GridResourceStringsBG: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Стойнoсти',
         grid_pivot_selector_panel_empty: 'Привлачи тук',
         grid_pivot_empty_message: 'Обобщената таблица няма размери и стойности.'
-    } satisfies MakeRequired<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
+    } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
     ValidationResourceStringsBG
 );

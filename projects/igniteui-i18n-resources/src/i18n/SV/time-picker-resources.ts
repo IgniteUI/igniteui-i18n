@@ -9,4 +9,4 @@ export const TimePickerResourceStringsSV: ITimePickerResourceStrings = {
     time_picker_cancel: 'Avbryt',
     time_picker_change_time: 'Ändra tid',
     time_picker_choose_time: 'Välj tid'
-} satisfies MakeRequired<ITimePickerResourceStrings>;
+} satisfies Required<ITimePickerResourceStrings>;

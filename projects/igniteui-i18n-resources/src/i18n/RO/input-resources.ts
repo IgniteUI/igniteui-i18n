@@ -7,4 +7,4 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
 export const InputResourceStringsRO: IInputResourceStrings = {
     input_upload_button: 'Încărcare fişier',
     input_file_placeholder: 'Niciun fișier ales'
-} satisfies MakeRequired<IInputResourceStrings>;
+} satisfies Required<IInputResourceStrings>;

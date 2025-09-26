@@ -9,4 +9,4 @@ export const CarouselResourceStringsBG: ICarouselResourceStrings = {
     carousel_slide: 'слайд',
     carousel_previous_slide: 'предишен слайд',
     carousel_next_slide: 'следващ слайд'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

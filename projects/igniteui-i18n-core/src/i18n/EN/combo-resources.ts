@@ -7,4 +7,4 @@ export const ComboResourceStringsEN: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Clear Selection',
     combo_aria_label_options: 'Selected options',
     combo_aria_label_no_options: 'No options selected'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;
