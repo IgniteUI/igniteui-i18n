@@ -1,4 +1,4 @@
-import type { IResourceStrings } from '../../interfaces/resources.interface.js';
+import type { IResourceStrings } from '../interfaces/resources.interface.js';
 import { ActionStripResourceStringsEN } from './action-strip-resources.js';
 import { BannerResourceStringsEN } from './banner-resources.js';
 import { CalendarResourceStringsEN } from './calendar-resources.js';

@@ -1,4 +1,4 @@
-import type { IDateRangePickerResourceStrings } from '../../interfaces/date-range-picker.interface.js';
+import type { IDateRangePickerResourceStrings } from '../interfaces/date-range-picker.interface.js';
 
 export const DateRangePickerResourceStringsEN: IDateRangePickerResourceStrings = {
     date_range_picker_date_separator: 'to',

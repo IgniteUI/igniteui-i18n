@@ -1,4 +1,4 @@
-import type { IQueryBuilderResourceStrings } from '../../interfaces/query-builder.interface.js';
+import type { IQueryBuilderResourceStrings } from '../interfaces/query-builder.interface.js';
 
 export const QueryBuilderResourceStringsEN: IQueryBuilderResourceStrings = {
     query_builder_date_placeholder: 'Select date',

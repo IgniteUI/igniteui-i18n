@@ -1,4 +1,4 @@
-import type { IPaginatorResourceStrings } from '../../interfaces/paginator.interface.js';
+import type { IPaginatorResourceStrings } from '../interfaces/paginator.interface.js';
 
 export const PaginatorResourceStringsEN: IPaginatorResourceStrings = {
     paginator_label: 'Items per page',
