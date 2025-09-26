@@ -9,7 +9,7 @@ import {
     type IIgI18nManager,
     type IResourceChangeEventArgs
 } from './i18n-manager.interfaces.js';
-import type { IResourceStrings } from './interfaces/resources.interface.js';
+import type { IResourceStrings } from './i18n/interfaces/resources.interface.js';
 
 const defaultLang = 'en';
 const defaultLocale = 'en-US';
@@ -20,33 +20,41 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     public defaultLocale = defaultLocale;
     public currentLocale = defaultLocale;
 
-    private formatters = new Map<Formatter, BaseFormatter<any, any>>();
+    private static _instance: I18nManager;
+    private _formatters = new Map<Formatter, BaseFormatter<any, any>>();
     private _resourcesMap = new Map<string, IResourceStrings>([[defaultLang, {}]]);
     private _rootObserver: MutationObserver | undefined;
     private _eventsEnabled = true;
 
     public get localeFormatter(): LocaleFormatter {
-        return this.formatters.get(Formatter.Locale) as LocaleFormatter;
+        return this._formatters.get(Formatter.Locale) as LocaleFormatter;
     }
 
     public get dateFormatter(): DateFormatter {
-        return this.formatters.get(Formatter.Date) as DateFormatter;
+        return this._formatters.get(Formatter.Date) as DateFormatter;
     }
 
     public get numberFormatter(): NumberFormatter {
-        return this.formatters.get(Formatter.Number) as NumberFormatter;
+        return this._formatters.get(Formatter.Number) as NumberFormatter;
     }
 
     public get displayNamesFormatter(): DisplayNamesFormatter {
-        return this.formatters.get(Formatter.DisplayNames) as DisplayNamesFormatter;
+        return this._formatters.get(Formatter.DisplayNames) as DisplayNamesFormatter;
     }
 
-    constructor() {
+    public static get instance() {
+        if (!I18nManager._instance) {
+            I18nManager._instance = new I18nManager();
+        }
+        return I18nManager._instance;
+    }
+
+    private constructor() {
         super();
-        this.formatters.set(Formatter.Locale, new LocaleFormatter(this.defaultLocale));
-        this.formatters.set(Formatter.Date, new DateFormatter(this.defaultLocale, this.localeFormatter));
-        this.formatters.set(Formatter.Number, new NumberFormatter(this.defaultLocale));
-        this.formatters.set(Formatter.DisplayNames, new DisplayNamesFormatter(this.defaultLocale, this.dateFormatter));
+        this._formatters.set(Formatter.Locale, new LocaleFormatter(this.defaultLocale));
+        this._formatters.set(Formatter.Date, new DateFormatter(this.defaultLocale, this.localeFormatter));
+        this._formatters.set(Formatter.Number, new NumberFormatter(this.defaultLocale));
+        this._formatters.set(Formatter.DisplayNames, new DisplayNamesFormatter(this.defaultLocale, this.dateFormatter));
 
         if (typeof document !== 'undefined') {
             const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
@@ -111,7 +119,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             this.triggerResourceChange(oldLocale, newLocale);
 
             // Update formatters with latest locale.
-            for (const [_, formatter] of this.formatters) {
+            for (const [_, formatter] of this._formatters) {
                 formatter.onLocaleChange(newLocale);
             }
         }
@@ -149,8 +157,6 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     }
 }
 
-const i18nManagerInstance = new I18nManager();
-
 // By default Node.js expects max event listeners per object to be 10, otherwise error is thrown.
 // The manager is one for a page and each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
 // Components should clear any listeners when they are destroyed, but still can have a lot at once.
@@ -158,7 +164,7 @@ import('node:events')
     .then((nodeEvents) => {
         const eventsDefault = nodeEvents.default;
         if (typeof eventsDefault.setMaxListeners === 'function') {
-            eventsDefault.setMaxListeners(maxEventListeners, i18nManagerInstance);
+            eventsDefault.setMaxListeners(maxEventListeners, getI18nManager());
         }
     })
     .catch(() => {
@@ -170,19 +176,19 @@ import('node:events')
  * @internal
  */
 export function getI18nManager() {
-    return i18nManagerInstance;
+    return I18nManager.instance;
 }
 
 export function getDateFormatter() {
-    return i18nManagerInstance.dateFormatter;
+    return getI18nManager().dateFormatter;
 }
 
 export function getNumberFormatter() {
-    return i18nManagerInstance.numberFormatter;
+    return getI18nManager().numberFormatter;
 }
 
 export function getDisplayNamesFormatter() {
-    return i18nManagerInstance.displayNamesFormatter;
+    return getI18nManager().displayNamesFormatter;
 }
 
 /**

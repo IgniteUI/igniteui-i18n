@@ -7,5 +7,5 @@
     "declaration": true,
     "inlineSources": false
   },
-  "exclude": ["./src/**/*.spec.ts"]
+  "exclude": ["./src/test-utils.ts", "./src/**/*.spec.ts"]
 }

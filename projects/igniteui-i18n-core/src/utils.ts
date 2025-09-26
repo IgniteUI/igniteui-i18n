@@ -1,11 +1,6 @@
-export const IntlDateTimeStyleValues = {
-    full: 'Full',
-    long: 'Long',
-    medium: 'Medium',
-    short: 'Short'
-};
-
-export const wait = (ms = 0) => new Promise((resolve) => setTimeout(resolve, ms));
+/** Group each valid symbol for custom format */
+export const CustomFormatRegex =
+            /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
 
 export function generateLocaleKey(
     locale: string,
@@ -19,7 +14,7 @@ export function generateLocaleKey(
         (formatterOptions
             ? Object.entries(formatterOptions)
                   .map(([k, v]) => `${k}:${v}`)
-                  .sort((a, b) => (a === b ? 0 : a < b ? -1 : 1))
+                  .sort()
                   .join('-')
             : 'default')
     );
@@ -37,7 +32,7 @@ export function mergeOptions<
     const result = Object.assign({}, target);
     const sourceKeys = Object.keys(source).map((key) => key as keyof T);
     for (const key of sourceKeys) {
-        if (source[key] !== null && source[key] !== undefined) {
+        if (source[key] != null) {
             result[key] = source[key];
         }
     }

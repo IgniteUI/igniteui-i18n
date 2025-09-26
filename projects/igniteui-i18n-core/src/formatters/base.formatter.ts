@@ -1,13 +1,7 @@
+import type { I18nFormatter, I18nFormatterOptions, IntlFormatter } from '../i18n-manager.interfaces.js';
 import { generateLocaleKey, mergeOptions } from '../utils.js';
 
-type IntlFormatter<T, O> =
-    | (new (locale: string | Intl.Locale, options?: O) => T)
-    | (new (locale: Intl.LocalesArgument, options: O) => T);
-
-export class BaseFormatter<
-    T extends Intl.DateTimeFormat | Intl.NumberFormat | Intl.Locale | Intl.DisplayNames,
-    O extends Intl.DateTimeFormatOptions | Intl.NumberFormatOptions | Intl.LocaleOptions
-> {
+export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptions> {
     public defaultOptions = {} as O;
     protected cachedIntlFormatters = new Map<string, T>();
     protected currentLocale: string;

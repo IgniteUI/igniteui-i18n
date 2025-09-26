@@ -10,7 +10,7 @@ import {
     registerI18n,
     setCurrentI18n
 } from './i18n-manager.js';
-import { wait } from './utils.js';
+import { wait } from './test-utils.js';
 
 describe('i18n tests', () => {
     let manager: I18nManager;

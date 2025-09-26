@@ -1,4 +1,4 @@
-// Custom event typings
+/** i18n manager ResourceChange event typings */
 export interface IResourceChangeEventArgs {
     oldLocale: string;
     newLocale: string;
@@ -48,9 +48,21 @@ export interface IIgI18nManager extends IManagerEventTarget {
     currentLocale: string;
 }
 
+/** Formatter types implemented */
 export enum Formatter {
     Date = 0,
     DisplayNames = 1,
     Locale = 2,
     Number = 3
 }
+
+/** Generic type for any Intl formatter that can be instantiated */
+export type IntlFormatter<T, O> =
+    | (new (locale: string | Intl.Locale, options?: O) => T)
+    | (new (locale: Intl.LocalesArgument, options: O) => T);
+
+/** Generic type for currently implemented formatter interfaces */
+export type I18nFormatter = Intl.DateTimeFormat | Intl.NumberFormat | Intl.Locale | Intl.DisplayNames;
+
+/** Generic type for currently implemented formatter interfaces */
+export type I18nFormatterOptions = Intl.DateTimeFormatOptions | Intl.NumberFormatOptions | Intl.LocaleOptions;
