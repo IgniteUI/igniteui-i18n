@@ -1,4 +1,4 @@
-import { type IActionStripResourceStrings } from 'igniteui-i18n-core';
+import type { IActionStripResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -6,4 +6,4 @@ import { type IActionStripResourceStrings } from 'igniteui-i18n-core';
  */
 export const ActionStripResourceStringsCS: IActionStripResourceStrings = {
     action_strip_button_more_title: 'Více'
-} satisfies MakeRequired<IActionStripResourceStrings>;
+} satisfies Required<IActionStripResourceStrings>;

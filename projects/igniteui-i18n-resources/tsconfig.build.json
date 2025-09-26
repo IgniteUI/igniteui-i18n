@@ -8,13 +8,9 @@
     "declaration": true,
     "outDir": "../../dist/igniteui-i18n-resources",
     "stripInternal": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     "paths": {
-      "igniteui-i18n-core": [
-          "../../dist/igniteui-i18n-core"
-      ]
+      "igniteui-i18n-core": ["../../dist/igniteui-i18n-core"]
     }
   },
   "include": ["src"]

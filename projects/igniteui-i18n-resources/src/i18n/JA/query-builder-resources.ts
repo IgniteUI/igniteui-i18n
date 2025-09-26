@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Japanese resource strings for IgxQueryBuilder
@@ -76,4 +76,4 @@ export const QueryBuilderResourceStringsJA: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'キャンセル',
     query_builder_dialog_confirm: '確認',
     query_builder_drop_ghost_text: 'ここにドロップして挿入'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

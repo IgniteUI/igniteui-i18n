@@ -1,4 +1,4 @@
-import { type IInputResourceStrings } from 'igniteui-i18n-core';
+import type { IInputResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -7,4 +7,4 @@ import { type IInputResourceStrings } from 'igniteui-i18n-core';
 export const InputResourceStringsPL: IInputResourceStrings = {
     input_upload_button: 'Przekaż plik',
     input_file_placeholder: 'Nie wybrano pliku'
-} satisfies MakeRequired<IInputResourceStrings>;
+} satisfies Required<IInputResourceStrings>;

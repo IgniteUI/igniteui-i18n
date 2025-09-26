@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsTR } from './action-strip-resources.js';
 import { BannerResourceStringsTR } from './banner-resources.js';
 import { CalendarResourceStringsTR } from './calendar-resources.js';
@@ -13,7 +14,7 @@ import { PaginatorResourceStringsTR } from './paginator-resources.js';
 import { QueryBuilderResourceStringsTR } from './query-builder-resources.js';
 import { TimePickerResourceStringsTR } from './time-picker-resources.js';
 import { TreeResourceStringsTR } from './tree-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
+import { ValidationResourceStringsTR } from './validation-resources.js';
 
 /**
  * Turkish resource strings for all components
@@ -34,4 +35,5 @@ export const ResourceStringsTR: IResourceStrings = {
     ...QueryBuilderResourceStringsTR,
     ...TimePickerResourceStringsTR,
     ...TreeResourceStringsTR,
+    ...ValidationResourceStringsTR
 };

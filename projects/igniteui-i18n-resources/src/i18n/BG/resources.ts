@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsBG } from './action-strip-resources.js';
 import { BannerResourceStringsBG } from './banner-resources.js';
 import { CalendarResourceStringsBG } from './calendar-resources.js';
@@ -13,7 +14,7 @@ import { PaginatorResourceStringsBG } from './paginator-resources.js';
 import { QueryBuilderResourceStringsBG } from './query-builder-resources.js';
 import { TimePickerResourceStringsBG } from './time-picker-resources.js';
 import { TreeResourceStringsBG } from './tree-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
+import { ValidationResourceStringsBG } from './validation-resources.js';
 
 /**
  * Bulgarian resource strings for all components
@@ -34,4 +35,5 @@ export const ResourceStringsBG: IResourceStrings = {
     ...QueryBuilderResourceStringsBG,
     ...TimePickerResourceStringsBG,
     ...TreeResourceStringsBG,
+    ...ValidationResourceStringsBG
 };

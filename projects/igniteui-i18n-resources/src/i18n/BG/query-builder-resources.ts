@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Bulgarian resource strings for IgxQueryBuilder
@@ -71,9 +71,10 @@ export const QueryBuilderResourceStringsBG: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Избери поле за връщане',
     query_builder_select_return_fields: 'Избери полета за връщане',
     query_builder_dialog_title: 'Потвърждение',
-    query_builder_dialog_message: 'С промяната на обекта ще загубите текущите си настройки. Сигурни ли сте, че искате да продължите?',
+    query_builder_dialog_message:
+        'С промяната на обекта ще загубите текущите си настройки. Сигурни ли сте, че искате да продължите?',
     query_builder_dialog_checkbox_text: 'Не показвай този диалогов прозорец отново',
     query_builder_dialog_cancel: 'Отказ',
     query_builder_dialog_confirm: 'Потвърди',
     query_builder_drop_ghost_text: 'Пусни тук за вмъкване'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

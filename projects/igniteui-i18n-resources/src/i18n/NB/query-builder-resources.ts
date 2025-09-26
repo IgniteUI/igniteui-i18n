@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Norwegian resource strings for IgxQueryBuilder
@@ -71,9 +71,10 @@ export const QueryBuilderResourceStringsNB: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Velg returfelt',
     query_builder_select_return_fields: 'Velg returfelter',
     query_builder_dialog_title: 'Bekreftelse',
-    query_builder_dialog_message: 'Ved å endre enheten vil du miste de nåværende innstillingene dine. Er du sikker på at du vil fortsette?',
+    query_builder_dialog_message:
+        'Ved å endre enheten vil du miste de nåværende innstillingene dine. Er du sikker på at du vil fortsette?',
     query_builder_dialog_checkbox_text: 'Ikke vis denne dialogboksen igjen',
     query_builder_dialog_cancel: 'Avbryt',
     query_builder_dialog_confirm: 'Bekreft',
     query_builder_drop_ghost_text: 'Slipp her for å sette inn'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Danish resource strings for IgxQueryBuilder
@@ -71,9 +71,10 @@ export const QueryBuilderResourceStringsDA: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Vælg returfelt',
     query_builder_select_return_fields: 'Vælg returfelter',
     query_builder_dialog_title: 'Bekræftelse',
-    query_builder_dialog_message: 'Ved at ændre objektet mister du dine nuværende indstillinger. Er du sikker på, at du vil fortsætte?',
+    query_builder_dialog_message:
+        'Ved at ændre objektet mister du dine nuværende indstillinger. Er du sikker på, at du vil fortsætte?',
     query_builder_dialog_checkbox_text: 'Vis ikke denne dialogboks igen',
     query_builder_dialog_cancel: 'Annuller',
     query_builder_dialog_confirm: 'Bekræft',
     query_builder_drop_ghost_text: 'Slip her for at indsætte'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

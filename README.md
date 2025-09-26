@@ -30,7 +30,6 @@ To build just the core package run:
 npm run build:core
 ```
 
-
 To build just the resources package run:
 
 ```
@@ -45,6 +44,7 @@ The repo follows coding guidelines, which are kept in check using lint. To run i
 npm run lint
 ```
 
+For any prettier errors make sure to run the `pretty:fix` command, as it should address most of the issues. For easier you can use the [`Prettier plugin`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and enable `editor.formatOnSave` setting.
 
 ## Tests
 
@@ -79,8 +79,7 @@ To run a specific test, set in the test source `only` option for a test in the f
 ```typescript
 it('should test something', { only: true }, () => {
     // Test code
-})
-
+});
 ```
 
 The following way should also work (but not for me :s ):
@@ -88,11 +87,11 @@ The following way should also work (but not for me :s ):
 ```typescript
 it.only('should test something', () => {
     // Test code
-})
-
+});
 ```
 
 ## License
+
 This is a commercial product, requiring a valid paid-for license for commercial use.
 This product is free to use for non-commercial educational use for students in K through 12 grades or University programs, and for educators to use in a classroom setting as examples / tools in their curriculum.
 In order for us to verify your eligibility for free usage, please [register for trial](https://Infragistics.com/Angular) and open a support ticket with a request for free license.

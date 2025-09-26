@@ -1,8 +1,8 @@
-import type { ITimePickerResourceStrings } from "../../interfaces/time-picker.interface";
+import type { ITimePickerResourceStrings } from '../interfaces/time-picker.interface.js';
 
 export const TimePickerResourceStringsEN: ITimePickerResourceStrings = {
     time_picker_ok: 'OK',
     time_picker_cancel: 'Cancel',
     time_picker_change_time: 'Change Time',
     time_picker_choose_time: 'Choose Time'
-};
+} satisfies Required<ITimePickerResourceStrings>;

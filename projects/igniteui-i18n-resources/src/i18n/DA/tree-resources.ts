@@ -1,4 +1,4 @@
-import { type ITreeResourceStrings } from 'igniteui-i18n-core';
+import type { ITreeResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -7,4 +7,4 @@ import { type ITreeResourceStrings } from 'igniteui-i18n-core';
 export const TreeResourceStringsDA: ITreeResourceStrings = {
     expand: 'Udvid',
     collapse: 'Skjul'
-} satisfies MakeRequired<ITreeResourceStrings>;
+} satisfies Required<ITreeResourceStrings>;

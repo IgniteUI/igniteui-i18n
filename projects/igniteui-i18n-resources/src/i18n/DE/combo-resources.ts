@@ -1,4 +1,4 @@
-import { type IComboResourceStrings } from 'igniteui-i18n-core';
+import type { IComboResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -11,4 +11,4 @@ export const ComboResourceStringsDE: IComboResourceStrings = {
     combo_clearItems_placeholder: 'Auswahl löschen',
     combo_aria_label_options: 'Ausgewählte Optionen',
     combo_aria_label_no_options: 'Keine Optionen ausgewählt'
-} satisfies MakeRequired<IComboResourceStrings>;
+} satisfies Required<IComboResourceStrings>;

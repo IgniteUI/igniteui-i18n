@@ -1,4 +1,4 @@
-import { type IBannerResourceStrings } from 'igniteui-i18n-core';
+import type { IBannerResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -6,4 +6,4 @@ import { type IBannerResourceStrings } from 'igniteui-i18n-core';
  */
 export const BannerResourceStringsZHHANS: IBannerResourceStrings = {
     banner_button_dismiss: '取消'
-} satisfies MakeRequired<IBannerResourceStrings>;
+} satisfies Required<IBannerResourceStrings>;

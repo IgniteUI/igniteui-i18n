@@ -1,3 +1,4 @@
+import type { IResourceStrings } from 'igniteui-i18n-core';
 import { ActionStripResourceStringsFR } from './action-strip-resources.js';
 import { BannerResourceStringsFR } from './banner-resources.js';
 import { CalendarResourceStringsFR } from './calendar-resources.js';
@@ -13,7 +14,7 @@ import { PaginatorResourceStringsFR } from './paginator-resources.js';
 import { QueryBuilderResourceStringsFR } from './query-builder-resources.js';
 import { TimePickerResourceStringsFR } from './time-picker-resources.js';
 import { TreeResourceStringsFR } from './tree-resources.js';
-import type { IResourceStrings } from 'igniteui-i18n-core';
+import { ValidationResourceStringsFR } from './validation-resources.js';
 
 /**
  * French resource strings for all components
@@ -34,4 +35,5 @@ export const ResourceStringsFR: IResourceStrings = {
     ...QueryBuilderResourceStringsFR,
     ...TimePickerResourceStringsFR,
     ...TreeResourceStringsFR,
+    ...ValidationResourceStringsFR
 };

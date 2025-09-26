@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Swedish resource strings for IgxQueryBuilder
@@ -71,9 +71,10 @@ export const QueryBuilderResourceStringsSV: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Välj returfält',
     query_builder_select_return_fields: 'Välj returfält',
     query_builder_dialog_title: 'Bekräftelse',
-    query_builder_dialog_message: 'Genom att ändra entitet förlorar du dina nuvarande inställningar. Vill du fortsätta?',
+    query_builder_dialog_message:
+        'Genom att ändra entitet förlorar du dina nuvarande inställningar. Vill du fortsätta?',
     query_builder_dialog_checkbox_text: 'Visa inte den här dialogrutan igen',
     query_builder_dialog_cancel: 'Avbryt',
     query_builder_dialog_confirm: 'Bekräfta',
     query_builder_drop_ghost_text: 'Släpp här för att infoga'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

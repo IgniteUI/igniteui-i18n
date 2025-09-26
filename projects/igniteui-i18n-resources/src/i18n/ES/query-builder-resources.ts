@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Spanish resource strings for IgxQueryBuilder
@@ -71,9 +71,10 @@ export const QueryBuilderResourceStringsES: IQueryBuilderResourceStrings = {
     query_builder_select_return_field_single: 'Seleccionar campo de devolución',
     query_builder_select_return_fields: 'Seleccionar campos de retorno',
     query_builder_dialog_title: 'Confirmación',
-    query_builder_dialog_message: 'Al cambiar la entidad, se perderán las configuraciones actuales. ¿Está seguro de que desea continuar?',
+    query_builder_dialog_message:
+        'Al cambiar la entidad, se perderán las configuraciones actuales. ¿Está seguro de que desea continuar?',
     query_builder_dialog_checkbox_text: 'No volver a mostrar este cuadro de diálogo',
     query_builder_dialog_cancel: 'Cancelar',
     query_builder_dialog_confirm: 'Confirmar',
     query_builder_drop_ghost_text: 'Soltar aquí para insertar'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

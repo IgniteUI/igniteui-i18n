@@ -1,0 +1,7 @@
+dist
+coverage
+test-results
+package-lock.json
+*.min.*
+*.yml
+*.md
