@@ -24,7 +24,6 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     private _formatters = new Map<Formatter, BaseFormatter<any, any>>();
     private _resourcesMap = new Map<string, IResourceStrings>([[defaultLang, {}]]);
     private _rootObserver: MutationObserver | undefined;
-    private _eventsEnabled = true;
 
     public get localeFormatter(): LocaleFormatter {
         return this._formatters.get(Formatter.Locale) as LocaleFormatter;
@@ -68,20 +67,6 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
                     attributeFilter: ['lang']
                 });
             }
-        }
-    }
-
-    /**
-     * Warning: Do not use this method unless you are sure you want to disable updates of i18n for everything.
-     * Temporary toggle triggering of `onResourceChange` event.
-     * Currently this is used for Angular's test bed having concurrency errors if triggering events while a component is still initializing.
-     * @param enable
-     */
-    public toggleEvents(enable?: boolean) {
-        if (enable !== undefined) {
-            this._eventsEnabled = enable;
-        } else {
-            this._eventsEnabled = !this._eventsEnabled;
         }
     }
 
@@ -143,7 +128,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             newLocale
         } as IResourceChangeEventArgs;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        if (Object.getPrototypeOf(CustomEvent).name === 'Event' && this._eventsEnabled) {
+        if (Object.getPrototypeOf(CustomEvent).name === 'Event') {
             // Make sure inheritance is correct due to Angular SSR having issues with it.
             this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>('onResourceChange', { detail: eventArgs }));
         }

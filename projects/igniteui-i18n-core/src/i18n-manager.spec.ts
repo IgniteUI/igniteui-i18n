@@ -16,7 +16,7 @@ describe('i18n tests', () => {
     let manager: I18nManager;
     beforeEach(() => {
         // Create separate manage for each tests, so it's state is reset for each test.
-        manager = new I18nManager();
+        manager = new (I18nManager as any)();
     });
 
     describe('public api', () => {

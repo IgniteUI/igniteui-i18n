@@ -34,4 +34,4 @@ export * from './i18n/interfaces/resources.interface.js';
 export * from './i18n/interfaces/time-picker.interface.js';
 export * from './i18n/interfaces/tree.interface.js';
 export * from './i18n/interfaces/validation.interface.js';
-export { extendResources, IntlDateTimeStyleValues } from './utils.js';
+export { extendResources } from './utils.js';
