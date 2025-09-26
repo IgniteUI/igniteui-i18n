@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "build": "npm run build:core && npm run build:resources",
-    "build:core": "tsc --project projects/igniteui-i18n-core/tsconfig.build.json && gulp copyPackageForCore",
-    "build:resources": "tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && gulp copyPackageForResources",
+    "build:core": "gulp cleanCoreBuild && tsc --project projects/igniteui-i18n-core/tsconfig.build.json && gulp copyPackageForCore",
+    "build:resources": "gulp cleanResourcesBuild && tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && gulp copyPackageForResources",
     "lint": "npm run lint:biome && npm run lint:prettier",
     "lint:fix": "npm run lint:biome:fix && npm run lint:prettier:fix",
     "lint:biome": "biome lint",
@@ -19,6 +19,7 @@
     "@types/node": "^20.11.0",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-istanbul": "^3.2.4",
+    "del": "^8.0.1",
     "gulp": "^5.0.1",
     "jsdom": "^26.1.0",
     "playwright": "^1.54.1",
