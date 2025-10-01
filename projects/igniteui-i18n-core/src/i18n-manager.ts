@@ -3,17 +3,19 @@ import { DateFormatter } from './formatters/date.formatter.js';
 import { DisplayNamesFormatter } from './formatters/display-names.formatter.js';
 import { LocaleFormatter } from './formatters/locale.formatter.js';
 import { NumberFormatter } from './formatters/number.formatter.js';
+import type { IResourceStrings } from './i18n/interfaces/resources.interface.js';
 import {
+    type CustomEventListenerObject,
     Formatter,
+    type I18nManagerEventMap,
     I18nManagerEventTarget,
     type IIgI18nManager,
     type IResourceChangeEventArgs
 } from './i18n-manager.interfaces.js';
-import type { IResourceStrings } from './i18n/interfaces/resources.interface.js';
+import { isBrowser } from './utils.js';
 
 const defaultLang = 'en';
 const defaultLocale = 'en-US';
-const maxEventListeners = 9999;
 
 export class I18nManager extends I18nManagerEventTarget implements IIgI18nManager {
     public defaultLang = defaultLang;
@@ -67,6 +69,24 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
                     attributeFilter: ['lang']
                 });
             }
+        }
+    }
+
+    /**
+     * Sets up a function that will be called whenever the specified event is delivered to the target.
+     * Currently supported events: onResourceChange
+     * Note: Make sure to bind to events only in browser environment or emulated one. Anything else like server environment does not need to have events.
+     * @param type Name of the event
+     * @param listener The function to be called when event is triggered.
+     * @param options
+     */
+    public override addEventListener<K extends 'onResourceChange'>(
+        type: K,
+        listener: ((evt: I18nManagerEventMap[K]) => void) | CustomEventListenerObject<I18nManagerEventMap[K]>,
+        options?: boolean | EventListenerOptions
+    ): void {
+        if (isBrowser()) {
+            super.addEventListener(type, listener, options);
         }
     }
 
@@ -128,7 +148,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             newLocale
         } as IResourceChangeEventArgs;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        if (Object.getPrototypeOf(CustomEvent).name === 'Event') {
+        if (Object.getPrototypeOf(CustomEvent).name === 'Event' && isBrowser()) {
             // Make sure inheritance is correct due to Angular SSR having issues with it.
             this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>('onResourceChange', { detail: eventArgs }));
         }
@@ -141,20 +161,6 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         }
     }
 }
-
-// By default Node.js expects max event listeners per object to be 10, otherwise error is thrown.
-// The manager is one for a page and each component adds at least 1 listener (the grids add a bit more) so they can get quite many.
-// Components should clear any listeners when they are destroyed, but still can have a lot at once.
-import('node:events')
-    .then((nodeEvents) => {
-        const eventsDefault = nodeEvents.default;
-        if (typeof eventsDefault.setMaxListeners === 'function') {
-            eventsDefault.setMaxListeners(maxEventListeners, getI18nManager());
-        }
-    })
-    .catch(() => {
-        // The modules is not available, so we are not in a Node env.
-    });
 
 /**
  * Gets in the i18nManager instance.

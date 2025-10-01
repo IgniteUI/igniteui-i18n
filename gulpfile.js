@@ -5,11 +5,11 @@ const path = require('path');
 const del = require('del');
 
 exports.cleanCoreBuild = () => {
-    return del.deleteAsync('dist/igniteui-i18n-core/**', {force:true});
+    return del.deleteAsync('dist/igniteui-i18n-core/**', { force: true });
 };
 
 exports.cleanResourcesBuild = () => {
-    return del.deleteAsync('dist/igniteui-i18n-resources/**', {force:true});
+    return del.deleteAsync('dist/igniteui-i18n-resources/**', { force: true });
 };
 
 exports.copyPackageForCore = () => {

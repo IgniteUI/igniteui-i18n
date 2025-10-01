@@ -1,3 +1,8 @@
+/** Return if this is ran in browser environment or at least simulated one. */
+export function isBrowser() {
+    return typeof window !== 'undefined' && typeof document !== 'undefined';
+}
+
 /** Group each valid symbol for custom format that is replaced later on.
  * See `formatDateCustomFormat` for supported values.
  * Any word that doesn't contains the listed letters are kept as is - (?:[^BEGHLMOSWYZabcdhmswyz']+)

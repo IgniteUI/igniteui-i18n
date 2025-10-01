@@ -4,12 +4,12 @@ export interface IResourceChangeEventArgs {
     newLocale: string;
 }
 
-interface I18nManagerEventMap {
+export interface I18nManagerEventMap {
     onResourceChange: CustomEvent<IResourceChangeEventArgs>;
 }
 
 type CustomEventListener<T> = (evt: T) => void;
-interface CustomEventListenerObject<T> {
+export interface CustomEventListenerObject<T> {
     handleEvent(object: T): void;
 }
 type CustomEventListenerOrEventListenerObject<T> = CustomEventListener<T> | CustomEventListenerObject<T>;
@@ -66,3 +66,7 @@ export type I18nFormatter = Intl.DateTimeFormat | Intl.NumberFormat | Intl.Local
 
 /** Generic type for currently implemented formatter interfaces */
 export type I18nFormatterOptions = Intl.DateTimeFormatOptions | Intl.NumberFormatOptions | Intl.LocaleOptions;
+
+export type PrefixedResourceStrings<T, Q extends string> = {
+    [P in keyof T as P extends string ? `${Q}${P}` : never]?: string;
+};
