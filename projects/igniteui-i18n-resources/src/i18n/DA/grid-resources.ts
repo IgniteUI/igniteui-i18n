@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsDA } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsDA } from './validation-resources.js';
  * Danish resource strings for IgxGrid
  */
 export const GridResourceStringsDA: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Træk et kolonnesidehoved og slip den her for at gruppere efter den kolonne.',
         grid_groupByArea_select_message: 'Vælg alle rækker i gruppen med navnet {0} og værdi {1}.',
@@ -183,5 +188,5 @@ export const GridResourceStringsDA: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Træk elementer hertil',
         grid_pivot_empty_message: 'Pivottabel har ingen dimensioner og værdier.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsDA
+    prefixResource(GRID_PREFIX, ValidationResourceStringsDA)
 );

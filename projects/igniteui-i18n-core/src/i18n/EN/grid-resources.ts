@@ -1,9 +1,8 @@
+import { extendResources, GRID_PREFIX, prefixResource } from '../../utils.js';
 import type { GridValidationResourceStrings, IGridResourceStrings } from '../interfaces/grid.interface.js';
-import { extendResources } from '../../utils.js';
 import { ValidationResourceStringsEN } from './validation-resources.js';
 
 export const GridResourceStringsEN: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Drag a column header and drop it here to group by that column.',
         grid_groupByArea_select_message: 'Select all rows in the group with field name {0} and value {1}.',
@@ -179,5 +178,5 @@ export const GridResourceStringsEN: IGridResourceStrings = extendResources(
         grid_pivot_selector_values: 'Values',
         grid_pivot_selector_panel_empty: 'Drop Items Here'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsEN
+    prefixResource(GRID_PREFIX, ValidationResourceStringsEN)
 );

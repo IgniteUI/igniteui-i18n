@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsKO } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsKO } from './validation-resources.js';
  * Korean resource strings for IgxGrid
  */
 export const GridResourceStringsKO: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: '열 머리글을 끌어서 여기에 놓아 해당 열을 기준으로 그룹화합니다.',
         grid_emptyFilteredGrid_message: '기록이 없습니다.',
@@ -181,5 +186,5 @@ export const GridResourceStringsKO: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: '항목을 여기로 끌어',
         grid_pivot_empty_message: '피벗 그리드에는 차원과 값이 없습니다.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsKO
+    prefixResource(GRID_PREFIX, ValidationResourceStringsKO)
 );

@@ -1,3 +1,8 @@
+import type { PrefixedResourceStrings } from './i18n-manager.interfaces.js';
+
+export const GRID_PREFIX = 'grid_';
+export const IGX_PREFIX = 'igx_';
+
 /** Return if this is ran in browser environment or at least simulated one. */
 export function isBrowser() {
     return typeof window !== 'undefined' && typeof document !== 'undefined';
@@ -11,8 +16,8 @@ export function isBrowser() {
  *  ^ These are the ones supported by `formatDateCustomFormat`
  * Any white space ignore and combine into groups if more - ([\s\S]*)
  */
-export const CustomFormatRegex =
-            /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|K{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
+export const customFormatRegex =
+    /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|K{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
 
 export function generateLocaleKey(
     locale: string,
@@ -58,15 +63,16 @@ export function mergeOptions<
  * @param extendedObjects Object that the base one extends.
  * @returns Combined and formatted object containing properties from base and extended objects.
  */
-export function extendResources<T, E>(format: string, baseObject: T, ...extendedObjects: E[]) {
-    const result: Record<string, string> = Object.assign({}, baseObject);
-    for (const extendedObject of extendedObjects) {
-        const objKeys = Object.keys(extendedObject as object);
-        for (const key of objKeys) {
-            const newKey = format.replace('{0}', key);
-            result[newKey] = extendedObject[key as keyof E] as string;
-        }
-    }
+export function extendResources<T, E>(baseObject: T, ...extendedObjects: E[]): T & E {
+    const result = Object.assign({}, baseObject, ...extendedObjects);
+    return result;
+}
 
+export function prefixResource<T, P extends string>(prefix: P, inObject: T): PrefixedResourceStrings<T, P> {
+    const result: any = {};
+    const memberNames = Object.getOwnPropertyNames(inObject);
+    for (const memberName of memberNames) {
+        result[prefix + memberName] = inObject[memberName as keyof T];
+    }
     return result;
 }

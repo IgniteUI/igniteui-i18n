@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsHU } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsHU } from './validation-resources.js';
  * Hungarian resource strings for IgxGrid
  */
 export const GridResourceStringsHU: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Húzza és ejtse ide az oszlopfejlécet az adott oszlop szerinti csoportosításhoz.',
         grid_groupByArea_select_message: 'Az összes sorok a csoportban mezőnévvel {0} és értékkel {1} kijelölése.',
@@ -184,5 +189,5 @@ export const GridResourceStringsHU: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Ide húzza az elemeket',
         grid_pivot_empty_message: 'A pivot rácsnak nincsenek méretei és értékei.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsHU
+    prefixResource(GRID_PREFIX, ValidationResourceStringsHU)
 );

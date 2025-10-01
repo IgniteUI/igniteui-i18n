@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsZHHANS } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsZHHANS } from './validation-resources.js';
  * Simplified Chinese (zh-Hans) resource strings for IgxGrid
  */
 export const GridResourceStringsZHHANS: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: '将列标题拖放到此处以按该列分组。',
         grid_emptyFilteredGrid_message: '未找到任何记录。',
@@ -181,5 +186,5 @@ export const GridResourceStringsZHHANS: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: '拖动项目到此处',
         grid_pivot_empty_message: '透视网格没有维度和值。'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsZHHANS
+    prefixResource(GRID_PREFIX, ValidationResourceStringsZHHANS)
 );

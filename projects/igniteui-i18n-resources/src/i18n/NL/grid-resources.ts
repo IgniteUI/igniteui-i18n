@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsNL } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsNL } from './validation-resources.js';
  * Dutch resource strings for IgxGrid
  */
 export const GridResourceStringsNL: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Sleep een kolomkop en zet deze hier neer om op die kolom te groeperen.',
         grid_groupByArea_select_message: 'Selecteer alle rijen in de groep met veldnaam {0} en waarde {1}.',
@@ -183,5 +188,5 @@ export const GridResourceStringsNL: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Sleep items hiernaartoe',
         grid_pivot_empty_message: 'Draairaster heeft geen dimensies en waarden.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsNL
+    prefixResource(GRID_PREFIX, ValidationResourceStringsNL)
 );

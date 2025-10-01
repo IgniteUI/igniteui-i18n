@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsJA } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsJA } from './validation-resources.js';
  * Japanese resource strings for IgxGrid
  */
 export const GridResourceStringsJA: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: '列ヘッダーをここへドラッグして列をグループ化します。',
         grid_emptyFilteredGrid_message: 'レコードは見つかりませんでした。',
@@ -181,5 +186,5 @@ export const GridResourceStringsJA: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'ここに項目をドラッグして',
         grid_pivot_empty_message: 'ピボット グリッドにはディメンションと値がありません。'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsJA
+    prefixResource(GRID_PREFIX, ValidationResourceStringsJA)
 );

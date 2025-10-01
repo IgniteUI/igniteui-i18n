@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsTR } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsTR } from './validation-resources.js';
  * Turkish resource strings for IgxGrid
  */
 export const GridResourceStringsTR: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Bir sütun başlığını sürükleyin ve o sütuna göre gruplandırmak için buraya bırakın.',
         grid_groupByArea_select_message: 'Alan adı {0} ve değeri {1} olan gruptaki tüm satırları seçin.',
@@ -183,5 +188,5 @@ export const GridResourceStringsTR: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Öğeleri buraya sürükleyin',
         grid_pivot_empty_message: 'Pivot Kılavuz boyutları ve değerleri yoktur.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsTR
+    prefixResource(GRID_PREFIX, ValidationResourceStringsTR)
 );

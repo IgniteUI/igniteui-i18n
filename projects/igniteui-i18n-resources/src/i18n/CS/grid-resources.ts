@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsCS } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsCS } from './validation-resources.js';
  * Czech resource strings for IgxGrid
  */
 export const GridResourceStringsCS: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Přetáhněte záhlaví sloupce a přetáhněte jej sem a seskupte podle tohoto sloupce.',
         grid_groupByArea_select_message: 'Vyberte všechny řádky ve skupině s názvem pole {0} a hodnotou {1}.',
@@ -181,5 +186,5 @@ export const GridResourceStringsCS: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Přetažením položek sem',
         grid_pivot_empty_message: 'Pivot Grid nemá žádné rozměry a hodnoty.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsCS
+    prefixResource(GRID_PREFIX, ValidationResourceStringsCS)
 );

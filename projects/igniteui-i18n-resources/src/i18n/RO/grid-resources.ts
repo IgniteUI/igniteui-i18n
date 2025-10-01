@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsRO } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsRO } from './validation-resources.js';
  * Romanian resource strings for IgxGrid
  */
 export const GridResourceStringsRO: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message:
             'Trageți un antet de coloană și plasați-l aici pentru a grupa după coloana respectivă.',
@@ -184,5 +189,5 @@ export const GridResourceStringsRO: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Glisați aici elementele',
         grid_pivot_empty_message: 'Grila pivot nu are dimensiuni și valori.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsRO
+    prefixResource(GRID_PREFIX, ValidationResourceStringsRO)
 );

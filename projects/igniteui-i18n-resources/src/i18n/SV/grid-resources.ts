@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsSV } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsSV } from './validation-resources.js';
  * Swedish resource strings for IgxGrid
  */
 export const GridResourceStringsSV: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Dra en kolumnrubrik och släpp den här för att gruppera efter den kolumnen.',
         grid_groupByArea_select_message: 'Välj alla rader i gruppen med fältnamn {0} och värde {1}.',
@@ -182,5 +187,5 @@ export const GridResourceStringsSV: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Dra objekt hit',
         grid_pivot_empty_message: 'Pivotrutnät har inga dimensioner och värden.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsSV
+    prefixResource(GRID_PREFIX, ValidationResourceStringsSV)
 );

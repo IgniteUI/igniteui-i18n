@@ -1,4 +1,4 @@
-import { CustomFormatRegex } from '../utils.js';
+import { customFormatRegex } from '../utils.js';
 import { BaseFormatter } from './base.formatter.js';
 import type { LocaleFormatter } from './locale.formatter.js';
 
@@ -151,7 +151,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     /**
      * Use custom formatting to format a date to match the provided strings.
      * Currently supported values are G, y, Y, m, M, L, d, E, c, a, b, B, h, H, K, s, S, z, Z, O:
-     * 
+     *
      * Date:
      * c, cc, ccc, cccc, ccccc - shows weekday in different lengths. Alias - `E`
      * d, dd - shows day of month in numeric (m) or 2-digit/zero padded (mm) style.
@@ -159,7 +159,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
      * y, yy, yyy, yyyy, yyyyy - show year in different lengths.
      * Y, YY, YYY, YYYY, YYYYY - show year in different lengths based on iso8601 calendar.
      * G, GG, GGG, GGGG, GGGGG - shows era in different lengths
-     * 
+     *
      * Time:
      * m, mm - shows minutes in numeric(m) or 2-digit/zero padded (mm) style.
      * h, hh - shows hour using 12h clock in numeric(m) or 2-digit/zero padded (mm) style.
@@ -186,7 +186,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         let parts: string[] = [];
         let match: RegExpExecArray | null;
         while (format) {
-            match = CustomFormatRegex.exec(format);
+            match = customFormatRegex.exec(format);
             if (match) {
                 parts = parts.concat(match.slice(1));
                 const part = parts.pop();

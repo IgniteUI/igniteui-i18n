@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsBG } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsBG } from './validation-resources.js';
  * Bulgarian resource strings for IgxGrid
  */
 export const GridResourceStringsBG: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message:
             'Плъзнете заглавката на колоната и я пуснете тук, за да извършите групиране по тази колона.',
@@ -183,5 +188,5 @@ export const GridResourceStringsBG: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Привлачи тук',
         grid_pivot_empty_message: 'Обобщената таблица няма размери и стойности.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsBG
+    prefixResource(GRID_PREFIX, ValidationResourceStringsBG)
 );

@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsPT } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsPT } from './validation-resources.js';
  * Portuguese resource strings for IgxGrid
  */
 export const GridResourceStringsPT: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Arraste o cabeçalho de uma coluna e largue-o aqui para agrupar por essa coluna.',
         grid_groupByArea_select_message: 'Selecionar todas as linhas no grupo com o nome do campo {0} e o valor {1}.',
@@ -183,5 +188,5 @@ export const GridResourceStringsPT: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Arraste os itens para aqui',
         grid_pivot_empty_message: 'A grelha dinâmica não tem dimensões e valores.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsPT
+    prefixResource(GRID_PREFIX, ValidationResourceStringsPT)
 );

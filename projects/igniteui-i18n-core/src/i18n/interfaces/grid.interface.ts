@@ -1,8 +1,8 @@
+import type { PrefixedResourceStrings } from '../../i18n-manager.interfaces.js';
+import type { GRID_PREFIX } from '../../utils.js';
 import type { IValidationResourceStrings } from './validation.interface.js';
 
-export type GridValidationResourceStrings = {
-    [P in keyof IValidationResourceStrings as P extends string ? `grid_${P}` : never]?: string;
-};
+export type GridValidationResourceStrings = PrefixedResourceStrings<IValidationResourceStrings, typeof GRID_PREFIX>;
 
 export interface IGridResourceStrings extends GridValidationResourceStrings {
     grid_groupByArea_message?: string;

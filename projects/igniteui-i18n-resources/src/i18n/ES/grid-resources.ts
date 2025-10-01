@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsES } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsES } from './validation-resources.js';
  * Spanish resource strings for IgxGrid
  */
 export const GridResourceStringsES: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message: 'Arrastre un encabezado de columna y suéltelo aquí para agrupar por esa columna.',
         grid_emptyFilteredGrid_message: 'No se encontraron registros.',
@@ -184,5 +189,5 @@ export const GridResourceStringsES: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Arrastrar elementos aquí',
         grid_pivot_empty_message: 'La cuadrícula de pivote no tiene dimensiones ni valores.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsES
+    prefixResource(GRID_PREFIX, ValidationResourceStringsES)
 );

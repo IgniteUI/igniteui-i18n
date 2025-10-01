@@ -1,4 +1,10 @@
-import { extendResources, type GridValidationResourceStrings, type IGridResourceStrings } from 'igniteui-i18n-core';
+import {
+    extendResources,
+    GRID_PREFIX,
+    type GridValidationResourceStrings,
+    type IGridResourceStrings,
+    prefixResource
+} from 'igniteui-i18n-core';
 import { ValidationResourceStringsIT } from './validation-resources.js';
 
 // only use `satisfies` operator so export is typed by its schema
@@ -6,7 +12,6 @@ import { ValidationResourceStringsIT } from './validation-resources.js';
  * Italian resource strings for IgxGrid
  */
 export const GridResourceStringsIT: IGridResourceStrings = extendResources(
-    'grid_{0}',
     {
         grid_groupByArea_message:
             "Trascinare un'intestazione di colonna e rilasciarla qui per raggruppare in base a quella colonna.",
@@ -184,5 +189,5 @@ export const GridResourceStringsIT: IGridResourceStrings = extendResources(
         grid_pivot_selector_panel_empty: 'Trascinare gli elementi qui',
         grid_pivot_empty_message: 'La griglia pivot non ha dimensioni e valori.'
     } satisfies Required<Omit<IGridResourceStrings, keyof GridValidationResourceStrings>>,
-    ValidationResourceStringsIT
+    prefixResource(GRID_PREFIX, ValidationResourceStringsIT)
 );
