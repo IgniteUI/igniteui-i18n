@@ -4,7 +4,7 @@
 
 ![Node.js CI](https://github.com/IgniteUI/igniteui-i18n/workflows/Node.js%20CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/IgniteUI/igniteui-i18n/badge.svg?branch=master)](https://coveralls.io/github/IgniteUI/igniteui-i18n?branch=master)
-[![npm version](https://badge.fury.io/js/igniteui-i18n.svg)](https://badge.fury.io/js/igniteui-i18n)
+[![npm version](https://badge.fury.io/js/igniteui-i18n-resources.svg)](https://badge.fury.io/js/igniteui-i18n-resources)
 
 The Ignite UI i18n repository provides localized strings and locale formatting to all Ignite UI products and components. The core package provides the functionality for locale and resource strings management, while the resources package provides localized resource strings for each currently supported language by Ignite UI. Both combined gives a unified and easy way of setting desired language or locale for the Ignite UI components globally and individually for each component.
 
