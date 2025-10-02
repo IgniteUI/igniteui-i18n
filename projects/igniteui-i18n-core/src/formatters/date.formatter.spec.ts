@@ -561,38 +561,38 @@ describe('i18n tests', () => {
 
         it('should format short format timezone', () => {
             let format = 'z';
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, false, 'Etc/GMT+1')).equal(
-                'GMT-1'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, false, 'Etc/GMT+1')).equal(
-                'Гринуич-1'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, false, 'Etc/GMT+1')).equal(
-                'GMT-1'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, false, 'Etc/GMT+1')).equal(
-                'GMT-1'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, false, 'Etc/GMT+1')).equal(
-                'غرينتش-1'
-            );
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, { timezone: 'Etc/GMT+1' })
+            ).equal('GMT-1');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, { timezone: 'Etc/GMT+1' })
+            ).equal('Гринуич-1');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, { timezone: 'Etc/GMT+1' })
+            ).equal('GMT-1');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, { timezone: 'Etc/GMT+1' })
+            ).equal('GMT-1');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, { timezone: 'Etc/GMT+1' })
+            ).equal('غرينتش-1');
 
             format = 'zzzz';
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, false, 'Etc/GMT+1')).equal(
-                'GMT-01:00'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, false, 'Etc/GMT+1')).equal(
-                'Гринуич-01:00'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, false, 'Etc/GMT+1')).equal(
-                'GMT-01:00'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, false, 'Etc/GMT+1')).equal(
-                'GMT-01:00'
-            );
-            expect(dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, false, 'Etc/GMT+1')).equal(
-                'غرينتش-01:00'
-            );
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'en', format, { timezone: 'Etc/GMT+1' })
+            ).equal('GMT-01:00');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'bg', format, { timezone: 'Etc/GMT+1' })
+            ).equal('Гринуич-01:00');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ja', format, { timezone: 'Etc/GMT+1' })
+            ).equal('GMT-01:00');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'es', format, { timezone: 'Etc/GMT+1' })
+            ).equal('GMT-01:00');
+            expect(
+                dateFormatter.formatDateCustomFormat(dateTimeHourFull, 'ar', format, { timezone: 'Etc/GMT+1' })
+            ).equal('غرينتش-01:00');
         });
 
         it('should format combination of single cases', () => {

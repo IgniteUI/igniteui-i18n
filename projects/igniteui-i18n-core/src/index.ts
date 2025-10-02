@@ -32,6 +32,10 @@ export * from './i18n/interfaces/resources.interface.js';
 export * from './i18n/interfaces/time-picker.interface.js';
 export * from './i18n/interfaces/tree.interface.js';
 export * from './i18n/interfaces/validation.interface.js';
-export type { IResourceChangeEventArgs, PrefixedResourceStrings } from './i18n-manager.interfaces.js';
+export type {
+    ICustomFormatOptions,
+    IResourceChangeEventArgs,
+    PrefixedResourceStrings
+} from './i18n-manager.interfaces.js';
 export * from './i18n-manager.js';
 export { extendResources, GRID_PREFIX, IGX_PREFIX, prefixResource } from './utils.js';

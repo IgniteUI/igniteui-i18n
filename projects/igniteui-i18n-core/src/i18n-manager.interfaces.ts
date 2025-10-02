@@ -4,6 +4,11 @@ export interface IResourceChangeEventArgs {
     newLocale: string;
 }
 
+export interface ICustomFormatOptions {
+    forceLeadingZero?: boolean;
+    timezone?: string;
+}
+
 export interface I18nManagerEventMap {
     onResourceChange: CustomEvent<IResourceChangeEventArgs>;
 }

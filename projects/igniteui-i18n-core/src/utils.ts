@@ -23,7 +23,7 @@ export const customFormatRegex =
  * Separate each part into a named groups for year, month, day, time and timezone.
  */
 export const isoRegex =
-                /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
+    /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
 
 export function generateLocaleKey(
     locale: string,
