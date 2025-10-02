@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Czech resource strings for IgxQueryBuilder
@@ -76,4 +76,4 @@ export const QueryBuilderResourceStringsCS: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: 'Zrušení',
     query_builder_dialog_confirm: 'Potvrdit',
     query_builder_drop_ghost_text: 'Přetažením sem vložíte'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

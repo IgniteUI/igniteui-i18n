@@ -1,4 +1,4 @@
-import { type IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
+import type { IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -11,5 +11,5 @@ export const DateRangePickerResourceStringsPT: IDateRangePickerResourceStrings =
     date_range_picker_last7Days: 'Últimos 7 dias',
     date_range_picker_currentMonth: 'Mês atual',
     date_range_picker_last30Days: 'Últimos 30 dias',
-    date_range_picker_yearToDate: 'Ano até hoje',
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+    date_range_picker_yearToDate: 'Ano até hoje'
+} satisfies Required<IDateRangePickerResourceStrings>;

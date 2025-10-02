@@ -1,4 +1,4 @@
-import { type IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
+import type { IDateRangePickerResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -11,5 +11,5 @@ export const DateRangePickerResourceStringsHU: IDateRangePickerResourceStrings =
     date_range_picker_last7Days: 'Az elmúlt 7 nap',
     date_range_picker_currentMonth: 'Aktuális hónap',
     date_range_picker_last30Days: 'Az elmúlt 30 nap',
-    date_range_picker_yearToDate: 'Év elejétől napjainkig',
-} satisfies MakeRequired<IDateRangePickerResourceStrings>;
+    date_range_picker_yearToDate: 'Év elejétől napjainkig'
+} satisfies Required<IDateRangePickerResourceStrings>;

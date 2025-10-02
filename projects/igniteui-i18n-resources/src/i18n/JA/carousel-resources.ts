@@ -1,4 +1,4 @@
-import { type ICarouselResourceStrings } from 'igniteui-i18n-core';
+import type { ICarouselResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -9,4 +9,4 @@ export const CarouselResourceStringsJA: ICarouselResourceStrings = {
     carousel_slide: 'スライド',
     carousel_previous_slide: '前のスライド',
     carousel_next_slide: '次のスライド'
-} satisfies MakeRequired<ICarouselResourceStrings>;
+} satisfies Required<ICarouselResourceStrings>;

@@ -1,4 +1,4 @@
-import { type ITimePickerResourceStrings } from 'igniteui-i18n-core';
+import type { ITimePickerResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -9,4 +9,4 @@ export const TimePickerResourceStringsHU: ITimePickerResourceStrings = {
     time_picker_cancel: 'Mégse',
     time_picker_change_time: 'Idő módosítása',
     time_picker_choose_time: 'Idő beállítása'
-} satisfies MakeRequired<ITimePickerResourceStrings>;
+} satisfies Required<ITimePickerResourceStrings>;

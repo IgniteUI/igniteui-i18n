@@ -1,4 +1,4 @@
-import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
+import type { ICalendarResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -7,13 +7,13 @@ import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
 export const CalendarResourceStringsIT: ICalendarResourceStrings = {
     calendar_previous_month: 'Mese precedente',
     calendar_next_month: 'Mese prossimo',
-    calendar_previous_year: 'L\'anno precedente',
-    calendar_next_year: 'L\'anno prossimo',
+    calendar_previous_year: "L'anno precedente",
+    calendar_next_year: "L'anno prossimo",
     calendar_previous_years: '{0} anni precedenti',
     calendar_next_years: 'Prossimi {0} anni',
     calendar_select_date: 'Select Date',
     calendar_select_month: 'Selezionare il mese',
-    calendar_select_year: 'Selezionare l\'anno',
+    calendar_select_year: "Selezionare l'anno",
     calendar_range_start: 'Inizio intervallo',
     calendar_range_end: 'Fine intervallo',
     calendar_range_label_start: 'Start',
@@ -27,4 +27,4 @@ export const CalendarResourceStringsIT: ICalendarResourceStrings = {
     calendar_singular_multi_selection: 'Calendario a selezione multipla',
     calendar_singular_range_selection: 'Calendario di selezione intervallo ',
     calendar_singular_single_selection: 'Calendario'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

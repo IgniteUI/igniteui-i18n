@@ -1,4 +1,4 @@
-import { type ICalendarResourceStrings } from 'igniteui-i18n-core';
+import type { ICalendarResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -27,4 +27,4 @@ export const CalendarResourceStringsDA: ICalendarResourceStrings = {
     calendar_singular_multi_selection: 'Kalender med flere markeringer',
     calendar_singular_range_selection: 'Kalender med intervalmarkering',
     calendar_singular_single_selection: 'Kalender'
-} satisfies MakeRequired<ICalendarResourceStrings>;
+} satisfies Required<ICalendarResourceStrings>;

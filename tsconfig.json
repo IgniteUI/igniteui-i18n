@@ -11,29 +11,21 @@
     "forceConsistentCasingInFileNames": true,
     "sourceMap": false,
     "declaration": false,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "verbatimModuleSyntax": true,
     //"noEmit": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
     "rootDir": ".",
     "paths": {
-        "igniteui-i18n-core": [
-          "projects/igniteui-i18n-core/src/index.ts"
-        ],
-        "igniteui-i18n-resources": [
-          "projects/igniteui-i18n-resources/src/index.ts"
-        ]
+      "igniteui-i18n-core": ["projects/igniteui-i18n-core/src/index.ts"],
+      "igniteui-i18n-resources": ["projects/igniteui-i18n-resources/src/index.ts"]
     }
   }
 }

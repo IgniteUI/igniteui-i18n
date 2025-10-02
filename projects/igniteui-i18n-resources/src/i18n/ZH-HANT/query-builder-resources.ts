@@ -1,4 +1,4 @@
-import { type IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
+import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
  * Traditional Chinese (zh-Hant) resource strings for IgxQueryBuilder
@@ -76,4 +76,4 @@ export const QueryBuilderResourceStringsZHHANT: IQueryBuilderResourceStrings = {
     query_builder_dialog_cancel: '取消',
     query_builder_dialog_confirm: '確認',
     query_builder_drop_ghost_text: '拖放至此處插入'
-} satisfies MakeRequired<IQueryBuilderResourceStrings>;
+} satisfies Required<IQueryBuilderResourceStrings>;

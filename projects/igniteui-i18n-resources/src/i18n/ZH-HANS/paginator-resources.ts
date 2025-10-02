@@ -1,4 +1,4 @@
-import { type IPaginatorResourceStrings } from 'igniteui-i18n-core';
+import type { IPaginatorResourceStrings } from 'igniteui-i18n-core';
 
 // only use `satisfies` operator so export is typed by its schema
 /**
@@ -11,4 +11,4 @@ export const PaginatorResourceStringsZHHANS: IPaginatorResourceStrings = {
     paginator_previous_page_button_text: '上一页',
     paginator_last_page_button_text: '转到最后一页',
     paginator_next_page_button_text: '下一页'
-} satisfies MakeRequired<IPaginatorResourceStrings>;
+} satisfies Required<IPaginatorResourceStrings>;

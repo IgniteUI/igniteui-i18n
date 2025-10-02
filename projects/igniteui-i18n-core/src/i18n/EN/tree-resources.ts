@@ -1,6 +1,6 @@
-import type { ITreeResourceStrings } from "../../interfaces/tree.interface";
+import type { ITreeResourceStrings } from '../interfaces/tree.interface.js';
 
 export const TreeResourceStringsEN: ITreeResourceStrings = {
     expand: 'Expand',
-    collapse: 'Collapse',
-};
+    collapse: 'Collapse'
+} satisfies Required<ITreeResourceStrings>;
