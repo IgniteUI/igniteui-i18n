@@ -1,8 +1,6 @@
-// Japanese (JA)
-
+// Bulgarian (BG)
 export * from './i18n/BG/action-strip-resources.js';
 export * from './i18n/BG/banner-resources.js';
-// Bulgarian (BG)
 export * from './i18n/BG/calendar-resources.js';
 export * from './i18n/BG/carousel-resources.js';
 export * from './i18n/BG/chip-resources.js';
@@ -18,9 +16,10 @@ export * from './i18n/BG/resources.js';
 export * from './i18n/BG/time-picker-resources.js';
 export * from './i18n/BG/tree-resources.js';
 export * from './i18n/BG/validation-resources.js';
+
+// Czech (CS)
 export * from './i18n/CS/action-strip-resources.js';
 export * from './i18n/CS/banner-resources.js';
-// Czech (CS)
 export * from './i18n/CS/calendar-resources.js';
 export * from './i18n/CS/carousel-resources.js';
 export * from './i18n/CS/chip-resources.js';
@@ -36,9 +35,10 @@ export * from './i18n/CS/resources.js';
 export * from './i18n/CS/time-picker-resources.js';
 export * from './i18n/CS/tree-resources.js';
 export * from './i18n/CS/validation-resources.js';
+
+// Danish (DA)
 export * from './i18n/DA/action-strip-resources.js';
 export * from './i18n/DA/banner-resources.js';
-// Danish (DA)
 export * from './i18n/DA/calendar-resources.js';
 export * from './i18n/DA/carousel-resources.js';
 export * from './i18n/DA/chip-resources.js';
@@ -54,9 +54,10 @@ export * from './i18n/DA/resources.js';
 export * from './i18n/DA/time-picker-resources.js';
 export * from './i18n/DA/tree-resources.js';
 export * from './i18n/DA/validation-resources.js';
+
+// German (DE)
 export * from './i18n/DE/action-strip-resources.js';
 export * from './i18n/DE/banner-resources.js';
-// German (DE)
 export * from './i18n/DE/calendar-resources.js';
 export * from './i18n/DE/carousel-resources.js';
 export * from './i18n/DE/chip-resources.js';
@@ -72,9 +73,10 @@ export * from './i18n/DE/resources.js';
 export * from './i18n/DE/time-picker-resources.js';
 export * from './i18n/DE/tree-resources.js';
 export * from './i18n/DE/validation-resources.js';
+
+// Spanish (ES)
 export * from './i18n/ES/action-strip-resources.js';
 export * from './i18n/ES/banner-resources.js';
-// Spanish (ES)
 export * from './i18n/ES/calendar-resources.js';
 export * from './i18n/ES/carousel-resources.js';
 export * from './i18n/ES/chip-resources.js';
@@ -90,9 +92,10 @@ export * from './i18n/ES/resources.js';
 export * from './i18n/ES/time-picker-resources.js';
 export * from './i18n/ES/tree-resources.js';
 export * from './i18n/ES/validation-resources.js';
+
+// French (FR)
 export * from './i18n/FR/action-strip-resources.js';
 export * from './i18n/FR/banner-resources.js';
-// French (FR)
 export * from './i18n/FR/calendar-resources.js';
 export * from './i18n/FR/carousel-resources.js';
 export * from './i18n/FR/chip-resources.js';
@@ -108,9 +111,10 @@ export * from './i18n/FR/resources.js';
 export * from './i18n/FR/time-picker-resources.js';
 export * from './i18n/FR/tree-resources.js';
 export * from './i18n/FR/validation-resources.js';
+
+// Hungarian (HU)
 export * from './i18n/HU/action-strip-resources.js';
 export * from './i18n/HU/banner-resources.js';
-// Hungarian (HU)
 export * from './i18n/HU/calendar-resources.js';
 export * from './i18n/HU/carousel-resources.js';
 export * from './i18n/HU/chip-resources.js';
@@ -126,9 +130,10 @@ export * from './i18n/HU/resources.js';
 export * from './i18n/HU/time-picker-resources.js';
 export * from './i18n/HU/tree-resources.js';
 export * from './i18n/HU/validation-resources.js';
+
+// Italian (IT)
 export * from './i18n/IT/action-strip-resources.js';
 export * from './i18n/IT/banner-resources.js';
-// Italian (IT)
 export * from './i18n/IT/calendar-resources.js';
 export * from './i18n/IT/carousel-resources.js';
 export * from './i18n/IT/chip-resources.js';
@@ -144,6 +149,8 @@ export * from './i18n/IT/resources.js';
 export * from './i18n/IT/time-picker-resources.js';
 export * from './i18n/IT/tree-resources.js';
 export * from './i18n/IT/validation-resources.js';
+
+// Japanese (JA)
 export * from './i18n/JA/action-strip-resources.js';
 export * from './i18n/JA/banner-resources.js';
 export * from './i18n/JA/calendar-resources.js';
@@ -161,9 +168,10 @@ export * from './i18n/JA/resources.js';
 export * from './i18n/JA/time-picker-resources.js';
 export * from './i18n/JA/tree-resources.js';
 export * from './i18n/JA/validation-resources.js';
+
+// Korean (KO)
 export * from './i18n/KO/action-strip-resources.js';
 export * from './i18n/KO/banner-resources.js';
-// Korean (KO)
 export * from './i18n/KO/calendar-resources.js';
 export * from './i18n/KO/carousel-resources.js';
 export * from './i18n/KO/chip-resources.js';
@@ -179,9 +187,10 @@ export * from './i18n/KO/resources.js';
 export * from './i18n/KO/time-picker-resources.js';
 export * from './i18n/KO/tree-resources.js';
 export * from './i18n/KO/validation-resources.js';
+
+// Norwegian (NB)
 export * from './i18n/NB/action-strip-resources.js';
 export * from './i18n/NB/banner-resources.js';
-// Norwegian (NB)
 export * from './i18n/NB/calendar-resources.js';
 export * from './i18n/NB/carousel-resources.js';
 export * from './i18n/NB/chip-resources.js';
@@ -197,9 +206,10 @@ export * from './i18n/NB/resources.js';
 export * from './i18n/NB/time-picker-resources.js';
 export * from './i18n/NB/tree-resources.js';
 export * from './i18n/NB/validation-resources.js';
+
+// Dutch (NL)
 export * from './i18n/NL/action-strip-resources.js';
 export * from './i18n/NL/banner-resources.js';
-// Dutch (NL)
 export * from './i18n/NL/calendar-resources.js';
 export * from './i18n/NL/carousel-resources.js';
 export * from './i18n/NL/chip-resources.js';
@@ -215,9 +225,10 @@ export * from './i18n/NL/resources.js';
 export * from './i18n/NL/time-picker-resources.js';
 export * from './i18n/NL/tree-resources.js';
 export * from './i18n/NL/validation-resources.js';
+
+// Polish (PL)
 export * from './i18n/PL/action-strip-resources.js';
 export * from './i18n/PL/banner-resources.js';
-// Polish (PL)
 export * from './i18n/PL/calendar-resources.js';
 export * from './i18n/PL/carousel-resources.js';
 export * from './i18n/PL/chip-resources.js';
@@ -233,9 +244,10 @@ export * from './i18n/PL/resources.js';
 export * from './i18n/PL/time-picker-resources.js';
 export * from './i18n/PL/tree-resources.js';
 export * from './i18n/PL/validation-resources.js';
+
+// Portuguese (PT)
 export * from './i18n/PT/action-strip-resources.js';
 export * from './i18n/PT/banner-resources.js';
-// Portuguese (PT)
 export * from './i18n/PT/calendar-resources.js';
 export * from './i18n/PT/carousel-resources.js';
 export * from './i18n/PT/chip-resources.js';
@@ -251,9 +263,10 @@ export * from './i18n/PT/resources.js';
 export * from './i18n/PT/time-picker-resources.js';
 export * from './i18n/PT/tree-resources.js';
 export * from './i18n/PT/validation-resources.js';
+
+// Romanian (RO)
 export * from './i18n/RO/action-strip-resources.js';
 export * from './i18n/RO/banner-resources.js';
-// Romanian (RO)
 export * from './i18n/RO/calendar-resources.js';
 export * from './i18n/RO/carousel-resources.js';
 export * from './i18n/RO/chip-resources.js';
@@ -269,9 +282,10 @@ export * from './i18n/RO/resources.js';
 export * from './i18n/RO/time-picker-resources.js';
 export * from './i18n/RO/tree-resources.js';
 export * from './i18n/RO/validation-resources.js';
+
+// Swedish (SV)
 export * from './i18n/SV/action-strip-resources.js';
 export * from './i18n/SV/banner-resources.js';
-// Swedish (SV)
 export * from './i18n/SV/calendar-resources.js';
 export * from './i18n/SV/carousel-resources.js';
 export * from './i18n/SV/chip-resources.js';
@@ -287,9 +301,10 @@ export * from './i18n/SV/resources.js';
 export * from './i18n/SV/time-picker-resources.js';
 export * from './i18n/SV/tree-resources.js';
 export * from './i18n/SV/validation-resources.js';
+
+// Turkish (TR)
 export * from './i18n/TR/action-strip-resources.js';
 export * from './i18n/TR/banner-resources.js';
-// Turkish (TR)
 export * from './i18n/TR/calendar-resources.js';
 export * from './i18n/TR/carousel-resources.js';
 export * from './i18n/TR/chip-resources.js';
@@ -305,9 +320,10 @@ export * from './i18n/TR/resources.js';
 export * from './i18n/TR/time-picker-resources.js';
 export * from './i18n/TR/tree-resources.js';
 export * from './i18n/TR/validation-resources.js';
+
+// Simplified Chinese (zh-Hans)
 export * from './i18n/ZH-HANS/action-strip-resources.js';
 export * from './i18n/ZH-HANS/banner-resources.js';
-// Simplified Chinese (zh-Hans)
 export * from './i18n/ZH-HANS/calendar-resources.js';
 export * from './i18n/ZH-HANS/carousel-resources.js';
 export * from './i18n/ZH-HANS/chip-resources.js';
@@ -323,9 +339,10 @@ export * from './i18n/ZH-HANS/resources.js';
 export * from './i18n/ZH-HANS/time-picker-resources.js';
 export * from './i18n/ZH-HANS/tree-resources.js';
 export * from './i18n/ZH-HANS/validation-resources.js';
+
+// Traditional Chinese (zh-Hant)
 export * from './i18n/ZH-HANT/action-strip-resources.js';
 export * from './i18n/ZH-HANT/banner-resources.js';
-// Traditional Chinese (zh-Hant)
 export * from './i18n/ZH-HANT/calendar-resources.js';
 export * from './i18n/ZH-HANT/carousel-resources.js';
 export * from './i18n/ZH-HANT/chip-resources.js';

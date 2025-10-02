@@ -4,6 +4,10 @@ import { BaseFormatter } from './base.formatter.js';
 import type { LocaleFormatter } from './locale.formatter.js';
 
 export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateTimeFormatOptions> {
+    public defaultCustomFormatOptions: ICustomFormatOptions = {
+        forceLeadingZero: false,
+        timezone: 'GMT'
+    };
     private localeFormatter: LocaleFormatter;
 
     constructor(defaultLocale: string, localeFormatter: LocaleFormatter) {
@@ -154,7 +158,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
      * Date:
      * c, cc, ccc, cccc, ccccc - shows weekday in different lengths. Alias - `E`
      * d, dd - shows day of month in numeric (m) or 2-digit/zero padded (mm) style.
-     * M, MM, MMM, MMMM, MMMMM - show month of the year as number(M, MM) or as a name (MMM, MMMM, MMMMM). Alias `L`.
+     * M, MM, MMM, MMMM, MMMMM - show month of the year as number(M, MM) or as a name (MMM, MMMM, MMMMM). Alias - `L`.
      * y, yy, yyy, yyyy, yyyyy - show year in different lengths.
      * Y, YY, YYY, YYYY, YYYYY - show year in different lengths based on iso8601 calendar.
      * G, GG, GGG, GGGG, GGGGG - shows era in different lengths
@@ -166,16 +170,15 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
      * K, KK - shows hour using 12h clock where midnight is 0:00 instead of 12:00 in numeric(m) or 2-digit/zero padded (mm) style.
      * s, ss - shows seconds in numeric(m) or 2-digit/zero padded (mm) style.
      * S, SS, SSS - shows fractional seconds in different fraction.
-     * a, aa, aaa, aaaa, aaaaa - shows period of time in short format like a/p/am/AM/pm/PM
+     * a, aa, aaa, aaaa, aaaaa - shows period of time in short format like a/p/am/AM/pm/PM. Alias - 't'
      * b, bb, bbb, bbbb, bbbbb - shows extended period of time like midnight, at night, noon and etc. Alias - `B`
      * z, zz, zzz, zzzz, zzzzz - shows timezone in short (z, zz, zzz, zzzzz) or long (zzzz) format. Aliases - `Z` and `O`
      * @param value Date to be formatted
-     * @param locale
      * @param format String containing custom strings describing how the date should be formatted
-     * @param timezone Timezone the date to be formatted to using the `IANA time zone` specification. Ex: GMT+0230 is Etc/GMT+02:30, UTS is Etc/UTC+02:30
+     * @param options Options for the custom formatting like locale, timezone or force 2-digits always where applicable.
      * @returns
      */
-    public formatDateCustomFormat(value: Date, locale: string, format: string, options?: ICustomFormatOptions) {
+    public formatDateCustomFormat(value: Date, format: string, options?: ICustomFormatOptions) {
         let parts: string[] = [];
         let match: RegExpExecArray | null;
         while (format) {
@@ -193,17 +196,18 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             }
         }
 
+        const formatOptions = Object.assign({}, this.defaultCustomFormatOptions, options);
         let dateText = '';
         for (const part of parts) {
-            dateText += this.formatPartialDateValue(value, part, locale, options);
+            dateText += this.formatPartialDateValue(value, part, formatOptions);
         }
         return dateText;
     }
 
-    private formatPartialDateValue(date: Date, format: string, locale: string, formatOptions?: ICustomFormatOptions) {
-        // No zeroed values except for 2 digit ones.
-        let periodStyle: 'narrow' | 'short' | 'medium' | 'long' | undefined;
+    private formatPartialDateValue(date: Date, format: string, formatOptions: ICustomFormatOptions) {
+        const numericOption = formatOptions.forceLeadingZero ? '2-digit' : 'numeric';
         const options: Intl.DateTimeFormatOptions = {};
+        let periodStyle: 'narrow' | 'short' | 'medium' | 'long' | undefined;
         switch (format) {
             case 'G':
             case 'GG':
@@ -238,7 +242,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             case 'M':
             case 'L':
-                options.month = formatOptions?.forceLeadingZero ? '2-digit' : 'numeric';
+                options.month = numericOption;
                 break;
             case 'MM':
             case 'LL':
@@ -273,7 +277,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             // Day of the month (1-31)
             case 'd':
-                options.day = formatOptions?.forceLeadingZero ? '2-digit' : 'numeric';
+                options.day = numericOption;
                 break;
             case 'dd':
                 options.day = '2-digit';
@@ -301,21 +305,26 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             // Generic period of the day (am-pm)
             // am/pm
             case 'a':
+            case 't':
                 periodStyle = 'short';
                 options.timeStyle = 'short';
                 break;
             // AM/PM
             case 'aa':
             case 'aaa':
+            case 'tt':
+            case 'ttt':
                 periodStyle = 'medium';
                 options.timeStyle = 'short';
                 break;
             case 'aaaa':
+            case 'tttt':
                 periodStyle = 'long';
                 options.timeStyle = 'short';
                 break;
             // a/p
             case 'aaaaa':
+            case 'ttttt':
                 periodStyle = 'narrow';
                 options.timeStyle = 'short';
                 break;
@@ -341,7 +350,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             // Hour in AM/PM, (1-12)
             case 'h':
                 options.hour12 = true;
-                options.hour = formatOptions?.forceLeadingZero ? '2-digit' : 'numeric';
+                options.hour = numericOption;
                 break;
             case 'hh':
                 options.hour12 = true;
@@ -351,7 +360,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             // Hour of the day (0-23)
             case 'H':
                 options.hour12 = false;
-                options.hour = formatOptions?.forceLeadingZero ? '2-digit' : 'numeric';
+                options.hour = numericOption;
                 break;
             // Hour in day, padded (00-23)
             case 'HH':
@@ -361,7 +370,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             case 'K':
                 options.hourCycle = 'h11';
-                options.hour = formatOptions?.forceLeadingZero ? '2-digit' : 'numeric';
+                options.hour = numericOption;
                 break;
             case 'KK':
                 options.hourCycle = 'h11';
@@ -370,7 +379,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             // Minute of the hour (0-59)
             case 'm':
-                options.minute = formatOptions?.forceLeadingZero ? '2-digit' : 'numeric';
+                options.minute = numericOption;
                 break;
             case 'mm':
                 // Also for some reason this is not working in Intl for all locales ??
@@ -379,7 +388,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
             // Second of the minute (0-59)
             case 's':
-                options.second = formatOptions?.forceLeadingZero ? '2-digit' : 'numeric';
+                options.second = numericOption;
                 break;
             case 'ss':
                 // Also for some reason this is not working in Intl for all locales ??
@@ -404,20 +413,20 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
             case 'Z':
             case 'ZZ':
             case 'ZZZ':
-                options.timeZone = formatOptions?.timezone ?? 'GMT';
+                options.timeZone = formatOptions.timezone;
                 options.timeZoneName = 'short';
                 break;
             // Timezone long format (GMT+0430)
             case 'OOOO':
             case 'zzzz':
             case 'ZZZZ':
-                options.timeZone = formatOptions?.timezone ?? 'GMT';
+                options.timeZone = formatOptions.timezone;
                 options.timeZoneName = 'long';
                 break;
             default:
                 return format;
         }
-        const dateParts = this.formatDateTimeToParts(date, locale, options);
+        const dateParts = this.formatDateTimeToParts(date, formatOptions.locale, options);
         if (options.era) {
             return this.findDatePart(dateParts, 'era');
         } else if (periodStyle || options.dayPeriod) {
@@ -448,7 +457,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         } else if (options.hour) {
             const value = this.findDatePart(dateParts, 'hour');
             if (
-                !formatOptions?.forceLeadingZero &&
+                !formatOptions.forceLeadingZero &&
                 options.hour === 'numeric' &&
                 value?.startsWith('0') &&
                 value.length === 2

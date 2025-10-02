@@ -6,6 +6,7 @@ export interface IResourceChangeEventArgs {
 
 export interface ICustomFormatOptions {
     forceLeadingZero?: boolean;
+    locale?: string;
     timezone?: string;
 }
 

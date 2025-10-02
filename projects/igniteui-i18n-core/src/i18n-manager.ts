@@ -57,7 +57,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         this._formatters.set(Formatter.Number, new NumberFormatter(this.defaultLocale));
         this._formatters.set(Formatter.DisplayNames, new DisplayNamesFormatter(this.defaultLocale, this.dateFormatter));
 
-        if (typeof document !== 'undefined') {
+        if (isBrowser()) {
             const initialLocale = document.documentElement.getAttribute('lang') ?? this.defaultLocale;
             this.setCurrentI18n(initialLocale);
 
@@ -80,7 +80,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
      * @param listener The function to be called when event is triggered.
      * @param options
      */
-    public override addEventListener<K extends 'onResourceChange'>(
+    public override addEventListener<K extends keyof I18nManagerEventMap>(
         type: K,
         listener: ((evt: I18nManagerEventMap[K]) => void) | CustomEventListenerObject<I18nManagerEventMap[K]>,
         options?: boolean | EventListenerOptions
