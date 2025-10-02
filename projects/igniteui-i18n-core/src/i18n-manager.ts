@@ -147,9 +147,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             oldLocale,
             newLocale
         } as IResourceChangeEventArgs;
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        if (Object.getPrototypeOf(CustomEvent).name === 'Event' && isBrowser()) {
-            // Make sure inheritance is correct due to Angular SSR having issues with it.
+        if (isBrowser()) {
             this.dispatchEvent(new CustomEvent<IResourceChangeEventArgs>('onResourceChange', { detail: eventArgs }));
         }
     }

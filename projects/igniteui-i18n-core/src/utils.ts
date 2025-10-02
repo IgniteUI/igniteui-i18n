@@ -19,6 +19,12 @@ export function isBrowser() {
 export const customFormatRegex =
     /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|K{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
 
+/** Determine if string date is a representation of ISO 8601 date.
+ * Separate each part into a named groups for year, month, day, time and timezone.
+ */
+export const isoRegex =
+                /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
+
 export function generateLocaleKey(
     locale: string,
     formatterOptions?: Intl.NumberFormatOptions | Intl.DateTimeFormatOptions

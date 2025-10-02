@@ -1,4 +1,4 @@
-import { customFormatRegex } from '../utils.js';
+import { customFormatRegex, isoRegex } from '../utils.js';
 import { BaseFormatter } from './base.formatter.js';
 import type { LocaleFormatter } from './locale.formatter.js';
 
@@ -19,8 +19,6 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     public createDateFromValue(value: string | number) {
         if (typeof value === 'string') {
             // Workaround for ISO date without time or specified UTC explicitly
-            const isoRegex =
-                /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
             const match = isoRegex.exec(value);
             if (match && !match.groups?.time && !match.groups?.UTC) {
                 value += 'T00:00:00';
