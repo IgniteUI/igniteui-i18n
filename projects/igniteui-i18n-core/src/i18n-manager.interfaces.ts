@@ -54,12 +54,14 @@ export interface IIgI18nManager extends IManagerEventTarget {
 }
 
 /** Formatter types implemented */
-export enum Formatter {
-    Date = 0,
-    DisplayNames = 1,
-    Locale = 2,
-    Number = 3
-}
+export const Formatter = {
+    Date: 'Date',
+    DisplayNames: 'DisplayNames',
+    Locale: 'Locale',
+    Number: 'Number'
+} as const;
+
+export type Formatter = keyof typeof Formatter;
 
 /** Generic type for any Intl formatter that can be instantiated */
 export type IntlFormatter<T, O> =
