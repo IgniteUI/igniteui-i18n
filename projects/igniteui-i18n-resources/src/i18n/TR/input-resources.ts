@@ -5,6 +5,6 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
  * Turkish resource strings for IgxInput
  */
 export const InputResourceStringsTR: IInputResourceStrings = {
-    input_upload_button: 'Dosya yükle',
-    input_file_placeholder: 'Dosya seçilmedi'
+  input_upload_button: 'Dosya yükle',
+  input_file_placeholder: 'Dosya seçilmedi',
 } satisfies Required<IInputResourceStrings>;
