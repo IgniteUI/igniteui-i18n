@@ -1,4 +1,4 @@
 export interface ITreeResourceStrings {
-    expand?: string;
-    collapse?: string;
+  expand?: string;
+  collapse?: string;
 }

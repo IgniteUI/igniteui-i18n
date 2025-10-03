@@ -1,3 +1,3 @@
 export interface IBannerResourceStrings {
-    banner_button_dismiss?: string;
+  banner_button_dismiss?: string;
 }

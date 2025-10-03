@@ -5,6 +5,6 @@ import type { ITreeResourceStrings } from 'igniteui-i18n-core';
  * Czech resource strings for IgxTree
  */
 export const TreeResourceStringsCS: ITreeResourceStrings = {
-    expand: 'Rozbalit',
-    collapse: 'Sbalit'
+  expand: 'Rozbalit',
+  collapse: 'Sbalit',
 } satisfies Required<ITreeResourceStrings>;

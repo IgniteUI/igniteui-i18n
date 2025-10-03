@@ -5,5 +5,5 @@ import type { IBannerResourceStrings } from 'igniteui-i18n-core';
  * Romanian resource strings for IgxBanner
  */
 export const BannerResourceStringsRO: IBannerResourceStrings = {
-    banner_button_dismiss: 'Îndepărtare'
+  banner_button_dismiss: 'Îndepărtare',
 } satisfies Required<IBannerResourceStrings>;

@@ -5,6 +5,6 @@ import type { IChipResourceStrings } from 'igniteui-i18n-core';
  * Czech resource strings for IgxChip
  */
 export const ChipResourceStringsCS: IChipResourceStrings = {
-    chip_remove: 'Odebrat čip',
-    chip_select: 'Vybrat čip'
+  chip_remove: 'Odebrat čip',
+  chip_select: 'Vybrat čip',
 } satisfies Required<IChipResourceStrings>;

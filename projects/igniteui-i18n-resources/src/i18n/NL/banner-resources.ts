@@ -5,5 +5,5 @@ import type { IBannerResourceStrings } from 'igniteui-i18n-core';
  * Dutch resource strings for IgxBanner
  */
 export const BannerResourceStringsNL: IBannerResourceStrings = {
-    banner_button_dismiss: 'Sluiten'
+  banner_button_dismiss: 'Sluiten',
 } satisfies Required<IBannerResourceStrings>;

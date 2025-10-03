@@ -5,6 +5,6 @@ import type { IListResourceStrings } from 'igniteui-i18n-core';
  * Norwegian resource strings for IgxList
  */
 export const ListResourceStringsNB: IListResourceStrings = {
-    list_no_items: 'Det er ingen elementer på listen.',
-    list_loading: 'Laster inn data fra serveren...'
+  list_no_items: 'Det er ingen elementer på listen.',
+  list_loading: 'Laster inn data fra serveren...',
 } satisfies Required<IListResourceStrings>;

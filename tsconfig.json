@@ -1,28 +1,26 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "ES2022",
+    "rootDir": ".",
     "useDefineForClassFields": true,
+    "target": "ES2022",
     "module": "es2022",
     "lib": ["ES2022", "DOM"],
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types"],
     "sourceMap": false,
     "declaration": false,
-    /* Bundler mode */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "force",
     "moduleResolution": "bundler",
     "verbatimModuleSyntax": true,
-    //"noEmit": true,
-    "typeRoots": ["node_modules/@types"],
+    "isolatedModules": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "rootDir": ".",
     "paths": {
       "igniteui-i18n-core": ["projects/igniteui-i18n-core/src/index.ts"],
       "igniteui-i18n-resources": ["projects/igniteui-i18n-resources/src/index.ts"]

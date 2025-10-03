@@ -5,6 +5,6 @@ import type { IChipResourceStrings } from 'igniteui-i18n-core';
  * Danish resource strings for IgxChip
  */
 export const ChipResourceStringsDA: IChipResourceStrings = {
-    chip_remove: 'Fjern chip',
-    chip_select: 'Vælg chip'
+  chip_remove: 'Fjern chip',
+  chip_select: 'Vælg chip',
 } satisfies Required<IChipResourceStrings>;

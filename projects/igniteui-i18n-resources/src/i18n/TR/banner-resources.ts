@@ -5,5 +5,5 @@ import type { IBannerResourceStrings } from 'igniteui-i18n-core';
  * Turkish resource strings for IgxBanner
  */
 export const BannerResourceStringsTR: IBannerResourceStrings = {
-    banner_button_dismiss: 'Kapat'
+  banner_button_dismiss: 'Kapat',
 } satisfies Required<IBannerResourceStrings>;

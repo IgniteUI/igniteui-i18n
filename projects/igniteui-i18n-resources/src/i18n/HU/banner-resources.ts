@@ -5,5 +5,5 @@ import type { IBannerResourceStrings } from 'igniteui-i18n-core';
  * Hungarian resource strings for IgxBanner
  */
 export const BannerResourceStringsHU: IBannerResourceStrings = {
-    banner_button_dismiss: 'Bezárás'
+  banner_button_dismiss: 'Bezárás',
 } satisfies Required<IBannerResourceStrings>;
