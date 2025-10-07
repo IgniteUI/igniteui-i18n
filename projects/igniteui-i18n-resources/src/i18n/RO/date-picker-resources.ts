@@ -5,6 +5,6 @@ import type { IDatePickerResourceStrings } from 'igniteui-i18n-core';
  * Romanian resource strings for IgxDatePicker
  */
 export const DatePickerResourceStringsRO: IDatePickerResourceStrings = {
-    date_picker_change_date: 'Modificați data',
-    date_picker_choose_date: 'Alegeți data'
+  date_picker_change_date: 'Modificați data',
+  date_picker_choose_date: 'Alegeți data',
 } satisfies Required<IDatePickerResourceStrings>;

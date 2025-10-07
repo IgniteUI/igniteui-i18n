@@ -20,13 +20,17 @@
     "Infragistics"
   ],
   "type": "module",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "exports": {
-    ".": "./index.js",
-    "./en": "./i18n/EN/index.js"
-  },
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./en": {
+      "types": "./i18n/EN/index.d.ts",
+      "default": "./i18n/EN/index.js"
+    }
+  },
   "peerDependencies": {
     "igniteui-i18n-resources": "^1.0.0"
   },

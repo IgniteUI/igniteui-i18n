@@ -5,6 +5,6 @@ import type { ITreeResourceStrings } from 'igniteui-i18n-core';
  * Hungarian resource strings for IgxTree
  */
 export const TreeResourceStringsHU: ITreeResourceStrings = {
-    expand: 'Kibontás',
-    collapse: 'Összecsukás'
+  expand: 'Kibontás',
+  collapse: 'Összecsukás',
 } satisfies Required<ITreeResourceStrings>;
