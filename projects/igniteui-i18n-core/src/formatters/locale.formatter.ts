@@ -6,8 +6,10 @@ export class LocaleFormatter extends BaseFormatter<Intl.Locale, Intl.LocaleOptio
     }
 
     public static equalLocaleLanguages(leftLocale: Intl.Locale, rightLocale: Intl.Locale) {
-        return leftLocale.language === rightLocale.language &&
+        return (
+            leftLocale.language === rightLocale.language &&
             leftLocale.script === rightLocale.script &&
-            leftLocale.region === rightLocale.region;
+            leftLocale.region === rightLocale.region
+        );
     }
 }

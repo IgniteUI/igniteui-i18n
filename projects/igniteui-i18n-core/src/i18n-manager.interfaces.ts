@@ -1,4 +1,4 @@
-import type { IResourceStrings } from "./i18n/interfaces/resources.interface.js";
+import type { IResourceStrings } from './i18n/interfaces/resources.interface.js';
 
 /** i18n manager ResourceChange event typings */
 export interface IResourceChangeEventArgs {
@@ -58,7 +58,7 @@ export interface IIgI18nManager extends IManagerEventTarget {
 
 export interface IResourceCategories {
     /** Default resource or a key to a script or a region in that order if available. */
-    default: IResourceStrings | string,
+    default: IResourceStrings | string;
     scripts: Map<string, IResourceStrings>;
     regions: Map<string, IResourceStrings>;
 }

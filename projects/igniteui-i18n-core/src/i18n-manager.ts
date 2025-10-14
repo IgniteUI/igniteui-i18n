@@ -25,14 +25,16 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 
     private static _instance: I18nManager;
     private _formatters = new Map<Formatter, BaseFormatter<any, any>>();
-    private _resourcesMap = new Map<string, IResourceCategories>([[
-        this.defaultLang,
-        {
-            default: {},
-            scripts: new Map<string, IResourceStrings>(),
-            regions: new Map<string, IResourceStrings>(),
-        }
-    ]]);
+    private _resourcesMap = new Map<string, IResourceCategories>([
+        [
+            this.defaultLang,
+            {
+                default: {},
+                scripts: new Map<string, IResourceStrings>(),
+                regions: new Map<string, IResourceStrings>()
+            }
+        ]
+    ]);
     private _rootObserver: MutationObserver | undefined;
 
     public get localeFormatter(): LocaleFormatter {
@@ -103,7 +105,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
      */
     public registerI18n(resources: IResourceStrings, locale: string) {
         const localeObj = this.localeFormatter.getIntlFormatter(locale);
-        const currentResources =  this.getResourcesPerLocale(locale);
+        const currentResources = this.getResourcesPerLocale(locale);
 
         let bResourcesChanged = true;
         if (currentResources) {
@@ -112,8 +114,18 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             );
             const mergedResources = Object.assign(currentResources, resources);
             this.setResourcesPerLocale(locale, mergedResources);
-        } else { 
-            this.setResourcesPerLocale(locale, resources);
+
+            const defaultLocaleObj = this.localeFormatter.getIntlFormatter(this.defaultLocale);
+            if (bResourcesChanged && LocaleFormatter.equalLocaleLanguages(defaultLocaleObj, localeObj)) {
+                // Default locale registering new resources. Update default unfilled resources for all available languages.
+                this.updateDefaultResources(mergedResources);
+            }
+        } else {
+            // Fill out empty resources with available default language on register, so we don't have to fill them every time they are retrieved.
+            const defaultResources = this.getDefaultResources();
+            const completeResources = Object.assign({}, defaultResources, resources);
+
+            this.setResourcesPerLocale(locale, completeResources);
         }
 
         const currentLocaleObj = this.localeFormatter.getIntlFormatter(this.currentLocale);
@@ -155,7 +167,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     }
 
     private getDefaultForCategory(category: IResourceCategories): IResourceStrings {
-        if (typeof category.default === "string") {
+        if (typeof category.default === 'string') {
             return category.scripts?.get(category.default) ?? category.regions?.get(category.default) ?? {};
         }
 
@@ -165,7 +177,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     private getResourcesPerLocale(locale: string) {
         const localeObj = this.localeFormatter.getIntlFormatter(locale);
         const localeCategory = this._resourcesMap.get(localeObj.language);
-        if (!localeCategory){
+        if (!localeCategory) {
             return undefined;
         }
 
@@ -176,14 +188,14 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             const regionLanguage = localeCategory.regions?.get(localeObj.region);
             return regionLanguage ?? this.getDefaultForCategory(localeCategory);
         }
-        
+
         return this.getDefaultForCategory(localeCategory);
     }
 
     private setResourcesPerLocale(locale: string, resources: IResourceStrings) {
         const localeObj = this.localeFormatter.getIntlFormatter(locale);
         const localeCategory = this._resourcesMap.get(localeObj.language);
-        
+
         if (localeCategory) {
             if (localeObj.script) {
                 localeCategory.scripts.set(localeObj.script, resources);
@@ -196,8 +208,8 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
             const newCategory: IResourceCategories = {
                 default: {},
                 scripts: new Map<string, IResourceStrings>(),
-                regions: new Map<string, IResourceStrings>(),
-            }
+                regions: new Map<string, IResourceStrings>()
+            };
 
             if (localeObj.script) {
                 newCategory.default = localeObj.script;
@@ -211,6 +223,23 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 
             this._resourcesMap.set(localeObj.language, newCategory);
         }
+    }
+
+    private updateDefaultResources(newDefaultResources: IResourceStrings) {
+        this._resourcesMap.forEach((value, key) => {
+            if (key !== this.defaultLang) {
+                value.default =
+                    typeof value.default === 'string'
+                        ? value.default
+                        : Object.assign({}, newDefaultResources, value.default);
+                value.scripts.forEach((scriptValue, scriptKey) => {
+                    value.scripts.set(scriptKey, Object.assign({}, newDefaultResources, scriptValue));
+                });
+                value.regions.forEach((scriptValue, scriptKey) => {
+                    value.regions.set(scriptKey, Object.assign({}, newDefaultResources, scriptValue));
+                });
+            }
+        });
     }
 
     private triggerResourceChange(oldLocale: string, newLocale: string) {

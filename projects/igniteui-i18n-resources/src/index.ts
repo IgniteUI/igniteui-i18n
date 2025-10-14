@@ -15,7 +15,7 @@ export type {
     IResourceStrings,
     ITimePickerResourceStrings,
     ITreeResourceStrings,
-    IValidationResourceStrings,
+    IValidationResourceStrings
 } from 'igniteui-i18n-core';
 export {
     ActionStripResourceStringsEN,
