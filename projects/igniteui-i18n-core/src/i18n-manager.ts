@@ -10,6 +10,7 @@ import {
     type I18nManagerEventMap,
     I18nManagerEventTarget,
     type IIgI18nManager,
+    type IResourceCategories,
     type IResourceChangeEventArgs
 } from './i18n-manager.interfaces.js';
 import { isBrowser } from './utils.js';
@@ -24,7 +25,14 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 
     private static _instance: I18nManager;
     private _formatters = new Map<Formatter, BaseFormatter<any, any>>();
-    private _resourcesMap = new Map<string, IResourceStrings>([[defaultLang, {}]]);
+    private _resourcesMap = new Map<string, IResourceCategories>([[
+        this.defaultLang,
+        {
+            default: {},
+            scripts: new Map<string, IResourceStrings>(),
+            regions: new Map<string, IResourceStrings>(),
+        }
+    ]]);
     private _rootObserver: MutationObserver | undefined;
 
     public get localeFormatter(): LocaleFormatter {
@@ -91,24 +99,25 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     }
 
     /**
-     * Register resource for a locale. Can be the current locale as well or a new one. Results are merged.
+     * Register resource for a locale. Can be the current locale as well or a new one.
      */
     public registerI18n(resources: IResourceStrings, locale: string) {
-        // Use locales language when saving, to make sure for different locales with same language we return same resource strings.
-        const localeLang = this.localeFormatter.getIntlFormatter(locale).language;
-        const presentResources = this._resourcesMap.get(localeLang);
+        const localeObj = this.localeFormatter.getIntlFormatter(locale);
+        const currentResources =  this.getResourcesPerLocale(locale);
+
         let bResourcesChanged = true;
-        if (presentResources) {
+        if (currentResources) {
             bResourcesChanged = Object.keys(resources).some(
-                (key) => resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]
+                (key) => resources[key as keyof IResourceStrings] !== currentResources[key as keyof IResourceStrings]
             );
-            const mergedResources = Object.assign(presentResources, resources);
-            this._resourcesMap.set(localeLang, mergedResources);
-        } else {
-            this._resourcesMap.set(localeLang, resources);
+            const mergedResources = Object.assign(currentResources, resources);
+            this.setResourcesPerLocale(locale, mergedResources);
+        } else { 
+            this.setResourcesPerLocale(locale, resources);
         }
-        const currentLocaleLang = this.localeFormatter.getIntlFormatter(this.currentLocale).language;
-        if (bResourcesChanged && currentLocaleLang === localeLang) {
+
+        const currentLocaleObj = this.localeFormatter.getIntlFormatter(this.currentLocale);
+        if (bResourcesChanged && LocaleFormatter.equalLocaleLanguages(currentLocaleObj, localeObj)) {
             this.triggerResourceChange(this.currentLocale, this.currentLocale);
         }
     }
@@ -134,12 +143,74 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
      * Get the current resource string for all components in a single object.
      */
     public getCurrentResourceStrings(locale?: string) {
-        const lang = this.localeFormatter.getIntlFormatter(locale ?? this.currentLocale).language;
-        const currentResources = this._resourcesMap.get(lang);
+        const currentResources = this.getResourcesPerLocale(locale ?? this.currentLocale);
         if (currentResources) {
             return currentResources;
         }
-        return this._resourcesMap.get(this.defaultLang) ?? ({} as IResourceStrings);
+        return this.getDefaultResources();
+    }
+
+    private getDefaultResources(): IResourceStrings {
+        return this.getDefaultForCategory(this._resourcesMap.get(this.defaultLang)!) ?? {};
+    }
+
+    private getDefaultForCategory(category: IResourceCategories): IResourceStrings {
+        if (typeof category.default === "string") {
+            return category.scripts?.get(category.default) ?? category.regions?.get(category.default) ?? {};
+        }
+
+        return category.default;
+    }
+
+    private getResourcesPerLocale(locale: string) {
+        const localeObj = this.localeFormatter.getIntlFormatter(locale);
+        const localeCategory = this._resourcesMap.get(localeObj.language);
+        if (!localeCategory){
+            return undefined;
+        }
+
+        if (localeObj.script) {
+            const scriptLanguage = localeCategory.scripts?.get(localeObj.script);
+            return scriptLanguage ?? this.getDefaultForCategory(localeCategory);
+        } else if (localeObj.region) {
+            const regionLanguage = localeCategory.regions?.get(localeObj.region);
+            return regionLanguage ?? this.getDefaultForCategory(localeCategory);
+        }
+        
+        return this.getDefaultForCategory(localeCategory);
+    }
+
+    private setResourcesPerLocale(locale: string, resources: IResourceStrings) {
+        const localeObj = this.localeFormatter.getIntlFormatter(locale);
+        const localeCategory = this._resourcesMap.get(localeObj.language);
+        
+        if (localeCategory) {
+            if (localeObj.script) {
+                localeCategory.scripts.set(localeObj.script, resources);
+            } else if (localeObj.region) {
+                localeCategory.regions.set(localeObj.region, resources);
+            } else {
+                localeCategory.default = resources;
+            }
+        } else {
+            const newCategory: IResourceCategories = {
+                default: {},
+                scripts: new Map<string, IResourceStrings>(),
+                regions: new Map<string, IResourceStrings>(),
+            }
+
+            if (localeObj.script) {
+                newCategory.default = localeObj.script;
+                newCategory.scripts.set(localeObj.script, resources);
+            } else if (localeObj.region) {
+                newCategory.default = localeObj.region;
+                newCategory.regions.set(localeObj.region, resources);
+            } else {
+                newCategory.default = resources;
+            }
+
+            this._resourcesMap.set(localeObj.language, newCategory);
+        }
     }
 
     private triggerResourceChange(oldLocale: string, newLocale: string) {
