@@ -1,3 +1,42 @@
+export type {
+    IActionStripResourceStrings,
+    IBannerResourceStrings,
+    ICalendarResourceStrings,
+    ICarouselResourceStrings,
+    IChipResourceStrings,
+    IComboResourceStrings,
+    IDatePickerResourceStrings,
+    IDateRangePickerResourceStrings,
+    IGridResourceStrings,
+    IInputResourceStrings,
+    IListResourceStrings,
+    IPaginatorResourceStrings,
+    IQueryBuilderResourceStrings,
+    IResourceStrings,
+    ITimePickerResourceStrings,
+    ITreeResourceStrings,
+    IValidationResourceStrings,
+} from 'igniteui-i18n-core';
+export {
+    ActionStripResourceStringsEN,
+    BannerResourceStringsEN,
+    CalendarResourceStringsEN,
+    CarouselResourceStringsEN,
+    ChipResourceStringsEN,
+    ComboResourceStringsEN,
+    DatePickerResourceStringsEN,
+    DateRangePickerResourceStringsEN,
+    GridResourceStringsEN,
+    InputResourceStringsEN,
+    ListResourceStringsEN,
+    PaginatorResourceStringsEN,
+    QueryBuilderResourceStringsEN,
+    ResourceStringsEN,
+    TimePickerResourceStringsEN,
+    TreeResourceStringsEN,
+    ValidationResourceStringsEN
+} from 'igniteui-i18n-core';
+
 // Bulgarian (BG)
 export * from './i18n/BG/action-strip-resources.js';
 export * from './i18n/BG/banner-resources.js';
