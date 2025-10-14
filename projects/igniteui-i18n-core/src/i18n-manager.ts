@@ -283,14 +283,14 @@ export function getDisplayNamesFormatter() {
 /**
  * Register resources for a specific locale.
  * @param resourceStrings Object containing the translated resource strings.
- * @param locale The name of the locale. A string using the BCP 47 language tag.
+ * @param locale The name of a locale. A string using the BCP 47 language tag. If not defined will register to the currently set locale.
  */
-export function registerI18n(resourceStrings: IResourceStrings, locale: string) {
-    getI18nManager().registerI18n(resourceStrings, locale);
+export function registerI18n(resourceStrings: IResourceStrings, locale?: string) {
+    getI18nManager().registerI18n(resourceStrings, locale ?? getI18nManager().currentLocale);
 }
 
 /**
- * Set the current locale of all IgniteUI components.
+ * Set the current locale of all Ignite UI components.
  * @param locale The name of the locale. A string using the BCP 47 language tag.
  */
 export function setCurrentI18n(locale: string) {
