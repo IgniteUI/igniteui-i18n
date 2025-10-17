@@ -19,32 +19,90 @@
     "i18n",
     "Infragistics"
   ],
-  "main": "./index.js",
-  "types": "./index.d.ts",
   "type": "module",
-  "exports": {
-    ".": "./index.js",
-    "./bg": "./i18n/BG/index.js",
-    "./cs": "./i18n/CS/index.js",
-    "./da": "./i18n/DA/index.js",
-    "./de": "./i18n/DE/index.js",
-    "./es": "./i18n/ES/index.js",
-    "./fr": "./i18n/FR/index.js",
-    "./hu": "./i18n/HU/index.js",
-    "./it": "./i18n/IT/index.js",
-    "./ja": "./i18n/JA/index.js",
-    "./ko": "./i18n/KO/index.js",
-    "./nb": "./i18n/NB/index.js",
-    "./nl": "./i18n/NL/index.js",
-    "./pl": "./i18n/PL/index.js",
-    "./pt": "./i18n/PT/index.js",
-    "./ro": "./i18n/RO/index.js",
-    "./sv": "./i18n/SV/index.js",
-    "./tr": "./i18n/TR/index.js",
-    "./zh-Hans": "./i18n/ZH-HANS/index.js",
-    "./zh-Hant": "./i18n/ZH_HANT/index.js"
-  },
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./bg": {
+      "types": "./i18n/BG/index.d.ts",
+      "default": "./i18n/BG/index.js"
+    },
+    "./cs": {
+      "types": "./i18n/CS/index.d.ts",
+      "default": "./i18n/CS/index.js"
+    },
+    "./da": {
+      "types": "./i18n/DA/index.d.ts",
+      "default": "./i18n/DA/index.js"
+    },
+    "./de": {
+      "types": "./i18n/DE/index.d.ts",
+      "default": "./i18n/DE/index.js"
+    },
+    "./es": {
+      "types": "./i18n/ES/index.d.ts",
+      "default": "./i18n/ES/index.js"
+    },
+    "./fr": {
+      "types": "./i18n/FR/index.d.ts",
+      "default": "./i18n/FR/index.js"
+    },
+    "./hu": {
+      "types": "./i18n/HU/index.d.ts",
+      "default": "./i18n/HU/index.js"
+    },
+    "./it": {
+      "types": "./i18n/IT/index.d.ts",
+      "default": "./i18n/IT/index.js"
+    },
+    "./ja": {
+      "types": "./i18n/JA/index.d.ts",
+      "default": "./i18n/JA/index.js"
+    },
+    "./ko": {
+      "types": "./i18n/KO/index.d.ts",
+      "default": "./i18n/KO/index.js"
+    },
+    "./nb": {
+      "types": "./i18n/NB/index.d.ts",
+      "default": "./i18n/NB/index.js"
+    },
+    "./nl": {
+      "types": "./i18n/NL/index.d.ts",
+      "default": "./i18n/NL/index.js"
+    },
+    "./pl": {
+      "types": "./i18n/PL/index.d.ts",
+      "default": "./i18n/PL/index.js"
+    },
+    "./pt": {
+      "types": "./i18n/PT/index.d.ts",
+      "default": "./i18n/PT/index.js"
+    },
+    "./ro": {
+      "types": "./i18n/RO/index.d.ts",
+      "default": "./i18n/RO/index.js"
+    },
+    "./sv": {
+      "types": "./i18n/SV/index.d.ts",
+      "default": "./i18n/SV/index.js"
+    },
+    "./tr": {
+      "types": "./i18n/TR/index.d.ts",
+      "default": "./i18n/TR/index.js"
+    },
+    "./zh-Hans": {
+      "types": "./i18n/ZH-HANS/index.d.ts",
+      "default": "./i18n/ZH-HANS/index.js"
+    },
+    "./zh-Hant": {
+      "types": "./i18n/ZH_HANT/index.d.ts",
+      "default": "./i18n/ZH_HANT/index.js"
+    }
+  },
   "dependencies": {
     "igniteui-i18n-core": "^1.0.0"
   }

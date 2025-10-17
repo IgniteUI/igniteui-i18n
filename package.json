@@ -1,32 +1,36 @@
 {
   "name": "igniteui-i18n",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build": "npm run build:core && npm run build:resources",
-    "build:core": "gulp cleanCoreBuild && tsc --project projects/igniteui-i18n-core/tsconfig.build.json && gulp copyPackageForCore",
-    "build:resources": "gulp cleanResourcesBuild && tsc --project projects/igniteui-i18n-resources/tsconfig.build.json && gulp copyPackageForResources",
-    "lint": "npm run lint:biome && npm run lint:prettier",
-    "lint:fix": "npm run lint:biome:fix && npm run lint:prettier:fix",
-    "lint:biome": "biome lint",
-    "lint:biome:fix": "biome check --write",
-    "lint:prettier": "prettier . --check",
-    "lint:prettier:fix": "prettier . --write",
+    "build": "node build.js",
+    "build:core": "tsc --project projects/igniteui-i18n-core/tsconfig.build.json",
+    "build:resources": "tsc --project projects/igniteui-i18n-resources/tsconfig.build.json",
+    "clean:core": "rimraf ./dist/igniteui-i18n-core",
+    "clean:resources": "rimraf ./dist/igniteui-i18n-resources",
+    "lint": "biome lint",
+    "lint:fix": "biome check --write",
     "test": "vitest --config vitest.browser.config.ts",
-    "test:inline": "vitest"
+    "test:inline": "vitest",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.4",
-    "@types/node": "^20.11.0",
+    "@biomejs/biome": "^2.2.5",
+    "@types/node": "^24.6.2",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-istanbul": "^3.2.4",
-    "del": "^8.0.1",
-    "gulp": "^5.0.1",
-    "jsdom": "^26.1.0",
-    "playwright": "^1.54.1",
-    "prettier": "^3.6.2",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.38.0",
+    "husky": "^9.1.7",
+    "jsdom": "^27.0.0",
+    "lint-staged": "^16.2.3",
+    "playwright": "^1.55.1",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.9.3",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,json}": [
+      "biome check --fix --no-errors-on-unmatched"
+    ]
   }
 }

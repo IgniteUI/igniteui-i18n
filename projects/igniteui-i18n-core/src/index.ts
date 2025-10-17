@@ -33,18 +33,18 @@ export type * from './i18n/interfaces/time-picker.interface.js';
 export type * from './i18n/interfaces/tree.interface.js';
 export type * from './i18n/interfaces/validation.interface.js';
 export type {
-    ICustomFormatOptions,
-    IResourceChangeEventArgs,
-    PrefixedResourceStrings
+  ICustomFormatOptions,
+  IResourceChangeEventArgs,
+  PrefixedResourceStrings,
 } from './i18n-manager.interfaces.js';
 export {
-    getCurrentI18n,
-    getCurrentResourceStrings,
-    getDateFormatter,
-    getDisplayNamesFormatter,
-    getI18nManager,
-    getNumberFormatter,
-    registerI18n,
-    setCurrentI18n
+  getCurrentI18n,
+  getCurrentResourceStrings,
+  getDateFormatter,
+  getDisplayNamesFormatter,
+  getI18nManager,
+  getNumberFormatter,
+  registerI18n,
+  setCurrentI18n,
 } from './i18n-manager.js';
 export { extendResources, GRID_PREFIX, IGX_PREFIX, prefixResource } from './utils.js';

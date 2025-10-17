@@ -5,6 +5,6 @@ import type { IInputResourceStrings } from 'igniteui-i18n-core';
  * Korean resource strings for IgxInput
  */
 export const InputResourceStringsKO: IInputResourceStrings = {
-    input_upload_button: '파일 업로드',
-    input_file_placeholder: '파일이 선택되지 않음'
+  input_upload_button: '파일 업로드',
+  input_file_placeholder: '파일이 선택되지 않음',
 } satisfies Required<IInputResourceStrings>;
