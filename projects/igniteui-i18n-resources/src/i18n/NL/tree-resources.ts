@@ -5,6 +5,6 @@ import type { ITreeResourceStrings } from 'igniteui-i18n-core';
  * Dutch resource strings for IgxTree
  */
 export const TreeResourceStringsNL: ITreeResourceStrings = {
-    expand: 'Uitvouwen',
-    collapse: 'Samenvouwen'
+  expand: 'Uitvouwen',
+  collapse: 'Samenvouwen',
 } satisfies Required<ITreeResourceStrings>;

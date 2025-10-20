@@ -15,36 +15,36 @@ export * from './i18n/EN/resources.js';
 export * from './i18n/EN/time-picker-resources.js';
 export * from './i18n/EN/tree-resources.js';
 export * from './i18n/EN/validation-resources.js';
-export * from './i18n/interfaces/action-strip.interface.js';
-export * from './i18n/interfaces/banner.interface.js';
-export * from './i18n/interfaces/calendar.interface.js';
-export * from './i18n/interfaces/carousel.interface.js';
-export * from './i18n/interfaces/chip.interface.js';
-export * from './i18n/interfaces/combo.interface.js';
-export * from './i18n/interfaces/date-picker.interface.js';
-export * from './i18n/interfaces/date-range-picker.interface.js';
-export * from './i18n/interfaces/grid.interface.js';
-export * from './i18n/interfaces/input.interface.js';
-export * from './i18n/interfaces/list.interface.js';
-export * from './i18n/interfaces/paginator.interface.js';
-export * from './i18n/interfaces/query-builder.interface.js';
-export * from './i18n/interfaces/resources.interface.js';
-export * from './i18n/interfaces/time-picker.interface.js';
-export * from './i18n/interfaces/tree.interface.js';
-export * from './i18n/interfaces/validation.interface.js';
+export type * from './i18n/interfaces/action-strip.interface.js';
+export type * from './i18n/interfaces/banner.interface.js';
+export type * from './i18n/interfaces/calendar.interface.js';
+export type * from './i18n/interfaces/carousel.interface.js';
+export type * from './i18n/interfaces/chip.interface.js';
+export type * from './i18n/interfaces/combo.interface.js';
+export type * from './i18n/interfaces/date-picker.interface.js';
+export type * from './i18n/interfaces/date-range-picker.interface.js';
+export type * from './i18n/interfaces/grid.interface.js';
+export type * from './i18n/interfaces/input.interface.js';
+export type * from './i18n/interfaces/list.interface.js';
+export type * from './i18n/interfaces/paginator.interface.js';
+export type * from './i18n/interfaces/query-builder.interface.js';
+export type * from './i18n/interfaces/resources.interface.js';
+export type * from './i18n/interfaces/time-picker.interface.js';
+export type * from './i18n/interfaces/tree.interface.js';
+export type * from './i18n/interfaces/validation.interface.js';
 export type {
-    ICustomFormatOptions,
-    IResourceChangeEventArgs,
-    PrefixedResourceStrings
+  ICustomFormatOptions,
+  IResourceChangeEventArgs,
+  PrefixedResourceStrings,
 } from './i18n-manager.interfaces.js';
 export {
-    getCurrentI18n,
-    getCurrentResourceStrings,
-    getDateFormatter,
-    getDisplayNamesFormatter,
-    getI18nManager,
-    getNumberFormatter,
-    registerI18n,
-    setCurrentI18n
+  getCurrentI18n,
+  getCurrentResourceStrings,
+  getDateFormatter,
+  getDisplayNamesFormatter,
+  getI18nManager,
+  getNumberFormatter,
+  registerI18n,
+  setCurrentI18n,
 } from './i18n-manager.js';
 export { extendResources, GRID_PREFIX, IGX_PREFIX, prefixResource } from './utils.js';

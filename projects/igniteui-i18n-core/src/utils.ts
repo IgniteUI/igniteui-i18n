@@ -4,8 +4,8 @@ export const GRID_PREFIX = 'grid_';
 export const IGX_PREFIX = 'igx_';
 
 /** Return if this is ran in browser environment or at least simulated one. */
-export function isBrowser() {
-    return typeof window !== 'undefined' && typeof document !== 'undefined';
+export function isBrowser(): boolean {
+  return typeof window !== 'undefined' && typeof document !== 'undefined';
 }
 
 /** Group each valid symbol for custom format that is replaced later on.
@@ -17,30 +17,28 @@ export function isBrowser() {
  * Any white space ignore and combine into groups if more - ([\s\S]*)
  */
 export const customFormatRegex =
-    /((?:[^BEGHLMOSWYZabcdhmstwyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|t{1,5}|h{1,2}|H{1,2}|K{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
+  /((?:[^BEGHLMOSWYZabcdhmstwyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|t{1,5}|h{1,2}|H{1,2}|K{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
 
 /** Determine if string date is a representation of ISO 8601 date.
  * Separate each part into a named groups for year, month, day, time and timezone.
  */
 export const isoRegex =
-    /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
+  /(?<year>\d{4})-(?<month>\d{1,2})(?:-(?<day>\d{1,2}))?(?<time>T\d{2}:\d{2}(?::\d{2}(?:[.]\d{2})?)?)?(?<UTC>[zZ]|[+-]\d{2}:?\d{2})?/;
 
 export function generateLocaleKey(
-    locale: string,
-    formatterOptions?: Intl.NumberFormatOptions | Intl.DateTimeFormatOptions
-) {
-    // Format the options because JSON.stringify return different results for same object, but with different order of props.
-    // Ex: { currency: "BGN", compactDisplay: "long" } and { compactDisplay: "long", currency: "BGN" } returns different strings.
-    return (
-        locale +
-        '-' +
-        (formatterOptions
-            ? Object.entries(formatterOptions)
-                  .map(([k, v]) => `${k}:${v}`)
-                  .sort()
-                  .join('-')
-            : 'default')
-    );
+  locale: string,
+  formatterOptions?: Intl.NumberFormatOptions | Intl.DateTimeFormatOptions
+): string {
+  // Format the options because JSON.stringify return different results for same object, but with different order of props.
+  // Ex: { currency: "BGN", compactDisplay: "long" } and { compactDisplay: "long", currency: "BGN" } returns different strings.
+  const suffix = formatterOptions
+    ? Object.entries(formatterOptions)
+        .map(([k, v]) => `${k}:${v}`)
+        .sort()
+        .join('-')
+    : 'default';
+
+  return `${locale}-${suffix}`;
 }
 
 /**
@@ -50,16 +48,18 @@ export function generateLocaleKey(
  * @returns Merged options.
  */
 export function mergeOptions<
-    T extends Intl.NumberFormatOptions | Intl.DateTimeFormatOptions | Intl.DisplayNamesOptions
->(target: T, source: T = {} as T) {
-    const result = Object.assign({}, target);
-    const sourceKeys = Object.keys(source).map((key) => key as keyof T);
-    for (const key of sourceKeys) {
-        if (source[key] != null) {
-            result[key] = source[key];
-        }
+  T extends Intl.NumberFormatOptions | Intl.DateTimeFormatOptions | Intl.DisplayNamesOptions,
+>(target: T, source: T = {} as T): T {
+  const result = { ...target };
+  const sourceKeys = Object.keys(source) as Array<keyof T>;
+
+  for (const key of sourceKeys) {
+    if (source[key] != null) {
+      result[key] = source[key];
     }
-    return result;
+  }
+
+  return result;
 }
 
 /**
@@ -70,15 +70,17 @@ export function mergeOptions<
  * @returns Combined and formatted object containing properties from base and extended objects.
  */
 export function extendResources<T, E>(baseObject: T, ...extendedObjects: E[]): T & E {
-    const result = Object.assign({}, baseObject, ...extendedObjects);
-    return result;
+  const result = { ...baseObject, ...extendedObjects };
+  return result as T & E;
 }
 
 export function prefixResource<T, P extends string>(prefix: P, inObject: T): PrefixedResourceStrings<T, P> {
-    const result: any = {};
-    const memberNames = Object.getOwnPropertyNames(inObject);
-    for (const memberName of memberNames) {
-        result[prefix + memberName] = inObject[memberName as keyof T];
-    }
-    return result;
+  const result: any = {};
+  const memberNames = Object.getOwnPropertyNames(inObject) as Array<keyof T>;
+
+  for (const memberName of memberNames) {
+    result[`${prefix}${memberName.toString()}`] = inObject[memberName];
+  }
+
+  return result;
 }

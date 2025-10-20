@@ -5,6 +5,6 @@ import type { ITreeResourceStrings } from 'igniteui-i18n-core';
  * Spanish resource strings for IgxTree
  */
 export const TreeResourceStringsES: ITreeResourceStrings = {
-    expand: 'Expandir',
-    collapse: 'Contraer'
+  expand: 'Expandir',
+  collapse: 'Contraer',
 } satisfies Required<ITreeResourceStrings>;

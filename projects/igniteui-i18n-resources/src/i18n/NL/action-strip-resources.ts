@@ -5,5 +5,5 @@ import type { IActionStripResourceStrings } from 'igniteui-i18n-core';
  * Dutch resource strings for IgxActionStrip
  */
 export const ActionStripResourceStringsNL: IActionStripResourceStrings = {
-    action_strip_button_more_title: 'Meer'
+  action_strip_button_more_title: 'Meer',
 } satisfies Required<IActionStripResourceStrings>;
