@@ -22,14 +22,14 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 
   private static _instance: I18nManager;
   private _currentLocale = 'en-US';
-  private _formatters = new Map<Formatter, ConcreteFormatter>();
-  private _resourcesMap = new Map<string, IResourceCategories>([
+  private readonly _formatters = new Map<Formatter, ConcreteFormatter>();
+  private readonly _resourcesMap = new Map<string, IResourceCategories>([
     [
       this._defaultLang,
       {
-        default: {},
+        default: 'US',
         scripts: new Map<string, IResourceStrings>(),
-        regions: new Map<string, IResourceStrings>(),
+        regions: new Map<string, IResourceStrings>([['US', {}]]),
       },
     ],
   ]);
@@ -111,7 +111,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
       bResourcesChanged = Object.keys(resources).some(
         (key) => resources[key as keyof IResourceStrings] !== currentResources[key as keyof IResourceStrings]
       );
-      const mergedResources = Object.assign(currentResources, resources);
+      const mergedResources = { ...currentResources, ...resources };
       this.setResourcesPerLocale(locale, mergedResources);
 
       const defaultLocaleObj = this.localeFormatter.getIntlFormatter(this.defaultLocale);
@@ -122,7 +122,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     } else {
       // Fill out empty resources with available default language on register, so we don't have to fill them every time they are retrieved.
       const defaultResources = this.getDefaultResources();
-      const completeResources = Object.assign({}, defaultResources, resources);
+      const completeResources = { ...defaultResources, ...resources };
 
       this.setResourcesPerLocale(locale, completeResources);
     }
@@ -163,7 +163,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   }
 
   private getDefaultResources(): IResourceStrings {
-    return this.getDefaultForCategory(this._resourcesMap.get(this.defaultLang)!) ?? {};
+    return this.getDefaultForCategory(this._resourcesMap.get(this._defaultLang)!) ?? {};
   }
 
   private getDefaultForCategory(category: IResourceCategories): IResourceStrings {
@@ -228,14 +228,14 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 
   private updateDefaultResources(newDefaultResources: IResourceStrings) {
     this._resourcesMap.forEach((value, key) => {
-      if (key !== this.defaultLang) {
+      if (key !== this._defaultLang) {
         value.default =
-          typeof value.default === 'string' ? value.default : Object.assign({}, newDefaultResources, value.default);
+          typeof value.default === 'string' ? value.default : { ...newDefaultResources, ...value.default };
         value.scripts.forEach((scriptValue, scriptKey) => {
-          value.scripts.set(scriptKey, Object.assign({}, newDefaultResources, scriptValue));
+          value.scripts.set(scriptKey, { ...newDefaultResources, ...scriptValue });
         });
         value.regions.forEach((scriptValue, scriptKey) => {
-          value.regions.set(scriptKey, Object.assign({}, newDefaultResources, scriptValue));
+          value.regions.set(scriptKey, { ...newDefaultResources, ...scriptValue });
         });
       }
     });
