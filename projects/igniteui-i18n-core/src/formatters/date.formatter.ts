@@ -304,11 +304,9 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       case 'c':
       case 'cc':
       case 'ccc':
-      case 'cccccc':
       case 'E':
       case 'EE':
       case 'EEE':
-      case 'EEEEEE':
         options.weekday = 'short';
         break;
       case 'cccc':
@@ -471,7 +469,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         case 'medium':
           return value
             ?.split(' ')
-            .map((part) => part.substring(0, 2) + (part.length > 2 ? '.' : ''))
+            .map((part) => part.substring(0, 2).toUpperCase() + (part.length > 2 ? '.' : ''))
             .join(' ');
         default:
           return value;
