@@ -18,6 +18,11 @@ jobs:
           node-version: '20'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
+        
       - run: echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
       - run: echo ${VERSION}
 
@@ -46,8 +51,6 @@ jobs:
       - name: Publish the core package
         run: npm publish --tag ${NPM_TAG}
         working-directory: dist/igniteui-i18n-core
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Set dependency versions for resource package
         shell: pwsh
