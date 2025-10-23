@@ -4,6 +4,10 @@ on:
   release:
     types: [created]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -60,5 +64,3 @@ jobs:
       - name: Publish the resources package
         run: npm publish --tag ${NPM_TAG}
         working-directory: dist/igniteui-i18n-resources
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
