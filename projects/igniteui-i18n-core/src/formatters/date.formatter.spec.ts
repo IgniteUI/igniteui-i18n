@@ -396,6 +396,36 @@ describe('i18n tests', () => {
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
     });
 
+    it('should format period of the day', () => {
+      let format = 't';
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('am');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('am');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('am');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('am');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
+
+      format = 'tt';
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
+
+      format = 'tttt';
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('AM');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
+
+      format = 'ttttt';
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
+    });
+
     it('should format extended period of the day', () => {
       let format = 'b';
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('at ni.');
