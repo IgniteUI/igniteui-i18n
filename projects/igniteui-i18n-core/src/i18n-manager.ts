@@ -174,7 +174,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
       return this.localeFormatter.getIntlFormatter(locale);
     } catch {
       console.warn(
-        `Invalid action using locale tag '${locale}' for the Ignite UI components. Using the default 'en-US'.`
+        `Invalid locale tag '${locale}' using for resources for the Ignite UI components. Using the default 'en-US'.`
       );
     }
     return this.localeFormatter.getIntlFormatter(this.defaultLocale);
