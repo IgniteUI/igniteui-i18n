@@ -103,7 +103,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
    * Register resource for a locale. Can be the current locale as well or a new one.
    */
   public registerI18n(resources: IResourceStrings, locale: string) {
-    const localeObj = this.localeFormatter.getIntlFormatter(locale);
+    const localeObj = this.getLocaleObject(locale);
     const currentResources = this.getResourcesPerLocale(locale);
 
     let bResourcesChanged = true;
@@ -137,7 +137,14 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
    * Set current locale across all components.
    */
   public setCurrentI18n(locale: string): void {
-    const newLocale = Intl.getCanonicalLocales(locale)[0];
+    let newLocale = this.defaultLocale;
+    try {
+      newLocale = Intl.getCanonicalLocales(locale)[0];
+    } catch {
+      console.warn(
+        `Trying to switch to invalid locale tag '${locale}' for the Ignite UI components. Defaulting to 'en-US'.`
+      );
+    }
 
     if (this.currentLocale !== newLocale) {
       const oldLocale = this.currentLocale;
@@ -162,6 +169,17 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
     return this.getDefaultResources();
   }
 
+  private getLocaleObject(locale: string) {
+    try {
+      return this.localeFormatter.getIntlFormatter(locale);
+    } catch {
+      console.warn(
+        `Invalid action using locale tag '${locale}' for the Ignite UI components. Using the default 'en-US'.`
+      );
+    }
+    return this.localeFormatter.getIntlFormatter(this.defaultLocale);
+  }
+
   private getDefaultResources(): IResourceStrings {
     return this.getDefaultForCategory(this._resourcesMap.get(this._defaultLang)!) ?? {};
   }
@@ -175,7 +193,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   }
 
   private getResourcesPerLocale(locale: string) {
-    const localeObj = this.localeFormatter.getIntlFormatter(locale);
+    const localeObj = this.getLocaleObject(locale);
     const localeCategory = this._resourcesMap.get(localeObj.language);
     if (!localeCategory) {
       return undefined;
@@ -194,7 +212,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   }
 
   private setResourcesPerLocale(locale: string, resources: IResourceStrings) {
-    const localeObj = this.localeFormatter.getIntlFormatter(locale);
+    const localeObj = this.getLocaleObject(locale);
     const localeCategory = this._resourcesMap.get(localeObj.language);
 
     if (localeCategory) {

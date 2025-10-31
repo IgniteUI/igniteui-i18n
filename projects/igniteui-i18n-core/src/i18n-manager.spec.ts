@@ -9,7 +9,6 @@ import { ActionStripResourceStringsEN } from './i18n/EN/action-strip-resources.j
 import { BannerResourceStringsEN } from './i18n/EN/banner-resources.js';
 import type { IResourceChangeEventArgs } from './i18n-manager.interfaces.js';
 import {
-  getCurrentI18n,
   getCurrentResourceStrings,
   getDateFormatter,
   getDisplayNamesFormatter,
@@ -37,11 +36,18 @@ describe('i18n tests', () => {
       expect(JSON.stringify(getCurrentResourceStrings())).equals(JSON.stringify({}));
     });
 
-    it('should set correct locale', () => {
-      expect(getCurrentI18n()).toEqual('en-US');
+    it('should set correct global locale using setCurrentI18n method', () => {
+      expect(getI18nManager().currentLocale).toEqual('en-US');
 
       setCurrentI18n('bg');
-      expect(getCurrentI18n()).toEqual('bg');
+      expect(getI18nManager().currentLocale).toEqual('bg');
+    });
+
+    it('should default to en-US if invalid locale is defined', () => {
+      expect(manager.currentLocale).toEqual('en-US');
+
+      manager.setCurrentI18n('e');
+      expect(manager.currentLocale).toEqual('en-US');
     });
 
     it('should register and return correct resource strings', () => {
@@ -189,6 +195,17 @@ describe('i18n tests', () => {
 
       // default should return the first registered one,
       manager.setCurrentI18n('zh');
+      const resources = manager.getCurrentResourceStrings();
+      expect(Object.keys(resources).length).equal(1);
+      expect(resources.banner_button_dismiss).equal('取消');
+    });
+
+    it('should correctly retrieve inner region, if script is not defined', () => {
+      manager.registerI18n(BannerResourceStringsZHHANS, 'zh-CH');
+      manager.registerI18n(BannerResourceStringsZHHANT, 'zh-Hant');
+
+      // default should return the first registered one,
+      manager.setCurrentI18n('zh-Hans-CH');
       const resources = manager.getCurrentResourceStrings();
       expect(Object.keys(resources).length).equal(1);
       expect(resources.banner_button_dismiss).equal('取消');
