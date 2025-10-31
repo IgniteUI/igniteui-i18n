@@ -199,16 +199,15 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
       return undefined;
     }
 
+    let resultResource: IResourceStrings | undefined;
     if (localeObj.script) {
-      const scriptLanguage = localeCategory.scripts?.get(localeObj.script);
-      return scriptLanguage ?? this.getDefaultForCategory(localeCategory);
+      resultResource = localeCategory.scripts?.get(localeObj.script);
     }
-    if (localeObj.region) {
-      const regionLanguage = localeCategory.regions?.get(localeObj.region);
-      return regionLanguage ?? this.getDefaultForCategory(localeCategory);
+    if (!resultResource && localeObj.region) {
+      resultResource = localeCategory.regions?.get(localeObj.region);
     }
 
-    return this.getDefaultForCategory(localeCategory);
+    return resultResource ?? this.getDefaultForCategory(localeCategory);
   }
 
   private setResourcesPerLocale(locale: string, resources: IResourceStrings) {
