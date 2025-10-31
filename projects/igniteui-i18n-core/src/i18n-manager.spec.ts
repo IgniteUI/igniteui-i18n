@@ -201,6 +201,7 @@ describe('i18n tests', () => {
     });
 
     it('should correctly retrieve inner region, if script is not defined', () => {
+      manager.registerI18n(BannerResourceStringsZHHANT, 'zh');
       manager.registerI18n(BannerResourceStringsZHHANS, 'zh-CH');
       manager.registerI18n(BannerResourceStringsZHHANT, 'zh-Hant');
 

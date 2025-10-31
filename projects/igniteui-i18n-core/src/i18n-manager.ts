@@ -9,7 +9,6 @@ import {
   type I18nManagerEventMap,
   I18nManagerEventTarget,
   type IIgI18nManager,
-  type IResourceCategories,
   type IResourceChangeEventArgs,
 } from './i18n-manager.interfaces.js';
 import { isBrowser } from './utils.js';
@@ -17,22 +16,12 @@ import { isBrowser } from './utils.js';
 type ConcreteFormatter = LocaleFormatter | DateFormatter | NumberFormatter | DisplayNamesFormatter;
 
 export class I18nManager extends I18nManagerEventTarget implements IIgI18nManager {
-  private readonly _defaultLang = 'en';
   public readonly defaultLocale = 'en-US';
 
   private static _instance: I18nManager;
   private _currentLocale = 'en-US';
   private readonly _formatters = new Map<Formatter, ConcreteFormatter>();
-  private readonly _resourcesMap = new Map<string, IResourceCategories>([
-    [
-      this._defaultLang,
-      {
-        default: 'US',
-        scripts: new Map<string, IResourceStrings>(),
-        regions: new Map<string, IResourceStrings>([['US', {}]]),
-      },
-    ],
-  ]);
+  private readonly _resourcesMap = new Map<string, IResourceStrings>([[this.defaultLocale, {}]]);
   private readonly _rootObserver: MutationObserver | undefined;
 
   public get currentLocale(): string {
@@ -112,7 +101,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
         (key) => resources[key as keyof IResourceStrings] !== currentResources[key as keyof IResourceStrings]
       );
       const mergedResources = { ...currentResources, ...resources };
-      this.setResourcesPerLocale(locale, mergedResources);
+      this._resourcesMap.set(locale, mergedResources);
 
       const defaultLocaleObj = this.localeFormatter.getIntlFormatter(this.defaultLocale);
       if (bResourcesChanged && LocaleFormatter.equalLocaleLanguages(defaultLocaleObj, localeObj)) {
@@ -124,7 +113,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
       const defaultResources = this.getDefaultResources();
       const completeResources = { ...defaultResources, ...resources };
 
-      this.setResourcesPerLocale(locale, completeResources);
+      this._resourcesMap.set(locale, completeResources);
     }
 
     const currentLocaleObj = this.localeFormatter.getIntlFormatter(this.currentLocale);
@@ -181,80 +170,36 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   }
 
   private getDefaultResources(): IResourceStrings {
-    return this.getDefaultForCategory(this._resourcesMap.get(this._defaultLang)!) ?? {};
-  }
-
-  private getDefaultForCategory(category: IResourceCategories): IResourceStrings {
-    if (typeof category.default === 'string') {
-      return category.scripts?.get(category.default) ?? category.regions?.get(category.default) ?? {};
-    }
-
-    return category.default;
+    return this._resourcesMap.get(this.defaultLocale) ?? {};
   }
 
   private getResourcesPerLocale(locale: string) {
-    const localeObj = this.getLocaleObject(locale);
-    const localeCategory = this._resourcesMap.get(localeObj.language);
-    if (!localeCategory) {
-      return undefined;
-    }
+    let currentLocale = locale;
 
-    if (localeObj.script) {
-      const scriptLanguage = localeCategory.scripts?.get(localeObj.script);
-      return scriptLanguage ?? this.getDefaultForCategory(localeCategory);
-    }
-    if (localeObj.region) {
-      const regionLanguage = localeCategory.regions?.get(localeObj.region);
-      return regionLanguage ?? this.getDefaultForCategory(localeCategory);
-    }
-
-    return this.getDefaultForCategory(localeCategory);
-  }
-
-  private setResourcesPerLocale(locale: string, resources: IResourceStrings) {
-    const localeObj = this.getLocaleObject(locale);
-    const localeCategory = this._resourcesMap.get(localeObj.language);
-
-    if (localeCategory) {
-      if (localeObj.script) {
-        localeCategory.scripts.set(localeObj.script, resources);
-      } else if (localeObj.region) {
-        localeCategory.regions.set(localeObj.region, resources);
-      } else {
-        localeCategory.default = resources;
-      }
-    } else {
-      const newCategory: IResourceCategories = {
-        default: {},
-        scripts: new Map<string, IResourceStrings>(),
-        regions: new Map<string, IResourceStrings>(),
-      };
-
-      if (localeObj.script) {
-        newCategory.default = localeObj.script;
-        newCategory.scripts.set(localeObj.script, resources);
-      } else if (localeObj.region) {
-        newCategory.default = localeObj.region;
-        newCategory.regions.set(localeObj.region, resources);
-      } else {
-        newCategory.default = resources;
+    while (currentLocale) {
+      // Try getting exact match.
+      const resultResource = this._resourcesMap.get(currentLocale);
+      if (resultResource) {
+        return resultResource;
       }
 
-      this._resourcesMap.set(localeObj.language, newCategory);
+      // See if any partially matches.
+      for (const [key, value] of this._resourcesMap) {
+        if (key.includes(currentLocale)) {
+          return value;
+        }
+      }
+
+      const lastDashIndex = currentLocale.lastIndexOf('-');
+      currentLocale = lastDashIndex > 0 ? currentLocale.slice(0, lastDashIndex) : '';
     }
+    return null;
   }
 
   private updateDefaultResources(newDefaultResources: IResourceStrings) {
     this._resourcesMap.forEach((value, key) => {
-      if (key !== this._defaultLang) {
-        value.default =
-          typeof value.default === 'string' ? value.default : { ...newDefaultResources, ...value.default };
-        value.scripts.forEach((scriptValue, scriptKey) => {
-          value.scripts.set(scriptKey, { ...newDefaultResources, ...scriptValue });
-        });
-        value.regions.forEach((scriptValue, scriptKey) => {
-          value.regions.set(scriptKey, { ...newDefaultResources, ...scriptValue });
-        });
+      if (key !== this.defaultLocale) {
+        this._resourcesMap.set(key, { ...newDefaultResources, ...value });
       }
     });
   }
