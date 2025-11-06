@@ -6,6 +6,7 @@ export * from './chip-resources.js';
 export * from './combo-resources.js';
 export * from './date-picker-resources.js';
 export * from './date-range-picker-resources.js';
+export * from './dock-manager-resources.js';
 export * from './file-input-resources.js';
 export * from './grid-resources.js';
 export * from './list-resources.js';
