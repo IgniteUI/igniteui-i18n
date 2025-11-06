@@ -1,4 +1,4 @@
-export interface IInputResourceStrings {
-  input_upload_button?: string;
-  input_file_placeholder?: string;
+export interface IFileInputResourceStrings {
+  upload_button?: string;
+  file_placeholder?: string;
 }

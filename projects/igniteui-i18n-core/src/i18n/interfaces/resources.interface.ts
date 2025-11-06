@@ -7,7 +7,7 @@ import type { IComboResourceStrings } from './combo.interface.js';
 import type { IDatePickerResourceStrings } from './date-picker.interface.js';
 import type { IDateRangePickerResourceStrings } from './date-range-picker.interface.js';
 import type { IGridResourceStrings } from './grid.interface.js';
-import type { IInputResourceStrings } from './input.interface.js';
+import type { IFileInputResourceStrings } from './input.interface.js';
 import type { IListResourceStrings } from './list.interface.js';
 import type { IPaginatorResourceStrings } from './paginator.interface.js';
 import type { IQueryBuilderResourceStrings } from './query-builder.interface.js';
@@ -25,7 +25,7 @@ export interface IResourceStrings
     IComboResourceStrings,
     IDatePickerResourceStrings,
     IDateRangePickerResourceStrings,
-    IInputResourceStrings,
+    IFileInputResourceStrings,
     IListResourceStrings,
     IPaginatorResourceStrings,
     IQueryBuilderResourceStrings,
