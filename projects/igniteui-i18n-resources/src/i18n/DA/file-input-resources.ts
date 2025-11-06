@@ -5,6 +5,6 @@ import type { IFileInputResourceStrings } from 'igniteui-i18n-core';
  * Danish resource strings for IgxInput
  */
 export const FileInputResourceStringsDA: IFileInputResourceStrings = {
-  upload_button: 'Upload fil',
-  file_placeholder: 'Der er ikke valgt nogen fil',
+  file_input_upload_button: 'Upload fil',
+  file_input_placeholder: 'Der er ikke valgt nogen fil',
 } satisfies Required<IFileInputResourceStrings>;

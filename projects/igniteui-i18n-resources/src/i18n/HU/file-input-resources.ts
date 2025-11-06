@@ -5,6 +5,6 @@ import type { IFileInputResourceStrings } from 'igniteui-i18n-core';
  * Hungarian resource strings for IgxInput
  */
 export const FileInputResourceStringsHU: IFileInputResourceStrings = {
-  upload_button: 'Fájl feltöltése',
-  file_placeholder: 'Nincs fájl kiválasztva',
+  file_input_upload_button: 'Fájl feltöltése',
+  file_input_placeholder: 'Nincs fájl kiválasztva',
 } satisfies Required<IFileInputResourceStrings>;

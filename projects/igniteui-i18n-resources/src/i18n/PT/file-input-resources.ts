@@ -5,6 +5,6 @@ import type { IFileInputResourceStrings } from 'igniteui-i18n-core';
  * Portuguese resource strings for IgxInput
  */
 export const FileInputResourceStringsPT: IFileInputResourceStrings = {
-  upload_button: 'Carregar ficheiro',
-  file_placeholder: 'Nenhum ficheiro selecionado',
+  file_input_upload_button: 'Carregar ficheiro',
+  file_input_placeholder: 'Nenhum ficheiro selecionado',
 } satisfies Required<IFileInputResourceStrings>;

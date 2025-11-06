@@ -1,6 +1,6 @@
-import type { IFileInputResourceStrings } from '../interfaces/input.interface.js';
+import type { IFileInputResourceStrings } from '../interfaces/file-input.interface.js';
 
 export const FileInputResourceStringsEN: IFileInputResourceStrings = {
-  upload_button: 'Browse',
-  file_placeholder: 'No file chosen',
+  file_input_upload_button: 'Browse',
+  file_input_placeholder: 'No file chosen',
 } satisfies Required<IFileInputResourceStrings>;

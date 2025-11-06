@@ -5,6 +5,6 @@ import type { IFileInputResourceStrings } from 'igniteui-i18n-core';
  * Romanian resource strings for IgxInput
  */
 export const FileInputResourceStringsRO: IFileInputResourceStrings = {
-  upload_button: 'Încărcare fişier',
-  file_placeholder: 'Niciun fișier ales',
+  file_input_upload_button: 'Încărcare fişier',
+  file_input_placeholder: 'Niciun fișier ales',
 } satisfies Required<IFileInputResourceStrings>;
