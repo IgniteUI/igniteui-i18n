@@ -47,30 +47,66 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
   /**
    * Format a date object or date number using Intl.
-   * @param value Value to be formatted
+   * @param date Date to be formatted
    * @param locale Override of the current global locale.
    * @param options Options by which to format the date.
    * @returns String representing the formatted value.
    */
-  public formatDateTime(value: Date | number, locale?: string, options?: Intl.DateTimeFormatOptions): string {
+  public formatDateTime(date: Date | number, locale?: string, options?: Intl.DateTimeFormatOptions): string {
     const formatter = this.getIntlFormatter(locale, options);
-    return formatter.format(value);
+    return formatter.format(date);
   }
 
   /**
    * Format a date object or date number using Intl.
-   * @param value Value to be formatted
+   * @param date Date to be formatted
    * @param locale Override of the current global locale.
    * @param options Options by which to format the date.
    * @returns Array of strings representing the formatted value, separated in parts.
    */
   public formatDateTimeToParts(
-    value: Date | number,
+    date: Date | number,
     locale?: string,
     options?: Intl.DateTimeFormatOptions
   ): Intl.DateTimeFormatPart[] {
     const formatter = this.getIntlFormatter(locale, options);
-    return formatter.formatToParts(value);
+    return formatter.formatToParts(date);
+  }
+
+  /**
+   * Format date range using Intl.DateTimeFormat
+   * @param startDate Start date for range formatting
+   * @param endDate End date for range formatting
+   * @param locale Override of the current global locale
+   * @param options Options by which to format the dates.
+   * @returns String representing the formatted range of dates
+   */
+  public formatRange(
+    startDate: Date | number,
+    endDate: Date | number,
+    locale?: string,
+    options?: Intl.DateTimeFormatOptions
+  ): string {
+    const formatter = this.getIntlFormatter(locale, options);
+    return formatter.formatRange(startDate, endDate);
+  }
+
+  /**
+   * Format date range using Intl.DateTimeFormat
+   * @param startDate Start date for range formatting
+   * @param endDate End date for range formatting
+   * @param locale Override of the current global locale
+   * @param options Options by which to format the dates.
+   * @returns String representing the formatted range of dates
+   */
+  public formatRangeToParts(
+    startDate: Date | number,
+    endDate: Date | number,
+    locale?: string,
+    options?: Intl.DateTimeFormatOptions
+  ): Intl.DateTimeFormatPart[] {
+    const formatter = this.getIntlFormatter(locale, options);
+    return formatter.formatRangeToParts(startDate, endDate);
   }
 
   /**
