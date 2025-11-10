@@ -1,3 +1,5 @@
+import type { IResourceStrings } from './i18n/interfaces/resources.interface.js';
+
 /** i18n manager ResourceChange event typings */
 export interface IResourceChangeEventArgs {
   oldLocale: string;
@@ -52,6 +54,13 @@ export const I18nManagerEventTarget = EventTarget as {
 export interface IIgI18nManager extends IManagerEventTarget {
   defaultLocale: string;
   currentLocale: string;
+}
+
+export interface IResourceCategories {
+  /** Default resource or a key to a script or a region in that order if available. */
+  default: IResourceStrings | string;
+  scripts: Map<string, IResourceStrings>;
+  regions: Map<string, IResourceStrings>;
 }
 
 /** Formatter types implemented */

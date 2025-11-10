@@ -8,8 +8,8 @@ import { ComboResourceStringsEN } from './combo-resources.js';
 import { DatePickerResourceStringsEN } from './date-picker-resources.js';
 import { DateRangePickerResourceStringsEN } from './date-range-picker-resources.js';
 import { DockManagerResourceStringsEN } from './dock-manager-resources.js';
+import { FileInputResourceStringsEN } from './file-input-resources.js';
 import { GridResourceStringsEN } from './grid-resources.js';
-import { InputResourceStringsEN } from './input-resources.js';
 import { ListResourceStringsEN } from './list-resources.js';
 import { PaginatorResourceStringsEN } from './paginator-resources.js';
 import { QueryBuilderResourceStringsEN } from './query-builder-resources.js';
@@ -30,8 +30,8 @@ export const ResourceStringsEN: IResourceStrings = {
   ...DatePickerResourceStringsEN,
   ...DateRangePickerResourceStringsEN,
   ...DockManagerResourceStringsEN,
+  ...FileInputResourceStringsEN,
   ...GridResourceStringsEN,
-  ...InputResourceStringsEN,
   ...ListResourceStringsEN,
   ...PaginatorResourceStringsEN,
   ...QueryBuilderResourceStringsEN,

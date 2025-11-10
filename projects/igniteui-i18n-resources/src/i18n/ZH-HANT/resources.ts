@@ -7,8 +7,8 @@ import { ChipResourceStringsZHHANT } from './chip-resources.js';
 import { ComboResourceStringsZHHANT } from './combo-resources.js';
 import { DatePickerResourceStringsZHHANT } from './date-picker-resources.js';
 import { DateRangePickerResourceStringsZHHANT } from './date-range-picker-resources.js';
+import { FileInputResourceStringsZHHANT } from './file-input-resources.js';
 import { GridResourceStringsZHHANT } from './grid-resources.js';
-import { InputResourceStringsZHHANT } from './input-resources.js';
 import { ListResourceStringsZHHANT } from './list-resources.js';
 import { PaginatorResourceStringsZHHANT } from './paginator-resources.js';
 import { QueryBuilderResourceStringsZHHANT } from './query-builder-resources.js';
@@ -28,8 +28,8 @@ export const ResourceStringsZHHANT: IResourceStrings = {
   ...ComboResourceStringsZHHANT,
   ...DatePickerResourceStringsZHHANT,
   ...DateRangePickerResourceStringsZHHANT,
+  ...FileInputResourceStringsZHHANT,
   ...GridResourceStringsZHHANT,
-  ...InputResourceStringsZHHANT,
   ...ListResourceStringsZHHANT,
   ...PaginatorResourceStringsZHHANT,
   ...QueryBuilderResourceStringsZHHANT,
