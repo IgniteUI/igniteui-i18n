@@ -302,10 +302,10 @@ export function getDisplayNamesFormatter(): DisplayNamesFormatter {
 /**
  * Register resources for a specific locale.
  * @param resourceStrings Object containing the translated resource strings.
- * @param locale The name of a locale. A string using the BCP 47 language tag. If not defined will register to the currently set locale.
+ * @param locale The name of a locale. A string using the BCP 47 language tag. If not a valid one, will register to the default 'en-US' locale.
  */
-export function registerI18n(resourceStrings: IResourceStrings, locale?: string): void {
-  getI18nManager().registerI18n(resourceStrings, locale ?? getI18nManager().currentLocale);
+export function registerI18n(resourceStrings: IResourceStrings, locale: string): void {
+  getI18nManager().registerI18n(resourceStrings, locale);
 }
 
 /**
