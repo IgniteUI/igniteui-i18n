@@ -171,7 +171,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       } else if (part.type === 'second') {
         resultFormat += part.value.length === 1 && !forceLeadingZero ? 's' : 'ss';
       } else if (part.type === 'dayPeriod') {
-        resultFormat += 'a';
+        resultFormat += 'tt';
       } else if (part.type === 'timeZoneName') {
         const shortParts = this.getIntlFormatter(locale, {
           timeZoneName: 'short',
@@ -354,32 +354,30 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         options.weekday = 'narrow';
         break;
       // Generic period of the day (am-pm)
-      // am/pm
+      // a/p (fist letters)
       case 'a':
       case 't':
+        periodStyle = 'narrow';
+        options.timeStyle = 'short';
+        break;
+      // am/pm (lowercase)
+      case 'aa':
+      case 'tt':
         periodStyle = 'short';
         options.timeStyle = 'short';
         break;
-      // AM/PM
-      case 'aa':
+      // AM/PM (uppercase)
       case 'aaa':
-      case 'tt':
       case 'ttt':
         periodStyle = 'medium';
         options.timeStyle = 'short';
         break;
+      // am/pm/AM/PM (locale based)
       case 'aaaa':
       case 'tttt':
         periodStyle = 'long';
         options.timeStyle = 'short';
         break;
-      // a/p
-      case 'aaaaa':
-      case 'ttttt':
-        periodStyle = 'narrow';
-        options.timeStyle = 'short';
-        break;
-
       // Extended period of the day (midnight, at night, ...), standalone
       case 'b':
       case 'bb':
