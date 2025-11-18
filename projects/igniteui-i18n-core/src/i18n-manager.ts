@@ -137,12 +137,12 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
    * Set current locale across all components.
    */
   public setCurrentI18n(locale: string): void {
-    let newLocale = this.defaultLocale;
+    let newLocale = this.currentLocale;
     try {
       newLocale = Intl.getCanonicalLocales(locale)[0];
     } catch {
       console.warn(
-        `Trying to switch to invalid locale tag '${locale}' for the Ignite UI components. Defaulting to 'en-US'.`
+        `Trying to switch to invalid locale tag '${locale}' for the Ignite UI components. Using last valid tag '${this.currentLocale}'.`
       );
     }
 
