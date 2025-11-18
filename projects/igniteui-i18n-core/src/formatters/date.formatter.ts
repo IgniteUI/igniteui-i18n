@@ -47,30 +47,66 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
   /**
    * Format a date object or date number using Intl.
-   * @param value Value to be formatted
+   * @param date Date to be formatted
    * @param locale Override of the current global locale.
    * @param options Options by which to format the date.
    * @returns String representing the formatted value.
    */
-  public formatDateTime(value: Date | number, locale?: string, options?: Intl.DateTimeFormatOptions): string {
+  public formatDateTime(date: Date | number, locale?: string, options?: Intl.DateTimeFormatOptions): string {
     const formatter = this.getIntlFormatter(locale, options);
-    return formatter.format(value);
+    return formatter.format(date);
   }
 
   /**
    * Format a date object or date number using Intl.
-   * @param value Value to be formatted
+   * @param date Date to be formatted
    * @param locale Override of the current global locale.
    * @param options Options by which to format the date.
    * @returns Array of strings representing the formatted value, separated in parts.
    */
   public formatDateTimeToParts(
-    value: Date | number,
+    date: Date | number,
     locale?: string,
     options?: Intl.DateTimeFormatOptions
   ): Intl.DateTimeFormatPart[] {
     const formatter = this.getIntlFormatter(locale, options);
-    return formatter.formatToParts(value);
+    return formatter.formatToParts(date);
+  }
+
+  /**
+   * Format date range using Intl.DateTimeFormat
+   * @param startDate Start date for range formatting
+   * @param endDate End date for range formatting
+   * @param locale Override of the current global locale
+   * @param options Options by which to format the dates.
+   * @returns String representing the formatted range of dates
+   */
+  public formatRange(
+    startDate: Date | number,
+    endDate: Date | number,
+    locale?: string,
+    options?: Intl.DateTimeFormatOptions
+  ): string {
+    const formatter = this.getIntlFormatter(locale, options);
+    return formatter.formatRange(startDate, endDate);
+  }
+
+  /**
+   * Format date range using Intl.DateTimeFormat
+   * @param startDate Start date for range formatting
+   * @param endDate End date for range formatting
+   * @param locale Override of the current global locale
+   * @param options Options by which to format the dates.
+   * @returns String representing the formatted range of dates
+   */
+  public formatRangeToParts(
+    startDate: Date | number,
+    endDate: Date | number,
+    locale?: string,
+    options?: Intl.DateTimeFormatOptions
+  ): Intl.DateTimeFormatPart[] {
+    const formatter = this.getIntlFormatter(locale, options);
+    return formatter.formatRangeToParts(startDate, endDate);
   }
 
   /**
@@ -135,7 +171,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       } else if (part.type === 'second') {
         resultFormat += part.value.length === 1 && !forceLeadingZero ? 's' : 'ss';
       } else if (part.type === 'dayPeriod') {
-        resultFormat += 'a';
+        resultFormat += 'tt';
       } else if (part.type === 'timeZoneName') {
         const shortParts = this.getIntlFormatter(locale, {
           timeZoneName: 'short',
@@ -304,11 +340,9 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       case 'c':
       case 'cc':
       case 'ccc':
-      case 'cccccc':
       case 'E':
       case 'EE':
       case 'EEE':
-      case 'EEEEEE':
         options.weekday = 'short';
         break;
       case 'cccc':
@@ -320,32 +354,30 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         options.weekday = 'narrow';
         break;
       // Generic period of the day (am-pm)
-      // am/pm
+      // a/p (fist letters)
       case 'a':
       case 't':
+        periodStyle = 'narrow';
+        options.timeStyle = 'short';
+        break;
+      // am/pm (lowercase)
+      case 'aa':
+      case 'tt':
         periodStyle = 'short';
         options.timeStyle = 'short';
         break;
-      // AM/PM
-      case 'aa':
+      // AM/PM (uppercase)
       case 'aaa':
-      case 'tt':
       case 'ttt':
         periodStyle = 'medium';
         options.timeStyle = 'short';
         break;
+      // am/pm/AM/PM (locale based)
       case 'aaaa':
       case 'tttt':
         periodStyle = 'long';
         options.timeStyle = 'short';
         break;
-      // a/p
-      case 'aaaaa':
-      case 'ttttt':
-        periodStyle = 'narrow';
-        options.timeStyle = 'short';
-        break;
-
       // Extended period of the day (midnight, at night, ...), standalone
       case 'b':
       case 'bb':
@@ -471,7 +503,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         case 'medium':
           return value
             ?.split(' ')
-            .map((part) => part.substring(0, 2) + (part.length > 2 ? '.' : ''))
+            .map((part) => part.substring(0, 2).toUpperCase() + (part.length > 2 ? '.' : ''))
             .join(' ');
         default:
           return value;

@@ -44,7 +44,11 @@ The repo follows coding guidelines, which are kept in check using lint. To run i
 npm run lint
 ```
 
-For any prettier errors make sure to run the `pretty:fix` command, as it should address most of the issues. For easier you can use the [`Prettier plugin`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and enable `editor.formatOnSave` setting.
+For errors that are easily fixable, use:
+
+```
+npm run lint:fix
+```
 
 ## Tests
 
@@ -52,7 +56,9 @@ The repo uses [Vitest](https://vitest.dev/guide/) for a base testing framework a
 
 If you are using `VSCode`, I recommend to install the [Vitest extension](https://marketplace.visualstudio.com/items?itemName=vitest.explorer) as well, otherwise debugging using `Javscript Debug Console` does not work for me as expected and the source maps are not correct. Maybe its a config issue, but using the plugin is easier anyway for debugging.
 
-To run the tests run:
+> Note: There are two configurations - ESBuild(default) and Playwright(browser/chromium). Debugging the browser one for me is very inconsistent for now using both VSCode plugin and in browser, so I thats is why I suggest trying debugging using the default one first. The default ones might produce some errors that are solely ESBuild specific, so ignore these as well.
+
+To run the tests:
 
 ```
 npm run test
@@ -64,7 +70,7 @@ If you use Playwright for the first time it will throw an error. Just install th
 npx playwright install --with-deps --only-shell chromium
 ```
 
-By default the tests run in `headless` mode using `Chromium`. If you would like to see it in the browser itself you need to set [headless](https://vitest.dev/guide/browser/config.html#browser-headless) option in the `vitest.browser.config.ts` file for the desired browser:
+By default the tests run in `headless` mode using `Chromium`. If you would like to see the tests in the browser, you need to set [headless](https://vitest.dev/guide/browser/config.html#browser-headless) option in the `vitest.browser.config.ts` file for the desired browser:
 
 ```
 test: {

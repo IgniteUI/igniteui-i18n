@@ -70,7 +70,8 @@ export function mergeOptions<
  * @returns Combined and formatted object containing properties from base and extended objects.
  */
 export function extendResources<T, E>(baseObject: T, ...extendedObjects: E[]): T & E {
-  const result = { ...baseObject, ...extendedObjects };
+  // Beware of rest operator for the `extendedObjects` property.
+  const result = Object.assign({}, baseObject, ...extendedObjects);
   return result as T & E;
 }
 
