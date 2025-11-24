@@ -1,8 +1,7 @@
 import type { IListResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Traditional Chinese (zh-Hant) resource strings for IgxList
+ * Traditional Chinese (zh-Hant) resource strings for Ignite UI List
  */
 export const ListResourceStringsZHHANT: IListResourceStrings = {
   list_no_items: '清單中沒有任何項目。',

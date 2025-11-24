@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Turkish resource strings for IgxQueryBuilder
+ * Turkish resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsTR: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Alma tarihi',

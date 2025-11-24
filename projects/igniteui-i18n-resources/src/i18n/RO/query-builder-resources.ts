@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Romanian resource strings for IgxQueryBuilder
+ * Romanian resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsRO: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Data ridicării',

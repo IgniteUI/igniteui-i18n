@@ -1,5 +1,8 @@
 import type { IDateRangePickerResourceStrings } from '../interfaces/date-range-picker.interface.js';
 
+/**
+ * English resource strings for Ignite UI Date Range Picker
+ */
 export const DateRangePickerResourceStringsEN: IDateRangePickerResourceStrings = {
   date_range_picker_date_separator: 'to',
   date_range_picker_done_button: 'Done',

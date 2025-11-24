@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Polish resource strings for IgxQueryBuilder
+ * Polish resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsPL: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Data odbioru',

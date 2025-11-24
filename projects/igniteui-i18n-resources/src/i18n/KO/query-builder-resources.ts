@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Korean resource strings for IgxQueryBuilder
+ * Korean resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsKO: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: '픽업 날짜',

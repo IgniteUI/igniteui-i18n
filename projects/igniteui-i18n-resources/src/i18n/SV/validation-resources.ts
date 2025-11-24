@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Swedish resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsSV: IValidationResourceStrings = {
   required_validation_error: 'Detta fält krävs',
   min_validation_error: 'Ett värde på minst {0} borde anges',

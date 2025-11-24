@@ -1,8 +1,7 @@
 import type { IListResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * French resource strings for IgxList
+ * French resource strings for Ignite UI List
  */
 export const ListResourceStringsFR: IListResourceStrings = {
   list_no_items: "Il n'y a aucun élément dans la liste.",

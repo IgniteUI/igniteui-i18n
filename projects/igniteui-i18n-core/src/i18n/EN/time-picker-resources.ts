@@ -1,5 +1,8 @@
 import type { ITimePickerResourceStrings } from '../interfaces/time-picker.interface.js';
 
+/**
+ * English resource strings for Ignite UI Time Picker
+ */
 export const TimePickerResourceStringsEN: ITimePickerResourceStrings = {
   time_picker_ok: 'OK',
   time_picker_cancel: 'Cancel',

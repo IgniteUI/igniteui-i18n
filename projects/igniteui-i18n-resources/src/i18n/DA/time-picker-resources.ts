@@ -1,8 +1,7 @@
 import type { ITimePickerResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Danish resource strings for IgxTimePicker
+ * Danish resource strings for Ignite UI Time Picker
  */
 export const TimePickerResourceStringsDA: ITimePickerResourceStrings = {
   time_picker_ok: 'OK',

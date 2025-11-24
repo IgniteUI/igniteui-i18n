@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Traditional Chinese (zh-Hant) resource strings for IgxQueryBuilder
+ * Traditional Chinese (zh-Hant) resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsZHHANT: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: '領取日期',

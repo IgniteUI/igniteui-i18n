@@ -1,8 +1,7 @@
 import type { IBannerResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Traditional Chinese (zh-Hant) resource strings for IgxBanner
+ * Traditional Chinese (zh-Hant) resource strings for Ignite UI Banner
  */
 export const BannerResourceStringsZHHANT: IBannerResourceStrings = {
   banner_button_dismiss: '關閉',

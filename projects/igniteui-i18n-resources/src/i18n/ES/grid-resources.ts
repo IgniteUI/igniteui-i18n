@@ -7,9 +7,8 @@ import {
 } from 'igniteui-i18n-core';
 import { ValidationResourceStringsES } from './validation-resources.js';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Spanish resource strings for IgxGrid
+ * Spanish resource strings for Ignite UI Grids
  */
 export const GridResourceStringsES: IGridResourceStrings = extendResources(
   {

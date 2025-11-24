@@ -1,5 +1,8 @@
 import type { IDockManagerResourceStrings } from '../interfaces/dock-manager.interface.js';
 
+/**
+ * English resource strings for Ignite UI Dock Manager
+ */
 export const DockManagerResourceStringsEN: IDockManagerResourceStrings = {
   dock_manager_close: 'Close',
   dock_manager_pin: 'Pin',

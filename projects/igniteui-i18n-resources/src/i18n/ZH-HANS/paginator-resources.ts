@@ -1,8 +1,7 @@
 import type { IPaginatorResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Simplified Chinese (zh-Hans) resource strings for IgxPaginator
+ * Simplified Chinese (zh-Hans) resource strings for Ignite UI Paginator
  */
 export const PaginatorResourceStringsZHHANS: IPaginatorResourceStrings = {
   paginator_label: '每页的项数',

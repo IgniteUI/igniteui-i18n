@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Traditional Chinese (zh-Hant) resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsZHHANT: IValidationResourceStrings = {
   required_validation_error: '此欄位為必填項',
   min_validation_error: '必須輸入至少 {0} 的值',

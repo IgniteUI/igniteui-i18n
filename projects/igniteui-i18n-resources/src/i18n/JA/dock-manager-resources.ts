@@ -1,5 +1,8 @@
 import type { IDockManagerResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Japanese resource strings for Ignite UI Dock Manager
+ */
 export const DockManagerResourceStringsJA: IDockManagerResourceStrings = {
   dock_manager_close: '閉じる',
   dock_manager_pin: '固定',

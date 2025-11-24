@@ -1,8 +1,7 @@
 import type { IFileInputResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Norwegian resource strings for IgxInput
+ * Norwegian resource strings for Ignite UI File Input
  */
 export const FileInputResourceStringsNB: IFileInputResourceStrings = {
   file_input_upload_button: 'Last opp fil',

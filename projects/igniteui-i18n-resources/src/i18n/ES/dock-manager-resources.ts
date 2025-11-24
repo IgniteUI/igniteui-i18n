@@ -1,5 +1,8 @@
 import type { IDockManagerResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Spanish resource strings for Ignite UI Dock Manager
+ */
 export const DockManagerResourceStringsES: IDockManagerResourceStrings = {
   dock_manager_close: 'Cerrar',
   dock_manager_pin: 'Anclar',

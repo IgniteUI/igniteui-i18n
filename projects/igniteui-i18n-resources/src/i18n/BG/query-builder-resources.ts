@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Bulgarian resource strings for IgxQueryBuilder
+ * Bulgarian resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsBG: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Избери дата',

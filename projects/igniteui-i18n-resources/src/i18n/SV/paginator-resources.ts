@@ -1,8 +1,7 @@
 import type { IPaginatorResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Swedish resource strings for IgxPaginator
+ * Swedish resource strings for Ignite UI Paginator
  */
 export const PaginatorResourceStringsSV: IPaginatorResourceStrings = {
   paginator_label: 'Objekt per sida',

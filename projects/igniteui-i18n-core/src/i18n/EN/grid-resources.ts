@@ -2,6 +2,9 @@ import { extendResources, GRID_PREFIX, prefixResource } from '../../utils.js';
 import type { GridValidationResourceStrings, IGridResourceStrings } from '../interfaces/grid.interface.js';
 import { ValidationResourceStringsEN } from './validation-resources.js';
 
+/**
+ * English resource strings for Ignite UI Grids
+ */
 export const GridResourceStringsEN: IGridResourceStrings = extendResources(
   {
     grid_groupByArea_message: 'Drag a column header and drop it here to group by that column.',

@@ -1,8 +1,7 @@
 import type { IComboResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Danish resource strings for IgxCombo
+ * Danish resource strings for Ignite UI Combo
  */
 export const ComboResourceStringsDA: IComboResourceStrings = {
   combo_empty_message: 'Listen er tom',

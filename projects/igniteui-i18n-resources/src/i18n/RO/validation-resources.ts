@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Romanian resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsRO: IValidationResourceStrings = {
   required_validation_error: 'Acest câmp este obligatoriu',
   min_validation_error: 'Trebuie introdusă o valoare de cel puțin {0}',

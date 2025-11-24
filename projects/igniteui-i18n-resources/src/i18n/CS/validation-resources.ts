@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Czech resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsCS: IValidationResourceStrings = {
   required_validation_error: 'Toto pole je povinné',
   min_validation_error: 'Je třeba zadat hodnotu alespoň {0}',

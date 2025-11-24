@@ -1,8 +1,7 @@
 import type { IChipResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Romanian resource strings for IgxChip
+ * Romanian resource strings for Ignite UI Chip
  */
 export const ChipResourceStringsRO: IChipResourceStrings = {
   chip_remove: 'Eliminați cip',

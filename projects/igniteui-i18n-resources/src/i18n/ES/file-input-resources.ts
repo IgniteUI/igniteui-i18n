@@ -1,8 +1,7 @@
 import type { IFileInputResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Spanish resource strings for IgxInput
+ * Spanish resource strings for Ignite UI File Input
  */
 export const FileInputResourceStringsES: IFileInputResourceStrings = {
   file_input_upload_button: 'Cargar archivo',

@@ -1,5 +1,8 @@
 import type { IComboResourceStrings } from '../interfaces/combo.interface.js';
 
+/**
+ * English resource strings for Ignite UI Combo
+ */
 export const ComboResourceStringsEN: IComboResourceStrings = {
   combo_empty_message: 'The list is empty',
   combo_filter_search_placeholder: 'Enter a Search Term',

@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * French resource strings for IgxQueryBuilder
+ * French resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsFR: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Choisir la date',

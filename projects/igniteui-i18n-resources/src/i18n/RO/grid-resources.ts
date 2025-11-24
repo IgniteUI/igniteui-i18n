@@ -7,9 +7,8 @@ import {
 } from 'igniteui-i18n-core';
 import { ValidationResourceStringsRO } from './validation-resources.js';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Romanian resource strings for IgxGrid
+ * Romanian resource strings for Ignite UI Grids
  */
 export const GridResourceStringsRO: IGridResourceStrings = extendResources(
   {

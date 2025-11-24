@@ -1,8 +1,7 @@
 import type { IFileInputResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Turkish resource strings for IgxInput
+ * Turkish resource strings for Ignite UI File Input
  */
 export const FileInputResourceStringsTR: IFileInputResourceStrings = {
   file_input_upload_button: 'Dosya yükle',

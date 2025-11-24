@@ -1,8 +1,7 @@
 import type { IBannerResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Romanian resource strings for IgxBanner
+ * Romanian resource strings for Ignite UI Banner
  */
 export const BannerResourceStringsRO: IBannerResourceStrings = {
   banner_button_dismiss: 'Îndepărtare',
