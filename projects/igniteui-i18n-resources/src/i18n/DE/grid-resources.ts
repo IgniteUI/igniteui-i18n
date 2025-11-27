@@ -149,6 +149,7 @@ export const GridResourceStringsDE: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Exportiere',
     grid_toolbar_exporter_excel_entry_text: 'Exportiere als Excel',
     grid_toolbar_exporter_csv_entry_text: 'Exportiere als CSV',
+    grid_toolbar_exporter_pdf_entry_text: 'Exportiere als PDF',
     grid_groupByArea_select_message: 'Wähle alle Reihen der Gruppe aus mit Feldnamen {0} und Wert {1}.',
     grid_groupByArea_deselect_message: 'Wähle alle Reihen der Gruppe ab mit Feldnamen {0} und Wert {1}.',
     grid_snackbar_addrow_label: 'Reihe hinzugefügt',

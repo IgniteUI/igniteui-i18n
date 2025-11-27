@@ -147,6 +147,7 @@ export const GridResourceStringsZHHANS: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: '导出',
     grid_toolbar_exporter_excel_entry_text: '导出至 Excel',
     grid_toolbar_exporter_csv_entry_text: '导出为 CSV',
+    grid_toolbar_exporter_pdf_entry_text: '导出为 PDF',
     grid_groupByArea_select_message: '选择组中字段名称为 {0} 且值为 {1} 的所有行。',
     grid_groupByArea_deselect_message: '取消选择组中字段名称为 {0} 且值为 {1} 的所有行。',
     grid_snackbar_addrow_label: '已添加行',

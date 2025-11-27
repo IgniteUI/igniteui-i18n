@@ -142,6 +142,7 @@ export interface IGridResourceStrings extends GridValidationResourceStrings {
   grid_toolbar_exporter_button_label?: string;
   grid_toolbar_exporter_excel_entry_text?: string;
   grid_toolbar_exporter_csv_entry_text?: string;
+  grid_toolbar_exporter_pdf_entry_text?: string;
   grid_snackbar_addrow_label?: string;
   grid_snackbar_addrow_actiontext?: string;
   grid_actions_edit_label?: string;

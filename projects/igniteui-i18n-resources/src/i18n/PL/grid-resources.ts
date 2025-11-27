@@ -150,6 +150,7 @@ export const GridResourceStringsPL: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Eksportuj',
     grid_toolbar_exporter_excel_entry_text: 'Eksportuj do programu Excel',
     grid_toolbar_exporter_csv_entry_text: 'Eksportuj do pliku CSV',
+    grid_toolbar_exporter_pdf_entry_text: 'Eksportuj do pliku PDF',
     grid_snackbar_addrow_label: 'Dodano wiersz',
     grid_snackbar_addrow_actiontext: 'POKAŻ',
     grid_actions_edit_label: 'Edytuj',

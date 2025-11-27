@@ -151,6 +151,7 @@ export const GridResourceStringsNL: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Exporteren',
     grid_toolbar_exporter_excel_entry_text: 'Exporteren naar Excel',
     grid_toolbar_exporter_csv_entry_text: 'Exporteren naar CSV',
+    grid_toolbar_exporter_pdf_entry_text: 'Exporteren naar PDF',
     grid_snackbar_addrow_label: 'Rij toegevoegd',
     grid_snackbar_addrow_actiontext: 'WEERGEVEN',
     grid_actions_edit_label: 'Bewerken',

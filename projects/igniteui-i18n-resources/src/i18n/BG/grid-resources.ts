@@ -151,6 +151,7 @@ export const GridResourceStringsBG: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Експортирай',
     grid_toolbar_exporter_excel_entry_text: 'Експортирай в Excel',
     grid_toolbar_exporter_csv_entry_text: 'Експортиране в CSV файл',
+    grid_toolbar_exporter_pdf_entry_text: 'Експортиране в PDF файл',
     grid_snackbar_addrow_label: 'Добавен е ред',
     grid_snackbar_addrow_actiontext: 'Покажи',
     grid_actions_edit_label: 'Редактирай',

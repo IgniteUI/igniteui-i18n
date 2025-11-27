@@ -149,6 +149,7 @@ export const GridResourceStringsCS: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Export',
     grid_toolbar_exporter_excel_entry_text: 'Export ve formátu Excel',
     grid_toolbar_exporter_csv_entry_text: 'Export ve formátu CSV',
+    grid_toolbar_exporter_pdf_entry_text: 'Export ve formátu PDF',
     grid_snackbar_addrow_label: 'Řádek přidán',
     grid_snackbar_addrow_actiontext: 'UKÁZAT',
     grid_actions_edit_label: 'Upravit',
