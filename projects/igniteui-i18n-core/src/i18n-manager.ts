@@ -102,7 +102,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   /**
    * Register resource for a locale. Can be the current locale as well or a new one.
    */
-  public registerI18n(resources: IResourceStrings, locale: string) {
+  public registerI18n(resources: IResourceStrings, locale: string): void {
     const localeObj = this.getLocaleObject(locale);
     const currentResources = this.getResourcesPerLocale(locale);
 
@@ -161,7 +161,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   /**
    * Get the current resource string for all components in a single object.
    */
-  public getCurrentResourceStrings(locale?: string) {
+  public getCurrentResourceStrings(locale?: string): IResourceStrings {
     const currentResources = this.getResourcesPerLocale(locale ?? this.currentLocale);
     if (currentResources) {
       return currentResources;
