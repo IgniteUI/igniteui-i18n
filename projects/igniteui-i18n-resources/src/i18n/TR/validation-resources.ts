@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Turkish resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsTR: IValidationResourceStrings = {
   required_validation_error: 'Bu alan gereklidir',
   min_validation_error: 'En az {0} değeri girilmelidir',

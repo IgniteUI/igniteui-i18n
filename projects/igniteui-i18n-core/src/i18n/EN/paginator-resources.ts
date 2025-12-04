@@ -1,5 +1,8 @@
 import type { IPaginatorResourceStrings } from '../interfaces/paginator.interface.js';
 
+/**
+ * English resource strings for Ignite UI Paginator
+ */
 export const PaginatorResourceStringsEN: IPaginatorResourceStrings = {
   paginator_label: 'Items per page',
   paginator_pager_text: 'of',

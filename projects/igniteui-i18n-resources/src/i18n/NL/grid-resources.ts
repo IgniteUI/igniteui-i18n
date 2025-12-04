@@ -7,9 +7,8 @@ import {
 } from 'igniteui-i18n-core';
 import { ValidationResourceStringsNL } from './validation-resources.js';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Dutch resource strings for IgxGrid
+ * Dutch resource strings for Ignite UI Grids
  */
 export const GridResourceStringsNL: IGridResourceStrings = extendResources(
   {
@@ -152,6 +151,7 @@ export const GridResourceStringsNL: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Exporteren',
     grid_toolbar_exporter_excel_entry_text: 'Exporteren naar Excel',
     grid_toolbar_exporter_csv_entry_text: 'Exporteren naar CSV',
+    grid_toolbar_exporter_pdf_entry_text: 'Exporteren naar PDF',
     grid_snackbar_addrow_label: 'Rij toegevoegd',
     grid_snackbar_addrow_actiontext: 'WEERGEVEN',
     grid_actions_edit_label: 'Bewerken',

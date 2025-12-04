@@ -1,5 +1,8 @@
 import type { IQueryBuilderResourceStrings } from '../interfaces/query-builder.interface.js';
 
+/**
+ * English resource strings for Ignite UI Query Builder
+ */
 export const QueryBuilderResourceStringsEN: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Select date',
   query_builder_time_placeholder: 'Select time',

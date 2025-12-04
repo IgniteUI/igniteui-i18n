@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Bulgarian resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsBG: IValidationResourceStrings = {
   required_validation_error: 'Това поле е задължително',
   min_validation_error: 'Моля попълнете стойност по-голяма или равна на {0}',

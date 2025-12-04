@@ -1,8 +1,7 @@
 import type { IListResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Japanese resource strings for IgxList
+ * Japanese resource strings for Ignite UI List
  */
 export const ListResourceStringsJA: IListResourceStrings = {
   list_no_items: 'リストに項目がありません。',

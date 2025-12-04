@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Japanese resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsJA: IValidationResourceStrings = {
   required_validation_error: 'このフィールドは必須フィールドです。',
   min_validation_error: '{0} 以上の値を入力してください',

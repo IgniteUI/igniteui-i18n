@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Italian resource strings for IgxQueryBuilder
+ * Italian resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsIT: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Data di prelievo',

@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Simplified Chinese (zh-Hans) resource strings for IgxQueryBuilder
+ * Simplified Chinese (zh-Hans) resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsZHHANS: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: '选择日期',

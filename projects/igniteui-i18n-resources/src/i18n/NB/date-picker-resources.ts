@@ -1,8 +1,7 @@
 import type { IDatePickerResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Portuguese resource strings for IgxDatePicker
+ * Norwegian resource strings for Ignite UI Date Picker
  */
 export const DatePickerResourceStringsNB: IDatePickerResourceStrings = {
   date_picker_change_date: 'Endre dato',

@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Hungarian resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsHU: IValidationResourceStrings = {
   required_validation_error: 'Ez a mező kötelező',
   min_validation_error: 'A megadott érték legalább {0} kell, hogy legyen',

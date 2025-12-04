@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from '../interfaces/validation.interface.js';
 
+/**
+ * English resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsEN: IValidationResourceStrings = {
   required_validation_error: 'This field is required',
   min_validation_error: 'A value of at least {0} should be entered',

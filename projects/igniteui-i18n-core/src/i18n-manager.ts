@@ -9,6 +9,7 @@ import {
   type I18nManagerEventMap,
   I18nManagerEventTarget,
   type IIgI18nManager,
+  type IResourceCategories,
   type IResourceChangeEventArgs,
 } from './i18n-manager.interfaces.js';
 import { isBrowser } from './utils.js';
@@ -19,12 +20,19 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   private readonly _defaultLang = 'en';
   public readonly defaultLocale = 'en-US';
 
-  private _currentLocale = this.defaultLocale;
-
   private static _instance: I18nManager;
-
+  private _currentLocale = 'en-US';
   private readonly _formatters = new Map<Formatter, ConcreteFormatter>();
-  private readonly _resourcesMap = new Map<string, IResourceStrings>([[this._defaultLang, {}]]);
+  private readonly _resourcesMap = new Map<string, IResourceCategories>([
+    [
+      this._defaultLang,
+      {
+        default: 'US',
+        scripts: new Map<string, IResourceStrings>(),
+        regions: new Map<string, IResourceStrings>([['US', {}]]),
+      },
+    ],
+  ]);
   private readonly _rootObserver: MutationObserver | undefined;
 
   public get currentLocale(): string {
@@ -92,28 +100,35 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
   }
 
   /**
-   * Register resource for a locale. Can be the current locale as well or a new one. Results are merged.
+   * Register resource for a locale. Can be the current locale as well or a new one.
    */
   public registerI18n(resources: IResourceStrings, locale: string): void {
-    // Use locales language when saving, to make sure for different locales with same language we return same resource strings.
-    const localeLang = this.localeFormatter.getIntlFormatter(locale).language;
-    const presentResources = this._resourcesMap.get(localeLang);
+    const localeObj = this.getLocaleObject(locale);
+    const currentResources = this.getResourcesPerLocale(locale);
 
     let bResourcesChanged = true;
-
-    if (presentResources) {
+    if (currentResources) {
       bResourcesChanged = Object.keys(resources).some(
-        (key) => resources[key as keyof IResourceStrings] !== presentResources[key as keyof IResourceStrings]
+        (key) => resources[key as keyof IResourceStrings] !== currentResources[key as keyof IResourceStrings]
       );
-      const mergedResources = { ...presentResources, ...resources };
-      this._resourcesMap.set(localeLang, mergedResources);
+      const mergedResources = { ...currentResources, ...resources };
+      this.setResourcesPerLocale(locale, mergedResources);
+
+      const defaultLocaleObj = this.localeFormatter.getIntlFormatter(this.defaultLocale);
+      if (bResourcesChanged && LocaleFormatter.equalLocaleLanguages(defaultLocaleObj, localeObj)) {
+        // Default locale registering new resources. Update default unfilled resources for all available languages.
+        this.updateDefaultResources(mergedResources);
+      }
     } else {
-      this._resourcesMap.set(localeLang, resources);
+      // Fill out empty resources with available default language on register, so we don't have to fill them every time they are retrieved.
+      const defaultResources = this.getDefaultResources();
+      const completeResources = { ...defaultResources, ...resources };
+
+      this.setResourcesPerLocale(locale, completeResources);
     }
 
-    const currentLocaleLang = this.localeFormatter.getIntlFormatter(this.currentLocale).language;
-
-    if (bResourcesChanged && currentLocaleLang === localeLang) {
+    const currentLocaleObj = this.localeFormatter.getIntlFormatter(this.currentLocale);
+    if (bResourcesChanged && LocaleFormatter.equalLocaleLanguages(currentLocaleObj, localeObj)) {
       this.triggerResourceChange(this.currentLocale, this.currentLocale);
     }
   }
@@ -122,7 +137,14 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
    * Set current locale across all components.
    */
   public setCurrentI18n(locale: string): void {
-    const newLocale = Intl.getCanonicalLocales(locale)[0];
+    let newLocale = this.currentLocale;
+    try {
+      newLocale = Intl.getCanonicalLocales(locale)[0];
+    } catch {
+      console.warn(
+        `Trying to switch to invalid locale tag '${locale}' for the Ignite UI components. Using last valid tag '${this.currentLocale}'.`
+      );
+    }
 
     if (this.currentLocale !== newLocale) {
       const oldLocale = this.currentLocale;
@@ -140,14 +162,100 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
    * Get the current resource string for all components in a single object.
    */
   public getCurrentResourceStrings(locale?: string): IResourceStrings {
-    const lang = this.localeFormatter.getIntlFormatter(locale ?? this.currentLocale).language;
-    const currentResources = this._resourcesMap.get(lang);
-
+    const currentResources = this.getResourcesPerLocale(locale ?? this.currentLocale);
     if (currentResources) {
       return currentResources;
     }
+    return this.getDefaultResources();
+  }
 
-    return this._resourcesMap.get(this._defaultLang) ?? ({} as IResourceStrings);
+  private getLocaleObject(locale: string) {
+    try {
+      return this.localeFormatter.getIntlFormatter(locale);
+    } catch {
+      console.warn(
+        `Invalid locale tag '${locale}' using for resources for the Ignite UI components. Using the default 'en-US'.`
+      );
+    }
+    return this.localeFormatter.getIntlFormatter(this.defaultLocale);
+  }
+
+  private getDefaultResources(): IResourceStrings {
+    return this.getDefaultForCategory(this._resourcesMap.get(this._defaultLang)!) ?? {};
+  }
+
+  private getDefaultForCategory(category: IResourceCategories): IResourceStrings {
+    if (typeof category.default === 'string') {
+      return category.scripts?.get(category.default) ?? category.regions?.get(category.default) ?? {};
+    }
+
+    return category.default;
+  }
+
+  private getResourcesPerLocale(locale: string) {
+    const localeObj = this.getLocaleObject(locale);
+    const localeCategory = this._resourcesMap.get(localeObj.language);
+    if (!localeCategory) {
+      return undefined;
+    }
+
+    let resultResource: IResourceStrings | undefined;
+    if (localeObj.script) {
+      resultResource = localeCategory.scripts?.get(localeObj.script);
+    }
+    if (!resultResource && localeObj.region) {
+      resultResource = localeCategory.regions?.get(localeObj.region);
+    }
+
+    return resultResource ?? this.getDefaultForCategory(localeCategory);
+  }
+
+  private setResourcesPerLocale(locale: string, resources: IResourceStrings) {
+    const localeObj = this.getLocaleObject(locale);
+    const localeCategory = this._resourcesMap.get(localeObj.language);
+
+    if (localeCategory) {
+      if (localeObj.script) {
+        localeCategory.scripts.set(localeObj.script, resources);
+      } else if (localeObj.region) {
+        localeCategory.regions.set(localeObj.region, resources);
+      } else {
+        localeCategory.default = resources;
+      }
+    } else {
+      const newCategory: IResourceCategories = {
+        default: {},
+        scripts: new Map<string, IResourceStrings>(),
+        regions: new Map<string, IResourceStrings>(),
+      };
+
+      if (localeObj.script) {
+        newCategory.default = localeObj.script;
+        newCategory.scripts.set(localeObj.script, resources);
+      } else if (localeObj.region) {
+        newCategory.default = localeObj.region;
+        newCategory.regions.set(localeObj.region, resources);
+      } else {
+        newCategory.default = resources;
+      }
+
+      this._resourcesMap.set(localeObj.language, newCategory);
+    }
+  }
+
+  private updateDefaultResources(newDefaultResources: IResourceStrings) {
+    this._resourcesMap.forEach((value, key) => {
+      if (key !== this._defaultLang) {
+        value.default =
+          typeof value.default === 'string' ? value.default : { ...newDefaultResources, ...value.default };
+        value.scripts.forEach((scriptValue, scriptKey) => {
+          value.scripts.set(scriptKey, { ...newDefaultResources, ...scriptValue });
+        });
+        value.regions.forEach((scriptValue, scriptKey) => {
+          value.regions.set(scriptKey, { ...newDefaultResources, ...scriptValue });
+        });
+      }
+    });
   }
 
   private triggerResourceChange(oldLocale: string, newLocale: string): void {
@@ -194,14 +302,14 @@ export function getDisplayNamesFormatter(): DisplayNamesFormatter {
 /**
  * Register resources for a specific locale.
  * @param resourceStrings Object containing the translated resource strings.
- * @param locale The name of the locale. A string using the BCP 47 language tag.
+ * @param locale The name of a locale. A string using the BCP 47 language tag. If not a valid one, will register to the default 'en-US' locale.
  */
 export function registerI18n(resourceStrings: IResourceStrings, locale: string): void {
   getI18nManager().registerI18n(resourceStrings, locale);
 }
 
 /**
- * Set the current locale of all IgniteUI components.
+ * Set the current locale of all Ignite UI components.
  * @param locale The name of the locale. A string using the BCP 47 language tag.
  */
 export function setCurrentI18n(locale: string): void {

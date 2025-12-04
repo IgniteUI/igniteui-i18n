@@ -1,8 +1,7 @@
 import type { ICalendarResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Bulgarian resource strings for IgxCalendar
+ * Bulgarian resource strings for Ignite UI Calendar
  */
 export const CalendarResourceStringsBG: ICalendarResourceStrings = {
   calendar_previous_month: 'Предходен месец',

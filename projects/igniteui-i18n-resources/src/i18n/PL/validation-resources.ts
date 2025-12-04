@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Polish resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsPL: IValidationResourceStrings = {
   required_validation_error: 'To pole jest wymagane',
   min_validation_error: 'Należy wprowadzić wartość równą co najmniej {0}',

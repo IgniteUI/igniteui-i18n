@@ -7,9 +7,8 @@ import {
 } from 'igniteui-i18n-core';
 import { ValidationResourceStringsTR } from './validation-resources.js';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Turkish resource strings for IgxGrid
+ * Turkish resource strings for Ignite UI Grids
  */
 export const GridResourceStringsTR: IGridResourceStrings = extendResources(
   {
@@ -152,6 +151,7 @@ export const GridResourceStringsTR: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Dışarı Aktarma',
     grid_toolbar_exporter_excel_entry_text: "Excel'ye Aktar",
     grid_toolbar_exporter_csv_entry_text: "CSV'ye Aktar",
+    grid_toolbar_exporter_pdf_entry_text: "PDF'ye Aktar",
     grid_snackbar_addrow_label: 'Satır eklendi',
     grid_snackbar_addrow_actiontext: 'GÖSTER',
     grid_actions_edit_label: 'Düzenle',

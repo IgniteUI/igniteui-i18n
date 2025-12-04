@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Korean resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsKO: IValidationResourceStrings = {
   required_validation_error: '이 필드는 필수입니다',
   min_validation_error: '최소 {0} 의 값을 입력해야합니다',

@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Danish resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsDA: IValidationResourceStrings = {
   required_validation_error: 'Dette felt er påkrævet',
   min_validation_error: 'Der skal indtastes en værdi på mindst {0}',

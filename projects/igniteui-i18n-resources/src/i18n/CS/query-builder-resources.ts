@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Czech resource strings for IgxQueryBuilder
+ * Czech resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsCS: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Datum výdeje',

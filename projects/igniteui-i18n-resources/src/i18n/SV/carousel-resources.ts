@@ -1,8 +1,7 @@
 import type { ICarouselResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Swedish resource strings for IgxCarousel
+ * Swedish resource strings for Ignite UI Carousel
  */
 export const CarouselResourceStringsSV: ICarouselResourceStrings = {
   carousel_of: 'av',

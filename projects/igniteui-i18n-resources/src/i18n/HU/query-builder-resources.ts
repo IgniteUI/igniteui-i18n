@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Hungarian resource strings for IgxQueryBuilder
+ * Hungarian resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsHU: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Felvétel dátuma',

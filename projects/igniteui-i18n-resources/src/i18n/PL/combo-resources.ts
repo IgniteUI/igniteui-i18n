@@ -1,8 +1,7 @@
 import type { IComboResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Polish resource strings for IgxCombo
+ * Polish resource strings for Ignite UI Combo
  */
 export const ComboResourceStringsPL: IComboResourceStrings = {
   combo_empty_message: 'Lista jest pusta',

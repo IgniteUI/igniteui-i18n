@@ -1,5 +1,8 @@
 import type { ICalendarResourceStrings } from '../interfaces/calendar.interface.js';
 
+/**
+ * English resource strings for Ignite UI Calendar
+ */
 export const CalendarResourceStringsEN: ICalendarResourceStrings = {
   calendar_previous_month: 'Previous Month',
   calendar_next_month: 'Next Month',

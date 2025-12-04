@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Danish resource strings for IgxQueryBuilder
+ * Danish resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsDA: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Afhentningsdato',

@@ -1,8 +1,7 @@
 import type { IChipResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Japanese resource strings for IgxChip
+ * Japanese resource strings for Ignite UI Chip
  */
 export const ChipResourceStringsJA: IChipResourceStrings = {
   chip_remove: 'チップを削除',

@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * Dutch resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsNL: IValidationResourceStrings = {
   required_validation_error: 'Dit veld is verplicht',
   min_validation_error: 'Er moet een waarde van minimaal {0} worden ingevoerd',

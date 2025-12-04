@@ -25,7 +25,16 @@ export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptio
    */
   public getIntlFormatter(locale?: string, options?: O): T {
     const combinedOptions = mergeOptions(this.defaultOptions, options);
-    const canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
+    let canonLocale: string;
+    try {
+      canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
+    } catch {
+      console.warn(
+        `Trying to use invalid locale tag '${locale}' for the Ignite UI components. Using last valid used tag.`
+      );
+      canonLocale = this.currentLocale;
+    }
+
     const formatterKey = generateLocaleKey(canonLocale, combinedOptions);
     let formatter = this.cachedIntlFormatters.get(formatterKey);
     if (!formatter) {

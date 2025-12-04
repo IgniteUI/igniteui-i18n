@@ -7,9 +7,8 @@ import {
 } from 'igniteui-i18n-core';
 import { ValidationResourceStringsHU } from './validation-resources.js';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Hungarian resource strings for IgxGrid
+ * Hungarian resource strings for Ignite UI Grids
  */
 export const GridResourceStringsHU: IGridResourceStrings = extendResources(
   {
@@ -153,6 +152,7 @@ export const GridResourceStringsHU: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Exportálás',
     grid_toolbar_exporter_excel_entry_text: 'Exportálás Excel formátumba',
     grid_toolbar_exporter_csv_entry_text: 'Exportálás CSV formátumban',
+    grid_toolbar_exporter_pdf_entry_text: 'Exportálás PDF formátumban',
     grid_snackbar_addrow_label: 'Sor hozzáadva',
     grid_snackbar_addrow_actiontext: 'MEGJELENÍTÉS',
     grid_actions_edit_label: 'Szerkesztés',

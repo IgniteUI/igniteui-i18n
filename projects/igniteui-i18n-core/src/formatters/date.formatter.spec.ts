@@ -151,38 +151,38 @@ describe('i18n tests', () => {
     });
 
     it('should get correct time formatting for different locales', () => {
-      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'short' })).equal('h:mm a');
+      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'short' })).equal('h:mm tt');
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'short' })).equal('HH:mm');
       expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'short' })).equal('HH:mm');
       expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'short' })).equal('H:mm');
       expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'short' })).equal('H:mm');
-      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'short' })).equal('h:mm a');
+      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'short' })).equal('h:mm tt');
 
-      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'medium' })).equal('h:mm:ss a');
+      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'medium' })).equal('h:mm:ss tt');
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'medium' })).equal('HH:mm:ss');
       expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'medium' })).equal('HH:mm:ss');
       expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'medium' })).equal('H:mm:ss');
       expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'medium' })).equal('H:mm:ss');
-      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'medium' })).equal('h:mm:ss a');
+      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'medium' })).equal('h:mm:ss tt');
 
-      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'long' })).equal('h:mm:ss a z');
+      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'long' })).equal('h:mm:ss tt z');
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'long' })).equal('HH:mm:ss z');
       expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'long' })).equal('HH:mm:ss z');
       expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'long' })).equal('H:mm:ss z');
       expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'long' })).equal('H:mm:ss z');
-      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'long' })).equal('h:mm:ss a z');
+      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'long' })).equal('h:mm:ss tt z');
 
-      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'full' })).equal('h:mm:ss a zzzz');
+      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'full' })).equal('h:mm:ss tt zzzz');
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'full' })).equal('HH:mm:ss zzzz');
       expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'full' })).equal('HH:mm:ss zzzz');
       expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'full' })).equal('H時mm分ss秒 zzzz');
       expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'full' })).equal('H:mm:ss (zzzz)');
-      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'full' })).equal('h:mm:ss a zzzz');
+      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'full' })).equal('h:mm:ss tt zzzz');
     });
 
     it('should get correct date time formatting for different locales', () => {
       expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'short', timeStyle: 'short' })).equal(
-        'M/d/yy, h:mm a'
+        'M/d/yy, h:mm tt'
       );
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'short', timeStyle: 'short' })).equal(
         'dd/MM/yyyy, HH:mm'
@@ -192,7 +192,7 @@ describe('i18n tests', () => {
       );
 
       expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'medium', timeStyle: 'medium' })).equal(
-        'MMM d, yyyy, h:mm:ss a'
+        'MMM d, yyyy, h:mm:ss tt'
       );
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'medium', timeStyle: 'medium' })).equal(
         'd MMM yyyy, HH:mm:ss'
@@ -202,7 +202,7 @@ describe('i18n tests', () => {
       );
 
       expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'long', timeStyle: 'long' })).equal(
-        'MMMM d, yyyy at h:mm:ss a z'
+        'MMMM d, yyyy at h:mm:ss tt z'
       );
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'long', timeStyle: 'long' })).equal(
         'd MMMM yyyy at HH:mm:ss z'
@@ -212,7 +212,7 @@ describe('i18n tests', () => {
       );
 
       expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { dateStyle: 'full', timeStyle: 'full' })).equal(
-        'EEEE, MMMM d, yyyy at h:mm:ss a zzzz'
+        'EEEE, MMMM d, yyyy at h:mm:ss tt zzzz'
       );
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { dateStyle: 'full', timeStyle: 'full' })).equal(
         'EEEE d MMMM yyyy at HH:mm:ss zzzz'
@@ -368,13 +368,20 @@ describe('i18n tests', () => {
 
     it('should format period of the day', () => {
       let format = 'a';
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('a');
+      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
+
+      format = 'aa';
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
 
-      format = 'aa';
+      format = 'aaa';
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('AM');
@@ -387,24 +394,24 @@ describe('i18n tests', () => {
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
+    });
 
-      format = 'aaaaa';
+    it('should format period of the day', () => {
+      let format = 't';
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('a');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('a');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('a');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('a');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
-    });
 
-    it('should format period of the day', () => {
-      let format = 't';
+      format = 'tt';
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('am');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
 
-      format = 'tt';
+      format = 'ttt';
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('AM');
@@ -416,13 +423,6 @@ describe('i18n tests', () => {
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('AM');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('AM');
-      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
-
-      format = 'ttttt';
-      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'en' })).equal('a');
-      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'bg' })).equal('a');
-      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ja' })).equal('a');
-      expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'es' })).equal('a');
       expect(dateFormatter.formatDateCustomFormat(dateTime, format, { locale: 'ar' })).equal('ص');
     });
 

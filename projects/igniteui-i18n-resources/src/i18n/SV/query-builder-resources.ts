@@ -1,7 +1,7 @@
 import type { IQueryBuilderResourceStrings } from 'igniteui-i18n-core';
 
 /**
- * Swedish resource strings for IgxQueryBuilder
+ * Swedish resource strings for Ignite UI Query Builder
  */
 export const QueryBuilderResourceStringsSV: IQueryBuilderResourceStrings = {
   query_builder_date_placeholder: 'Upphämtningsdatum',

@@ -1,8 +1,7 @@
 import type { ITreeResourceStrings } from 'igniteui-i18n-core';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Romanian resource strings for IgxTree
+ * Romanian resource strings for Ignite UI Tree
  */
 export const TreeResourceStringsRO: ITreeResourceStrings = {
   expand: 'Extindere',

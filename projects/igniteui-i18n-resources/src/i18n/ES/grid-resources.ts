@@ -7,9 +7,8 @@ import {
 } from 'igniteui-i18n-core';
 import { ValidationResourceStringsES } from './validation-resources.js';
 
-// only use `satisfies` operator so export is typed by its schema
 /**
- * Spanish resource strings for IgxGrid
+ * Spanish resource strings for Ignite UI Grids
  */
 export const GridResourceStringsES: IGridResourceStrings = extendResources(
   {
@@ -149,6 +148,7 @@ export const GridResourceStringsES: IGridResourceStrings = extendResources(
     grid_toolbar_exporter_button_label: 'Exportar',
     grid_toolbar_exporter_excel_entry_text: 'Exportar a Excel',
     grid_toolbar_exporter_csv_entry_text: 'Exportar a CSV',
+    grid_toolbar_exporter_pdf_entry_text: 'Exportar a PDF',
     grid_groupByArea_select_message: 'Seleccione todas las filas del grupo con el nombre de campo {0} y el valor {1}.',
     grid_groupByArea_deselect_message:
       'Anule la selección de todas las filas del grupo con el nombre de campo {0} y el valor {1}.',

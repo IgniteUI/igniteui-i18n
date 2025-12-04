@@ -1,5 +1,8 @@
 import type { IValidationResourceStrings } from 'igniteui-i18n-core';
 
+/**
+ * French resource strings for validation, used by Ignite UI components.
+ */
 export const ValidationResourceStringsFR: IValidationResourceStrings = {
   required_validation_error: 'Ce champ est obligatoire',
   min_validation_error: 'Veuillez entrer une valeur supérieure ou égale à {0}',
