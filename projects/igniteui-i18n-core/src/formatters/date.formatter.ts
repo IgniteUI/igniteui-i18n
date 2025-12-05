@@ -375,7 +375,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         periodStyle = 'medium';
         options.timeStyle = 'short';
         break;
-      // a/p (fist letters)
+      // a/p (first letters)
       case 'aaaaa':
       case 'ttttt':
         periodStyle = 'narrow';
