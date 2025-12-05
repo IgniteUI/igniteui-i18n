@@ -354,28 +354,31 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         options.weekday = 'narrow';
         break;
       // Generic period of the day (am-pm)
-      // a/p (fist letters)
+      // am/pm/AM/PM (locale based)
       case 'a':
       case 't':
-        periodStyle = 'narrow';
-        options.timeStyle = 'short';
-        break;
-      // am/pm (lowercase)
       case 'aa':
       case 'tt':
+        // set to 'long' because a,t and b use same handling below
+        periodStyle = 'long';
+        options.timeStyle = 'short';
+        break;
+      // am/pm (lower case)
+      case 'aaa':
+      case 'ttt':
         periodStyle = 'short';
         options.timeStyle = 'short';
         break;
-      // AM/PM (uppercase)
-      case 'aaa':
-      case 'ttt':
+      // AM/PM (upper case)
+      case 'aaaa':
+      case 'tttt':
         periodStyle = 'medium';
         options.timeStyle = 'short';
         break;
-      // am/pm/AM/PM (locale based)
-      case 'aaaa':
-      case 'tttt':
-        periodStyle = 'long';
+      // a/p (fist letters)
+      case 'aaaaa':
+      case 'ttttt':
+        periodStyle = 'narrow';
         options.timeStyle = 'short';
         break;
       // Extended period of the day (midnight, at night, ...), standalone
