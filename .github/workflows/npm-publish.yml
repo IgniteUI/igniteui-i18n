@@ -45,7 +45,7 @@ jobs:
           Write-Output (Get-Content -Path $filePath -Raw)
 
       - name: Version the core package
-        run: npm version ${VERSION} --no-git-tag-version --save --verbose
+        run: npm version ${VERSION} --no-git-tag-version --save --verbose --allow-same-version
         working-directory: dist/igniteui-i18n-core
 
       - name: Publish the core package
