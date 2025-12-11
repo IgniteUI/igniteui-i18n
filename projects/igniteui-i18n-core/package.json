@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "IgniteUI for Angular localization resources package",
   "author": "Infragistics",
-  "license": "SEE LICENSE IN LICENSE",
-  "homepage": "https://github.com/IgniteUI/igniteui-angular/projects/igniteui-i18n-core",
+  "license": "MIT",
+  "homepage": "https://github.com/IgniteUI/igniteui-i18n/tree/master/projects/igniteui-i18n-core",
   "repository": {
     "type": "git",
     "url": "https://github.com/IgniteUI/igniteui-i18n.git",
     "directory": "projects/igniteui-i18n-core"
   },
   "bugs": {
-    "url": "https://github.com/IgniteUI/igniteui-angular/issues"
+    "url": "https://github.com/IgniteUI/igniteui-i18n/issues"
   },
   "keywords": [
     "IgniteUI",
