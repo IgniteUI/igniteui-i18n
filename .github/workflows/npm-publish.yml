@@ -48,9 +48,9 @@ jobs:
         run: npm version ${VERSION} --no-git-tag-version --save --verbose --allow-same-version
         working-directory: dist/igniteui-i18n-core
 
-      - name: Publish the core package
-        run: npm publish --tag ${NPM_TAG}
-        working-directory: dist/igniteui-i18n-core
+      # - name: Publish the core package
+      #   run: npm publish --tag ${NPM_TAG}
+      #   working-directory: dist/igniteui-i18n-core
 
       - name: Set dependency versions for resource package
         shell: pwsh
