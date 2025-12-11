@@ -13,7 +13,7 @@ npm install igniteui-i18n-resources --save
 Import the resources you want to use:
 
 ```
-import { ResourceStringsBG, ResourceStringsDE } from 'igniteui-i18n-resources`;
+import { ResourceStringsBG, ResourceStringsDE } from 'igniteui-i18n-resources';
 ```
 
 Register the resources you would like to use in the Ignite UI components on the platform you are using:
