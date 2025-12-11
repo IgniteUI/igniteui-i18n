@@ -16,6 +16,8 @@ To setup the repo for local work run:
 npm install
 ```
 
+>Note: Minimum typescript version supported - 5.5.2!!!
+
 ## Building
 
 To build all packages run:
@@ -95,15 +97,3 @@ it.only('should test something', () => {
     // Test code
 });
 ```
-
-## License
-
-This is a commercial product, requiring a valid paid-for license for commercial use.
-This product is free to use for non-commercial educational use for students in K through 12 grades or University programs, and for educators to use in a classroom setting as examples / tools in their curriculum.
-In order for us to verify your eligibility for free usage, please [register for trial](https://Infragistics.com/Angular) and open a support ticket with a request for free license.
-
-To acquire a license for commercial usage, please [register for trial](https://Infragistics.com/Angular) and refer to the purchasing options in the pricing section on the product page.
-
-© Copyright 2020 INFRAGISTICS. All Rights Reserved.
-The Infragistics Ultimate license & copyright applies to this distribution.
-For information on that license, please go to our website [https://www.infragistics.com/legal/license](https://www.infragistics.com/legal/license).

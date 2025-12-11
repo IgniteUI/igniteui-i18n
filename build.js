@@ -22,8 +22,24 @@ async function buildPackages() {
             join(__dirname, 'dist/igniteui-i18n-core/package.json')
         ),
         copyFile(
+            join(__dirname, 'projects/igniteui-i18n-core/README.md'),
+            join(__dirname, 'dist/igniteui-i18n-core/README.md')
+        ),
+        copyFile(
+            join(__dirname, 'LICENSE'),
+            join(__dirname, 'dist/igniteui-i18n-core/LICENSE')
+        ),
+        copyFile(
             join(__dirname, 'projects/igniteui-i18n-resources/package.json'),
             join(__dirname, 'dist/igniteui-i18n-resources/package.json')
+        ),
+        copyFile(
+            join(__dirname, 'projects/igniteui-i18n-resources/README.md'),
+            join(__dirname, 'dist/igniteui-i18n-resources/README.md')
+        ),
+        copyFile(
+            join(__dirname, 'LICENSE'),
+            join(__dirname, 'dist/igniteui-i18n-resources/LICENSE')
         ),
     ]);
 }
