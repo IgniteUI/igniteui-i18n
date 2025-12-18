@@ -154,10 +154,10 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
           resultFormat += 'yyyy';
         }
       } else if (part.type === 'hour') {
-        // h24 doesn't seem to be used anywhere
-        // eslint-disable-next-line
-        const hourCycle = (this.localeFormatter.getIntlFormatter(locale) as any).hourCycles[0];
+        // Use resolved options instead of Intl.Locale, since in browser most is not actually populated for some reason
+        const hourCycle = formatter.resolvedOptions().hourCycle;
         let replaceHour = 'H';
+        // h24 doesn't seem to be used anywhere
         if (hourCycle === 'h11') {
           // Should be used by Japan, but it returns h12 for them.
           replaceHour = 'K';
