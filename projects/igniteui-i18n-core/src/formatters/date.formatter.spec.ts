@@ -109,6 +109,15 @@ describe('i18n tests', () => {
       expect(dateFormatter.getLocaleDateTimeFormat('ar')).equal('d‏/M‏/yyyy');
     });
 
+    it('should get correct default time formatting for different locales', () => {
+      expect(dateFormatter.getLocaleDateTimeFormat('en-US', false, { timeStyle: 'medium' })).equal('h:mm:ss tt');
+      expect(dateFormatter.getLocaleDateTimeFormat('en-GB', false, { timeStyle: 'medium' })).equal('HH:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('de', false, { timeStyle: 'medium' })).equal('HH:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('ja', false, { timeStyle: 'medium' })).equal('H:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('es', false, { timeStyle: 'medium' })).equal('H:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('ar', false, { timeStyle: 'medium' })).equal('h:mm:ss tt');
+    });
+
     it('should get correct default date formatting for different locales with forced leading zero', () => {
       expect(dateFormatter.getLocaleDateTimeFormat('en-US', true)).equal('MM/dd/yyyy');
       expect(dateFormatter.getLocaleDateTimeFormat('en-GB', true)).equal('dd/MM/yyyy');
@@ -116,6 +125,15 @@ describe('i18n tests', () => {
       expect(dateFormatter.getLocaleDateTimeFormat('ja', true)).equal('yyyy/MM/dd');
       expect(dateFormatter.getLocaleDateTimeFormat('es', true)).equal('dd/MM/yyyy');
       expect(dateFormatter.getLocaleDateTimeFormat('ar', true)).equal('dd‏/MM‏/yyyy');
+    });
+
+    it('should get correct default time formatting for different locales with forced leading zero', () => {
+      expect(dateFormatter.getLocaleDateTimeFormat('en-US', true, { timeStyle: 'medium' })).equal('hh:mm:ss tt');
+      expect(dateFormatter.getLocaleDateTimeFormat('en-GB', true, { timeStyle: 'medium' })).equal('HH:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('de', true, { timeStyle: 'medium' })).equal('HH:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('ja', true, { timeStyle: 'medium' })).equal('HH:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('es', true, { timeStyle: 'medium' })).equal('HH:mm:ss');
+      expect(dateFormatter.getLocaleDateTimeFormat('ar', true, { timeStyle: 'medium' })).equal('hh:mm:ss tt');
     });
 
     it('should get correct date formatting for different locales', () => {
