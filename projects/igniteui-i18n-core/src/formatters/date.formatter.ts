@@ -37,8 +37,17 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     if (typeof dateValue === 'string') {
       // Workaround for ISO date without time or specified UTC explicitly
       const match = isoRegex.exec(dateValue);
-      if (match && !match.groups?.time && !match.groups?.UTC) {
-        dateValue = `${dateValue}T00:00:00`;
+      if (match?.groups && !match.groups?.time && !match.groups?.UTC) {
+        let day = '';
+        if (match.groups.day) {
+          day = `-${match.groups.day.length === 1 ? '0' : ''}${match.groups.day}`;
+        }
+
+        let month = '';
+        if (match.groups.month) {
+          month = `-${match.groups.month.length === 1 ? '0' : ''}${match.groups.month}`;
+        }
+        dateValue = `${match.groups.year}${month}${day}T00:00:00`;
       }
     }
 
