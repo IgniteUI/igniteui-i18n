@@ -772,6 +772,51 @@ describe('i18n tests', () => {
       expect(dateFormatter.createDateFromValue(dateString).getTime() - expectedLocalTime.getTime()).equal(0);
     });
 
+    it('should create dates from invalid ISO string correctly', () => {
+      // Initially in UTC timezone by default
+      let dateString = '2025-01-1';
+      let expectedUTCDate = new Date(dateString);
+      let expectedConverted = dateFormatter.createDateFromValue(dateString);
+
+      // The timezone of the machine. For UTC+0 would be 0
+      const timeZoneOffsetMin = expectedUTCDate.getTimezoneOffset() * 1000 * 60;
+      // Value for zero hour check. If the timezone offset is 0, switch it to something else so it still does not equal
+      const zeroHourExUTC = timeZoneOffsetMin === 0 ? 1 : 0;
+
+      // Result should be in local timezone, so should be equal(for some reason)
+      expect(expectedUTCDate.getHours()).toEqual(zeroHourExUTC);
+      expect(expectedConverted.getHours()).toEqual(0);
+      expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+      dateString = '2025-01-1T00:00Z';
+      expectedUTCDate = new Date(dateString);
+      expectedConverted = dateFormatter.createDateFromValue(dateString);
+      expect(expectedUTCDate.getTime()).toBeNaN();
+      expect(expectedUTCDate).toEqual(expectedUTCDate); // Both should be invalid and all UTC dates with time
+
+      dateString = '2025-1';
+      expectedUTCDate = new Date(dateString);
+      expectedConverted = dateFormatter.createDateFromValue(dateString);
+      // Result should be in local timezone, so should be equal(for some reason)
+      expect(expectedUTCDate.getHours()).toEqual(zeroHourExUTC);
+      expect(expectedConverted.getHours()).toEqual(0);
+      expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+      dateString = '2025-1-1';
+      expectedUTCDate = new Date(dateString);
+      expectedConverted = dateFormatter.createDateFromValue(dateString);
+      expect(expectedUTCDate.getHours()).toEqual(0);
+      expect(expectedConverted.getHours()).toEqual(0);
+      expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+
+      dateString = '2025-1-01';
+      expectedUTCDate = new Date(dateString);
+      expectedConverted = dateFormatter.createDateFromValue(dateString);
+      expect(expectedUTCDate.getHours()).toEqual(0);
+      expect(expectedConverted.getHours()).toEqual(0);
+      expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(0);
+    });
+
     it('should create dates from other regular valid string formats', () => {
       let dateString = 'January 1, 2025';
       let expectedUTCDate = new Date(dateString);
