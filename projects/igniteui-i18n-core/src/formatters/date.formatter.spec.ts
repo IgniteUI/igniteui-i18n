@@ -681,7 +681,8 @@ describe('i18n tests', () => {
       const zeroHourExUTC = timeZoneOffsetMin === 0 ? 1 : 0;
 
       // Result should be in local timezone but it's not, so there's difference
-      expect(expectedConverted.getHours() - expectedUTCDate.getHours()).not.toEqual(0);
+      expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+      expect(expectedConverted.getHours()).toEqual(0);
       expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(timeZoneOffsetMin);
 
       dateString = '2025-01-01T00:00Z';
@@ -709,7 +710,8 @@ describe('i18n tests', () => {
       expectedUTCDate = new Date(dateString);
       expectedConverted = dateFormatter.createDateFromValue(dateString);
       // Result should be in local timezone but it's not, so there's difference
-      expect(expectedConverted.getHours() - expectedUTCDate.getHours()).not.toEqual(0);
+      expect(expectedUTCDate.getHours()).not.toEqual(zeroHourExUTC);
+      expect(expectedConverted.getHours()).toEqual(0);
       expect(expectedConverted.getTime() - expectedUTCDate.getTime()).equal(timeZoneOffsetMin);
 
       dateString = '2025-01T00:00Z';
