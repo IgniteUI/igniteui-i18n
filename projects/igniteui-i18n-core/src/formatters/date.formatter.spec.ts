@@ -20,6 +20,10 @@ describe('i18n tests', () => {
       expect(dateFormatter.getFirstDayOfWeek('ar')).equal(6);
     });
 
+    it('should format basic date with default invalid timezone specified', () => {
+      expect(dateFormatter.formatDateTime(basicDate, 'en', { timeZone: 'UTC+0' })).equal(basicDate.toString());
+    });
+
     it('should format basic date with default options', () => {
       expect(dateFormatter.formatDateTime(basicDate, 'en')).equal('12/3/2014');
       expect(dateFormatter.formatDateTime(basicDate, 'bg')).equal('3.12.2014 г.');
@@ -98,6 +102,10 @@ describe('i18n tests', () => {
         { type: 'literal', value: ' ' },
         { type: 'year', value: '2014' },
       ]);
+    });
+
+    it('should return empty parts when formatting date time parts with invalid timezone', () => {
+      expect(dateFormatter.formatDateTimeToParts(dateTime, 'ar', { timeZone: 'UTC+0' })).toMatchObject([]);
     });
 
     it('should get correct default date formatting for different locales', () => {

@@ -101,4 +101,9 @@ describe('number formatting', () => {
     expect(numberFormatter.getCurrencySymbol('EUR', 'es', 'name')).equal('euros');
     expect(numberFormatter.getCurrencySymbol('PLN', 'pl', 'name')).equal('złotych polskich');
   });
+
+  it('should return empty strings if such is passed to the getCurrencySymbol method', () => {
+    expect(numberFormatter.getCurrencySymbol('', 'en', 'symbol')).equal('');
+    expect(numberFormatter.getCurrencySymbol('', 'en', 'name')).equal('');
+  });
 });
