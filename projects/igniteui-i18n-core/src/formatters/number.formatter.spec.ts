@@ -13,6 +13,10 @@ describe('number formatting', () => {
     expect(numberFormatter.formatNumber(12345, 'pl')).equal('12 345');
   });
 
+  it('should return unformatted number when provided invalid option', () => {
+    expect(numberFormatter.formatNumber(12345, 'en', { currency: '' })).equal('12345');
+  });
+
   it('should format regular numbers when locale is changed through api', () => {
     expect(numberFormatter.formatNumber(12345, 'en')).equal('12,345');
 

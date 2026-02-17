@@ -22,7 +22,7 @@ export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.Numbe
     } catch (e) {
       console.warn(e);
     }
-    return value.toString();
+    return String(value);
   }
 
   /**

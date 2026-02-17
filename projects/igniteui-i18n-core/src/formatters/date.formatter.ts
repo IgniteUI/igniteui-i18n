@@ -51,11 +51,9 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       }
     }
 
-    let returnDate: Date;
-    try {
-      returnDate = new Date(dateValue);
-    } catch (e) {
-      console.warn(e);
+    let returnDate = new Date(dateValue);
+    if (isNaN(returnDate.getTime())) {
+      console.warn(`Invalid date entered: ${value}`);
       returnDate = new Date(value);
     }
     return returnDate;
