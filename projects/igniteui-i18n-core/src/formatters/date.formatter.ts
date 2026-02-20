@@ -51,7 +51,12 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       }
     }
 
-    return new Date(dateValue);
+    let returnDate = new Date(dateValue);
+    if (isNaN(returnDate.getTime())) {
+      console.warn(`Invalid date entered: ${value}`);
+      returnDate = new Date(value);
+    }
+    return returnDate;
   }
 
   /**
@@ -62,8 +67,13 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
    * @returns String representing the formatted value.
    */
   public formatDateTime(date: Date | number, locale?: string, options?: Intl.DateTimeFormatOptions): string {
-    const formatter = this.getIntlFormatter(locale, options);
-    return formatter.format(date);
+    try {
+      const formatter = this.getIntlFormatter(locale, options);
+      return formatter.format(date);
+    } catch (e) {
+      console.warn(e);
+    }
+    return date.toString();
   }
 
   /**
@@ -78,8 +88,13 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     locale?: string,
     options?: Intl.DateTimeFormatOptions
   ): Intl.DateTimeFormatPart[] {
-    const formatter = this.getIntlFormatter(locale, options);
-    return formatter.formatToParts(date);
+    try {
+      const formatter = this.getIntlFormatter(locale, options);
+      return formatter.formatToParts(date);
+    } catch (e) {
+      console.warn(e);
+    }
+    return [];
   }
 
   /**
@@ -96,8 +111,13 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     locale?: string,
     options?: Intl.DateTimeFormatOptions
   ): string {
-    const formatter = this.getIntlFormatter(locale, options);
-    return formatter.formatRange(startDate, endDate);
+    try {
+      const formatter = this.getIntlFormatter(locale, options);
+      return formatter.formatRange(startDate, endDate);
+    } catch (e) {
+      console.warn(e);
+    }
+    return `${startDate.toString()} - ${endDate.toString()}`;
   }
 
   /**
@@ -114,8 +134,13 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     locale?: string,
     options?: Intl.DateTimeFormatOptions
   ): Intl.DateTimeFormatPart[] {
-    const formatter = this.getIntlFormatter(locale, options);
-    return formatter.formatRangeToParts(startDate, endDate);
+    try {
+      const formatter = this.getIntlFormatter(locale, options);
+      return formatter.formatRangeToParts(startDate, endDate);
+    } catch (e) {
+      console.warn(e);
+    }
+    return [];
   }
 
   /**

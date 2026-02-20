@@ -16,8 +16,13 @@ export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.Numbe
    * @returns Formatted value.
    */
   public formatNumber(value: number, locale?: string, options?: Intl.NumberFormatOptions): string {
-    const formatter = this.getIntlFormatter(locale, options);
-    return formatter.format(value);
+    try {
+      const formatter = this.getIntlFormatter(locale, options);
+      return formatter.format(value);
+    } catch (e) {
+      console.warn(e);
+    }
+    return String(value);
   }
 
   /**
@@ -38,8 +43,13 @@ export class NumberFormatter extends BaseFormatter<Intl.NumberFormat, Intl.Numbe
       currencyDisplay: currencyDisplay,
       maximumFractionDigits: 0,
     };
-    const formatter = this.getIntlFormatter(locale, options);
-    return formatter.formatToParts(0).find((part) => part.type === 'currency')?.value;
+    try {
+      const formatter = this.getIntlFormatter(locale, options);
+      return formatter.formatToParts(0).find((part) => part.type === 'currency')?.value;
+    } catch (e) {
+      console.warn(e);
+    }
+    return currencyCode;
   }
 
   /**
