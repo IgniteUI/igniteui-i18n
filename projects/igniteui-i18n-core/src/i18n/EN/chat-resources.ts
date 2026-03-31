@@ -1,7 +1,7 @@
 import type { IChatResourceStrings } from '../interfaces/chat.interface.js';
 
 /**
- * English resource strings for Ignite UI Chip
+ * English resource strings for Ignite UI Chat
  */
 export const ChatResourceStringsEN: IChatResourceStrings = {
   chat_suggestions_header: 'Suggestions',
