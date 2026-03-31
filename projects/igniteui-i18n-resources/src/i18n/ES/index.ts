@@ -2,6 +2,7 @@ export * from './action-strip-resources.js';
 export * from './banner-resources.js';
 export * from './calendar-resources.js';
 export * from './carousel-resources.js';
+export * from './chat-resources.js';
 export * from './chip-resources.js';
 export * from './combo-resources.js';
 export * from './date-picker-resources.js';

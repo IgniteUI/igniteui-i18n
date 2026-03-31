@@ -3,6 +3,7 @@ import { ActionStripResourceStringsKO } from './action-strip-resources.js';
 import { BannerResourceStringsKO } from './banner-resources.js';
 import { CalendarResourceStringsKO } from './calendar-resources.js';
 import { CarouselResourceStringsKO } from './carousel-resources.js';
+import { ChatResourceStringsKO } from './chat-resources.js';
 import { ChipResourceStringsKO } from './chip-resources.js';
 import { ComboResourceStringsKO } from './combo-resources.js';
 import { DatePickerResourceStringsKO } from './date-picker-resources.js';
@@ -25,6 +26,7 @@ export const ResourceStringsKO: IResourceStrings = {
   ...BannerResourceStringsKO,
   ...CalendarResourceStringsKO,
   ...CarouselResourceStringsKO,
+  ...ChatResourceStringsKO,
   ...ChipResourceStringsKO,
   ...ComboResourceStringsKO,
   ...DatePickerResourceStringsKO,
