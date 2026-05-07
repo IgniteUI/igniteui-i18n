@@ -3,6 +3,7 @@ import { ActionStripResourceStringsZHHANS } from './action-strip-resources.js';
 import { BannerResourceStringsZHHANS } from './banner-resources.js';
 import { CalendarResourceStringsZHHANS } from './calendar-resources.js';
 import { CarouselResourceStringsZHHANS } from './carousel-resources.js';
+import { ChatResourceStringsZHHANS } from './chat-resources.js';
 import { ChipResourceStringsZHHANS } from './chip-resources.js';
 import { ComboResourceStringsZHHANS } from './combo-resources.js';
 import { DatePickerResourceStringsZHHANS } from './date-picker-resources.js';
@@ -24,6 +25,7 @@ export const ResourceStringsZHHANS: IResourceStrings = {
   ...BannerResourceStringsZHHANS,
   ...CalendarResourceStringsZHHANS,
   ...CarouselResourceStringsZHHANS,
+  ...ChatResourceStringsZHHANS,
   ...ChipResourceStringsZHHANS,
   ...ComboResourceStringsZHHANS,
   ...DatePickerResourceStringsZHHANS,

@@ -3,6 +3,7 @@ import { ActionStripResourceStringsSV } from './action-strip-resources.js';
 import { BannerResourceStringsSV } from './banner-resources.js';
 import { CalendarResourceStringsSV } from './calendar-resources.js';
 import { CarouselResourceStringsSV } from './carousel-resources.js';
+import { ChatResourceStringsSV } from './chat-resources.js';
 import { ChipResourceStringsSV } from './chip-resources.js';
 import { ComboResourceStringsSV } from './combo-resources.js';
 import { DatePickerResourceStringsSV } from './date-picker-resources.js';
@@ -24,6 +25,7 @@ export const ResourceStringsSV: IResourceStrings = {
   ...BannerResourceStringsSV,
   ...CalendarResourceStringsSV,
   ...CarouselResourceStringsSV,
+  ...ChatResourceStringsSV,
   ...ChipResourceStringsSV,
   ...ComboResourceStringsSV,
   ...DatePickerResourceStringsSV,

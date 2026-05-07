@@ -3,6 +3,7 @@ export type {
   IBannerResourceStrings,
   ICalendarResourceStrings,
   ICarouselResourceStrings,
+  IChatResourceStrings,
   IChipResourceStrings,
   IComboResourceStrings,
   IDatePickerResourceStrings,
@@ -22,6 +23,7 @@ export {
   BannerResourceStringsEN,
   CalendarResourceStringsEN,
   CarouselResourceStringsEN,
+  ChatResourceStringsEN,
   ChipResourceStringsEN,
   ComboResourceStringsEN,
   DatePickerResourceStringsEN,
@@ -42,6 +44,7 @@ export * from './i18n/BG/action-strip-resources.js';
 export * from './i18n/BG/banner-resources.js';
 export * from './i18n/BG/calendar-resources.js';
 export * from './i18n/BG/carousel-resources.js';
+export * from './i18n/BG/chat-resources.js';
 export * from './i18n/BG/chip-resources.js';
 export * from './i18n/BG/combo-resources.js';
 export * from './i18n/BG/date-picker-resources.js';
@@ -61,6 +64,7 @@ export * from './i18n/CS/action-strip-resources.js';
 export * from './i18n/CS/banner-resources.js';
 export * from './i18n/CS/calendar-resources.js';
 export * from './i18n/CS/carousel-resources.js';
+export * from './i18n/CS/chat-resources.js';
 export * from './i18n/CS/chip-resources.js';
 export * from './i18n/CS/combo-resources.js';
 export * from './i18n/CS/date-picker-resources.js';
@@ -80,6 +84,7 @@ export * from './i18n/DA/action-strip-resources.js';
 export * from './i18n/DA/banner-resources.js';
 export * from './i18n/DA/calendar-resources.js';
 export * from './i18n/DA/carousel-resources.js';
+export * from './i18n/DA/chat-resources.js';
 export * from './i18n/DA/chip-resources.js';
 export * from './i18n/DA/combo-resources.js';
 export * from './i18n/DA/date-picker-resources.js';
@@ -99,6 +104,7 @@ export * from './i18n/DE/action-strip-resources.js';
 export * from './i18n/DE/banner-resources.js';
 export * from './i18n/DE/calendar-resources.js';
 export * from './i18n/DE/carousel-resources.js';
+export * from './i18n/DE/chat-resources.js';
 export * from './i18n/DE/chip-resources.js';
 export * from './i18n/DE/combo-resources.js';
 export * from './i18n/DE/date-picker-resources.js';
@@ -118,6 +124,7 @@ export * from './i18n/ES/action-strip-resources.js';
 export * from './i18n/ES/banner-resources.js';
 export * from './i18n/ES/calendar-resources.js';
 export * from './i18n/ES/carousel-resources.js';
+export * from './i18n/ES/chat-resources.js';
 export * from './i18n/ES/chip-resources.js';
 export * from './i18n/ES/combo-resources.js';
 export * from './i18n/ES/date-picker-resources.js';
@@ -138,6 +145,7 @@ export * from './i18n/FR/action-strip-resources.js';
 export * from './i18n/FR/banner-resources.js';
 export * from './i18n/FR/calendar-resources.js';
 export * from './i18n/FR/carousel-resources.js';
+export * from './i18n/FR/chat-resources.js';
 export * from './i18n/FR/chip-resources.js';
 export * from './i18n/FR/combo-resources.js';
 export * from './i18n/FR/date-picker-resources.js';
@@ -157,6 +165,7 @@ export * from './i18n/HU/action-strip-resources.js';
 export * from './i18n/HU/banner-resources.js';
 export * from './i18n/HU/calendar-resources.js';
 export * from './i18n/HU/carousel-resources.js';
+export * from './i18n/HU/chat-resources.js';
 export * from './i18n/HU/chip-resources.js';
 export * from './i18n/HU/combo-resources.js';
 export * from './i18n/HU/date-picker-resources.js';
@@ -176,6 +185,7 @@ export * from './i18n/IT/action-strip-resources.js';
 export * from './i18n/IT/banner-resources.js';
 export * from './i18n/IT/calendar-resources.js';
 export * from './i18n/IT/carousel-resources.js';
+export * from './i18n/IT/chat-resources.js';
 export * from './i18n/IT/chip-resources.js';
 export * from './i18n/IT/combo-resources.js';
 export * from './i18n/IT/date-picker-resources.js';
@@ -195,6 +205,7 @@ export * from './i18n/JA/action-strip-resources.js';
 export * from './i18n/JA/banner-resources.js';
 export * from './i18n/JA/calendar-resources.js';
 export * from './i18n/JA/carousel-resources.js';
+export * from './i18n/JA/chat-resources.js';
 export * from './i18n/JA/chip-resources.js';
 export * from './i18n/JA/combo-resources.js';
 export * from './i18n/JA/date-picker-resources.js';
@@ -215,6 +226,7 @@ export * from './i18n/KO/action-strip-resources.js';
 export * from './i18n/KO/banner-resources.js';
 export * from './i18n/KO/calendar-resources.js';
 export * from './i18n/KO/carousel-resources.js';
+export * from './i18n/KO/chat-resources.js';
 export * from './i18n/KO/chip-resources.js';
 export * from './i18n/KO/combo-resources.js';
 export * from './i18n/KO/date-picker-resources.js';
@@ -235,6 +247,7 @@ export * from './i18n/NB/action-strip-resources.js';
 export * from './i18n/NB/banner-resources.js';
 export * from './i18n/NB/calendar-resources.js';
 export * from './i18n/NB/carousel-resources.js';
+export * from './i18n/NB/chat-resources.js';
 export * from './i18n/NB/chip-resources.js';
 export * from './i18n/NB/combo-resources.js';
 export * from './i18n/NB/date-picker-resources.js';
@@ -254,6 +267,7 @@ export * from './i18n/NL/action-strip-resources.js';
 export * from './i18n/NL/banner-resources.js';
 export * from './i18n/NL/calendar-resources.js';
 export * from './i18n/NL/carousel-resources.js';
+export * from './i18n/NL/chat-resources.js';
 export * from './i18n/NL/chip-resources.js';
 export * from './i18n/NL/combo-resources.js';
 export * from './i18n/NL/date-picker-resources.js';
@@ -273,6 +287,7 @@ export * from './i18n/PL/action-strip-resources.js';
 export * from './i18n/PL/banner-resources.js';
 export * from './i18n/PL/calendar-resources.js';
 export * from './i18n/PL/carousel-resources.js';
+export * from './i18n/PL/chat-resources.js';
 export * from './i18n/PL/chip-resources.js';
 export * from './i18n/PL/combo-resources.js';
 export * from './i18n/PL/date-picker-resources.js';
@@ -292,6 +307,7 @@ export * from './i18n/PT/action-strip-resources.js';
 export * from './i18n/PT/banner-resources.js';
 export * from './i18n/PT/calendar-resources.js';
 export * from './i18n/PT/carousel-resources.js';
+export * from './i18n/PT/chat-resources.js';
 export * from './i18n/PT/chip-resources.js';
 export * from './i18n/PT/combo-resources.js';
 export * from './i18n/PT/date-picker-resources.js';
@@ -311,6 +327,7 @@ export * from './i18n/RO/action-strip-resources.js';
 export * from './i18n/RO/banner-resources.js';
 export * from './i18n/RO/calendar-resources.js';
 export * from './i18n/RO/carousel-resources.js';
+export * from './i18n/RO/chat-resources.js';
 export * from './i18n/RO/chip-resources.js';
 export * from './i18n/RO/combo-resources.js';
 export * from './i18n/RO/date-picker-resources.js';
@@ -330,6 +347,7 @@ export * from './i18n/SV/action-strip-resources.js';
 export * from './i18n/SV/banner-resources.js';
 export * from './i18n/SV/calendar-resources.js';
 export * from './i18n/SV/carousel-resources.js';
+export * from './i18n/SV/chat-resources.js';
 export * from './i18n/SV/chip-resources.js';
 export * from './i18n/SV/combo-resources.js';
 export * from './i18n/SV/date-picker-resources.js';
@@ -349,6 +367,7 @@ export * from './i18n/TR/action-strip-resources.js';
 export * from './i18n/TR/banner-resources.js';
 export * from './i18n/TR/calendar-resources.js';
 export * from './i18n/TR/carousel-resources.js';
+export * from './i18n/TR/chat-resources.js';
 export * from './i18n/TR/chip-resources.js';
 export * from './i18n/TR/combo-resources.js';
 export * from './i18n/TR/date-picker-resources.js';
@@ -368,6 +387,7 @@ export * from './i18n/ZH-HANS/action-strip-resources.js';
 export * from './i18n/ZH-HANS/banner-resources.js';
 export * from './i18n/ZH-HANS/calendar-resources.js';
 export * from './i18n/ZH-HANS/carousel-resources.js';
+export * from './i18n/ZH-HANS/chat-resources.js';
 export * from './i18n/ZH-HANS/chip-resources.js';
 export * from './i18n/ZH-HANS/combo-resources.js';
 export * from './i18n/ZH-HANS/date-picker-resources.js';
@@ -387,6 +407,7 @@ export * from './i18n/ZH-HANT/action-strip-resources.js';
 export * from './i18n/ZH-HANT/banner-resources.js';
 export * from './i18n/ZH-HANT/calendar-resources.js';
 export * from './i18n/ZH-HANT/carousel-resources.js';
+export * from './i18n/ZH-HANT/chat-resources.js';
 export * from './i18n/ZH-HANT/chip-resources.js';
 export * from './i18n/ZH-HANT/combo-resources.js';
 export * from './i18n/ZH-HANT/date-picker-resources.js';

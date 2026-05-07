@@ -2,6 +2,7 @@ import type { IActionStripResourceStrings } from './action-strip.interface.js';
 import type { IBannerResourceStrings } from './banner.interface.js';
 import type { ICalendarResourceStrings } from './calendar.interface.js';
 import type { ICarouselResourceStrings } from './carousel.interface.js';
+import type { IChatResourceStrings } from './chat.interface.js';
 import type { IChipResourceStrings } from './chip.interface.js';
 import type { IComboResourceStrings } from './combo.interface.js';
 import type { IDatePickerResourceStrings } from './date-picker.interface.js';
@@ -22,6 +23,7 @@ export interface IResourceStrings
     IBannerResourceStrings,
     ICalendarResourceStrings,
     ICarouselResourceStrings,
+    IChatResourceStrings,
     IChipResourceStrings,
     IComboResourceStrings,
     IDatePickerResourceStrings,
