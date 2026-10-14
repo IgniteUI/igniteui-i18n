@@ -33,6 +33,8 @@ jobs:
         run: npm run lint
       - name: Build Core & Resources
         run: npm run build
+      - name: Check bundle
+        run: npm run check:bundle
       - name: Test
         run: npm run test
       - name: Publish to coveralls.io

@@ -12,13 +12,15 @@
     "lint:fix": "biome check --write",
     "test": "vitest --config vitest.browser.config.ts",
     "test:inline": "vitest",
-    "prepare": "husky"
+    "prepare": "husky",
+    "check:bundle": "node check-bundle.js"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
     "@types/node": "^24.19.2",
     "@vitest/browser-playwright": "^5.0.4",
     "@vitest/coverage-istanbul": "^5.0.4",
+    "esbuild": "^0.28.2",
     "husky": "^9.1.7",
     "jsdom": "^30.1.2",
     "lint-staged": "^17.6.0",

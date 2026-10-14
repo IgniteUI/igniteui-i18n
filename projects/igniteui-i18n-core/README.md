@@ -24,3 +24,15 @@ npm install igniteui-i18n-core --save
 | getDisplayNamesFormatter | Gets the Intl.DisplayNames implementation | |
 | getI18nManager | Gets the global resource manager that is based on locale | |
 | getNumberFormatter | Gets the Intl.NumberFormat implementation | |
+
+## Breaking changes in 2.0.0
+
+Formatters are created on first use, so bundles that only use resource strings drop the formatter code. `getI18nManager()` no longer exposes them:
+
+| Removed | Use instead |
+|--|--|
+| `getI18nManager().dateFormatter` | `getDateFormatter()` |
+| `getI18nManager().numberFormatter` | `getNumberFormatter()` |
+| `getI18nManager().displayNamesFormatter` | `getDisplayNamesFormatter()` |
+
+`registerI18n()` with an invalid locale tag registers to `en-US`, as documented, instead of the current locale.

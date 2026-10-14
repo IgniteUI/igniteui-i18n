@@ -1,9 +1,12 @@
 import type { I18nFormatter, I18nFormatterOptions, IntlFormatter } from '../i18n-manager.interfaces.js';
-import { generateLocaleKey, mergeOptions } from '../utils.js';
+import { BoundedMap, generateLocaleKey, mergeOptions, toCanonicalLocale } from '../utils.js';
+
+/** Holds every locale and options combination of a typical app, e.g. one per custom date format token and locale. */
+const MAX_INTL_FORMATTERS = 256;
 
 export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptions> {
   public defaultOptions = {} as O;
-  protected cachedIntlFormatters = new Map<string, T>();
+  protected cachedIntlFormatters = new BoundedMap<string, T>(MAX_INTL_FORMATTERS);
   protected currentLocale: string;
   protected formatterType: IntlFormatter<T, O>;
 
@@ -25,10 +28,8 @@ export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptio
    */
   public getIntlFormatter(locale?: string, options?: O): T {
     const combinedOptions = mergeOptions(this.defaultOptions, options);
-    let canonLocale: string;
-    try {
-      canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
-    } catch {
+    let canonLocale = locale ? toCanonicalLocale(locale) : this.currentLocale;
+    if (!canonLocale) {
       console.warn(
         `Trying to use invalid locale tag '${locale}' for the Ignite UI components. Using last valid used tag.`
       );

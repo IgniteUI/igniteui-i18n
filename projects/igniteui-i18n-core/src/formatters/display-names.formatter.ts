@@ -1,4 +1,3 @@
-import { mergeOptions } from '../utils.js';
 import { BaseFormatter } from './base.formatter.js';
 import type { DateFormatter } from './date.formatter.js';
 
@@ -11,23 +10,21 @@ export class DisplayNamesFormatter extends BaseFormatter<Intl.DisplayNames, Intl
   }
 
   public getWeekLabel(locale?: string, options?: Partial<Intl.DisplayNamesOptions>): string {
-    const requiredOptions: Intl.DisplayNamesOptions = {
-      type: 'dateTimeField',
-    };
-    const combinedOptions = options ? mergeOptions(options, requiredOptions) : requiredOptions;
-    const formatter = this.getIntlFormatter(locale, combinedOptions as Intl.DisplayNamesOptions);
+    const formatter = this.getIntlFormatter(locale, { ...options, type: 'dateTimeField' });
+    let weekLabel = formatter.of('weekOfYear');
+    if (!weekLabel) {
+      return '';
+    }
+
+    // Match the locale's weekday casing, e.g. 'Week' in en, 'седмица' in bg.
     const weekDay = this.dateFormatter
       .formatDateTimeToParts(new Date(), locale, { weekday: 'narrow' })
       .find((part) => part.type === 'weekday')?.value;
 
-    let weekLabel = formatter.of('weekOfYear');
-    if (weekLabel && weekDay?.startsWith(weekDay[0].toUpperCase())) {
-      weekLabel = weekLabel[0].toUpperCase() + weekLabel?.substring(1);
+    if (weekDay?.startsWith(weekDay[0].toUpperCase())) {
+      weekLabel = weekLabel[0].toUpperCase() + weekLabel.substring(1);
     }
 
-    if (options?.style === 'narrow') {
-      return weekLabel?.substring(0, 1) ?? '';
-    }
-    return weekLabel ?? '';
+    return options?.style === 'narrow' ? weekLabel.substring(0, 1) : weekLabel;
   }
 }
