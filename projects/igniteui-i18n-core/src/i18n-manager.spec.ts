@@ -4,7 +4,8 @@ import {
   BannerResourceStringsZHHANS,
   BannerResourceStringsZHHANT,
 } from 'igniteui-i18n-resources';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { NumberFormatter } from './formatters/number.formatter.js';
 import { ActionStripResourceStringsEN } from './i18n/EN/action-strip-resources.js';
 import { BannerResourceStringsEN } from './i18n/EN/banner-resources.js';
 import type { IResourceChangeEventArgs } from './i18n-manager.interfaces.js';
@@ -25,6 +26,12 @@ describe('i18n tests', () => {
   beforeEach(() => {
     // Create separate manage for each tests, so it's state is reset for each test.
     manager = new (I18nManager as any)();
+  });
+
+  afterEach(() => {
+    // Cleanup dom, since its the same for all tests
+    document.documentElement.removeAttribute('lang');
+    vi.restoreAllMocks();
   });
 
   describe('public api', () => {
@@ -78,6 +85,17 @@ describe('i18n tests', () => {
       //Basic function call
       expect(namesFormatter.getWeekLabel('bg')).toEqual('седмица');
     });
+
+    it('should apply setCurrentI18n to the formatters', () => {
+      setCurrentI18n('de');
+
+      expect(getNumberFormatter().formatNumber(10000)).toEqual('10.000');
+      expect(getDateFormatter().formatDateTime(new Date(2022, 1, 2))).toEqual('2.2.2022');
+      expect(getDisplayNamesFormatter().getWeekLabel()).toEqual('Woche');
+
+      // Restore the shared manager for the next tests.
+      setCurrentI18n('en-US');
+    });
   });
 
   describe('base', () => {
@@ -86,8 +104,6 @@ describe('i18n tests', () => {
       await wait();
 
       expect(manager.currentLocale).toEqual('bg');
-      // Cleanup dom, since its the same for all tests
-      document.documentElement.removeAttribute('lang');
     });
 
     it('should change current locale correctly', () => {
@@ -104,6 +120,16 @@ describe('i18n tests', () => {
       expect(manager.currentLocale).equals('en-US');
       expect(Object.keys(resources).length).equals(1);
       expect(resources.action_strip_button_more_title).equals('More');
+    });
+
+    it('should register resources for an invalid locale to the default locale', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      manager.setCurrentI18n('bg');
+
+      manager.registerI18n(ActionStripResourceStringsBG, 'e');
+
+      expect(warn).toHaveBeenCalledOnce();
+      expect(manager.getCurrentResourceStrings('en-US')).toEqual(ActionStripResourceStringsBG);
     });
 
     it('should override old resource string to currentLocale locale', () => {
@@ -379,6 +405,40 @@ describe('i18n tests', () => {
       manager.registerI18n(ActionStripResourceStringsEN, 'bg');
 
       expect(onResourceChangeEvent.numTriggered).equal(0);
+    });
+  });
+
+  describe('formatters', () => {
+    const createNumber = (locale: string) => new NumberFormatter(locale);
+
+    it('should create a formatter once', () => {
+      const formatter = manager.getFormatter(createNumber);
+
+      expect(manager.getFormatter(createNumber)).toBe(formatter);
+    });
+
+    it('should create a formatter with the current locale', () => {
+      manager.setCurrentI18n('de');
+
+      const formatter = manager.getFormatter(createNumber);
+      expect(formatter.formatNumber(10000)).toEqual('10.000');
+    });
+
+    it('should update a created formatter on setCurrentI18n', () => {
+      const formatter = manager.getFormatter(createNumber);
+      expect(formatter.formatNumber(10000)).toEqual('10,000');
+
+      manager.setCurrentI18n('de');
+      expect(formatter.formatNumber(10000)).toEqual('10.000');
+    });
+
+    it('should update a created formatter on lang attribute change', async () => {
+      const formatter = manager.getFormatter(createNumber);
+
+      document.documentElement.setAttribute('lang', 'de');
+      await wait();
+
+      expect(formatter.formatNumber(10000)).toEqual('10.000');
     });
   });
 });

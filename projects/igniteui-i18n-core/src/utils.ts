@@ -8,6 +8,28 @@ export function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof document !== 'undefined';
 }
 
+/** Canonical tag per raw tag. `Intl.getCanonicalLocales` is slow and formatters resolve a tag on every call. */
+const canonicalLocales = new Map<string, string>();
+
+/**
+ * Canonicalizes a BCP 47 language tag, e.g. 'EN-us' -> 'en-US'.
+ * @returns The canonical tag or `undefined` for an invalid one.
+ */
+export function toCanonicalLocale(locale: string): string | undefined {
+  const cached = canonicalLocales.get(locale);
+  if (cached) {
+    return cached;
+  }
+
+  try {
+    const canonical = Intl.getCanonicalLocales(locale)[0];
+    canonicalLocales.set(locale, canonical);
+    return canonical;
+  } catch {
+    return undefined;
+  }
+}
+
 /** Group each valid symbol for custom format that is replaced later on.
  * See `formatDateCustomFormat` for supported values.
  * Any word that doesn't contains the listed letters are kept as is - (?:[^BEGHLMOSWYZabcdhmswyz']+)
@@ -64,15 +86,13 @@ export function mergeOptions<
 
 /**
  * Extend resources with formatting object keys base on provided format
- * @param format Format for the extended objects keys in the style of 'grid_{0}_extended_key'. Only single replace position is valid.
  * @param baseObject Base object, which extends the other provided objects.
  * @param extendedObjects Object that the base one extends.
  * @returns Combined and formatted object containing properties from base and extended objects.
  */
 export function extendResources<T, E>(baseObject: T, ...extendedObjects: E[]): T & E {
   // Beware of rest operator for the `extendedObjects` property.
-  const result = Object.assign({}, baseObject, ...extendedObjects);
-  return result as T & E;
+  return Object.assign({}, baseObject, ...extendedObjects);
 }
 
 export function prefixResource<T, P extends string>(prefix: P, inObject: T): PrefixedResourceStrings<T, P> {

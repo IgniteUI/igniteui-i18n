@@ -23,7 +23,6 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
   constructor(defaultLocale: string, localeFormatter: LocaleFormatter) {
     super(defaultLocale, Intl.DateTimeFormat);
     this.localeFormatter = localeFormatter;
-    this.defaultOptions = {};
   }
 
   /**
@@ -34,21 +33,11 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
   public createDateFromValue(value: string | number): Date {
     let dateValue = value;
 
-    if (typeof dateValue === 'string') {
-      // Workaround for ISO date without time or specified UTC explicitly
-      const match = isoRegex.exec(dateValue);
-      if (match?.groups && !match.groups?.time && !match.groups?.UTC) {
-        let day = '';
-        if (match.groups.day) {
-          day = `-${match.groups.day.length === 1 ? '0' : ''}${match.groups.day}`;
-        }
-
-        let month = '';
-        if (match.groups.month) {
-          month = `-${match.groups.month.length === 1 ? '0' : ''}${match.groups.month}`;
-        }
-        dateValue = `${match.groups.year}${month}${day}T00:00:00`;
-      }
+    // Workaround for ISO date without time or specified UTC explicitly, e.g. '2024-3-5' -> '2024-03-05T00:00:00'
+    const groups = typeof value === 'string' ? isoRegex.exec(value)?.groups : undefined;
+    if (groups && !groups.time && !groups.UTC) {
+      const day = groups.day ? `-${groups.day.padStart(2, '0')}` : '';
+      dateValue = `${groups.year}-${groups.month.padStart(2, '0')}${day}T00:00:00`;
     }
 
     let returnDate = new Date(dateValue);
@@ -158,62 +147,70 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     // Use any date with single digit for values so later on we can determine if the are '2-digit' or 'numeric'
     const testDate = new Date(2015, 2, 8, 1, 2, 4);
     const formatter = this.getIntlFormatter(locale, dateTimeOptions);
-    const resultParts = formatter.formatToParts(testDate);
+    // Single digit values are 'numeric' unless forced, e.g. 'd' for '8' and 'dd' for '08'.
+    const numeric = (token: string, value: string) => (value.length === 1 && !forceLeadingZero ? token : token + token);
     let resultFormat = '';
-    for (const part of resultParts) {
-      if (part.type === 'weekday') {
-        resultFormat += 'EEEE';
-      } else if (part.type === 'day') {
-        if (part.value.length === 1 && !forceLeadingZero) {
-          resultFormat += 'd';
-        } else {
-          resultFormat += 'dd';
+
+    for (const part of formatter.formatToParts(testDate)) {
+      switch (part.type) {
+        case 'weekday':
+          resultFormat += 'EEEE';
+          break;
+        case 'day':
+          resultFormat += numeric('d', part.value);
+          break;
+        case 'month': {
+          const valueLength = part.value.length;
+          if (Number.parseInt(part.value, 10)) {
+            resultFormat += numeric('M', part.value);
+          } else if (1 < valueLength && valueLength < 4) {
+            resultFormat += 'MMM';
+          } else if (valueLength >= 4) {
+            resultFormat += 'MMMM';
+          } else if (valueLength === 1) {
+            // Possibly not used by anyone by default
+            resultFormat += 'MMMMM';
+          }
+          break;
         }
-      } else if (part.type === 'month') {
-        const valueLength = part.value.length;
-        if (Number.parseInt(part.value, 10)) {
-          resultFormat += part.value.length === 1 && !forceLeadingZero ? 'M' : 'MM';
-        } else if (1 < valueLength && valueLength < 4) {
-          resultFormat += 'MMM';
-        } else if (valueLength >= 4) {
-          resultFormat += 'MMMM';
-        } else if (valueLength === 1) {
-          // Possibly not used by anyone by default
-          resultFormat += 'MMMMM';
+        case 'year':
+          resultFormat += part.value.length === 2 ? 'yy' : 'yyyy';
+          break;
+        case 'hour': {
+          // Use resolved options instead of Intl.Locale, since in browser most is not actually populated for some reason
+          const hourCycle = formatter.resolvedOptions().hourCycle;
+          let replaceHour = 'H';
+          // h24 doesn't seem to be used anywhere
+          if (hourCycle === 'h11') {
+            // Should be used by Japan, but it returns h12 for them.
+            replaceHour = 'K';
+          } else if (hourCycle === 'h12') {
+            replaceHour = 'h';
+          }
+          replaceHour += part.value.length === 1 && forceLeadingZero ? replaceHour : '';
+          resultFormat += part.value.replaceAll(/\d/g, replaceHour);
+          break;
         }
-      } else if (part.type === 'year') {
-        if (part.value.length === 2) {
-          resultFormat += 'yy';
-        } else {
-          resultFormat += 'yyyy';
+        case 'minute':
+          resultFormat += numeric('m', part.value);
+          break;
+        case 'second':
+          resultFormat += numeric('s', part.value);
+          break;
+        case 'dayPeriod':
+          resultFormat += 'tt';
+          break;
+        case 'timeZoneName': {
+          const shortParts = this.getIntlFormatter(locale, {
+            timeZoneName: 'short',
+          }).formatToParts(testDate);
+          const shortTimezone = this.findDatePart(shortParts, 'timeZoneName');
+          resultFormat += part.value === shortTimezone ? 'z' : 'zzzz';
+          break;
         }
-      } else if (part.type === 'hour') {
-        // Use resolved options instead of Intl.Locale, since in browser most is not actually populated for some reason
-        const hourCycle = formatter.resolvedOptions().hourCycle;
-        let replaceHour = 'H';
-        // h24 doesn't seem to be used anywhere
-        if (hourCycle === 'h11') {
-          // Should be used by Japan, but it returns h12 for them.
-          replaceHour = 'K';
-        } else if (hourCycle === 'h12') {
-          replaceHour = 'h';
-        }
-        replaceHour += part.value.length === 1 && forceLeadingZero ? replaceHour : '';
-        resultFormat += part.value.replaceAll(/\d/g, replaceHour);
-      } else if (part.type === 'minute') {
-        resultFormat += part.value.length === 1 && !forceLeadingZero ? 'm' : 'mm';
-      } else if (part.type === 'second') {
-        resultFormat += part.value.length === 1 && !forceLeadingZero ? 's' : 'ss';
-      } else if (part.type === 'dayPeriod') {
-        resultFormat += 'tt';
-      } else if (part.type === 'timeZoneName') {
-        const shortParts = this.getIntlFormatter(locale, {
-          timeZoneName: 'short',
-        }).formatToParts(testDate);
-        const shortTimezone = this.findDatePart(shortParts, 'timeZoneName');
-        resultFormat += part.value === shortTimezone ? 'z' : 'zzzz';
-      } else if (part.type === 'literal') {
-        resultFormat += part.value;
+        case 'literal':
+          resultFormat += part.value;
+          break;
       }
     }
     return resultFormat;
@@ -258,33 +255,16 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
    * @returns
    */
   public formatDateCustomFormat(value: Date, format: string, options?: ICustomFormatOptions): string {
-    let parts: string[] = [];
-    let match: RegExpExecArray | null;
-    let remainingFormat = format;
-
-    while (remainingFormat) {
-      match = customFormatRegex.exec(remainingFormat);
-
-      if (match) {
-        parts = parts.concat(match.slice(1));
-        const part = parts.pop();
-
-        if (!part) {
-          break;
-        }
-
-        remainingFormat = part;
-      } else {
-        parts.push(remainingFormat);
-        break;
-      }
-    }
-
     const formatOptions = { ...this.defaultCustomFormatOptions, ...options };
     let dateText = '';
+    let remainingFormat = format;
 
-    for (const part of parts) {
-      dateText += this.formatPartialDateValue(value, part, formatOptions);
+    // Format one token at a time, e.g. 'dd/MM' -> 'dd', '/', 'MM'.
+    while (remainingFormat) {
+      const match = customFormatRegex.exec(remainingFormat);
+      const token = match ? match[1] : remainingFormat;
+      dateText += this.formatPartialDateValue(value, token, formatOptions);
+      remainingFormat = match ? match[2] : '';
     }
 
     return dateText;
@@ -395,25 +375,21 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       case 'tt':
         // set to 'long' because a,t and b use same handling below
         periodStyle = 'long';
-        options.timeStyle = 'short';
         break;
       // am/pm (lower case)
       case 'aaa':
       case 'ttt':
         periodStyle = 'short';
-        options.timeStyle = 'short';
         break;
       // AM/PM (upper case)
       case 'aaaa':
       case 'tttt':
         periodStyle = 'medium';
-        options.timeStyle = 'short';
         break;
       // a/p (first letters)
       case 'aaaaa':
       case 'ttttt':
         periodStyle = 'narrow';
-        options.timeStyle = 'short';
         break;
       // Extended period of the day (midnight, at night, ...), standalone
       case 'b':
@@ -513,6 +489,10 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
         return format;
     }
 
+    if (periodStyle) {
+      options.timeStyle = 'short';
+    }
+
     const dateParts = this.formatDateTimeToParts(date, formatOptions.locale, options);
 
     if (options.era) {
@@ -520,7 +500,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     }
 
     if (periodStyle || options.dayPeriod) {
-      let value = dateParts.find((part) => part.type === 'dayPeriod')?.value;
+      let value = this.findDatePart(dateParts, 'dayPeriod');
       if (!value && periodStyle) {
         // Current locale doesn't have generic day period. Just use the `en` one.
         value = this.findDatePart(this.formatDateTimeToParts(date, 'en', options), 'dayPeriod');
@@ -549,12 +529,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
     if (options.hour) {
       const value = this.findDatePart(dateParts, 'hour');
-      if (
-        !formatOptions.forceLeadingZero &&
-        options.hour === 'numeric' &&
-        value?.startsWith('0') &&
-        value.length === 2
-      ) {
+      if (options.hour === 'numeric' && value?.startsWith('0') && value.length === 2) {
         // Use numeric option value to format to shorter hour. Ex: instead of 08 return 8.
         return value[1];
       }

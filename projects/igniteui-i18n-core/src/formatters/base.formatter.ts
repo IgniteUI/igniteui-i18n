@@ -1,5 +1,5 @@
 import type { I18nFormatter, I18nFormatterOptions, IntlFormatter } from '../i18n-manager.interfaces.js';
-import { generateLocaleKey, mergeOptions } from '../utils.js';
+import { generateLocaleKey, mergeOptions, toCanonicalLocale } from '../utils.js';
 
 export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptions> {
   public defaultOptions = {} as O;
@@ -25,10 +25,8 @@ export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptio
    */
   public getIntlFormatter(locale?: string, options?: O): T {
     const combinedOptions = mergeOptions(this.defaultOptions, options);
-    let canonLocale: string;
-    try {
-      canonLocale = locale ? Intl.getCanonicalLocales(locale)[0] : this.currentLocale;
-    } catch {
+    let canonLocale = locale ? toCanonicalLocale(locale) : this.currentLocale;
+    if (!canonLocale) {
       console.warn(
         `Trying to use invalid locale tag '${locale}' for the Ignite UI components. Using last valid used tag.`
       );
