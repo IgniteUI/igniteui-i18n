@@ -10,6 +10,7 @@ export * from './copy-to-clipboard-resources.js';
 export * from './date-picker-resources.js';
 export * from './date-range-picker-resources.js';
 export * from './dialog-resources.js';
+export * from './dock-manager-resources.js';
 export * from './file-input-resources.js';
 export * from './grid-resources.js';
 export * from './list-resources.js';

@@ -32,6 +32,24 @@ describe('igniteui-i18n-resources', () => {
     }
   });
 
+  it('translates every dock manager string', () => {
+    // Translations that match English, e.g. French 'Documents'.
+    const SAME_AS_EN = ['FR dock_manager_documents'];
+
+    for (const [lang, strings] of byLanguage('ResourceStrings')) {
+      for (const [key, en] of Object.entries(resources.DockManagerResourceStringsEN)) {
+        const label = `${lang} ${key}`;
+        expect.soft(strings[key], label).toBeDefined();
+
+        if (SAME_AS_EN.includes(label)) {
+          continue;
+        }
+
+        expect.soft(strings[key], label).not.toEqual(en);
+      }
+    }
+  });
+
   it('names the slide alike in slide navigation', () => {
     for (const [lang, strings] of byLanguage('CarouselResourceStrings')) {
       // e.g. 'slide' in 'previous slide'

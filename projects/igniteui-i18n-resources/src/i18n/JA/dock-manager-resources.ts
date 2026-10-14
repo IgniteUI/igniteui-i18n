@@ -11,6 +11,6 @@ export const DockManagerResourceStringsJA: IDockManagerResourceStrings = {
   dock_manager_minimize: '最小化',
   dock_manager_more_options: 'その他のオプション',
   dock_manager_more_tabs: 'その他のタブ',
-  dock_manager_panes: 'Panes',
-  dock_manager_documents: 'Documents',
+  dock_manager_panes: 'ペイン',
+  dock_manager_documents: 'ドキュメント',
 } satisfies Required<IDockManagerResourceStrings>;

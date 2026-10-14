@@ -11,6 +11,7 @@ import { CopyToClipboardResourceStringsCS } from './copy-to-clipboard-resources.
 import { DatePickerResourceStringsCS } from './date-picker-resources.js';
 import { DateRangePickerResourceStringsCS } from './date-range-picker-resources.js';
 import { DialogResourceStringsCS } from './dialog-resources.js';
+import { DockManagerResourceStringsCS } from './dock-manager-resources.js';
 import { FileInputResourceStringsCS } from './file-input-resources.js';
 import { GridResourceStringsCS } from './grid-resources.js';
 import { ListResourceStringsCS } from './list-resources.js';
@@ -40,6 +41,7 @@ export const ResourceStringsCS: IResourceStrings = {
   ...DatePickerResourceStringsCS,
   ...DateRangePickerResourceStringsCS,
   ...DialogResourceStringsCS,
+  ...DockManagerResourceStringsCS,
   ...FileInputResourceStringsCS,
   ...GridResourceStringsCS,
   ...ListResourceStringsCS,

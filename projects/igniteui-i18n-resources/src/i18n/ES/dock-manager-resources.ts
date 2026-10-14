@@ -11,6 +11,6 @@ export const DockManagerResourceStringsES: IDockManagerResourceStrings = {
   dock_manager_minimize: 'Minimizar',
   dock_manager_more_options: 'Más opciones',
   dock_manager_more_tabs: 'Más fichas',
-  dock_manager_panes: 'Panes',
-  dock_manager_documents: 'Documents',
+  dock_manager_panes: 'Paneles',
+  dock_manager_documents: 'Documentos',
 } satisfies Required<IDockManagerResourceStrings>;
