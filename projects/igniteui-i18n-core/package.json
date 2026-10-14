@@ -1,7 +1,7 @@
 {
   "name": "igniteui-i18n-core",
   "version": "1.0.0",
-  "description": "IgniteUI for Angular localization resources package",
+  "description": "Ignite UI localization core: locale and resource string management, Intl formatters and English strings",
   "author": "Infragistics",
   "license": "MIT",
   "homepage": "https://github.com/IgniteUI/igniteui-i18n/tree/master/projects/igniteui-i18n-core",

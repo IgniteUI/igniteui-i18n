@@ -1,6 +1,7 @@
 ### Description  
 Describe the issue.
 
+ * package and version: 
  * browser: 
 
 ### Steps to reproduce  

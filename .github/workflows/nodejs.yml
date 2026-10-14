@@ -8,6 +8,15 @@ on:
   pull_request:
     branches: [ master, '[0-9]+.[0-9]+.x' ]
 
+permissions:
+  contents: read
+
+# New pushes to a PR cancel its stale runs. Each branch push gets its own group,
+# since GitHub drops queued runs within a group, and every commit needs CI and coverage.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   run-tests:
 
@@ -27,14 +36,16 @@ jobs:
             cache: 'npm'
       - name: Install packages
         run: npm ci
-      - name: Install Playwright
-        run: npx playwright install --with-deps --only-shell chromium
       - name: Lint
         run: npm run lint
+      - name: Type check
+        run: npm run typecheck
       - name: Build Core & Resources
         run: npm run build
       - name: Check bundle
         run: npm run check:bundle
+      - name: Install Playwright
+        run: npx playwright install --with-deps --only-shell chromium
       - name: Test
         run: npm run test
       - name: Publish to coveralls.io

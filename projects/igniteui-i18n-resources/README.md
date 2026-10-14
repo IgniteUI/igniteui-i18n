@@ -19,6 +19,8 @@ import { ResourceStringsBG, ResourceStringsDE } from 'igniteui-i18n-resources';
 Register the resources you would like to use in the Ignite UI components on the platform you are using:
 
 ```
+import { registerI18n } from 'igniteui-i18n-core';
+
 registerI18n(ResourceStringsBG, 'bg');
 registerI18n(ResourceStringsDE, 'de');
 ```
@@ -26,6 +28,8 @@ registerI18n(ResourceStringsDE, 'de');
 Now changing the global locale for Ignite UI components should use the resources for that locale, if they are registered:
 
 ```
+import { setCurrentI18n } from 'igniteui-i18n-core';
+
 setCurrentI18n('de');
 ```
 
