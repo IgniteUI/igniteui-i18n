@@ -45,16 +45,38 @@ async function buildPackage(name) {
     return true;
 }
 
-async function buildPackages() {
-    // Clear every package first, so a failed build leaves no stale output behind.
+async function cleanPackages() {
     await Promise.all(PACKAGES.map((name) => rm(join(ROOT, 'dist', name), { recursive: true, force: true })));
+}
 
+/** Builds packages in order, stopping at the first failure. @returns Whether all compiled. */
+async function buildAll() {
     for (const name of PACKAGES) {
         if (!(await buildPackage(name))) {
-            process.exitCode = EXIT_FAILURE;
-            return;
+            return false;
         }
     }
+
+    return true;
+}
+
+async function buildPackages() {
+    // Start clean, so no stale output survives.
+    await cleanPackages();
+
+    // Copy failures throw, e.g. a missing README.md.
+    const built = await buildAll().catch((error) => {
+        console.error(error);
+        return false;
+    });
+
+    if (built) {
+        return;
+    }
+
+    // Leave no partial output for tooling to consume, e.g. core without resources.
+    await cleanPackages();
+    process.exitCode = EXIT_FAILURE;
 }
 
 buildPackages();
