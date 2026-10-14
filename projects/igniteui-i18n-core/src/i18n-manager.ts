@@ -253,8 +253,7 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 }
 
 /**
- * Gets in the i18nManager instance.
- * @internal
+ * Gets the i18nManager instance.
  */
 export function getI18nManager(): I18nManager {
   return I18nManager.instance;
