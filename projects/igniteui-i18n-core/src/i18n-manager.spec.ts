@@ -29,7 +29,7 @@ describe('i18n tests', () => {
   });
 
   afterEach(() => {
-    // Cleanup dom, since its the same for all tests
+    // Clean up state shared by all tests.
     document.documentElement.removeAttribute('lang');
     vi.restoreAllMocks();
   });

@@ -8,8 +8,31 @@ export function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof document !== 'undefined';
 }
 
+/** Map that drops its oldest entry once full. Bounds caches keyed by caller input, e.g. tags 'en-x-0', 'en-x-1'. */
+export class BoundedMap<K, V> extends Map<K, V> {
+  private readonly maxSize: number;
+
+  constructor(maxSize: number) {
+    super();
+    this.maxSize = maxSize;
+  }
+
+  public override set(key: K, value: V): this {
+    // Evict the oldest entry. Maps iterate in insertion order.
+    if (this.size >= this.maxSize && !this.has(key)) {
+      const [oldest] = this.keys();
+      this.delete(oldest);
+    }
+
+    return super.set(key, value);
+  }
+}
+
+/** Apps use a handful of tags. */
+const MAX_CANONICAL_LOCALES = 64;
+
 /** Canonical tag per raw tag. `Intl.getCanonicalLocales` is slow and formatters resolve a tag on every call. */
-const canonicalLocales = new Map<string, string>();
+const canonicalLocales = new BoundedMap<string, string>(MAX_CANONICAL_LOCALES);
 
 /**
  * Canonicalizes a BCP 47 language tag, e.g. 'EN-us' -> 'en-US'.
