@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "rootDir": "./src",
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "node",
     "declaration": true,
     "outDir": "../../dist/igniteui-i18n-resources",
     "stripInternal": true,

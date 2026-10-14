@@ -52,7 +52,7 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
     }
 
     let returnDate = new Date(dateValue);
-    if (isNaN(returnDate.getTime())) {
+    if (Number.isNaN(returnDate.getTime())) {
       console.warn(`Invalid date entered: ${value}`);
       returnDate = new Date(value);
     }
