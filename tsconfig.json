@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "rootDir": ".",
     "useDefineForClassFields": true,
     "target": "ES2022",
@@ -22,8 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "paths": {
-      "igniteui-i18n-core": ["projects/igniteui-i18n-core/src/index.ts"],
-      "igniteui-i18n-resources": ["projects/igniteui-i18n-resources/src/index.ts"]
+      "igniteui-i18n-core": ["./projects/igniteui-i18n-core/src/index.ts"],
+      "igniteui-i18n-resources": ["./projects/igniteui-i18n-resources/src/index.ts"]
     }
   }
 }

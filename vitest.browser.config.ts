@@ -1,6 +1,6 @@
-/// <reference types="vitest/config" />
-import { defineConfig, mergeConfig } from 'vite';
-import vitestConfig from './vitest.config';
+import { playwright } from '@vitest/browser-playwright';
+import { defineConfig, mergeConfig } from 'vitest/config';
+import vitestConfig from './vitest.config.js';
 
 export default mergeConfig(
   vitestConfig,
@@ -9,10 +9,9 @@ export default mergeConfig(
       browser: {
         enabled: true,
         headless: true,
-        provider: 'playwright',
+        provider: playwright(),
         testerHtmlPath: './index.html',
         instances: [{ browser: 'chromium' }],
-        isolate: true,
         screenshotFailures: false
       }
     }
