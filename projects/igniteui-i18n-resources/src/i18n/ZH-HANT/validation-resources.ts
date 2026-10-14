@@ -11,7 +11,8 @@ export const ValidationResourceStringsZHHANT: IValidationResourceStrings = {
   max_length_validation_error: '輸入內容不得超過 {0} 個字元',
   email_validation_error: '必須輸入有效的電子郵件地址',
   pattern_validation_error: '輸入的內容不符合要求的格式',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: '必須填寫所有必填位置',
+  url_validation_error: '必須輸入有效的 URL 位址',
+  disabled_date_validation_error: '輸入的值 {0} 位於停用日期範圍內',
+  step_validation_error: '值不符合間隔限制',
+} satisfies Required<IValidationResourceStrings>;

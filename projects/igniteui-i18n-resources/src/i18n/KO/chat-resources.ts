@@ -12,4 +12,8 @@ export const ChatResourceStringsKO: IChatResourceStrings = {
   chat_attachment_label: '첨부 파일',
   chat_attachments_list_label: '첨부 파일 목록',
   chat_message_copied: '메시지가 클립보드에 복사되었습니다',
+  chat_input_label: '채팅 텍스트 입력',
+  chat_attach_files: '파일 첨부',
+  chat_file_input_label: '업로드 버튼',
+  chat_send_message: '메시지 보내기',
 } satisfies Required<IChatResourceStrings>;

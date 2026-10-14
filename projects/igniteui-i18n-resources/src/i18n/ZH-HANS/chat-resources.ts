@@ -12,4 +12,8 @@ export const ChatResourceStringsZHHANS: IChatResourceStrings = {
   chat_attachment_label: '附件',
   chat_attachments_list_label: '附件列表',
   chat_message_copied: '消息已复制到剪贴板',
+  chat_input_label: '聊天文本输入',
+  chat_attach_files: '附加文件',
+  chat_file_input_label: '上传按钮',
+  chat_send_message: '发送消息',
 } satisfies Required<IChatResourceStrings>;

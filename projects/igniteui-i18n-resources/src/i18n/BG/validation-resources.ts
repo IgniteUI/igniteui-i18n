@@ -11,7 +11,8 @@ export const ValidationResourceStringsBG: IValidationResourceStrings = {
   max_length_validation_error: 'Входните данни не трябва да са дълги повече от {0} знака.',
   email_validation_error: 'Трябва да бъде въведен валиден имейл адрес.',
   pattern_validation_error: 'Въведените данни не спазват зададения образец.',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Всички задължителни позиции трябва да бъдат попълнени.',
+  url_validation_error: 'Трябва да бъде въведен валиден URL адрес.',
+  disabled_date_validation_error: 'Въведената стойност {0} е в диапазона на забранените дати.',
+  step_validation_error: 'Стойността не отговаря на ограничението за стъпка',
+} satisfies Required<IValidationResourceStrings>;

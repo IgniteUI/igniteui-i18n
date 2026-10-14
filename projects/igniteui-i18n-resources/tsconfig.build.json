@@ -11,5 +11,6 @@
       "igniteui-i18n-core": ["../../dist/igniteui-i18n-core"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["./src/**/*.spec.ts"]
 }

@@ -9,4 +9,5 @@ export interface IValidationResourceStrings {
   mask_validation_error?: string;
   url_validation_error?: string;
   disabled_date_validation_error?: string;
+  step_validation_error?: string;
 }

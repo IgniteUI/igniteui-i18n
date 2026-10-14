@@ -8,4 +8,5 @@ export const CarouselResourceStringsHU: ICarouselResourceStrings = {
   carousel_slide: 'dia',
   carousel_previous_slide: 'előző dia',
   carousel_next_slide: 'következő dia',
+  carousel_role_description: 'körhinta',
 } satisfies Required<ICarouselResourceStrings>;

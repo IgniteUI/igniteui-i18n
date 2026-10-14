@@ -11,7 +11,8 @@ export const ValidationResourceStringsNB: IValidationResourceStrings = {
   max_length_validation_error: 'Oppføringen må ikke være mer enn {0} tegn(er) lang',
   email_validation_error: 'Du må angi en gyldig e-postadresse',
   pattern_validation_error: 'Oppføringen samsvarer ikke med det nødvendige mønsteret',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Du må fylle ut alle obligatoriske posisjoner',
+  url_validation_error: 'Du må angi en gyldig URL-adresse',
+  disabled_date_validation_error: 'Den angitte verdien {0} er innenfor de deaktiverte datoene',
+  step_validation_error: 'Verdien samsvarer ikke med trinnbegrensningen',
+} satisfies Required<IValidationResourceStrings>;

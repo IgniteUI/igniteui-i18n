@@ -11,7 +11,8 @@ export const ValidationResourceStringsJA: IValidationResourceStrings = {
   max_length_validation_error: '入力の長さは {0} 文字以下である必要があります',
   email_validation_error: '有効なメール アドレスを入力してください',
   pattern_validation_error: '入力が所定のパターンに一致しません',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: '必須の位置をすべて入力してください',
+  url_validation_error: '有効な URL を入力してください',
+  disabled_date_validation_error: '入力された値 {0} は無効な日付の範囲内です',
+  step_validation_error: '値がステップの制約に適合していません',
+} satisfies Required<IValidationResourceStrings>;

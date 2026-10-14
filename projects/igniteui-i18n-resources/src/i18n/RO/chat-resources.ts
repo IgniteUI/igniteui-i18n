@@ -12,4 +12,8 @@ export const ChatResourceStringsRO: IChatResourceStrings = {
   chat_attachment_label: 'Atașament',
   chat_attachments_list_label: 'Atașamente',
   chat_message_copied: 'Mesaj copiat în clipboard',
+  chat_input_label: 'Câmp de text pentru chat',
+  chat_attach_files: 'Atașați fișiere',
+  chat_file_input_label: 'Buton de încărcare',
+  chat_send_message: 'Trimiteți mesajul',
 } satisfies Required<IChatResourceStrings>;

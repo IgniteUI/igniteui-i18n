@@ -5,15 +5,22 @@ import { CalendarResourceStringsBG } from './calendar-resources.js';
 import { CarouselResourceStringsBG } from './carousel-resources.js';
 import { ChatResourceStringsBG } from './chat-resources.js';
 import { ChipResourceStringsBG } from './chip-resources.js';
+import { ColorPickerResourceStringsBG } from './color-picker-resources.js';
 import { ComboResourceStringsBG } from './combo-resources.js';
+import { CopyToClipboardResourceStringsBG } from './copy-to-clipboard-resources.js';
 import { DatePickerResourceStringsBG } from './date-picker-resources.js';
 import { DateRangePickerResourceStringsBG } from './date-range-picker-resources.js';
+import { DialogResourceStringsBG } from './dialog-resources.js';
 import { FileInputResourceStringsBG } from './file-input-resources.js';
 import { GridResourceStringsBG } from './grid-resources.js';
 import { ListResourceStringsBG } from './list-resources.js';
 import { PaginatorResourceStringsBG } from './paginator-resources.js';
 import { QueryBuilderResourceStringsBG } from './query-builder-resources.js';
+import { SpeechToTextResourceStringsBG } from './speech-to-text-resources.js';
+import { SplitterResourceStringsBG } from './splitter-resources.js';
+import { TileResourceStringsBG } from './tile-resources.js';
 import { TimePickerResourceStringsBG } from './time-picker-resources.js';
+import { TooltipResourceStringsBG } from './tooltip-resources.js';
 import { TreeResourceStringsBG } from './tree-resources.js';
 import { ValidationResourceStringsBG } from './validation-resources.js';
 
@@ -27,15 +34,22 @@ export const ResourceStringsBG: IResourceStrings = {
   ...CarouselResourceStringsBG,
   ...ChatResourceStringsBG,
   ...ChipResourceStringsBG,
+  ...ColorPickerResourceStringsBG,
   ...ComboResourceStringsBG,
+  ...CopyToClipboardResourceStringsBG,
   ...DatePickerResourceStringsBG,
   ...DateRangePickerResourceStringsBG,
+  ...DialogResourceStringsBG,
   ...FileInputResourceStringsBG,
   ...GridResourceStringsBG,
   ...ListResourceStringsBG,
   ...PaginatorResourceStringsBG,
   ...QueryBuilderResourceStringsBG,
+  ...SpeechToTextResourceStringsBG,
+  ...SplitterResourceStringsBG,
+  ...TileResourceStringsBG,
   ...TimePickerResourceStringsBG,
+  ...TooltipResourceStringsBG,
   ...TreeResourceStringsBG,
   ...ValidationResourceStringsBG,
 };

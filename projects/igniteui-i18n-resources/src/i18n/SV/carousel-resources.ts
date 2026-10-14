@@ -8,4 +8,5 @@ export const CarouselResourceStringsSV: ICarouselResourceStrings = {
   carousel_slide: 'bild',
   carousel_previous_slide: 'föregående bild',
   carousel_next_slide: 'nästa bild',
+  carousel_role_description: 'karusell',
 } satisfies Required<ICarouselResourceStrings>;

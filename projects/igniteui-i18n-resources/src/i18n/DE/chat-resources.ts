@@ -12,4 +12,8 @@ export const ChatResourceStringsDE: IChatResourceStrings = {
   chat_attachment_label: 'Anhang',
   chat_attachments_list_label: 'Anhänge',
   chat_message_copied: 'Nachricht in die Zwischenablage kopiert',
+  chat_input_label: 'Chat-Texteingabe',
+  chat_attach_files: 'Dateien anhängen',
+  chat_file_input_label: 'Upload-Schaltfläche',
+  chat_send_message: 'Nachricht senden',
 } satisfies Required<IChatResourceStrings>;

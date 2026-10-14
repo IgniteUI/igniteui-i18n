@@ -11,7 +11,8 @@ export const ValidationResourceStringsHU: IValidationResourceStrings = {
   max_length_validation_error: 'A bejegyzés legfeljebb {0} karakter hosszúságú lehet',
   email_validation_error: 'Érvényes e-mail címet kell megadni',
   pattern_validation_error: 'A bejegyzés nem felel meg a szükséges sémának',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Minden kötelező pozíciót ki kell tölteni',
+  url_validation_error: 'Érvényes URL-címet kell megadni',
+  disabled_date_validation_error: 'A megadott {0} érték a letiltott dátumok tartományába esik',
+  step_validation_error: 'Az érték nem felel meg a lépésköz-megkötésnek',
+} satisfies Required<IValidationResourceStrings>;
