@@ -5,10 +5,7 @@ export default defineConfig({
         tsconfigPaths: true
     },
     test: {
-        allowOnly: true,
         environment: 'jsdom',
-        globals: true,
-        includeSource: ['projects/**/*.ts'],
         include: ['projects/**/*.spec.ts'],
         coverage: {
             enabled: true,

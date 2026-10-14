@@ -1,7 +1,7 @@
 {
   "name": "igniteui-i18n-resources",
   "version": "1.0.0",
-  "description": "IgniteUI for Angular localization resources package",
+  "description": "Ignite UI localization resources: translated strings for Ignite UI components",
   "author": "Infragistics",
   "license": "MIT",
   "homepage": "https://github.com/IgniteUI/igniteui-i18n/tree/master/projects/igniteui-i18n-resources",

@@ -3,11 +3,12 @@
     "rootDir": ".",
     "useDefineForClassFields": true,
     "target": "ES2022",
-    "module": "es2022",
+    "module": "esnext",
     "lib": ["ES2022", "DOM"],
     "typeRoots": ["node_modules/@types"],
     "sourceMap": false,
     "declaration": false,
+    "noEmitOnError": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleDetection": "force",
@@ -24,5 +25,6 @@
       "igniteui-i18n-core": ["./projects/igniteui-i18n-core/src/index.ts"],
       "igniteui-i18n-resources": ["./projects/igniteui-i18n-resources/src/index.ts"]
     }
-  }
+  },
+  "exclude": ["dist"]
 }
