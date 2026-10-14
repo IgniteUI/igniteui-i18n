@@ -11,6 +11,7 @@ export type {
   IDatePickerResourceStrings,
   IDateRangePickerResourceStrings,
   IDialogResourceStrings,
+  IDockManagerResourceStrings,
   IFileInputResourceStrings,
   IGridResourceStrings,
   IListResourceStrings,
@@ -38,6 +39,7 @@ export {
   DatePickerResourceStringsEN,
   DateRangePickerResourceStringsEN,
   DialogResourceStringsEN,
+  DockManagerResourceStringsEN,
   FileInputResourceStringsEN,
   GridResourceStringsEN,
   ListResourceStringsEN,
@@ -66,6 +68,7 @@ export * from './i18n/BG/copy-to-clipboard-resources.js';
 export * from './i18n/BG/date-picker-resources.js';
 export * from './i18n/BG/date-range-picker-resources.js';
 export * from './i18n/BG/dialog-resources.js';
+export * from './i18n/BG/dock-manager-resources.js';
 export * from './i18n/BG/file-input-resources.js';
 export * from './i18n/BG/grid-resources.js';
 export * from './i18n/BG/list-resources.js';
@@ -93,6 +96,7 @@ export * from './i18n/CS/copy-to-clipboard-resources.js';
 export * from './i18n/CS/date-picker-resources.js';
 export * from './i18n/CS/date-range-picker-resources.js';
 export * from './i18n/CS/dialog-resources.js';
+export * from './i18n/CS/dock-manager-resources.js';
 export * from './i18n/CS/file-input-resources.js';
 export * from './i18n/CS/grid-resources.js';
 export * from './i18n/CS/list-resources.js';
@@ -120,6 +124,7 @@ export * from './i18n/DA/copy-to-clipboard-resources.js';
 export * from './i18n/DA/date-picker-resources.js';
 export * from './i18n/DA/date-range-picker-resources.js';
 export * from './i18n/DA/dialog-resources.js';
+export * from './i18n/DA/dock-manager-resources.js';
 export * from './i18n/DA/file-input-resources.js';
 export * from './i18n/DA/grid-resources.js';
 export * from './i18n/DA/list-resources.js';
@@ -147,6 +152,7 @@ export * from './i18n/DE/copy-to-clipboard-resources.js';
 export * from './i18n/DE/date-picker-resources.js';
 export * from './i18n/DE/date-range-picker-resources.js';
 export * from './i18n/DE/dialog-resources.js';
+export * from './i18n/DE/dock-manager-resources.js';
 export * from './i18n/DE/file-input-resources.js';
 export * from './i18n/DE/grid-resources.js';
 export * from './i18n/DE/list-resources.js';
@@ -202,6 +208,7 @@ export * from './i18n/FR/copy-to-clipboard-resources.js';
 export * from './i18n/FR/date-picker-resources.js';
 export * from './i18n/FR/date-range-picker-resources.js';
 export * from './i18n/FR/dialog-resources.js';
+export * from './i18n/FR/dock-manager-resources.js';
 export * from './i18n/FR/file-input-resources.js';
 export * from './i18n/FR/grid-resources.js';
 export * from './i18n/FR/list-resources.js';
@@ -229,6 +236,7 @@ export * from './i18n/HU/copy-to-clipboard-resources.js';
 export * from './i18n/HU/date-picker-resources.js';
 export * from './i18n/HU/date-range-picker-resources.js';
 export * from './i18n/HU/dialog-resources.js';
+export * from './i18n/HU/dock-manager-resources.js';
 export * from './i18n/HU/file-input-resources.js';
 export * from './i18n/HU/grid-resources.js';
 export * from './i18n/HU/list-resources.js';
@@ -256,6 +264,7 @@ export * from './i18n/IT/copy-to-clipboard-resources.js';
 export * from './i18n/IT/date-picker-resources.js';
 export * from './i18n/IT/date-range-picker-resources.js';
 export * from './i18n/IT/dialog-resources.js';
+export * from './i18n/IT/dock-manager-resources.js';
 export * from './i18n/IT/file-input-resources.js';
 export * from './i18n/IT/grid-resources.js';
 export * from './i18n/IT/list-resources.js';
@@ -339,6 +348,7 @@ export * from './i18n/NB/copy-to-clipboard-resources.js';
 export * from './i18n/NB/date-picker-resources.js';
 export * from './i18n/NB/date-range-picker-resources.js';
 export * from './i18n/NB/dialog-resources.js';
+export * from './i18n/NB/dock-manager-resources.js';
 export * from './i18n/NB/file-input-resources.js';
 export * from './i18n/NB/grid-resources.js';
 export * from './i18n/NB/list-resources.js';
@@ -366,6 +376,7 @@ export * from './i18n/NL/copy-to-clipboard-resources.js';
 export * from './i18n/NL/date-picker-resources.js';
 export * from './i18n/NL/date-range-picker-resources.js';
 export * from './i18n/NL/dialog-resources.js';
+export * from './i18n/NL/dock-manager-resources.js';
 export * from './i18n/NL/file-input-resources.js';
 export * from './i18n/NL/grid-resources.js';
 export * from './i18n/NL/list-resources.js';
@@ -393,6 +404,7 @@ export * from './i18n/PL/copy-to-clipboard-resources.js';
 export * from './i18n/PL/date-picker-resources.js';
 export * from './i18n/PL/date-range-picker-resources.js';
 export * from './i18n/PL/dialog-resources.js';
+export * from './i18n/PL/dock-manager-resources.js';
 export * from './i18n/PL/file-input-resources.js';
 export * from './i18n/PL/grid-resources.js';
 export * from './i18n/PL/list-resources.js';
@@ -420,6 +432,7 @@ export * from './i18n/PT/copy-to-clipboard-resources.js';
 export * from './i18n/PT/date-picker-resources.js';
 export * from './i18n/PT/date-range-picker-resources.js';
 export * from './i18n/PT/dialog-resources.js';
+export * from './i18n/PT/dock-manager-resources.js';
 export * from './i18n/PT/file-input-resources.js';
 export * from './i18n/PT/grid-resources.js';
 export * from './i18n/PT/list-resources.js';
@@ -447,6 +460,7 @@ export * from './i18n/RO/copy-to-clipboard-resources.js';
 export * from './i18n/RO/date-picker-resources.js';
 export * from './i18n/RO/date-range-picker-resources.js';
 export * from './i18n/RO/dialog-resources.js';
+export * from './i18n/RO/dock-manager-resources.js';
 export * from './i18n/RO/file-input-resources.js';
 export * from './i18n/RO/grid-resources.js';
 export * from './i18n/RO/list-resources.js';
@@ -474,6 +488,7 @@ export * from './i18n/SV/copy-to-clipboard-resources.js';
 export * from './i18n/SV/date-picker-resources.js';
 export * from './i18n/SV/date-range-picker-resources.js';
 export * from './i18n/SV/dialog-resources.js';
+export * from './i18n/SV/dock-manager-resources.js';
 export * from './i18n/SV/file-input-resources.js';
 export * from './i18n/SV/grid-resources.js';
 export * from './i18n/SV/list-resources.js';
@@ -501,6 +516,7 @@ export * from './i18n/TR/copy-to-clipboard-resources.js';
 export * from './i18n/TR/date-picker-resources.js';
 export * from './i18n/TR/date-range-picker-resources.js';
 export * from './i18n/TR/dialog-resources.js';
+export * from './i18n/TR/dock-manager-resources.js';
 export * from './i18n/TR/file-input-resources.js';
 export * from './i18n/TR/grid-resources.js';
 export * from './i18n/TR/list-resources.js';
@@ -528,6 +544,7 @@ export * from './i18n/ZH-HANS/copy-to-clipboard-resources.js';
 export * from './i18n/ZH-HANS/date-picker-resources.js';
 export * from './i18n/ZH-HANS/date-range-picker-resources.js';
 export * from './i18n/ZH-HANS/dialog-resources.js';
+export * from './i18n/ZH-HANS/dock-manager-resources.js';
 export * from './i18n/ZH-HANS/file-input-resources.js';
 export * from './i18n/ZH-HANS/grid-resources.js';
 export * from './i18n/ZH-HANS/list-resources.js';
@@ -555,6 +572,7 @@ export * from './i18n/ZH-HANT/copy-to-clipboard-resources.js';
 export * from './i18n/ZH-HANT/date-picker-resources.js';
 export * from './i18n/ZH-HANT/date-range-picker-resources.js';
 export * from './i18n/ZH-HANT/dialog-resources.js';
+export * from './i18n/ZH-HANT/dock-manager-resources.js';
 export * from './i18n/ZH-HANT/file-input-resources.js';
 export * from './i18n/ZH-HANT/grid-resources.js';
 export * from './i18n/ZH-HANT/list-resources.js';
