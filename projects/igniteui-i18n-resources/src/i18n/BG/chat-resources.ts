@@ -12,4 +12,8 @@ export const ChatResourceStringsBG: IChatResourceStrings = {
   chat_attachment_label: 'Прикачен файл',
   chat_attachments_list_label: 'Прикачени файлове',
   chat_message_copied: 'Съобщението е копирано в клипборда',
+  chat_input_label: 'Текстово поле на чата',
+  chat_attach_files: 'Прикачване на файлове',
+  chat_file_input_label: 'Бутон за качване',
+  chat_send_message: 'Изпращане на съобщение',
 } satisfies Required<IChatResourceStrings>;

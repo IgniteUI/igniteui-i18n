@@ -12,4 +12,8 @@ export const ChatResourceStringsPL: IChatResourceStrings = {
   chat_attachment_label: 'Załącznik',
   chat_attachments_list_label: 'Załączniki',
   chat_message_copied: 'Wiadomość skopiowana do schowka',
+  chat_input_label: 'Pole tekstowe czatu',
+  chat_attach_files: 'Załącz pliki',
+  chat_file_input_label: 'Przycisk przesyłania',
+  chat_send_message: 'Wyślij wiadomość',
 } satisfies Required<IChatResourceStrings>;

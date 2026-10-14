@@ -12,4 +12,8 @@ export const ChatResourceStringsCS: IChatResourceStrings = {
   chat_attachment_label: 'Příloha',
   chat_attachments_list_label: 'Přílohy',
   chat_message_copied: 'Zpráva zkopírována do schránky',
+  chat_input_label: 'Textové pole chatu',
+  chat_attach_files: 'Připojit soubory',
+  chat_file_input_label: 'Tlačítko pro nahrání',
+  chat_send_message: 'Odeslat zprávu',
 } satisfies Required<IChatResourceStrings>;

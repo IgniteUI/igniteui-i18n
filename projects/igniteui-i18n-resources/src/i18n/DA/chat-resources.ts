@@ -12,4 +12,8 @@ export const ChatResourceStringsDA: IChatResourceStrings = {
   chat_attachment_label: 'Vedhæftet fil',
   chat_attachments_list_label: 'Vedhæftede filer',
   chat_message_copied: 'Besked kopieret til udklipsholder',
+  chat_input_label: 'Tekstfelt til chat',
+  chat_attach_files: 'Vedhæft filer',
+  chat_file_input_label: 'Upload-knap',
+  chat_send_message: 'Send besked',
 } satisfies Required<IChatResourceStrings>;

@@ -8,4 +8,5 @@ export const CarouselResourceStringsZHHANS: ICarouselResourceStrings = {
   carousel_slide: '幻灯片',
   carousel_previous_slide: '上一张幻灯片',
   carousel_next_slide: '下一张幻灯片',
+  carousel_role_description: '轮播',
 } satisfies Required<ICarouselResourceStrings>;

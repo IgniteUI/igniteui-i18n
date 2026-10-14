@@ -11,7 +11,8 @@ export const ValidationResourceStringsSV: IValidationResourceStrings = {
   max_length_validation_error: 'Inmatningen får inte vara längre än {0} tecken',
   email_validation_error: 'En giltig e-postadress borde anges',
   pattern_validation_error: 'Inmatningen matchar inte det önskade mönstret',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Alla obligatoriska positioner borde fyllas i',
+  url_validation_error: 'En giltig URL-adress borde anges',
+  disabled_date_validation_error: 'Det angivna värdet {0} ligger inom intervallet för inaktiverade datum',
+  step_validation_error: 'Värdet följer inte stegbegränsningen',
+} satisfies Required<IValidationResourceStrings>;

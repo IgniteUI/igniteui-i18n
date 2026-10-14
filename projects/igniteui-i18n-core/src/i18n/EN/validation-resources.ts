@@ -14,4 +14,5 @@ export const ValidationResourceStringsEN: IValidationResourceStrings = {
   mask_validation_error: 'All required positions should be filled',
   url_validation_error: 'A valid url address should be entered',
   disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
+  step_validation_error: 'Value does not conform to step constraint',
 } satisfies Required<IValidationResourceStrings>;

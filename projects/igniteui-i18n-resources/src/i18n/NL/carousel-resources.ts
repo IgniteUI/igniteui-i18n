@@ -8,4 +8,5 @@ export const CarouselResourceStringsNL: ICarouselResourceStrings = {
   carousel_slide: 'dia',
   carousel_previous_slide: 'vorige dia',
   carousel_next_slide: 'volgende dia',
+  carousel_role_description: 'carrousel',
 } satisfies Required<ICarouselResourceStrings>;

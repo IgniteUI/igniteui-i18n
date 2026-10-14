@@ -12,4 +12,8 @@ export const ChatResourceStringsNL: IChatResourceStrings = {
   chat_attachment_label: 'Bijlage',
   chat_attachments_list_label: 'Bijlagen',
   chat_message_copied: 'Bericht gekopieerd naar klembord',
+  chat_input_label: 'Tekstinvoer van chat',
+  chat_attach_files: 'Bestanden bijvoegen',
+  chat_file_input_label: 'Uploadknop',
+  chat_send_message: 'Bericht verzenden',
 } satisfies Required<IChatResourceStrings>;

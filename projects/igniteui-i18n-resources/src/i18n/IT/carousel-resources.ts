@@ -8,4 +8,5 @@ export const CarouselResourceStringsIT: ICarouselResourceStrings = {
   carousel_slide: 'diapositiva',
   carousel_previous_slide: 'diapositiva precedente',
   carousel_next_slide: 'diapositiva successiva',
+  carousel_role_description: 'carosello',
 } satisfies Required<ICarouselResourceStrings>;

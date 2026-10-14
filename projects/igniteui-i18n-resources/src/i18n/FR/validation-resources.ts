@@ -11,7 +11,8 @@ export const ValidationResourceStringsFR: IValidationResourceStrings = {
   max_length_validation_error: 'Veuillez sélectionner au maximum {0} caractères',
   email_validation_error: 'Une adresse e-mail valide doit être saisie',
   pattern_validation_error: 'La valeur entrée ne correspond pas au schéma requis',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Toutes les positions requises doivent être remplies',
+  url_validation_error: 'Une adresse URL valide doit être saisie',
+  disabled_date_validation_error: 'La valeur saisie {0} se trouve dans la plage de dates désactivées',
+  step_validation_error: 'La valeur ne respecte pas la contrainte de pas',
+} satisfies Required<IValidationResourceStrings>;

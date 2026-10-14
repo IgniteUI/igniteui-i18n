@@ -11,7 +11,8 @@ export const ValidationResourceStringsCS: IValidationResourceStrings = {
   max_length_validation_error: 'Záznam by neměl mít více než {0} znaků',
   email_validation_error: 'Je třeba zadat platnou e-mailovou adresu',
   pattern_validation_error: 'Položka neodpovídá požadovanému vzoru',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Je třeba vyplnit všechny povinné pozice',
+  url_validation_error: 'Je třeba zadat platnou adresu URL',
+  disabled_date_validation_error: 'Zadaná hodnota {0} spadá do rozsahu zakázaných dat',
+  step_validation_error: 'Hodnota neodpovídá omezení kroku',
+} satisfies Required<IValidationResourceStrings>;

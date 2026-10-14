@@ -11,7 +11,8 @@ export const ValidationResourceStringsRO: IValidationResourceStrings = {
   max_length_validation_error: 'Intrarea nu trebuie să aibă mai mult de {0} caractere',
   email_validation_error: 'Ar trebui introdusă o adresă de e-mail validă',
   pattern_validation_error: 'Intrarea nu se potrivește cu modelul cerut',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Ar trebui completate toate pozițiile obligatorii',
+  url_validation_error: 'Ar trebui introdusă o adresă URL validă',
+  disabled_date_validation_error: 'Valoarea introdusă {0} se află în intervalul de date dezactivate',
+  step_validation_error: 'Valoarea nu respectă constrângerea de pas',
+} satisfies Required<IValidationResourceStrings>;

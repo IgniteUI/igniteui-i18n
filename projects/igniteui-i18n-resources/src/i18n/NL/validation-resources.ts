@@ -11,7 +11,8 @@ export const ValidationResourceStringsNL: IValidationResourceStrings = {
   max_length_validation_error: 'Invoer mag niet meer dan {0} teken(s) lang zijn',
   email_validation_error: 'Er moet een geldig e-mailadres worden ingevoerd',
   pattern_validation_error: 'Invoer komt niet overeen met het vereiste patroon',
-  mask_validation_error: 'All required positions should be filled',
-  url_validation_error: 'A valid url address should be entered',
-  disabled_date_validation_error: 'The entered value {0} is within the disabled dates range',
-};
+  mask_validation_error: 'Alle vereiste posities moeten worden ingevuld',
+  url_validation_error: 'Er moet een geldig URL-adres worden ingevoerd',
+  disabled_date_validation_error: 'De ingevoerde waarde {0} valt binnen het bereik van uitgeschakelde datums',
+  step_validation_error: 'De waarde voldoet niet aan de stapbeperking',
+} satisfies Required<IValidationResourceStrings>;

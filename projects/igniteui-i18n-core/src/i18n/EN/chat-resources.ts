@@ -12,4 +12,8 @@ export const ChatResourceStringsEN: IChatResourceStrings = {
   chat_attachment_label: 'Attachment',
   chat_attachments_list_label: 'Attachments',
   chat_message_copied: 'Message copied to clipboard',
+  chat_input_label: 'Chat text input',
+  chat_attach_files: 'Attach files',
+  chat_file_input_label: 'Upload button',
+  chat_send_message: 'Send message',
 } satisfies Required<IChatResourceStrings>;

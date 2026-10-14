@@ -98,8 +98,8 @@
       "default": "./i18n/ZH-HANS/index.js"
     },
     "./zh-Hant": {
-      "types": "./i18n/ZH_HANT/index.d.ts",
-      "default": "./i18n/ZH_HANT/index.js"
+      "types": "./i18n/ZH-HANT/index.d.ts",
+      "default": "./i18n/ZH-HANT/index.js"
     }
   },
   "dependencies": {

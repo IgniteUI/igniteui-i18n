@@ -12,4 +12,8 @@ export const ChatResourceStringsTR: IChatResourceStrings = {
   chat_attachment_label: 'Ek',
   chat_attachments_list_label: 'Ekler',
   chat_message_copied: 'Mesaj panoya kopyalandı',
+  chat_input_label: 'Sohbet metin girişi',
+  chat_attach_files: 'Dosya ekle',
+  chat_file_input_label: 'Yükleme düğmesi',
+  chat_send_message: 'Mesaj gönder',
 } satisfies Required<IChatResourceStrings>;

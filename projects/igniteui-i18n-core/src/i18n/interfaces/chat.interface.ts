@@ -7,4 +7,8 @@ export interface IChatResourceStrings {
   chat_attachment_label?: string;
   chat_attachments_list_label?: string;
   chat_message_copied?: string;
+  chat_input_label?: string;
+  chat_attach_files?: string;
+  chat_file_input_label?: string;
+  chat_send_message?: string;
 }

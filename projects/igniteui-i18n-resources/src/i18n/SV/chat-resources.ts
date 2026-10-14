@@ -12,4 +12,8 @@ export const ChatResourceStringsSV: IChatResourceStrings = {
   chat_attachment_label: 'Bilaga',
   chat_attachments_list_label: 'Bilagor',
   chat_message_copied: 'Meddelande kopierat till urklipp',
+  chat_input_label: 'Textinmatning för chatt',
+  chat_attach_files: 'Bifoga filer',
+  chat_file_input_label: 'Uppladdningsknapp',
+  chat_send_message: 'Skicka meddelande',
 } satisfies Required<IChatResourceStrings>;

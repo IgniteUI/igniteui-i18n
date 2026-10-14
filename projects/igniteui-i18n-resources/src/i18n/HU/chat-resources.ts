@@ -12,4 +12,8 @@ export const ChatResourceStringsHU: IChatResourceStrings = {
   chat_attachment_label: 'Melléklet',
   chat_attachments_list_label: 'Mellékletek',
   chat_message_copied: 'Üzenet vágólapra másolva',
+  chat_input_label: 'Csevegés szövegmezője',
+  chat_attach_files: 'Fájlok csatolása',
+  chat_file_input_label: 'Feltöltés gomb',
+  chat_send_message: 'Üzenet küldése',
 } satisfies Required<IChatResourceStrings>;

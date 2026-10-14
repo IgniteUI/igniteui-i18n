@@ -8,4 +8,5 @@ export const CarouselResourceStringsTR: ICarouselResourceStrings = {
   carousel_slide: 'slayt',
   carousel_previous_slide: 'önceki slayt',
   carousel_next_slide: 'sonraki slayt',
+  carousel_role_description: 'karusel',
 } satisfies Required<ICarouselResourceStrings>;
