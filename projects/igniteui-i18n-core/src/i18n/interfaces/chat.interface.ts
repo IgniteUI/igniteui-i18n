@@ -11,4 +11,5 @@ export interface IChatResourceStrings {
   chat_attach_files?: string;
   chat_file_input_label?: string;
   chat_send_message?: string;
+  chat_remove_attachment?: string;
 }

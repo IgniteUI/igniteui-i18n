@@ -50,6 +50,13 @@ describe('igniteui-i18n-resources', () => {
     }
   });
 
+  it('keeps the file name placeholder in chat_remove_attachment', () => {
+    for (const [lang, strings] of byLanguage('ChatResourceStrings')) {
+      // e.g. 'Remove {0}' becomes 'Remove photo.png'
+      expect.soft(strings.chat_remove_attachment, lang).toContain('{0}');
+    }
+  });
+
   it('names the slide alike in slide navigation', () => {
     for (const [lang, strings] of byLanguage('CarouselResourceStrings')) {
       // e.g. 'slide' in 'previous slide'

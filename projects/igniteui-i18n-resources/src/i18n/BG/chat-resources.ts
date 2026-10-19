@@ -16,4 +16,5 @@ export const ChatResourceStringsBG: IChatResourceStrings = {
   chat_attach_files: 'Прикачване на файлове',
   chat_file_input_label: 'Бутон за качване',
   chat_send_message: 'Изпращане на съобщение',
+  chat_remove_attachment: 'Премахване на {0}',
 } satisfies Required<IChatResourceStrings>;

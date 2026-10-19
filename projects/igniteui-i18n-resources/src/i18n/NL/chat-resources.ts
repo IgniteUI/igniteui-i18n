@@ -16,4 +16,5 @@ export const ChatResourceStringsNL: IChatResourceStrings = {
   chat_attach_files: 'Bestanden bijvoegen',
   chat_file_input_label: 'Uploadknop',
   chat_send_message: 'Bericht verzenden',
+  chat_remove_attachment: '{0} verwijderen',
 } satisfies Required<IChatResourceStrings>;

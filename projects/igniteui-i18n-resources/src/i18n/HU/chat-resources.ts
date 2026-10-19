@@ -16,4 +16,5 @@ export const ChatResourceStringsHU: IChatResourceStrings = {
   chat_attach_files: 'Fájlok csatolása',
   chat_file_input_label: 'Feltöltés gomb',
   chat_send_message: 'Üzenet küldése',
+  chat_remove_attachment: '{0} eltávolítása',
 } satisfies Required<IChatResourceStrings>;

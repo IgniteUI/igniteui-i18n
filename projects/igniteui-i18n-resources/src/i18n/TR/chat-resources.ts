@@ -16,4 +16,5 @@ export const ChatResourceStringsTR: IChatResourceStrings = {
   chat_attach_files: 'Dosya ekle',
   chat_file_input_label: 'Yükleme düğmesi',
   chat_send_message: 'Mesaj gönder',
+  chat_remove_attachment: '{0} öğesini kaldır',
 } satisfies Required<IChatResourceStrings>;

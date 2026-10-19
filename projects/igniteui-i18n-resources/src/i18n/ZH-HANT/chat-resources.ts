@@ -16,4 +16,5 @@ export const ChatResourceStringsZHHANT: IChatResourceStrings = {
   chat_attach_files: '附加檔案',
   chat_file_input_label: '上傳按鈕',
   chat_send_message: '傳送訊息',
+  chat_remove_attachment: '移除{0}',
 } satisfies Required<IChatResourceStrings>;
