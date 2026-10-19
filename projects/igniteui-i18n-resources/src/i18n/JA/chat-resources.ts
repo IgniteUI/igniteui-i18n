@@ -16,4 +16,5 @@ export const ChatResourceStringsJA: IChatResourceStrings = {
   chat_attach_files: 'ファイルを添付',
   chat_file_input_label: 'アップロードボタン',
   chat_send_message: 'メッセージを送信',
+  chat_remove_attachment: '{0}を削除',
 } satisfies Required<IChatResourceStrings>;

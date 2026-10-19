@@ -16,4 +16,5 @@ export const ChatResourceStringsKO: IChatResourceStrings = {
   chat_attach_files: '파일 첨부',
   chat_file_input_label: '업로드 버튼',
   chat_send_message: '메시지 보내기',
+  chat_remove_attachment: '{0} 제거',
 } satisfies Required<IChatResourceStrings>;
