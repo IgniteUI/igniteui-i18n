@@ -111,7 +111,10 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
       Object.entries(resources).some(([key, value]) => value !== currentResources[key as keyof IResourceStrings]);
 
     // Fill out empty resources with available default language on register, so we don't have to fill them every time they are retrieved.
-    const mergedResources = { ...(currentResources ?? this.getDefaultResources()), ...resources };
+    // Unchanged resources keep their object, so a new identity always means new strings.
+    const mergedResources = changed
+      ? { ...(currentResources ?? this.getDefaultResources()), ...resources }
+      : currentResources;
     this.setResourcesPerLocale(localeObj, mergedResources);
 
     if (!changed) {
@@ -146,12 +149,13 @@ export class I18nManager extends I18nManagerEventTarget implements IIgI18nManage
 
     const oldLocale = this.currentLocale;
     this._currentLocale = newLocale;
-    this.triggerResourceChange(oldLocale, newLocale);
 
-    // Update formatters with latest locale.
+    // Update formatters with latest locale, before listeners use them.
     for (const formatter of this._formatters.values()) {
       formatter.onLocaleChange(newLocale);
     }
+
+    this.triggerResourceChange(oldLocale, newLocale);
   }
 
   /**
