@@ -96,6 +96,18 @@ describe('i18n tests', () => {
       // Restore the shared manager for the next tests.
       setCurrentI18n('en-US');
     });
+
+    it('should apply setCurrentI18n to the formatters before the change event', () => {
+      const formatter = manager.getFormatter((locale) => new NumberFormatter(locale));
+      let formatterLocale: string | undefined;
+      manager.addEventListener('onResourceChange', () => {
+        formatterLocale = formatter.getIntlFormatter().resolvedOptions().locale;
+      });
+
+      manager.setCurrentI18n('de');
+
+      expect(formatterLocale).equals('de');
+    });
   });
 
   describe('base', () => {
@@ -120,6 +132,15 @@ describe('i18n tests', () => {
       expect(manager.currentLocale).equals('en-US');
       expect(Object.keys(resources).length).equals(1);
       expect(resources.action_strip_button_more_title).equals('More');
+    });
+
+    it('should keep the stored resources when a registration changes nothing', () => {
+      manager.registerI18n(ActionStripResourceStringsEN, manager.defaultLocale);
+      const stored = manager.getCurrentResourceStrings();
+
+      manager.registerI18n(ActionStripResourceStringsEN, manager.defaultLocale);
+
+      expect(manager.getCurrentResourceStrings()).equals(stored);
     });
 
     it('should register resources for an invalid locale to the default locale', () => {
