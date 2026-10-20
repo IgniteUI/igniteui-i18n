@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsJA: IColorPickerResourceStrings = {
   color_picker_eye_dropper: '画面から色を選択',
   color_picker_canvas_label: '彩度と明度',
   color_picker_canvas_value: '彩度 {0}%、明度 {1}%',
+  color_picker_value: '色の値',
 } satisfies Required<IColorPickerResourceStrings>;

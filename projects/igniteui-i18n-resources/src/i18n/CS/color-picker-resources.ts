@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsCS: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Vybrat barvu z obrazovky',
   color_picker_canvas_label: 'Sytost a jas',
   color_picker_canvas_value: 'Sytost {0} %, jas {1} %',
+  color_picker_value: 'Hodnota barvy',
 } satisfies Required<IColorPickerResourceStrings>;

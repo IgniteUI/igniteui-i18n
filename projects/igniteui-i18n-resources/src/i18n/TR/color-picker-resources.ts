@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsTR: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Ekrandan renk seç',
   color_picker_canvas_label: 'Doygunluk ve değer',
   color_picker_canvas_value: 'Doygunluk %{0}, parlaklık %{1}',
+  color_picker_value: 'Renk değeri',
 } satisfies Required<IColorPickerResourceStrings>;

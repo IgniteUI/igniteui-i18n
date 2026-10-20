@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsDA: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Vælg en farve fra skærmen',
   color_picker_canvas_label: 'Mætning og værdi',
   color_picker_canvas_value: 'Mætning {0} %, lysstyrke {1} %',
+  color_picker_value: 'Farveværdi',
 } satisfies Required<IColorPickerResourceStrings>;
