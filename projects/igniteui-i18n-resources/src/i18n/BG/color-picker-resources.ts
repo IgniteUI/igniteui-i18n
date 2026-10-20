@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsBG: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Избор на цвят от екрана',
   color_picker_canvas_label: 'Наситеност и стойност',
   color_picker_canvas_value: 'Наситеност {0}%, яркост {1}%',
+  color_picker_value: 'Стойност на цвета',
 } satisfies Required<IColorPickerResourceStrings>;

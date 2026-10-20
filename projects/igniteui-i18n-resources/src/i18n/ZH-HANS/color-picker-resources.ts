@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsZHHANS: IColorPickerResourceStrings = {
   color_picker_eye_dropper: '从屏幕上拾取颜色',
   color_picker_canvas_label: '饱和度和明度',
   color_picker_canvas_value: '饱和度 {0}%，亮度 {1}%',
+  color_picker_value: '颜色值',
 } satisfies Required<IColorPickerResourceStrings>;

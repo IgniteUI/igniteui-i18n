@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsKO: IColorPickerResourceStrings = {
   color_picker_eye_dropper: '화면에서 색 선택',
   color_picker_canvas_label: '채도 및 명도',
   color_picker_canvas_value: '채도 {0}%, 명도 {1}%',
+  color_picker_value: '색 값',
 } satisfies Required<IColorPickerResourceStrings>;

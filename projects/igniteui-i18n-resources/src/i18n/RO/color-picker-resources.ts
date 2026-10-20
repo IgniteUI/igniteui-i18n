@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsRO: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Alegeți o culoare de pe ecran',
   color_picker_canvas_label: 'Saturație și valoare',
   color_picker_canvas_value: 'Saturație {0} %, luminozitate {1} %',
+  color_picker_value: 'Valoarea culorii',
 } satisfies Required<IColorPickerResourceStrings>;

@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsNL: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Een kleur op het scherm kiezen',
   color_picker_canvas_label: 'Verzadiging en waarde',
   color_picker_canvas_value: 'Verzadiging {0}%, helderheid {1}%',
+  color_picker_value: 'Kleurwaarde',
 } satisfies Required<IColorPickerResourceStrings>;

@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsIT: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Seleziona un colore dallo schermo',
   color_picker_canvas_label: 'Saturazione e valore',
   color_picker_canvas_value: 'Saturazione {0}%, luminosità {1}%',
+  color_picker_value: 'Valore del colore',
 } satisfies Required<IColorPickerResourceStrings>;

@@ -14,4 +14,5 @@ export const ColorPickerResourceStringsHU: IColorPickerResourceStrings = {
   color_picker_eye_dropper: 'Szín kiválasztása a képernyőről',
   color_picker_canvas_label: 'Telítettség és érték',
   color_picker_canvas_value: 'Telítettség {0}%, fényerő {1}%',
+  color_picker_value: 'Színérték',
 } satisfies Required<IColorPickerResourceStrings>;

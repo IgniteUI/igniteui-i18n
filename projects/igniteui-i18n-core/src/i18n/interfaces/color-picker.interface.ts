@@ -9,4 +9,5 @@ export interface IColorPickerResourceStrings {
   color_picker_eye_dropper?: string;
   color_picker_canvas_label?: string;
   color_picker_canvas_value?: string;
+  color_picker_value?: string;
 }
