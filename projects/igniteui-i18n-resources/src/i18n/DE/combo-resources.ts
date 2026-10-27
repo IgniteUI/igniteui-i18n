@@ -10,4 +10,6 @@ export const ComboResourceStringsDE: IComboResourceStrings = {
   combo_clearItems_placeholder: 'Auswahl löschen',
   combo_aria_label_options: 'Ausgewählte Optionen',
   combo_aria_label_no_options: 'Keine Optionen ausgewählt',
+  combo_select_all: 'Alle auswählen',
+  combo_loading: 'Wird geladen',
 } satisfies Required<IComboResourceStrings>;

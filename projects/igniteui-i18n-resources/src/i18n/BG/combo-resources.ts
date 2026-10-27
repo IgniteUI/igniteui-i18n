@@ -10,4 +10,6 @@ export const ComboResourceStringsBG: IComboResourceStrings = {
   combo_clearItems_placeholder: 'Изчистване на избора',
   combo_aria_label_options: 'Има избрани опции',
   combo_aria_label_no_options: 'Няма избрани опции',
+  combo_select_all: 'Избери всички',
+  combo_loading: 'Зареждане',
 } satisfies Required<IComboResourceStrings>;
