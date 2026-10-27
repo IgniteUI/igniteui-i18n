@@ -10,4 +10,6 @@ export const ComboResourceStringsNB: IComboResourceStrings = {
   combo_clearItems_placeholder: 'Fjern valg',
   combo_aria_label_options: 'Valgte alternativer',
   combo_aria_label_no_options: 'Ingen valgte alternativer',
+  combo_select_all: 'Velg alle',
+  combo_loading: 'Laster inn',
 } satisfies Required<IComboResourceStrings>;

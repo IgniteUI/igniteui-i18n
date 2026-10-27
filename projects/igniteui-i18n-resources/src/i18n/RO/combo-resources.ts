@@ -10,4 +10,6 @@ export const ComboResourceStringsRO: IComboResourceStrings = {
   combo_clearItems_placeholder: 'Ștergeți selecția',
   combo_aria_label_options: 'Opțiuni selectate',
   combo_aria_label_no_options: 'Nicio opțiune selectată',
+  combo_select_all: 'Selectați tot',
+  combo_loading: 'Se încarcă',
 } satisfies Required<IComboResourceStrings>;
