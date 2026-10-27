@@ -10,4 +10,6 @@ export const ComboResourceStringsDA: IComboResourceStrings = {
   combo_clearItems_placeholder: 'Ryd markering',
   combo_aria_label_options: 'Valgte muligheder',
   combo_aria_label_no_options: 'Ingen valgte muligheder',
+  combo_select_all: 'Vælg alle',
+  combo_loading: 'Indlæser',
 } satisfies Required<IComboResourceStrings>;

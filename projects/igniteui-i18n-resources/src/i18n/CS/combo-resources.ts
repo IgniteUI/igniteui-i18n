@@ -10,4 +10,6 @@ export const ComboResourceStringsCS: IComboResourceStrings = {
   combo_clearItems_placeholder: 'Vymazat výběr',
   combo_aria_label_options: 'Vybrané možnosti',
   combo_aria_label_no_options: 'Žádné možnosti nejsou vybrány',
+  combo_select_all: 'Vybrat vše',
+  combo_loading: 'Načítání',
 } satisfies Required<IComboResourceStrings>;
