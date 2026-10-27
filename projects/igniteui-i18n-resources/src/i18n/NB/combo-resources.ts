@@ -12,4 +12,6 @@ export const ComboResourceStringsNB: IComboResourceStrings = {
   combo_aria_label_no_options: 'Ingen valgte alternativer',
   combo_select_all: 'Velg alle',
   combo_loading: 'Laster inn',
+  combo_apply: 'Bruk',
+  combo_cancel: 'Avbryt',
 } satisfies Required<IComboResourceStrings>;

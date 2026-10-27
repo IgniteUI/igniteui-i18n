@@ -12,4 +12,6 @@ export const ComboResourceStringsSV: IComboResourceStrings = {
   combo_aria_label_no_options: 'Inga valda alternativ',
   combo_select_all: 'Välj alla',
   combo_loading: 'Laddar',
+  combo_apply: 'Tillämpa',
+  combo_cancel: 'Avbryt',
 } satisfies Required<IComboResourceStrings>;

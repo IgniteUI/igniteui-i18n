@@ -12,4 +12,6 @@ export const ComboResourceStringsRO: IComboResourceStrings = {
   combo_aria_label_no_options: 'Nicio opțiune selectată',
   combo_select_all: 'Selectați tot',
   combo_loading: 'Se încarcă',
+  combo_apply: 'Aplicare',
+  combo_cancel: 'Anulare',
 } satisfies Required<IComboResourceStrings>;
