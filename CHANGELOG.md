@@ -16,7 +16,7 @@ This file uses the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) form
 - Chat: `chat_input_label`, `chat_attach_files`, `chat_file_input_label`, `chat_send_message` and `chat_remove_attachment`. In `chat_remove_attachment`, `{0}` is the file name, for example `Remove photo.png`.
 - Carousel: `carousel_role_description`.
 - Validation: `step_validation_error`.
-- Combo: `combo_select_all` and `combo_loading`.
+- Combo: `combo_select_all`, `combo_loading`, `combo_apply` and `combo_cancel`.
 - Dock manager strings in 16 more languages. Before, only Spanish, Japanese and Korean had them.
 - The core English entry and the resources root export the dock manager strings.
 

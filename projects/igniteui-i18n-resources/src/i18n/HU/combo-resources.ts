@@ -12,4 +12,6 @@ export const ComboResourceStringsHU: IComboResourceStrings = {
   combo_aria_label_no_options: 'Nincsenek kiválasztott lehetőségek',
   combo_select_all: 'Az összes kiválasztása',
   combo_loading: 'Betöltés',
+  combo_apply: 'Alkalmaz',
+  combo_cancel: 'Mégse',
 } satisfies Required<IComboResourceStrings>;

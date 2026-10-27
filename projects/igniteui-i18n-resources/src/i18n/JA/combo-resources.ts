@@ -12,4 +12,6 @@ export const ComboResourceStringsJA: IComboResourceStrings = {
   combo_aria_label_no_options: '選択されたオプションはありません',
   combo_select_all: 'すべて選択',
   combo_loading: '読み込み中',
+  combo_apply: '適用',
+  combo_cancel: 'キャンセル',
 } satisfies Required<IComboResourceStrings>;

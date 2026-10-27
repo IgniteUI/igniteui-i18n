@@ -12,4 +12,6 @@ export const ComboResourceStringsCS: IComboResourceStrings = {
   combo_aria_label_no_options: 'Žádné možnosti nejsou vybrány',
   combo_select_all: 'Vybrat vše',
   combo_loading: 'Načítání',
+  combo_apply: 'Použít',
+  combo_cancel: 'Storno',
 } satisfies Required<IComboResourceStrings>;

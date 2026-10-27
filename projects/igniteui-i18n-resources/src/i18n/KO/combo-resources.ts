@@ -12,4 +12,6 @@ export const ComboResourceStringsKO: IComboResourceStrings = {
   combo_aria_label_no_options: '선택된 옵션 없음',
   combo_select_all: '모두 선택',
   combo_loading: '로드 중',
+  combo_apply: '적용',
+  combo_cancel: '취소',
 } satisfies Required<IComboResourceStrings>;

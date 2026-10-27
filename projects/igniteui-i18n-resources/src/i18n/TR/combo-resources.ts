@@ -12,4 +12,6 @@ export const ComboResourceStringsTR: IComboResourceStrings = {
   combo_aria_label_no_options: 'Seçilen seçenek yok',
   combo_select_all: 'Tümünü seç',
   combo_loading: 'Yükleniyor',
+  combo_apply: 'Uygula',
+  combo_cancel: 'İptal',
 } satisfies Required<IComboResourceStrings>;

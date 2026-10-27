@@ -12,4 +12,6 @@ export const ComboResourceStringsIT: IComboResourceStrings = {
   combo_aria_label_no_options: 'Nessuna opzione selezionata',
   combo_select_all: 'Seleziona tutto',
   combo_loading: 'Caricamento',
+  combo_apply: 'Applica',
+  combo_cancel: 'Annulla',
 } satisfies Required<IComboResourceStrings>;

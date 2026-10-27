@@ -7,4 +7,6 @@ export interface IComboResourceStrings {
   combo_aria_label_no_options?: string;
   combo_select_all?: string;
   combo_loading?: string;
+  combo_apply?: string;
+  combo_cancel?: string;
 }

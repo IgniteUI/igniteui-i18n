@@ -12,4 +12,6 @@ export const ComboResourceStringsDA: IComboResourceStrings = {
   combo_aria_label_no_options: 'Ingen valgte muligheder',
   combo_select_all: 'Vælg alle',
   combo_loading: 'Indlæser',
+  combo_apply: 'Anvend',
+  combo_cancel: 'Annuller',
 } satisfies Required<IComboResourceStrings>;

@@ -12,4 +12,6 @@ export const ComboResourceStringsBG: IComboResourceStrings = {
   combo_aria_label_no_options: 'Няма избрани опции',
   combo_select_all: 'Избери всички',
   combo_loading: 'Зареждане',
+  combo_apply: 'Приложи',
+  combo_cancel: 'Отказ',
 } satisfies Required<IComboResourceStrings>;

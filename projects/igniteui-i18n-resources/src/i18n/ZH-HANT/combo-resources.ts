@@ -12,4 +12,6 @@ export const ComboResourceStringsZHHANT: IComboResourceStrings = {
   combo_aria_label_no_options: '沒有已選擇的選項',
   combo_select_all: '全選',
   combo_loading: '正在載入',
+  combo_apply: '套用',
+  combo_cancel: '取消',
 } satisfies Required<IComboResourceStrings>;
