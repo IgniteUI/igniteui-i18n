@@ -4,7 +4,7 @@ This file records all notable changes to `igniteui-i18n-core` and `igniteui-i18n
 
 This file uses the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format. The versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.0] - 2026-06-14
 
 ### Removed
 
