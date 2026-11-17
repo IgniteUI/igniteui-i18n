@@ -4,6 +4,12 @@ This file records all notable changes to `igniteui-i18n-core` and `igniteui-i18n
 
 This file uses the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format. The versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Date range picker: `date_range_picker_today`, `date_range_picker_yesterday`, `date_range_picker_lastWeek`, `date_range_picker_lastMonth`, `date_range_picker_currentQuarter`, `date_range_picker_lastQuarter`, `date_range_picker_quarterToDate`, `date_range_picker_currentYear` and `date_range_picker_lastYear`, the labels of new built-in range chips.
+
 ## [2.0.0] - 2026-06-14
 
 ### Removed

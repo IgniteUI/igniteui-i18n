@@ -11,4 +11,13 @@ export const DateRangePickerResourceStringsNB: IDateRangePickerResourceStrings =
   date_range_picker_currentMonth: 'Denne måneden',
   date_range_picker_last30Days: 'Siste 30 dager',
   date_range_picker_yearToDate: 'Året til dato',
+  date_range_picker_today: 'I dag',
+  date_range_picker_yesterday: 'I går',
+  date_range_picker_lastWeek: 'Forrige uke',
+  date_range_picker_lastMonth: 'Forrige måned',
+  date_range_picker_currentQuarter: 'Dette kvartalet',
+  date_range_picker_lastQuarter: 'Forrige kvartal',
+  date_range_picker_quarterToDate: 'Kvartalet til dato',
+  date_range_picker_currentYear: 'Dette året',
+  date_range_picker_lastYear: 'Forrige år',
 } satisfies Required<IDateRangePickerResourceStrings>;
