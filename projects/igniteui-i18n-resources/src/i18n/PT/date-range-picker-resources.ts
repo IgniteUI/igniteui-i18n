@@ -11,4 +11,13 @@ export const DateRangePickerResourceStringsPT: IDateRangePickerResourceStrings =
   date_range_picker_currentMonth: 'Mês atual',
   date_range_picker_last30Days: 'Últimos 30 dias',
   date_range_picker_yearToDate: 'Ano até hoje',
+  date_range_picker_today: 'Hoje',
+  date_range_picker_yesterday: 'Ontem',
+  date_range_picker_lastWeek: 'Semana passada',
+  date_range_picker_lastMonth: 'Mês passado',
+  date_range_picker_currentQuarter: 'Trimestre atual',
+  date_range_picker_lastQuarter: 'Trimestre passado',
+  date_range_picker_quarterToDate: 'Trimestre até hoje',
+  date_range_picker_currentYear: 'Ano atual',
+  date_range_picker_lastYear: 'Ano passado',
 } satisfies Required<IDateRangePickerResourceStrings>;
