@@ -14,6 +14,7 @@ export * from './dock-manager-resources.js';
 export * from './file-input-resources.js';
 export * from './grid-resources.js';
 export * from './list-resources.js';
+export * from './number-input-resources.js';
 export * from './paginator-resources.js';
 export * from './query-builder-resources.js';
 export * from './resources.js';

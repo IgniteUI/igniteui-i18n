@@ -15,6 +15,7 @@ import { DockManagerResourceStringsHU } from './dock-manager-resources.js';
 import { FileInputResourceStringsHU } from './file-input-resources.js';
 import { GridResourceStringsHU } from './grid-resources.js';
 import { ListResourceStringsHU } from './list-resources.js';
+import { NumberInputResourceStringsHU } from './number-input-resources.js';
 import { PaginatorResourceStringsHU } from './paginator-resources.js';
 import { QueryBuilderResourceStringsHU } from './query-builder-resources.js';
 import { SpeechToTextResourceStringsHU } from './speech-to-text-resources.js';
@@ -45,6 +46,7 @@ export const ResourceStringsHU: IResourceStrings = {
   ...FileInputResourceStringsHU,
   ...GridResourceStringsHU,
   ...ListResourceStringsHU,
+  ...NumberInputResourceStringsHU,
   ...PaginatorResourceStringsHU,
   ...QueryBuilderResourceStringsHU,
   ...SpeechToTextResourceStringsHU,

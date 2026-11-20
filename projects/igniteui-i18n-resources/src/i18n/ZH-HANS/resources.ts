@@ -15,6 +15,7 @@ import { DockManagerResourceStringsZHHANS } from './dock-manager-resources.js';
 import { FileInputResourceStringsZHHANS } from './file-input-resources.js';
 import { GridResourceStringsZHHANS } from './grid-resources.js';
 import { ListResourceStringsZHHANS } from './list-resources.js';
+import { NumberInputResourceStringsZHHANS } from './number-input-resources.js';
 import { PaginatorResourceStringsZHHANS } from './paginator-resources.js';
 import { QueryBuilderResourceStringsZHHANS } from './query-builder-resources.js';
 import { SpeechToTextResourceStringsZHHANS } from './speech-to-text-resources.js';
@@ -45,6 +46,7 @@ export const ResourceStringsZHHANS: IResourceStrings = {
   ...FileInputResourceStringsZHHANS,
   ...GridResourceStringsZHHANS,
   ...ListResourceStringsZHHANS,
+  ...NumberInputResourceStringsZHHANS,
   ...PaginatorResourceStringsZHHANS,
   ...QueryBuilderResourceStringsZHHANS,
   ...SpeechToTextResourceStringsZHHANS,

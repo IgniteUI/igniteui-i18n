@@ -14,6 +14,7 @@ import type { IDockManagerResourceStrings } from './dock-manager.interface.js';
 import type { IFileInputResourceStrings } from './file-input.interface.js';
 import type { IGridResourceStrings } from './grid.interface.js';
 import type { IListResourceStrings } from './list.interface.js';
+import type { INumberInputResourceStrings } from './number-input.interface.js';
 import type { IPaginatorResourceStrings } from './paginator.interface.js';
 import type { IQueryBuilderResourceStrings } from './query-builder.interface.js';
 import type { ISpeechToTextResourceStrings } from './speech-to-text.interface.js';
@@ -41,6 +42,7 @@ export interface IResourceStrings
     IDockManagerResourceStrings,
     IFileInputResourceStrings,
     IListResourceStrings,
+    INumberInputResourceStrings,
     IPaginatorResourceStrings,
     IQueryBuilderResourceStrings,
     ISpeechToTextResourceStrings,
