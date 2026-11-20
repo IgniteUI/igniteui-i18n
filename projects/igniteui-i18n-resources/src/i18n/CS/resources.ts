@@ -15,6 +15,7 @@ import { DockManagerResourceStringsCS } from './dock-manager-resources.js';
 import { FileInputResourceStringsCS } from './file-input-resources.js';
 import { GridResourceStringsCS } from './grid-resources.js';
 import { ListResourceStringsCS } from './list-resources.js';
+import { NumberInputResourceStringsCS } from './number-input-resources.js';
 import { PaginatorResourceStringsCS } from './paginator-resources.js';
 import { QueryBuilderResourceStringsCS } from './query-builder-resources.js';
 import { SpeechToTextResourceStringsCS } from './speech-to-text-resources.js';
@@ -45,6 +46,7 @@ export const ResourceStringsCS: IResourceStrings = {
   ...FileInputResourceStringsCS,
   ...GridResourceStringsCS,
   ...ListResourceStringsCS,
+  ...NumberInputResourceStringsCS,
   ...PaginatorResourceStringsCS,
   ...QueryBuilderResourceStringsCS,
   ...SpeechToTextResourceStringsCS,
