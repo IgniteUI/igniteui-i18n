@@ -27,7 +27,7 @@ export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptio
    * @returns The formatter desired
    */
   public getIntlFormatter(locale?: string, options?: O): T {
-    const combinedOptions = mergeOptions(this.defaultOptions, options);
+    const combinedOptions = this.mergeDefaults(options);
     let canonLocale = locale ? toCanonicalLocale(locale) : this.currentLocale;
     if (!canonLocale) {
       console.warn(
@@ -43,5 +43,10 @@ export class BaseFormatter<T extends I18nFormatter, O extends I18nFormatterOptio
       this.cachedIntlFormatters.set(formatterKey, formatter);
     }
     return formatter;
+  }
+
+  /** Options over `defaultOptions`. Subclasses adjust the merge, e.g. drop an invalid default. */
+  protected mergeDefaults(options?: O): O {
+    return mergeOptions(this.defaultOptions, options);
   }
 }

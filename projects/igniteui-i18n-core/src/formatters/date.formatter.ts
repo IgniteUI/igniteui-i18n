@@ -1,7 +1,10 @@
 import type { ICustomFormatOptions } from '../i18n-manager.interfaces.js';
-import { customFormatRegex, isoRegex } from '../utils.js';
+import { BoundedMap, customFormatRegex, isoRegex, mergeOptions } from '../utils.js';
 import { BaseFormatter } from './base.formatter.js';
 import type { LocaleFormatter } from './locale.formatter.js';
+
+/** Apps use a handful of zones. */
+const MAX_TIME_ZONES = 64;
 
 declare global {
   // biome-ignore lint/style/noNamespace: Intl.Locale.getWeekInfo type polyfill
@@ -14,15 +17,27 @@ declare global {
 }
 
 export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateTimeFormatOptions> {
+  /** Defaults for `formatDateCustomFormat`. `timezone` wins over `defaultOptions.timeZone`, e.g. 'UTC'. */
   public defaultCustomFormatOptions: ICustomFormatOptions = {
     forceLeadingZero: false,
-    timezone: 'GMT',
+    timezone: undefined,
   };
   private readonly localeFormatter: LocaleFormatter;
+  /** Zone validity. Warns once per bad zone, not per cell. */
+  private readonly zoneValidity = new BoundedMap<string, boolean>(MAX_TIME_ZONES);
 
   constructor(defaultLocale: string, localeFormatter: LocaleFormatter) {
     super(defaultLocale, Intl.DateTimeFormat);
     this.localeFormatter = localeFormatter;
+  }
+
+  /** First valid zone: requested, `defaultOptions.timeZone`, local. */
+  protected override mergeDefaults(options?: Intl.DateTimeFormatOptions): Intl.DateTimeFormatOptions {
+    const { timeZone: _merged, ...merged } = super.mergeDefaults(options);
+    const timeZone = this.resolveTimeZone(options?.timeZone, this.defaultOptions.timeZone);
+
+    // No key for local: Intl falls back to it, and the cache key matches calls without a zone.
+    return timeZone ? { ...merged, timeZone } : merged;
   }
 
   /**
@@ -252,10 +267,16 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
    * @param value Date to be formatted
    * @param format String containing custom strings describing how the date should be formatted
    * @param options Options for the custom formatting like locale, timezone or force 2-digits always where applicable.
+   * Unset or invalid `timezone` falls back to: custom default, `defaultOptions.timeZone`, local.
    * @returns
    */
   public formatDateCustomFormat(value: Date, format: string, options?: ICustomFormatOptions): string {
-    const formatOptions = { ...this.defaultCustomFormatOptions, ...options };
+    // Custom default wins over `defaultOptions.timeZone`.
+    const formatOptions = {
+      ...mergeOptions(this.defaultCustomFormatOptions, options),
+      timezone: this.resolveTimeZone(options?.timezone, this.defaultCustomFormatOptions.timezone),
+    };
+
     let dateText = '';
     let remainingFormat = format;
 
@@ -272,7 +293,8 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
   private formatPartialDateValue(date: Date, format: string, formatOptions: ICustomFormatOptions): string | undefined {
     const numericOption = formatOptions.forceLeadingZero ? '2-digit' : 'numeric';
-    const options: Intl.DateTimeFormatOptions = {};
+    // Same zone for every token, so 'HH' and 'z' agree.
+    const options: Intl.DateTimeFormatOptions = { timeZone: formatOptions.timezone };
     let periodStyle: 'narrow' | 'short' | 'medium' | 'long' | undefined;
 
     switch (format) {
@@ -475,14 +497,12 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       case 'Z':
       case 'ZZ':
       case 'ZZZ':
-        options.timeZone = formatOptions.timezone;
         options.timeZoneName = 'short';
         break;
       // Timezone long format (GMT+0430)
       case 'OOOO':
       case 'zzzz':
       case 'ZZZZ':
-        options.timeZone = formatOptions.timezone;
         options.timeZoneName = 'long';
         break;
       default:
@@ -549,7 +569,8 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
       return seconds?.padStart(2, '0');
     }
 
-    if (options.timeZone) {
+    // Every token has a timeZone; only zone tokens have a timeZoneName.
+    if (options.timeZoneName) {
       return this.findDatePart(dateParts, 'timeZoneName');
     }
 
@@ -562,5 +583,29 @@ export class DateFormatter extends BaseFormatter<Intl.DateTimeFormat, Intl.DateT
 
   private findDatePart(parts: Intl.DateTimeFormatPart[], partName: string): string | undefined {
     return parts.find((part) => part.type === partName)?.value;
+  }
+
+  /** First valid zone, e.g. ('Mars/Olympus', '', 'UTC') -> 'UTC'. */
+  private resolveTimeZone(...zones: (string | undefined)[]): string | undefined {
+    return zones.find((zone) => zone && this.isValidTimeZone(zone));
+  }
+
+  private isValidTimeZone(zone: string): boolean {
+    const cached = this.zoneValidity.get(zone);
+    if (cached !== undefined) {
+      return cached;
+    }
+
+    // Intl decides, e.g. 'Asia/Tokyo', '+04:30', 'UTC'.
+    let valid = true;
+    try {
+      new Intl.DateTimeFormat(undefined, { timeZone: zone });
+    } catch {
+      valid = false;
+      console.warn(`Invalid timezone '${zone}' for the Ignite UI components. Using the default or the local timezone.`);
+    }
+
+    this.zoneValidity.set(zone, valid);
+    return valid;
   }
 }

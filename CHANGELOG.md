@@ -4,6 +4,21 @@ This file records all notable changes to `igniteui-i18n-core` and `igniteui-i18n
 
 This file uses the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format. The versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- **Behavior change:** `formatDateCustomFormat()` shows all parts of the date in `timezone`. Before, only the time zone parts (`z`, `Z`, `O`) used it. The other parts used the local time zone.
+- **Behavior change:** Without `timezone`, `formatDateCustomFormat()` uses the local time zone. Before, the time zone parts showed `UTC` for local values. The default of `defaultCustomFormatOptions.timezone` is `undefined`, not `'GMT'`.
+- **Behavior change:** An invalid time zone changes to the default time zone, or to the local time zone. A warning shows one time for each invalid time zone. Before, `formatDateTime()` and `formatRange()` returned `Date.toString()`, `formatDateTimeToParts()` and `formatRangeToParts()` returned `[]`, and `getLocaleDateTimeFormat()` and `getIntlFormatter()` threw a `RangeError`.
+- **Behavior change:** An empty time zone (`''`) is the same as no time zone. Before, it was an invalid time zone. `formatDateCustomFormat()` threw a `TypeError` for the time zone parts, and `formatDateTime()` returned `Date.toString()`.
+- The date formatter `defaultOptions.timeZone` sets the time zone for all date formats. `defaultCustomFormatOptions.timezone` replaces it for custom formats only.
+
+### Fixed
+
+- `formatDateCustomFormat()` with `{ timezone: undefined }` showed the month number for the time zone parts. ([#48](https://github.com/IgniteUI/igniteui-i18n/issues/48))
+- `undefined` values in the `formatDateCustomFormat()` options replaced the values in `defaultCustomFormatOptions`.
+
 ## [2.0.0] - 2026-06-14
 
 ### Removed
