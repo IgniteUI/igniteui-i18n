@@ -1,5 +1,11 @@
 import { defineConfig } from 'vitest/config';
 
+/** Host zone for specs. No DST; +05:30 differs from UTC and whole-hour zones. */
+export const TEST_TIME_ZONE = 'Asia/Kolkata';
+
+// Workers inherit it.
+process.env.TZ = TEST_TIME_ZONE;
+
 export default defineConfig({
     resolve: {
         tsconfigPaths: true

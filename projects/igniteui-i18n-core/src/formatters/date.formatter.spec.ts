@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
+import type { ICustomFormatOptions } from '../i18n-manager.interfaces.js';
 import { normalizePartSpaces, normalizeSpaces } from '../test-utils.js';
 import { DateFormatter } from './date.formatter.js';
 import { LocaleFormatter } from './locale.formatter.js';
@@ -21,13 +22,13 @@ describe('i18n tests', () => {
       expect(dateFormatter.getFirstDayOfWeek('ar')).equal(6);
     });
 
-    it('should format basic date with default invalid timezone specified', () => {
-      expect(dateFormatter.formatDateTime(basicDate, 'en', { timeZone: 'UTC+0' })).equal(basicDate.toString());
+    it('should format basic date in the local zone when the timezone is invalid', () => {
+      expect(dateFormatter.formatDateTime(basicDate, 'en', { timeZone: 'UTC+0' })).equal('12/3/2014');
     });
 
-    it('should format range date with default invalid timezone specified', () => {
+    it('should format range date in the local zone when the timezone is invalid', () => {
       expect(dateFormatter.formatRange(dateTime2, dateTime, 'en', { timeZone: 'UTC+0' })).equal(
-        `${dateTime2.toString()} - ${dateTime.toString()}`
+        dateFormatter.formatRange(dateTime2, dateTime, 'en')
       );
     });
 
@@ -111,12 +112,16 @@ describe('i18n tests', () => {
       ]);
     });
 
-    it('should return empty parts when formatting date time with invalid timezone', () => {
-      expect(dateFormatter.formatDateTimeToParts(dateTime, 'ar', { timeZone: 'UTC+0' })).toMatchObject([]);
+    it('should return local zone parts when formatting date time with invalid timezone', () => {
+      expect(dateFormatter.formatDateTimeToParts(dateTime, 'ar', { timeZone: 'UTC+0' })).toEqual(
+        dateFormatter.formatDateTimeToParts(dateTime, 'ar')
+      );
     });
 
-    it('should return empty parts when formatting range date time with invalid timezone', () => {
-      expect(dateFormatter.formatRangeToParts(dateTime, dateTime, 'ar', { timeZone: 'UTC+0' })).toMatchObject([]);
+    it('should return local zone parts when formatting range date time with invalid timezone', () => {
+      expect(dateFormatter.formatRangeToParts(dateTime, dateTime, 'ar', { timeZone: 'UTC+0' })).toEqual(
+        dateFormatter.formatRangeToParts(dateTime, dateTime, 'ar')
+      );
     });
 
     it('should get correct default date formatting for different locales', () => {
@@ -678,6 +683,133 @@ describe('i18n tests', () => {
       expect(
         dateFormatter.formatDateCustomFormat(dateTimeHourFull, format, { locale: 'ar', timezone: 'Etc/GMT+1' })
       ).equal('غرينتش-01:00');
+    });
+
+    // Host zone: TEST_TIME_ZONE in vitest.config.ts (Asia/Kolkata, +05:30).
+    describe('timezone', () => {
+      const instant = new Date('2021-01-01T18:00:00Z');
+      const format = 'yyyy-MM-dd HH:mm z';
+      const locale = 'en-US';
+      const local = '2021-01-01 23:30 GMT+5:30';
+      const utc = '2021-01-01 18:00 UTC';
+      const tokyo = '2021-01-02 03:00 GMT+9';
+      const utcZone = 'UTC';
+      const tokyoZone = 'Asia/Tokyo';
+      const invalidZone = 'Mars/Olympus';
+      const unsetZoneOptions: ICustomFormatOptions[] = [{}, { timezone: undefined }, { timezone: '' }];
+
+      // Predefined short time, e.g. '6:00 PM'.
+      const short = (timeZone?: string) =>
+        normalizeSpaces(formatter.formatDateTime(instant, locale, { timeStyle: 'short', timeZone }));
+
+      let formatter: DateFormatter;
+      let warn: MockInstance;
+
+      // Specs mutate defaults.
+      beforeEach(() => {
+        formatter = new DateFormatter('en', localeFormatter);
+        warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      });
+
+      afterEach(() => {
+        warn.mockRestore();
+      });
+
+      it('should render all custom tokens in the local zone when no timezone is set', () => {
+        for (const options of unsetZoneOptions) {
+          expect(formatter.formatDateCustomFormat(instant, format, { locale, ...options })).equal(local);
+        }
+
+        expect(warn).not.toHaveBeenCalled();
+      });
+
+      it('should render all custom tokens in the requested timezone', () => {
+        const timezone = tokyoZone;
+
+        expect(formatter.formatDateCustomFormat(instant, format, { locale, timezone })).equal(tokyo);
+        expect(formatter.formatDateCustomFormat(instant, 'EEEE h a', { locale, timezone })).equal('Saturday 3 AM');
+      });
+
+      it('should accept UTC offsets as custom format timezone', () => {
+        const expected = '2021-01-01 22:30 GMT+4:30';
+
+        expect(formatter.formatDateCustomFormat(instant, format, { locale, timezone: '+04:30' })).equal(expected);
+        expect(formatter.formatDateCustomFormat(instant, format, { locale, timezone: '+0430' })).equal(expected);
+      });
+
+      it('should fall back to the custom format default timezone', () => {
+        formatter.defaultCustomFormatOptions.timezone = utcZone;
+
+        for (const options of unsetZoneOptions) {
+          expect(formatter.formatDateCustomFormat(instant, format, { locale, ...options })).equal(utc);
+        }
+      });
+
+      it('should fall back to the formatter default timezone', () => {
+        formatter.defaultOptions.timeZone = utcZone;
+
+        expect(formatter.formatDateCustomFormat(instant, format, { locale })).equal(utc);
+      });
+
+      it('should prefer the custom format default over the formatter default timezone', () => {
+        formatter.defaultOptions.timeZone = tokyoZone;
+        formatter.defaultCustomFormatOptions.timezone = utcZone;
+
+        expect(formatter.formatDateCustomFormat(instant, format, { locale })).equal(utc);
+      });
+
+      it('should fall back past an invalid timezone and warn once per zone', () => {
+        formatter.defaultCustomFormatOptions.timezone = utcZone;
+
+        expect(formatter.formatDateCustomFormat(instant, format, { locale, timezone: invalidZone })).equal(utc);
+        expect(formatter.formatDateCustomFormat(instant, format, { locale, timezone: invalidZone })).equal(utc);
+        expect(warn).toHaveBeenCalledOnce();
+      });
+
+      it('should fall back past an invalid timezone to the formatter default', () => {
+        formatter.defaultOptions.timeZone = tokyoZone;
+
+        expect(formatter.formatDateCustomFormat(instant, format, { locale, timezone: invalidZone })).equal(tokyo);
+      });
+
+      it('should render in the local zone when every timezone is invalid', () => {
+        formatter.defaultOptions.timeZone = 'Venus/Maxwell';
+        formatter.defaultCustomFormatOptions.timezone = 'Pluto/Sputnik';
+
+        expect(formatter.formatDateCustomFormat(instant, format, { locale, timezone: invalidZone })).equal(local);
+        expect(warn).toHaveBeenCalledTimes(3);
+      });
+
+      it('should not let undefined custom format options override the defaults', () => {
+        formatter.defaultCustomFormatOptions.forceLeadingZero = true;
+
+        expect(formatter.formatDateCustomFormat(instant, 'd', { locale, forceLeadingZero: undefined })).equal('01');
+      });
+
+      it('should fall back to the formatter default timezone on predefined formats', () => {
+        formatter.defaultOptions.timeZone = utcZone;
+
+        expect(short(invalidZone)).equal('6:00 PM');
+        expect(short('')).equal('6:00 PM');
+        expect(warn).toHaveBeenCalledOnce();
+      });
+
+      it('should render predefined formats in the local zone when the default timezone is unset or invalid', () => {
+        for (const timeZone of ['', invalidZone]) {
+          formatter.defaultOptions.timeZone = timeZone;
+
+          expect(short()).equal('11:30 PM');
+          expect(formatter.getLocaleDateTimeFormat(locale)).equal('M/d/yyyy');
+        }
+
+        expect(warn).toHaveBeenCalledOnce();
+      });
+
+      it('should keep the toString fallback for invalid options other than timezone', () => {
+        const options = { dateStyle: 'bogus' } as unknown as Intl.DateTimeFormatOptions;
+
+        expect(formatter.formatDateTime(instant, locale, options)).equal(instant.toString());
+      });
     });
 
     it('should format combination of single cases', () => {
