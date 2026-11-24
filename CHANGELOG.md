@@ -4,6 +4,15 @@ This file records all notable changes to `igniteui-i18n-core` and `igniteui-i18n
 
 This file uses the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format. The versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Color picker: `color_picker_no_color`, `color_picker_copied`, `color_picker_copy_failed`, `color_picker_apply`, `color_picker_cancel`, `color_picker_swatches`, `color_picker_view_gradient`, `color_picker_view_swatches`, `color_picker_format_hex`, `color_picker_format_rgb`, `color_picker_format_hsl`, `color_picker_format_oklch`, `color_picker_clear` and `color_picker_initial_color`.
+- Color picker color names: `color_picker_name_pattern` (the word order), `color_picker_name_with_alpha`, `color_picker_value_with_name`, the lightness words `color_picker_name_very_dark`, `color_picker_name_dark`, `color_picker_name_light` and `color_picker_name_very_light`, the chroma words `color_picker_name_grayish` and `color_picker_name_vibrant`, the hue words `color_picker_name_red`, `color_picker_name_orange`, `color_picker_name_brown`, `color_picker_name_yellow`, `color_picker_name_yellow_green`, `color_picker_name_green`, `color_picker_name_cyan`, `color_picker_name_blue`, `color_picker_name_purple`, `color_picker_name_magenta` and `color_picker_name_pink`, and `color_picker_name_black`, `color_picker_name_white` and `color_picker_name_gray`.
+- Color picker contrast readout: `color_picker_contrast_ratio` ("Contrast {0}:1", `{0}` is the ratio), `color_picker_contrast_pass` ("{0} pass") and `color_picker_contrast_fail` ("{0} fail"), where `{0}` is the name of the WCAG level, and the level names `color_picker_contrast_aa` ("AA") and `color_picker_contrast_aaa` ("AAA").
+- Color picker OKLCH area: `color_picker_canvas_oklch_label` ("Lightness and chroma") and `color_picker_canvas_oklch_value` ("Lightness {0}%, chroma {1}", `{0}` is the lightness and `{1}` the chroma).
+
 ## [2.0.0] - 2026-06-14
 
 ### Removed
