@@ -15,6 +15,7 @@ export type {
   IFileInputResourceStrings,
   IGridResourceStrings,
   IListResourceStrings,
+  INumberInputResourceStrings,
   IPaginatorResourceStrings,
   IQueryBuilderResourceStrings,
   IResourceStrings,
@@ -43,6 +44,7 @@ export {
   FileInputResourceStringsEN,
   GridResourceStringsEN,
   ListResourceStringsEN,
+  NumberInputResourceStringsEN,
   PaginatorResourceStringsEN,
   QueryBuilderResourceStringsEN,
   ResourceStringsEN,
@@ -72,6 +74,7 @@ export * from './i18n/BG/dock-manager-resources.js';
 export * from './i18n/BG/file-input-resources.js';
 export * from './i18n/BG/grid-resources.js';
 export * from './i18n/BG/list-resources.js';
+export * from './i18n/BG/number-input-resources.js';
 export * from './i18n/BG/paginator-resources.js';
 export * from './i18n/BG/query-builder-resources.js';
 export * from './i18n/BG/resources.js';
@@ -100,6 +103,7 @@ export * from './i18n/CS/dock-manager-resources.js';
 export * from './i18n/CS/file-input-resources.js';
 export * from './i18n/CS/grid-resources.js';
 export * from './i18n/CS/list-resources.js';
+export * from './i18n/CS/number-input-resources.js';
 export * from './i18n/CS/paginator-resources.js';
 export * from './i18n/CS/query-builder-resources.js';
 export * from './i18n/CS/resources.js';
@@ -128,6 +132,7 @@ export * from './i18n/DA/dock-manager-resources.js';
 export * from './i18n/DA/file-input-resources.js';
 export * from './i18n/DA/grid-resources.js';
 export * from './i18n/DA/list-resources.js';
+export * from './i18n/DA/number-input-resources.js';
 export * from './i18n/DA/paginator-resources.js';
 export * from './i18n/DA/query-builder-resources.js';
 export * from './i18n/DA/resources.js';
@@ -156,6 +161,7 @@ export * from './i18n/DE/dock-manager-resources.js';
 export * from './i18n/DE/file-input-resources.js';
 export * from './i18n/DE/grid-resources.js';
 export * from './i18n/DE/list-resources.js';
+export * from './i18n/DE/number-input-resources.js';
 export * from './i18n/DE/paginator-resources.js';
 export * from './i18n/DE/query-builder-resources.js';
 export * from './i18n/DE/resources.js';
@@ -184,6 +190,7 @@ export * from './i18n/ES/dock-manager-resources.js';
 export * from './i18n/ES/file-input-resources.js';
 export * from './i18n/ES/grid-resources.js';
 export * from './i18n/ES/list-resources.js';
+export * from './i18n/ES/number-input-resources.js';
 export * from './i18n/ES/paginator-resources.js';
 export * from './i18n/ES/query-builder-resources.js';
 export * from './i18n/ES/resources.js';
@@ -212,6 +219,7 @@ export * from './i18n/FR/dock-manager-resources.js';
 export * from './i18n/FR/file-input-resources.js';
 export * from './i18n/FR/grid-resources.js';
 export * from './i18n/FR/list-resources.js';
+export * from './i18n/FR/number-input-resources.js';
 export * from './i18n/FR/paginator-resources.js';
 export * from './i18n/FR/query-builder-resources.js';
 export * from './i18n/FR/resources.js';
@@ -240,6 +248,7 @@ export * from './i18n/HU/dock-manager-resources.js';
 export * from './i18n/HU/file-input-resources.js';
 export * from './i18n/HU/grid-resources.js';
 export * from './i18n/HU/list-resources.js';
+export * from './i18n/HU/number-input-resources.js';
 export * from './i18n/HU/paginator-resources.js';
 export * from './i18n/HU/query-builder-resources.js';
 export * from './i18n/HU/resources.js';
@@ -268,6 +277,7 @@ export * from './i18n/IT/dock-manager-resources.js';
 export * from './i18n/IT/file-input-resources.js';
 export * from './i18n/IT/grid-resources.js';
 export * from './i18n/IT/list-resources.js';
+export * from './i18n/IT/number-input-resources.js';
 export * from './i18n/IT/paginator-resources.js';
 export * from './i18n/IT/query-builder-resources.js';
 export * from './i18n/IT/resources.js';
@@ -296,6 +306,7 @@ export * from './i18n/JA/dock-manager-resources.js';
 export * from './i18n/JA/file-input-resources.js';
 export * from './i18n/JA/grid-resources.js';
 export * from './i18n/JA/list-resources.js';
+export * from './i18n/JA/number-input-resources.js';
 export * from './i18n/JA/paginator-resources.js';
 export * from './i18n/JA/query-builder-resources.js';
 export * from './i18n/JA/resources.js';
@@ -324,6 +335,7 @@ export * from './i18n/KO/dock-manager-resources.js';
 export * from './i18n/KO/file-input-resources.js';
 export * from './i18n/KO/grid-resources.js';
 export * from './i18n/KO/list-resources.js';
+export * from './i18n/KO/number-input-resources.js';
 export * from './i18n/KO/paginator-resources.js';
 export * from './i18n/KO/query-builder-resources.js';
 export * from './i18n/KO/resources.js';
@@ -352,6 +364,7 @@ export * from './i18n/NB/dock-manager-resources.js';
 export * from './i18n/NB/file-input-resources.js';
 export * from './i18n/NB/grid-resources.js';
 export * from './i18n/NB/list-resources.js';
+export * from './i18n/NB/number-input-resources.js';
 export * from './i18n/NB/paginator-resources.js';
 export * from './i18n/NB/query-builder-resources.js';
 export * from './i18n/NB/resources.js';
@@ -380,6 +393,7 @@ export * from './i18n/NL/dock-manager-resources.js';
 export * from './i18n/NL/file-input-resources.js';
 export * from './i18n/NL/grid-resources.js';
 export * from './i18n/NL/list-resources.js';
+export * from './i18n/NL/number-input-resources.js';
 export * from './i18n/NL/paginator-resources.js';
 export * from './i18n/NL/query-builder-resources.js';
 export * from './i18n/NL/resources.js';
@@ -408,6 +422,7 @@ export * from './i18n/PL/dock-manager-resources.js';
 export * from './i18n/PL/file-input-resources.js';
 export * from './i18n/PL/grid-resources.js';
 export * from './i18n/PL/list-resources.js';
+export * from './i18n/PL/number-input-resources.js';
 export * from './i18n/PL/paginator-resources.js';
 export * from './i18n/PL/query-builder-resources.js';
 export * from './i18n/PL/resources.js';
@@ -436,6 +451,7 @@ export * from './i18n/PT/dock-manager-resources.js';
 export * from './i18n/PT/file-input-resources.js';
 export * from './i18n/PT/grid-resources.js';
 export * from './i18n/PT/list-resources.js';
+export * from './i18n/PT/number-input-resources.js';
 export * from './i18n/PT/paginator-resources.js';
 export * from './i18n/PT/query-builder-resources.js';
 export * from './i18n/PT/resources.js';
@@ -464,6 +480,7 @@ export * from './i18n/RO/dock-manager-resources.js';
 export * from './i18n/RO/file-input-resources.js';
 export * from './i18n/RO/grid-resources.js';
 export * from './i18n/RO/list-resources.js';
+export * from './i18n/RO/number-input-resources.js';
 export * from './i18n/RO/paginator-resources.js';
 export * from './i18n/RO/query-builder-resources.js';
 export * from './i18n/RO/resources.js';
@@ -492,6 +509,7 @@ export * from './i18n/SV/dock-manager-resources.js';
 export * from './i18n/SV/file-input-resources.js';
 export * from './i18n/SV/grid-resources.js';
 export * from './i18n/SV/list-resources.js';
+export * from './i18n/SV/number-input-resources.js';
 export * from './i18n/SV/paginator-resources.js';
 export * from './i18n/SV/query-builder-resources.js';
 export * from './i18n/SV/resources.js';
@@ -520,6 +538,7 @@ export * from './i18n/TR/dock-manager-resources.js';
 export * from './i18n/TR/file-input-resources.js';
 export * from './i18n/TR/grid-resources.js';
 export * from './i18n/TR/list-resources.js';
+export * from './i18n/TR/number-input-resources.js';
 export * from './i18n/TR/paginator-resources.js';
 export * from './i18n/TR/query-builder-resources.js';
 export * from './i18n/TR/resources.js';
@@ -548,6 +567,7 @@ export * from './i18n/ZH-HANS/dock-manager-resources.js';
 export * from './i18n/ZH-HANS/file-input-resources.js';
 export * from './i18n/ZH-HANS/grid-resources.js';
 export * from './i18n/ZH-HANS/list-resources.js';
+export * from './i18n/ZH-HANS/number-input-resources.js';
 export * from './i18n/ZH-HANS/paginator-resources.js';
 export * from './i18n/ZH-HANS/query-builder-resources.js';
 export * from './i18n/ZH-HANS/resources.js';
@@ -576,6 +596,7 @@ export * from './i18n/ZH-HANT/dock-manager-resources.js';
 export * from './i18n/ZH-HANT/file-input-resources.js';
 export * from './i18n/ZH-HANT/grid-resources.js';
 export * from './i18n/ZH-HANT/list-resources.js';
+export * from './i18n/ZH-HANT/number-input-resources.js';
 export * from './i18n/ZH-HANT/paginator-resources.js';
 export * from './i18n/ZH-HANT/query-builder-resources.js';
 export * from './i18n/ZH-HANT/resources.js';
