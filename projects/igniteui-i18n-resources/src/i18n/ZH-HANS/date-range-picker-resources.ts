@@ -11,4 +11,13 @@ export const DateRangePickerResourceStringsZHHANS: IDateRangePickerResourceStrin
   date_range_picker_currentMonth: '本月',
   date_range_picker_last30Days: '最近30天',
   date_range_picker_yearToDate: '年初至今',
+  date_range_picker_today: '今天',
+  date_range_picker_yesterday: '昨天',
+  date_range_picker_lastWeek: '上周',
+  date_range_picker_lastMonth: '上个月',
+  date_range_picker_currentQuarter: '本季度',
+  date_range_picker_lastQuarter: '上季度',
+  date_range_picker_quarterToDate: '本季度至今',
+  date_range_picker_currentYear: '今年',
+  date_range_picker_lastYear: '去年',
 } satisfies Required<IDateRangePickerResourceStrings>;
